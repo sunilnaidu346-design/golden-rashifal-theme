@@ -1,135 +1,105 @@
 <?php
 /**
- * Site footer — dark premium, 4-column layout, disclaimer, legal row.
+ * Footer — Dark, 4-column layout matching screenshot 6.
  *
  * @package GoldenRashifal
  */
 ?>
 
 <footer class="gr-footer" role="contentinfo">
-
     <div class="gr-wrap gr-footer__top">
 
-        <!-- Brand column -->
-        <div class="gr-footer__col gr-footer__col--brand">
-            <a class="gr-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                <span class="gr-logo__mark">✦</span> <?php bloginfo( 'name' ); ?>
+        <div class="gr-footer__brand">
+            <a class="gr-logo gr-logo--footer" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <span class="gr-logo__icon">✦</span> Golden <span class="gr-logo__highlight">Rashifal</span>
             </a>
-            <p class="gr-footer__about">
-                <?php
-                echo esc_html( get_theme_mod(
-                    'gr_footer_about',
-                    __( 'गोल्डन राशिफल पर सरल हिंदी में राशिफल, पंचांग, चौघड़िया, मुहूर्त और त्योहार की जानकारी मिलती है — संतुलित दृष्टिकोण और पाठक-केंद्रित सामग्री के साथ।', 'golden-rashifal' )
-                ) );
-                ?>
-            </p>
+            <span class="gr-footer__tagline">प्रीमियम ज्योतिष पोर्टल</span>
+            <p class="gr-footer__about">Golden Rashifal भारत का अग्रणी ज्योतिष पोर्टल है जो राशिफल, पंचांग, चौघड़िया, मुहूर्त और आध्यात्मिक जानकारी प्रदान करता है।</p>
+            <ul class="gr-footer__contact">
+                <li>⏰ <span data-gr-clock-time>--:--</span></li>
+                <li>✉ contact@goldenrashifal.com</li>
+                <li>📞 +91 98765 43210</li>
+                <li>📍 भारत</li>
+            </ul>
             <div class="gr-footer__social">
-                <?php
-                $social_icons = array(
-                    'facebook'  => 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z',
-                    'instagram' => 'M16 3H8a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5h8a5 5 0 0 0 5-5V8a5 5 0 0 0-5-5zM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm5-2a1 1 0 1 1 0 2 1 1 0 0 1 0-2z',
-                    'youtube'   => 'M22.5 6.4a2.8 2.8 0 0 0-2-2C18.9 4 12 4 12 4s-6.9 0-8.5.4a2.8 2.8 0 0 0-2 2A30 30 0 0 0 1 12a30 30 0 0 0 .5 5.6 2.8 2.8 0 0 0 2 2c1.6.4 8.5.4 8.5.4s6.9 0 8.5-.4a2.8 2.8 0 0 0 2-2A30 30 0 0 0 23 12a30 30 0 0 0-.5-5.6zM10 15V9l5.2 3L10 15z',
-                    'twitter'   => 'M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 16 3a4.48 4.48 0 0 0-4.47 5.5A12.94 12.94 0 0 1 2 4s-4 9 5 13a13 13 0 0 1-7 2c9 5 20 0 20-11.5 0-.28 0-.54-.02-.8A7.72 7.72 0 0 0 23 3z',
-                    'telegram'  => 'M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z',
-                );
-                foreach ( $social_icons as $network => $path ) :
-                    $url = get_theme_mod( 'gr_social_' . $network, '' );
-                    if ( ! $url ) { continue; }
-                    ?>
-                    <a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr( ucfirst( $network ) ); ?>">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="<?php echo esc_attr( $path ); ?>"/></svg>
-                    </a>
-                <?php endforeach; ?>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="YouTube">▶</a>
+                <a href="#" aria-label="Pinterest">📌</a>
+                <a href="#" aria-label="Telegram">✈</a>
+                <a href="#" aria-label="Chat">💬</a>
             </div>
         </div>
 
-        <!-- Links column 1 -->
         <div class="gr-footer__col">
-            <?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
-                <?php dynamic_sidebar( 'footer-1' ); ?>
-            <?php else : ?>
-                <h4 class="gr-footer__col-title"><?php esc_html_e( 'मुख्य खंड', 'golden-rashifal' ); ?></h4>
-                <nav class="gr-footer__links">
-                    <a href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>"><?php esc_html_e( 'दैनिक राशिफल', 'golden-rashifal' ); ?></a>
-                    <a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>"><?php esc_html_e( 'आज का पंचांग', 'golden-rashifal' ); ?></a>
-                    <a href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>"><?php esc_html_e( 'चौघड़िया', 'golden-rashifal' ); ?></a>
-                    <a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>"><?php esc_html_e( 'शुभ मुहूर्त', 'golden-rashifal' ); ?></a>
-                    <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>"><?php esc_html_e( 'त्योहार कैलेंडर', 'golden-rashifal' ); ?></a>
-                </nav>
-            <?php endif; ?>
+            <h4 class="gr-footer__col-title">राशिफल</h4>
+            <nav class="gr-footer__links">
+                <?php
+                $rashi_links = array( 'मेष','वृष','मिथुन','कर्क','सिंह','कन्या','तुला','वृश्चिक','धनु','मकर','कुंभ','मीन' );
+                foreach ( $rashi_links as $r ) {
+                    echo '<a href="' . esc_url( home_url( '/rashifal/' ) ) . '">' . esc_html( $r ) . ' राशिफल</a>';
+                }
+                ?>
+            </nav>
         </div>
 
-        <!-- Links column 2 -->
         <div class="gr-footer__col">
-            <?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
-                <?php dynamic_sidebar( 'footer-2' ); ?>
-            <?php else : ?>
-                <h4 class="gr-footer__col-title"><?php esc_html_e( 'और जानें', 'golden-rashifal' ); ?></h4>
-                <nav class="gr-footer__links">
-                    <a href="<?php echo esc_url( home_url( '/numerology/' ) ); ?>"><?php esc_html_e( 'अंकज्योतिष', 'golden-rashifal' ); ?></a>
-                    <a href="<?php echo esc_url( home_url( '/vastu/' ) ); ?>"><?php esc_html_e( 'वास्तु टिप्स', 'golden-rashifal' ); ?></a>
-                    <a href="<?php echo esc_url( home_url( '/rahukaal/' ) ); ?>"><?php esc_html_e( 'राहुकाल', 'golden-rashifal' ); ?></a>
-                    <a href="<?php echo esc_url( home_url( '/weekly-rashifal/' ) ); ?>"><?php esc_html_e( 'साप्ताहिक राशिफल', 'golden-rashifal' ); ?></a>
-                    <a href="<?php echo esc_url( home_url( '/monthly-rashifal/' ) ); ?>"><?php esc_html_e( 'मासिक राशिफल', 'golden-rashifal' ); ?></a>
-                </nav>
-            <?php endif; ?>
+            <h4 class="gr-footer__col-title">ज्योतिष</h4>
+            <nav class="gr-footer__links">
+                <a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">पंचांग</a>
+                <a href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>">चौघड़िया</a>
+                <a href="<?php echo esc_url( home_url( '/rahukaal/' ) ); ?>">राहु काल</a>
+                <a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">मुहूर्त</a>
+                <a href="<?php echo esc_url( home_url( '/kundli/' ) ); ?>">कुंडली</a>
+                <a href="<?php echo esc_url( home_url( '/vastu/' ) ); ?>">वास्तु</a>
+                <a href="<?php echo esc_url( home_url( '/navgraha/' ) ); ?>">नवग्रह</a>
+                <a href="<?php echo esc_url( home_url( '/numerology/' ) ); ?>">संख्याशास्त्र</a>
+            </nav>
         </div>
 
-        <!-- Links column 3 -->
         <div class="gr-footer__col">
-            <?php if ( is_active_sidebar( 'footer-3' ) ) : ?>
-                <?php dynamic_sidebar( 'footer-3' ); ?>
-            <?php else : ?>
-                <h4 class="gr-footer__col-title"><?php esc_html_e( 'सहायता', 'golden-rashifal' ); ?></h4>
-                <nav class="gr-footer__links">
-                    <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>"><?php esc_html_e( 'हमारे बारे में', 'golden-rashifal' ); ?></a>
-                    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'संपर्क', 'golden-rashifal' ); ?></a>
-                    <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>"><?php esc_html_e( 'प्राइवेसी पॉलिसी', 'golden-rashifal' ); ?></a>
-                    <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>"><?php esc_html_e( 'डिस्क्लेमर', 'golden-rashifal' ); ?></a>
-                    <a href="<?php echo esc_url( home_url( '/dmca/' ) ); ?>"><?php esc_html_e( 'DMCA', 'golden-rashifal' ); ?></a>
-                </nav>
-            <?php endif; ?>
+            <h4 class="gr-footer__col-title">पेज</h4>
+            <nav class="gr-footer__links">
+                <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">हमारे बारे में</a>
+                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">संपर्क करें</a>
+                <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">गोपनीयता नीति</a>
+                <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">अस्वीकरण</a>
+                <a href="<?php echo esc_url( home_url( '/dmca/' ) ); ?>">DMCA नीति</a>
+                <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">नियम और शर्तें</a>
+                <a href="<?php echo esc_url( home_url( '/sitemap/' ) ); ?>">साइटमैप</a>
+            </nav>
         </div>
 
     </div>
-
-    <?php
-    $disclaimer = get_theme_mod( 'gr_disclaimer', __( 'इस वेबसाइट पर दी गई सामग्री पारंपरिक मान्यताओं और सामान्य ज्ञान पर आधारित है। यह किसी चिकित्सकीय, कानूनी या वित्तीय सलाह का विकल्प नहीं है।', 'golden-rashifal' ) );
-    if ( $disclaimer ) :
-    ?>
-    <div class="gr-footer__disclaimer">
-        <div class="gr-wrap">
-            <p><?php echo esc_html( $disclaimer ); ?></p>
-        </div>
-    </div>
-    <?php endif; ?>
 
     <div class="gr-footer__bottom">
-        <div class="gr-wrap" style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
-            <p>© <?php echo esc_html( wp_date( 'Y' ) ); ?> <strong><?php bloginfo( 'name' ); ?></strong>. <?php esc_html_e( 'सर्वाधिकार सुरक्षित।', 'golden-rashifal' ); ?></p>
-            <?php
-            if ( has_nav_menu( 'footer' ) ) {
-                wp_nav_menu( array(
-                    'theme_location' => 'footer',
-                    'container'      => false,
-                    'menu_class'     => 'gr-footer__legal',
-                    'depth'          => 1,
-                ) );
-            } else {
-                echo '<ul class="gr-footer__legal">';
-                echo '<li><a href="' . esc_url( home_url( '/sitemap/' ) ) . '">' . esc_html__( 'साइटमैप', 'golden-rashifal' ) . '</a></li>';
-                echo '<li><a href="' . esc_url( home_url( '/terms/' ) ) . '">' . esc_html__( 'शर्तें', 'golden-rashifal' ) . '</a></li>';
-                echo '</ul>';
-            }
-            ?>
+        <div class="gr-wrap gr-footer__bottom-inner">
+            <p>© <?php echo esc_html( wp_date( 'Y' ) ); ?> <strong>Golden Rashifal</strong>. सर्वाधिकार सुरक्षित।</p>
+            <div class="gr-footer__legal">
+                <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">गोपनीयता नीति</a>
+                <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">अस्वीकरण</a>
+                <a href="<?php echo esc_url( home_url( '/dmca/' ) ); ?>">DMCA</a>
+                <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">नियम</a>
+                <a href="<?php echo esc_url( home_url( '/sitemap/' ) ); ?>">साइटमैप</a>
+            </div>
+            <span class="gr-footer__made">Made with ❤️ in India</span>
         </div>
     </div>
 
+    <div class="gr-footer__disclaimer">
+        <div class="gr-wrap">
+            <p><strong>अस्वीकरण:</strong> Golden Rashifal पर प्रकाशित सभी ज्योतिष और राशिफल की जानकारी स्वरूपवान और सामान्य जानकारी के उद्देश्य से है। किसी भी महत्वपूर्ण निर्णय लेने से पहले कृपया किसी योग्य ज्योतिषाचार्य से परामर्श लें।</p>
+        </div>
+    </div>
 </footer>
 
-<button class="gr-totop" data-gr-totop aria-label="<?php esc_attr_e( 'ऊपर जाएँ', 'golden-rashifal' ); ?>" hidden>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14l6-6 6 6"/></svg>
-</button>
+<button class="gr-totop" data-gr-totop aria-label="<?php esc_attr_e( 'ऊपर जाएँ', 'golden-rashifal' ); ?>" hidden>↑</button>
+
+<!-- Floating social buttons -->
+<div class="gr-floating" aria-hidden="true">
+    <a class="gr-floating__btn gr-floating__btn--share" href="#" aria-label="Share">↗</a>
+    <a class="gr-floating__btn gr-floating__btn--chat" href="#" aria-label="Chat">💬</a>
+    <a class="gr-floating__btn gr-floating__btn--star" href="#" aria-label="Bookmark">⭐</a>
+</div>
 
 <?php wp_footer(); ?>
 </body>

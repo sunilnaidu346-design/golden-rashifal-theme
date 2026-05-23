@@ -1,25 +1,20 @@
 <?php
 /**
- * Homepage — Newsletter subscription section.
- * Compact, elegant, no oversized gradients.
+ * Homepage — Newsletter bar (pink/orange gradient).
+ * Matches screenshot 6.
  *
  * @package GoldenRashifal
  */
 ?>
-<section class="gr-section">
-    <div class="gr-wrap">
-        <div class="gr-newsletter">
-            <div class="gr-newsletter__content">
-                <h2 class="gr-newsletter__title"><?php esc_html_e( 'रोज़ राशिफल अपने इनबॉक्स में पाएँ', 'golden-rashifal' ); ?></h2>
-                <p class="gr-newsletter__desc"><?php esc_html_e( 'हर सुबह आज का राशिफल, पंचांग का सारांश और कोई एक उपयोगी टिप — सीधे आपके ईमेल पर। कभी भी unsubscribe करें।', 'golden-rashifal' ); ?></p>
-            </div>
-            <div class="gr-newsletter__form-wrap">
-                <form class="gr-newsletter__form" action="#" method="post">
-                    <input class="gr-newsletter__input" type="email" name="email" placeholder="<?php esc_attr_e( 'आपका ईमेल पता', 'golden-rashifal' ); ?>" required />
-                    <button class="gr-btn gr-btn--primary" type="submit"><?php esc_html_e( 'जुड़ें', 'golden-rashifal' ); ?></button>
-                </form>
-                <p class="gr-newsletter__note"><?php esc_html_e( 'कोई स्पैम नहीं। सिर्फ़ उपयोगी सामग्री।', 'golden-rashifal' ); ?></p>
-            </div>
+<section class="gr-newsletter-bar">
+    <div class="gr-wrap gr-newsletter-bar__inner">
+        <div class="gr-newsletter-bar__text">
+            <h3>🔔 <?php esc_html_e( 'दैनिक राशिफल के लिए जुड़ें', 'golden-rashifal' ); ?></h3>
+            <p><?php esc_html_e( 'हर रोज़ सुबह अपनी राशि का भविष्यफल पाएं', 'golden-rashifal' ); ?></p>
         </div>
+        <form class="gr-newsletter-bar__form" action="#" method="post">
+            <input type="email" name="email" placeholder="<?php esc_attr_e( 'email दर्ज करें', 'golden-rashifal' ); ?>" required />
+            <button type="submit" class="gr-btn gr-btn--gold"><?php esc_html_e( 'जुड़ें', 'golden-rashifal' ); ?></button>
+        </form>
     </div>
 </section>
