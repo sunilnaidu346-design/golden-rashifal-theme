@@ -1,9 +1,7 @@
 <?php
 /**
- * Front page (Homepage).
- *
- * Each homepage section is its own template part so site editors can
- * reorder, hide, or replace any block without touching surrounding code.
+ * Front page — Homepage composer.
+ * Sections match reference screenshots 1-7 in exact order.
  *
  * @package GoldenRashifal
  */
@@ -15,26 +13,23 @@ get_header();
 
     <?php get_template_part( 'template-parts/home/hero' ); ?>
 
-    <?php get_template_part( 'template-parts/home/live-cards' ); ?>
+    <?php get_template_part( 'template-parts/home/services' ); ?>
+
+    <?php get_template_part( 'template-parts/home/panchang' ); ?>
+
+    <?php get_template_part( 'template-parts/home/rashifal' ); ?>
 
     <?php get_template_part( 'template-parts/home/zodiac-grid' ); ?>
 
-    <?php
-    // Mid-page ad slot (optional, set in Customizer).
-    if ( get_theme_mod( 'gr_ad_home_mid', '' ) ) :
-        ?>
-        <div class="gr-wrap gr-section gr-section--ad">
-            <?php golden_rashifal_ad( 'gr_ad_home_mid', __( 'विज्ञापन', 'golden-rashifal' ) ); ?>
-        </div>
-        <?php
-    endif;
-    ?>
+    <?php get_template_part( 'template-parts/home/festival' ); ?>
 
-    <?php get_template_part( 'template-parts/home/trending' ); ?>
+    <?php get_template_part( 'template-parts/home/spiritual' ); ?>
 
-    <?php get_template_part( 'template-parts/home/countdown' ); ?>
+    <?php get_template_part( 'template-parts/home/kundli' ); ?>
 
-    <?php get_template_part( 'template-parts/home/video' ); ?>
+    <?php get_template_part( 'template-parts/home/articles' ); ?>
+
+    <?php get_template_part( 'template-parts/home/newsletter' ); ?>
 
 </main>
 
