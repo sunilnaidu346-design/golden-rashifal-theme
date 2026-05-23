@@ -238,3 +238,48 @@ function golden_rashifal_zodiac_icon( $slug ) {
     $path = isset( $paths[ $slug ] ) ? $paths[ $slug ] : $paths['aries'];
     return '<svg class="gr-zodiac-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="' . esc_attr( $path ) . '" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 }
+
+
+/**
+ * Zodiac wheel SVG for the hero section.
+ * Inline so it loads with zero extra requests and CSS can colour it.
+ */
+function golden_rashifal_zodiac_wheel_svg() {
+    $signs = golden_rashifal_zodiac_signs();
+    $svg   = '<svg class="gr-wheel" viewBox="0 0 360 360" role="img" aria-label="' . esc_attr__( 'राशि चक्र', 'golden-rashifal' ) . '">';
+
+    // Defs.
+    $svg .= '<defs>';
+    $svg .= '<linearGradient id="gr-wg" x1="0%" y1="0%" x2="100%" y2="100%">';
+    $svg .= '<stop offset="0%" stop-color="#d4af37"/><stop offset="100%" stop-color="#a68b1b"/>';
+    $svg .= '</linearGradient>';
+    $svg .= '</defs>';
+
+    // Circles.
+    $svg .= '<circle cx="180" cy="180" r="168" fill="none" stroke="url(#gr-wg)" stroke-width="1.5" opacity="0.4"/>';
+    $svg .= '<circle cx="180" cy="180" r="140" fill="none" stroke="#d4af37" stroke-width="0.8" opacity="0.3"/>';
+    $svg .= '<circle cx="180" cy="180" r="60" fill="rgba(212,175,55,0.06)" stroke="#d4af37" stroke-width="1"/>';
+
+    // Signs around the wheel.
+    $cx = 180; $cy = 180; $r = 130;
+    foreach ( $signs as $i => $sign ) {
+        $angle = deg2rad( -90 + $i * 30 );
+        $x = $cx + cos( $angle ) * $r;
+        $y = $cy + sin( $angle ) * $r;
+
+        // Small circle for each sign.
+        $svg .= '<circle cx="' . round( $x, 1 ) . '" cy="' . round( $y, 1 ) . '" r="16" fill="rgba(20,18,16,0.6)" stroke="#d4af37" stroke-width="1"/>';
+
+        // Spoke line.
+        $sx = $cx + cos( $angle ) * 60;
+        $sy = $cy + sin( $angle ) * 60;
+        $ex = $cx + cos( $angle ) * 114;
+        $ey = $cy + sin( $angle ) * 114;
+        $svg .= '<line x1="' . round( $sx, 1 ) . '" y1="' . round( $sy, 1 ) . '" x2="' . round( $ex, 1 ) . '" y2="' . round( $ey, 1 ) . '" stroke="#d4af37" stroke-width="0.5" opacity="0.3"/>';
+    }
+
+    // Centre OM.
+    $svg .= '<text x="180" y="190" text-anchor="middle" font-family="Noto Sans Devanagari, serif" font-size="30" font-weight="700" fill="#d4af37">ॐ</text>';
+    $svg .= '</svg>';
+    return $svg;
+}

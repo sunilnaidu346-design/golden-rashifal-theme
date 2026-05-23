@@ -1,15 +1,6 @@
 <?php
 /**
- * Single post template — long-form article layout.
- *
- * Order is intentional:
- *   1. Reading progress bar (sticks to top edge of viewport).
- *   2. Article header (category, title, meta, hero image).
- *   3. Above-content ad slot.
- *   4. Sticky social share rail (desktop) + inline share (mobile).
- *   5. Article body with Table of Contents.
- *   6. Below-content ad slot.
- *   7. Author box, related posts, comments.
+ * Single post — refined article layout.
  *
  * @package GoldenRashifal
  */
@@ -32,9 +23,7 @@ while ( have_posts() ) :
                     $cats = get_the_category();
                     if ( ! empty( $cats ) ) :
                         ?>
-                        <a class="gr-article__cat" href="<?php echo esc_url( get_category_link( $cats[0]->term_id ) ); ?>">
-                            <?php echo esc_html( $cats[0]->name ); ?>
-                        </a>
+                        <a class="gr-article__cat" href="<?php echo esc_url( get_category_link( $cats[0]->term_id ) ); ?>"><?php echo esc_html( $cats[0]->name ); ?></a>
                     <?php endif; ?>
 
                     <h1 class="gr-article__title"><?php the_title(); ?></h1>
@@ -45,20 +34,13 @@ while ( have_posts() ) :
 
                     <div class="gr-article__meta">
                         <span class="gr-article__author">
-                            <?php echo get_avatar( get_the_author_meta( 'ID' ), 36, '', '', array( 'class' => 'gr-article__avatar' ) ); ?>
+                            <?php echo get_avatar( get_the_author_meta( 'ID' ), 34, '', '', array( 'class' => 'gr-article__avatar' ) ); ?>
                             <span>
                                 <strong><?php the_author(); ?></strong>
                                 <span class="gr-article__meta-sub">
                                     <?php golden_rashifal_posted_on(); ?>
                                     <span class="gr-meta__sep">·</span>
                                     <?php echo esc_html( golden_rashifal_reading_time() ); ?>
-                                    <?php
-                                    $views = golden_rashifal_post_views();
-                                    if ( $views ) :
-                                        ?>
-                                        <span class="gr-meta__sep">·</span>
-                                        <span><?php echo esc_html( $views ); ?></span>
-                                    <?php endif; ?>
                                 </span>
                             </span>
                         </span>
@@ -67,21 +49,12 @@ while ( have_posts() ) :
 
                 <?php if ( has_post_thumbnail() ) : ?>
                     <figure class="gr-article__hero">
+                        <?php the_post_thumbnail( 'post-thumbnail', array( 'class' => 'gr-article__hero-img', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?>
                         <?php
-                        the_post_thumbnail(
-                            'post-thumbnail',
-                            array(
-                                'class'    => 'gr-article__hero-img',
-                                'loading'  => 'eager',
-                                'fetchpriority' => 'high',
-                            )
-                        );
-                        ?>
-                        <?php
-                        $caption = get_the_post_thumbnail_caption();
-                        if ( $caption ) :
+                        $cap = get_the_post_thumbnail_caption();
+                        if ( $cap ) :
                             ?>
-                            <figcaption class="gr-article__hero-cap"><?php echo esc_html( $caption ); ?></figcaption>
+                            <figcaption class="gr-article__hero-cap"><?php echo esc_html( $cap ); ?></figcaption>
                         <?php endif; ?>
                     </figure>
                 <?php endif; ?>
@@ -93,16 +66,8 @@ while ( have_posts() ) :
                 <?php get_template_part( 'template-parts/single/toc' ); ?>
 
                 <div class="gr-article__body">
-                    <?php
-                    the_content();
-
-                    wp_link_pages(
-                        array(
-                            'before' => '<nav class="gr-pagelinks"><span class="gr-pagelinks__label">' . esc_html__( 'पृष्ठ:', 'golden-rashifal' ) . '</span>',
-                            'after'  => '</nav>',
-                        )
-                    );
-                    ?>
+                    <?php the_content(); ?>
+                    <?php wp_link_pages( array( 'before' => '<nav class="gr-pagelinks">', 'after' => '</nav>' ) ); ?>
                 </div>
 
                 <?php
