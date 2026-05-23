@@ -18,7 +18,7 @@ $planets = array(
     array( 'name' => 'केतु', 'rashi' => 'कन्या 19°', 'sym' => '☋', 'color' => '#9c27b0', 'status' => 'सामान्य', 'scolor' => '#ff8c00' ),
 );
 ?>
-<section class="gr-section gr-section--kundli">
+<section class="gr-section gr-section--kundli gr-section--kundli-light">
     <div class="gr-wrap">
 
         <header class="gr-section__head gr-section__head--center gr-section__head--light">

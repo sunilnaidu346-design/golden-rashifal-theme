@@ -316,3 +316,20 @@
 .gr-search__icon svg{width:18px;height:18px}
 .gr-search__input{flex:1;border:0;background:transparent;padding:10px 4px;font-size:.95rem;outline:none}
 .gr-search__submit{padding:9px 18px;background:var(--gr-gold);color:#1a1a1a;border:0;border-radius:var(--radius-full);font-weight:600;font-size:.88rem}
+
+/* --- Kundli section LIGHT variant (white background) --- */
+.gr-section--kundli-light{background:#ffffff!important;color:var(--gr-ink)}
+.gr-section--kundli-light .gr-section__head--light,.gr-section--kundli-light .gr-section__title--light{color:var(--gr-ink)}
+.gr-section--kundli-light .gr-section__badge--light{color:var(--gr-gold-deep)}
+.gr-section--kundli-light .gr-kundli-form{background:#f8f6f2;border-color:var(--gr-border)}
+.gr-section--kundli-light .gr-kundli-form h3{color:var(--gr-ink)}
+.gr-section--kundli-light .gr-kundli-form label{color:var(--gr-ink-soft)}
+.gr-section--kundli-light .gr-kundli-form input,.gr-section--kundli-light .gr-kundli-form select{background:#fff;border-color:var(--gr-border);color:var(--gr-ink)}
+.gr-section--kundli-light .gr-kundli-form input::placeholder{color:var(--gr-muted)}
+.gr-section--kundli-light .gr-kundli-planets{background:#f8f6f2;border-color:var(--gr-border)}
+.gr-section--kundli-light .gr-kundli-planets h3{color:var(--gr-ink)}
+.gr-section--kundli-light .gr-planet-row{background:#fff;border-color:var(--gr-border)}
+.gr-section--kundli-light .gr-planet-row__info strong{color:var(--gr-ink)}
+.gr-section--kundli-light .gr-planet-row__info span{color:var(--gr-muted)}
+.gr-section--kundli-light .gr-planet-row__status{background:var(--gr-cream)}
+.gr-section--kundli-light .gr-btn--outline-light{color:var(--gr-gold-deep);border-color:var(--gr-gold)}
