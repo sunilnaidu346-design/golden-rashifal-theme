@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'GOLDEN_RASHIFAL_VERSION' ) ) {
-    define( 'GOLDEN_RASHIFAL_VERSION', '3.0.0' );
+    define( 'GOLDEN_RASHIFAL_VERSION', '3.1.0' );
 }
 
 if ( ! defined( 'GOLDEN_RASHIFAL_DIR' ) ) {

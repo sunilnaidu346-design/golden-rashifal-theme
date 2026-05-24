@@ -144,14 +144,13 @@ add_action( 'after_setup_theme', 'golden_rashifal_block_editor_assets' );
 function golden_rashifal_critical_css() {
     ?>
     <style id="gr-critical">
-        body{margin:0;font-family:"Noto Sans Devanagari","Inter",-apple-system,sans-serif;background:#f8f6f2;color:#1f2937}
-        .gr-topbar{background:#000;color:#fff;font-size:.78rem;padding:6px 0}
-        .gr-header{background:#0f0a1f;position:sticky;top:0;z-index:100;border-bottom:1px solid #2d2355}
-        .gr-header__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px;max-width:1200px;margin:0 auto;padding:0 16px}
-        .gr-logo{font-weight:800;font-size:1.2rem;color:#fff;display:flex;align-items:center;gap:8px}
+        body{margin:0;font-family:"Noto Sans Devanagari","Inter",-apple-system,sans-serif;background:#fff;color:#1f2937;line-height:1.72}
+        .gr-topbar{background:#111827;color:#ddd;font-size:.76rem;padding:7px 0}
+        .gr-header{background:#fff;position:sticky;top:0;z-index:100;border-bottom:1px solid #eae4d8;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+        .gr-header__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px;max-width:1200px;margin:0 auto;padding:0 16px}
+        .gr-logo{font-weight:800;font-size:1.22rem;color:#1f2937;display:flex;align-items:center;gap:8px}
         .gr-logo__icon{color:#d4af37}
-        .gr-logo__highlight{color:#ff8c00}
-        .gr-hero{background:#0f0a1f;color:#fff;padding:80px 0 64px;text-align:center}
+        .gr-logo__highlight{color:#ff6b00}
         img,svg{max-width:100%;height:auto;display:block}
     </style>
     <?php
