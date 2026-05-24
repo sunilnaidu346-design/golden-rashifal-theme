@@ -1,86 +1,52 @@
-/* ==========================================================================
-   Golden Rashifal v2 — Responsive Breakpoints
-   Mobile-first: defaults are mobile, layered up.
-   ========================================================================== */
-
-@media (max-width: 1200px) {
-    .gr-wrap { padding-inline: var(--sp-5); }
+/* Golden Rashifal v3.1 — Responsive */
+@media(max-width:1200px){.gr-wrap{padding-inline:20px}}
+@media(max-width:1024px){
+.gr-services-grid{grid-template-columns:repeat(2,1fr)}
+.gr-panchang-grid{grid-template-columns:repeat(2,1fr)}
+.gr-zodiac-grid{grid-template-columns:repeat(4,1fr)}
+.gr-festival-grid{grid-template-columns:repeat(2,1fr)}
+.gr-spiritual-grid{grid-template-columns:1fr}
+.gr-kundli-layout{grid-template-columns:1fr}
+.gr-articles-grid{grid-template-columns:1fr 1fr}
+.gr-article-card--featured{grid-row:auto}
+.gr-rashifal-layout{grid-template-columns:1fr}
+.gr-rashifal-sidebar{flex-direction:row;flex-wrap:wrap;gap:4px}
+.gr-rashifal-sidebar__item{padding:6px 10px}
+.gr-rashifal-sidebar__en{display:none}
+.gr-footer__top{grid-template-columns:1fr 1fr}
+.gr-hero__zodiac-row{flex-wrap:wrap}
 }
-
-@media (max-width: 1024px) {
-    .gr-grid { grid-template-columns: 1fr; gap: var(--sp-6); }
-    .gr-col-side { position: static; }
-    .gr-cards { grid-template-columns: repeat(3, 1fr); }
-    .gr-zodiac-grid { grid-template-columns: repeat(4, 1fr); }
-    .gr-trend-grid { grid-template-columns: repeat(2, 1fr); }
-    .gr-tcard--featured { grid-column: span 2; grid-row: auto; }
-    .gr-hero__inner { grid-template-columns: 1fr; gap: var(--sp-6); padding: var(--sp-8) 0; }
-    .gr-hero__visual { order: -1; }
-    .gr-wheel { max-width: 300px; }
-    .gr-footer__top { grid-template-columns: repeat(2, 1fr); }
-    .gr-newsletter { grid-template-columns: 1fr; gap: var(--sp-5); }
-    .gr-related__grid { grid-template-columns: repeat(2, 1fr); }
+@media(max-width:768px){
+body{font-size:.94rem}
+.gr-section{padding:var(--sp-7) 0}
+.gr-services-grid{grid-template-columns:1fr 1fr;gap:12px}
+.gr-panchang-grid{grid-template-columns:1fr}
+.gr-zodiac-grid{grid-template-columns:repeat(3,1fr);gap:10px}
+.gr-festival-grid{grid-template-columns:1fr}
+.gr-articles-grid{grid-template-columns:1fr}
+.gr-rashifal-content__bars{grid-template-columns:1fr}
+.gr-newsletter-bar__inner{flex-direction:column;text-align:center}
+.gr-newsletter-bar__form{width:100%}
+.gr-newsletter-bar__form input{min-width:0;flex:1}
+.gr-footer__top{grid-template-columns:1fr;gap:var(--sp-5)}
+.gr-footer__bottom-inner{flex-direction:column;align-items:flex-start;gap:8px}
+.gr-hero__title{font-size:2rem}
+.gr-hero__subtitle{font-size:1.1rem}
+.gr-floating{display:none}
+.gr-topbar__left{gap:8px;font-size:.68rem}
+.gr-header__inner{height:54px}
 }
-
-@media (max-width: 768px) {
-    body { font-size: 0.95rem; }
-
-    .gr-header__burger { display: flex; }
-    .gr-nav { display: none; }
-    .gr-header__inner { height: 56px; }
-
-    .gr-section { padding: var(--sp-7) 0; }
-
-    .gr-hero__inner { padding: var(--sp-7) 0; }
-    .gr-hero__title { font-size: clamp(1.6rem, 4vw + 0.8rem, 2.2rem); }
-    .gr-hero__desc { font-size: 0.95rem; }
-    .gr-hero__stats { flex-direction: column; gap: var(--sp-3); }
-    .gr-wheel { max-width: 240px; }
-
-    .gr-cards { grid-template-columns: repeat(2, 1fr); gap: var(--sp-4); }
-    .gr-zodiac-grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-3); }
-    .gr-trend-grid { grid-template-columns: 1fr; }
-    .gr-tcard--featured { grid-column: auto; }
-
-    .gr-countdown__grid { flex-wrap: wrap; gap: var(--sp-3); }
-    .gr-countdown__cell { min-width: 60px; padding: var(--sp-3) var(--sp-4); }
-    .gr-countdown__num { font-size: 1.5rem; }
-    .gr-countdown { padding: var(--sp-6); border-radius: var(--radius-lg); }
-
-    .gr-newsletter { padding: var(--sp-5); border-radius: var(--radius-lg); }
-    .gr-newsletter__form { flex-direction: column; }
-
-    .gr-card--post { grid-template-columns: 1fr; }
-    .gr-card__media { aspect-ratio: 16 / 9; }
-    .gr-card__body { padding: var(--sp-4); }
-
-    .gr-article__title { font-size: clamp(1.4rem, 3vw + 0.7rem, 1.9rem); }
-    .gr-article__hero img { border-radius: var(--radius-md); }
-
-    .gr-author { grid-template-columns: 60px 1fr; padding: var(--sp-4); }
-    .gr-author-head { grid-template-columns: 60px 1fr; padding: var(--sp-4); }
-
-    .gr-footer__top { grid-template-columns: 1fr; gap: var(--sp-5); }
-    .gr-footer__bottom { flex-direction: column; align-items: flex-start; }
-
-    .gr-related__grid { grid-template-columns: 1fr 1fr; }
-
-    .gr-totop { right: var(--sp-3); bottom: var(--sp-3); width: 38px; height: 38px; }
+@media(max-width:480px){
+.gr-services-grid{grid-template-columns:1fr}
+.gr-zodiac-grid{grid-template-columns:repeat(2,1fr)}
+.gr-hero__zodiac-row{flex-direction:column;align-items:center}
+.gr-hero__search{flex-direction:column;border-radius:var(--radius-lg);padding:12px}
+.gr-hero__search-btn-submit{width:100%;border-radius:var(--radius-full)}
+.gr-rashifal-sidebar{overflow-x:auto;flex-wrap:nowrap}
+.gr-gems-grid{grid-template-columns:repeat(3,1fr)}
+.gr-rashifal-lucky-row{flex-wrap:wrap;gap:var(--sp-4)}
 }
-
-@media (max-width: 480px) {
-    .gr-cards { grid-template-columns: 1fr; }
-    .gr-zodiac-grid { grid-template-columns: repeat(2, 1fr); }
-    .gr-related__grid { grid-template-columns: 1fr; }
-    .gr-share__list { gap: var(--sp-1); }
-    .gr-share__btn { width: 32px; height: 32px; }
-    .gr-hero__actions { flex-direction: column; }
-    .gr-hero__actions .gr-btn { width: 100%; }
-}
-
-@media print {
-    .gr-header, .gr-footer, .gr-share, .gr-toc, .gr-related,
-    .gr-author, .gr-comments, .gr-totop, .gr-progress, .gr-ad-slot,
-    .gr-mobile, .gr-search-pop { display: none !important; }
-    body { background: #fff; color: #000; }
+@media print{
+.gr-header,.gr-topbar,.gr-footer,.gr-floating,.gr-totop,.gr-newsletter-bar,.gr-mobile,.gr-search-pop{display:none!important}
+body{background:#fff;color:#000}
 }

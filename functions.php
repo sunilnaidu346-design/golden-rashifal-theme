@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'GOLDEN_RASHIFAL_VERSION' ) ) {
-    define( 'GOLDEN_RASHIFAL_VERSION', '3.0.0' );
+    define( 'GOLDEN_RASHIFAL_VERSION', '3.1.0' );
 }
 
 if ( ! defined( 'GOLDEN_RASHIFAL_DIR' ) ) {
@@ -36,6 +36,7 @@ $gr_modules = array(
     'inc/seo.php',
     'inc/ad-placements.php',
     'inc/astrology-functions.php',
+    'inc/virtual-pages.php',
 );
 
 foreach ( $gr_modules as $gr_module ) {

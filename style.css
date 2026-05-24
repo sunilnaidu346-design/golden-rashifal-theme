@@ -1,10 +1,10 @@
 /*
 Theme Name: Golden Rashifal
-Theme URI: https://goldenrashifal.com/
+Theme URI: https://sipindustries.in/
 Author: Golden Rashifal Team
-Author URI: https://goldenrashifal.com/
-Description: भारत का प्रीमियम हिंदी ज्योतिष WordPress थीम — राशिफल, पंचांग, चौघड़िया, मुहूर्त, कुंडली, त्योहार कैलेंडर और आध्यात्मिक सामग्री के लिए। तेज़, हल्का, मोबाइल-फ़र्स्ट, AdSense अनुकूल।
-Version: 3.0.0
+Author URI: https://sipindustries.in/
+Description: भारत का प्रीमियम हिंदी ज्योतिष WordPress थीम — राशिफल, पंचांग, चौघड़िया, मुहूर्त, कुंडली, त्योहार कैलेंडर। तेज़, हल्का, मोबाइल-फ़र्स्ट, AdSense अनुकूल, Core Web Vitals ऑप्टिमाइज़्ड।
+Version: 3.1.0
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
@@ -15,105 +15,72 @@ Tags: blog, news, two-columns, right-sidebar, custom-menu, custom-logo, featured
 */
 
 /* ==========================================================================
-   Golden Rashifal v3 — Design Tokens & Base Reset
-   Matches reference: dark cosmic hero, golden/orange accents, pastel zodiac,
-   pink newsletter, dark footer
+   Golden Rashifal v3.1 — Design Tokens & Base Reset
+   White-background AdSense-friendly base with golden/orange accents.
    ========================================================================== */
 
 :root {
-    /* Hero / Dark sections */
-    --gr-dark: #1a1230;
-    --gr-dark-deep: #0f0a1f;
-    --gr-dark-card: #1e1540;
-    --gr-dark-border: #2d2355;
-    --gr-dark-muted: #9a8fbf;
-
-    /* Gold / Orange accents */
     --gr-gold: #d4af37;
     --gr-gold-light: #f0d668;
     --gr-gold-deep: #b8960c;
-    --gr-orange: #ff8c00;
-    --gr-orange-light: #ffb347;
-
-    /* Pink / Magenta */
+    --gr-orange: #ff6b00;
+    --gr-orange-soft: #ff8c00;
     --gr-pink: #e91e8c;
-    --gr-pink-light: #ff6eb4;
-    --gr-magenta: #d63384;
-
-    /* Functional colors */
     --gr-red: #dc3545;
     --gr-green: #28a745;
     --gr-purple: #7c3aed;
     --gr-blue: #2563eb;
 
-    /* Pastel zodiac card backgrounds */
-    --gr-pastel-peach: #fff3e8;
-    --gr-pastel-yellow: #fffde8;
-    --gr-pastel-green: #e8fff0;
-    --gr-pastel-blue: #e8f4ff;
-    --gr-pastel-purple: #f3e8ff;
-    --gr-pastel-cyan: #e8fffe;
-
-    /* Neutrals */
     --gr-white: #ffffff;
-    --gr-off-white: #fefdfb;
-    --gr-cream: #faf7f0;
-    --gr-bg: #f8f6f2;
-    --gr-border: #e8e2d0;
-    --gr-border-light: #f0ebe0;
+    --gr-bg: #ffffff;
+    --gr-bg-soft: #f9f7f4;
+    --gr-bg-alt: #faf8f5;
+    --gr-cream: #fdf8ef;
+    --gr-border: #eae4d8;
+    --gr-border-light: #f2ede4;
     --gr-muted: #6b7280;
     --gr-ink: #1f2937;
     --gr-ink-soft: #374151;
 
-    /* Typography */
+    --gr-dark: #111827;
+    --gr-dark-deep: #0c0f1a;
+    --gr-dark-card: #1e2130;
+    --gr-dark-border: #2d3348;
+    --gr-dark-muted: #9ca3af;
+
+    --gr-pastel-peach: #fff5eb;
+    --gr-pastel-yellow: #fffde8;
+    --gr-pastel-green: #ecfdf5;
+    --gr-pastel-blue: #eff6ff;
+    --gr-pastel-purple: #f5f3ff;
+    --gr-pastel-cyan: #ecfeff;
+
     --gr-font: "Noto Sans Devanagari", "Inter", -apple-system, "Segoe UI", sans-serif;
-    --gr-font-display: "Noto Sans Devanagari", Georgia, serif;
+    --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+    --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 80px;
 
-    /* Spacing scale */
-    --sp-1: 4px;
-    --sp-2: 8px;
-    --sp-3: 12px;
-    --sp-4: 16px;
-    --sp-5: 24px;
-    --sp-6: 32px;
-    --sp-7: 48px;
-    --sp-8: 64px;
-    --sp-9: 80px;
-
-    /* Radii */
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 16px;
-    --radius-xl: 24px;
-    --radius-full: 999px;
-
-    /* Layout */
-    --content-max: 760px;
+    --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px;
+    --radius-xl: 20px; --radius-full: 999px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,.06);
+    --shadow-lg: 0 12px 28px rgba(0,0,0,.08);
+    --shadow-gold: 0 4px 14px rgba(212,175,55,.18);
+    --ease: cubic-bezier(.22,1,.36,1);
+    --dur: .22s;
     --wide-max: 1200px;
-
-    /* Shadows */
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-    --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
-    --shadow-gold: 0 4px 16px rgba(212,175,55,0.2);
-
-    /* Transitions */
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --dur: 0.25s;
+    --content-max: 760px;
 }
 
-/* Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; font-size: 16px; }
 
 body {
     font-family: var(--gr-font);
     font-size: 1rem;
-    line-height: 1.7;
+    line-height: 1.72;
     color: var(--gr-ink);
     background: var(--gr-bg);
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
 }
 
@@ -124,38 +91,30 @@ ul, ol { list-style: none; }
 input, textarea, select { font: inherit; }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--gr-font-display);
+    font-family: var(--gr-font);
     font-weight: 700;
-    line-height: 1.25;
+    line-height: 1.28;
     color: var(--gr-ink);
 }
-
-h1 { font-size: clamp(1.75rem, 2.5vw + 1rem, 3rem); }
-h2 { font-size: clamp(1.4rem, 1.5vw + 0.8rem, 2.2rem); }
-h3 { font-size: clamp(1.1rem, 0.8vw + 0.8rem, 1.5rem); }
-
+h1 { font-size: clamp(1.6rem, 2.2vw + 1rem, 2.6rem); }
+h2 { font-size: clamp(1.3rem, 1.4vw + .8rem, 2rem); }
+h3 { font-size: clamp(1.05rem, .7vw + .8rem, 1.4rem); }
 p { margin-bottom: 1em; }
 p:last-child { margin-bottom: 0; }
 
-/* Layout */
 .gr-wrap { width: 100%; max-width: var(--wide-max); margin-inline: auto; padding-inline: var(--sp-4); }
 .gr-content-wrap { max-width: var(--content-max); margin-inline: auto; padding-inline: var(--sp-4); }
 
-/* Accessibility */
 .screen-reader-text {
     position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
     overflow: hidden; clip: rect(0,0,0,0); clip-path: inset(50%); border: 0; white-space: nowrap;
 }
-.gr-skip-link {
-    position: absolute; left: -999em; top: var(--sp-2); background: var(--gr-ink); color: var(--gr-white);
-    padding: var(--sp-3) var(--sp-4); border-radius: var(--radius-sm); font-weight: 600; z-index: 9999;
-}
-.gr-skip-link:focus { left: var(--sp-3); }
+.gr-skip-link { position: absolute; left: -999em; top: 8px; background: var(--gr-ink); color: #fff; padding: 10px 16px; border-radius: var(--radius-sm); font-weight: 600; z-index: 9999; }
+.gr-skip-link:focus { left: 12px; }
 
-/* WordPress alignments */
 .alignleft { float: left; margin: 0 var(--sp-5) var(--sp-4) 0; }
 .alignright { float: right; margin: 0 0 var(--sp-4) var(--sp-5); }
 .aligncenter { display: block; margin-inline: auto; }
 .wp-caption { max-width: 100%; }
-.wp-caption-text { font-size: 0.88rem; color: var(--gr-muted); text-align: center; margin-top: var(--sp-2); }
+.wp-caption-text { font-size: .86rem; color: var(--gr-muted); text-align: center; margin-top: 6px; }
 .sticky { position: relative; }
