@@ -1,7 +1,7 @@
 <?php
 /**
  * Homepage — Why Trust Us / Founder Editorial section.
- * Premium left-right editorial layout matching reference design.
+ * Premium left-right editorial layout with author bio on right.
  *
  * @package GoldenRashifal
  */
@@ -39,26 +39,40 @@
         </div>
 
         <div class="gr-why-trust__right">
-            <div class="gr-why-trust__card">
-                <div class="gr-why-trust__card-top">
-                    <span class="gr-why-trust__card-icon" aria-hidden="true">&#9788;</span>
-                    <span class="gr-why-trust__card-badge"><?php esc_html_e( 'संपादकीय मानक', 'golden-rashifal' ); ?></span>
+            <div class="gr-why-trust__profile">
+                <div class="gr-why-trust__profile-img">
+                    <?php
+                    // Show customizer-set image or default avatar placeholder.
+                    $founder_img = get_theme_mod( 'gr_founder_image', '' );
+                    if ( $founder_img ) {
+                        echo '<img src="' . esc_url( $founder_img ) . '" alt="' . esc_attr__( 'संस्थापक', 'golden-rashifal' ) . '" loading="lazy" />';
+                    } else {
+                        // Default: show admin avatar or placeholder silhouette.
+                        echo get_avatar( get_option( 'admin_email' ), 180, '', 'संस्थापक', array( 'class' => 'gr-why-trust__avatar' ) );
+                    }
+                    ?>
                 </div>
-                <div class="gr-why-trust__card-stats">
-                    <div class="gr-why-trust__stat">
-                        <span class="gr-why-trust__stat-val"><?php esc_html_e( '100+', 'golden-rashifal' ); ?></span>
-                        <span class="gr-why-trust__stat-label"><?php esc_html_e( 'प्रकाशित लेख', 'golden-rashifal' ); ?></span>
+                <div class="gr-why-trust__profile-badge">
+                    <span><?php esc_html_e( 'संस्थापक एवं मुख्य संपादक', 'golden-rashifal' ); ?></span>
+                </div>
+                <div class="gr-why-trust__profile-info">
+                    <h3 class="gr-why-trust__profile-name"><?php echo esc_html( get_theme_mod( 'gr_founder_name', 'Golden Rashifal टीम' ) ); ?></h3>
+                    <p class="gr-why-trust__profile-bio"><?php echo esc_html( get_theme_mod( 'gr_founder_bio', 'वैदिक ज्योतिष और पंचांग विज्ञान में अनुभवी। पाठकों को प्रामाणिक, संतुलित और सरल ज्योतिषीय जानकारी देने के उद्देश्य से Golden Rashifal की स्थापना की।' ) ); ?></p>
+                </div>
+                <div class="gr-why-trust__profile-stats">
+                    <div class="gr-why-trust__pstat">
+                        <span class="gr-why-trust__pstat-val"><?php esc_html_e( '100+', 'golden-rashifal' ); ?></span>
+                        <span class="gr-why-trust__pstat-label"><?php esc_html_e( 'प्रकाशित लेख', 'golden-rashifal' ); ?></span>
                     </div>
-                    <div class="gr-why-trust__stat">
-                        <span class="gr-why-trust__stat-val"><?php esc_html_e( '365', 'golden-rashifal' ); ?></span>
-                        <span class="gr-why-trust__stat-label"><?php esc_html_e( 'दिन अपडेट', 'golden-rashifal' ); ?></span>
+                    <div class="gr-why-trust__pstat">
+                        <span class="gr-why-trust__pstat-val"><?php esc_html_e( '365', 'golden-rashifal' ); ?></span>
+                        <span class="gr-why-trust__pstat-label"><?php esc_html_e( 'दिन अपडेट', 'golden-rashifal' ); ?></span>
                     </div>
-                    <div class="gr-why-trust__stat">
-                        <span class="gr-why-trust__stat-val"><?php esc_html_e( '45+', 'golden-rashifal' ); ?></span>
-                        <span class="gr-why-trust__stat-label"><?php esc_html_e( 'विषय श्रेणियाँ', 'golden-rashifal' ); ?></span>
+                    <div class="gr-why-trust__pstat">
+                        <span class="gr-why-trust__pstat-val"><?php esc_html_e( '45+', 'golden-rashifal' ); ?></span>
+                        <span class="gr-why-trust__pstat-label"><?php esc_html_e( 'विषय श्रेणियाँ', 'golden-rashifal' ); ?></span>
                     </div>
                 </div>
-                <p class="gr-why-trust__card-note"><?php esc_html_e( 'प्रत्येक पृष्ठ नियमित रूप से अपडेट और संपादकीय समीक्षा से गुज़रता है।', 'golden-rashifal' ); ?></p>
             </div>
         </div>
 

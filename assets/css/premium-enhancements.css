@@ -242,7 +242,7 @@ h1,h2,h3,h4{text-rendering:geometricPrecision}
 
 
 /* ===================================================================
-   WHY TRUST US — Premium Editorial Section
+   WHY TRUST US — Premium Editorial Section with Author Bio
    =================================================================== */
 .gr-why-trust{padding:var(--sp-9) 0;background:var(--gr-bg-soft);position:relative}
 .gr-why-trust::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gr-border),transparent)}
@@ -255,15 +255,19 @@ h1,h2,h3,h4{text-rendering:geometricPrecision}
 .gr-why-trust__point-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;min-width:32px;border-radius:var(--radius-sm);background:var(--gr-white);border:1px solid var(--gr-border-light);color:var(--gr-gold-deep);font-size:.72rem;font-weight:800;letter-spacing:.02em}
 .gr-why-trust__point strong{display:block;font-size:.88rem;font-weight:700;color:var(--gr-ink);margin-bottom:2px}
 .gr-why-trust__point span{font-size:.82rem;line-height:1.5;color:var(--gr-muted)}
+
+/* Right side — Author/Founder Profile Card */
 .gr-why-trust__right{display:flex;align-items:center;justify-content:center}
-.gr-why-trust__card{width:100%;max-width:320px;background:var(--gr-white);border:1px solid var(--gr-border-light);border-radius:var(--radius-xl);padding:var(--sp-6);text-align:center}
-.gr-why-trust__card-top{margin-bottom:var(--sp-5)}
-.gr-why-trust__card-icon{display:block;font-size:2rem;color:var(--gr-gold);line-height:1;margin-bottom:var(--sp-2)}
-.gr-why-trust__card-badge{display:inline-block;padding:4px 12px;background:var(--gr-cream);border:1px solid var(--gr-border-light);border-radius:var(--radius-full);font-size:.7rem;font-weight:600;color:var(--gr-gold-deep);letter-spacing:.02em}
-.gr-why-trust__card-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--sp-3);margin-bottom:var(--sp-4)}
-.gr-why-trust__stat{display:flex;flex-direction:column;align-items:center;padding:var(--sp-3) var(--sp-2);background:var(--gr-bg-soft);border-radius:var(--radius-md);border:1px solid var(--gr-border-light)}
-.gr-why-trust__stat-val{font-size:1.2rem;font-weight:800;color:var(--gr-ink);line-height:1}
-.gr-why-trust__stat-label{font-size:.62rem;color:var(--gr-muted);margin-top:3px;font-weight:500}
-.gr-why-trust__card-note{font-size:.76rem;line-height:1.5;color:var(--gr-muted);margin:0}
-@media(max-width:1024px){.gr-why-trust__inner{grid-template-columns:1fr;gap:var(--sp-6)}.gr-why-trust__right{justify-content:flex-start}.gr-why-trust__card{max-width:280px}}
-@media(max-width:768px){.gr-why-trust{padding:var(--sp-7) 0}.gr-why-trust__card{max-width:100%}}
+.gr-why-trust__profile{width:100%;max-width:320px;background:var(--gr-white);border:1px solid var(--gr-border-light);border-radius:var(--radius-xl);padding:var(--sp-6);text-align:center;position:relative}
+.gr-why-trust__profile-img{width:120px;height:120px;margin:0 auto var(--sp-4);border-radius:50%;overflow:hidden;border:3px solid var(--gr-border-light);background:var(--gr-bg-soft)}
+.gr-why-trust__profile-img img,.gr-why-trust__profile-img .avatar,.gr-why-trust__avatar{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.gr-why-trust__profile-badge{margin-bottom:var(--sp-3)}
+.gr-why-trust__profile-badge span{display:inline-block;padding:4px 14px;background:var(--gr-cream);border:1px solid var(--gr-border-light);border-radius:var(--radius-full);font-size:.68rem;font-weight:700;color:var(--gr-gold-deep);letter-spacing:.03em;text-transform:uppercase}
+.gr-why-trust__profile-name{font-size:1.05rem;font-weight:800;color:var(--gr-ink);margin-bottom:var(--sp-2)}
+.gr-why-trust__profile-bio{font-size:.8rem;line-height:1.6;color:var(--gr-muted);margin-bottom:var(--sp-5)}
+.gr-why-trust__profile-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--sp-2)}
+.gr-why-trust__pstat{display:flex;flex-direction:column;align-items:center;padding:var(--sp-3) var(--sp-2);background:var(--gr-bg-soft);border-radius:var(--radius-md);border:1px solid var(--gr-border-light)}
+.gr-why-trust__pstat-val{font-size:1.1rem;font-weight:800;color:var(--gr-ink);line-height:1}
+.gr-why-trust__pstat-label{font-size:.6rem;color:var(--gr-muted);margin-top:3px;font-weight:500}
+@media(max-width:1024px){.gr-why-trust__inner{grid-template-columns:1fr;gap:var(--sp-6)}.gr-why-trust__right{justify-content:flex-start}.gr-why-trust__profile{max-width:280px}}
+@media(max-width:768px){.gr-why-trust{padding:var(--sp-7) 0}.gr-why-trust__profile{max-width:100%}.gr-why-trust__profile-img{width:100px;height:100px}}
