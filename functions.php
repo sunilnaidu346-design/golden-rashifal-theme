@@ -36,6 +36,7 @@ $gr_modules = array(
     'inc/seo.php',
     'inc/ad-placements.php',
     'inc/astrology-functions.php',
+    'inc/virtual-pages.php',
 );
 
 foreach ( $gr_modules as $gr_module ) {
