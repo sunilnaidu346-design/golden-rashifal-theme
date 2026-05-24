@@ -173,8 +173,4 @@
     </div>
 </div>
 
-<?php if ( ! is_front_page() ) : ?>
-<div class="gr-breadcrumbs-wrap">
-    <div class="gr-wrap"><?php golden_rashifal_breadcrumbs(); ?></div>
-</div>
-<?php endif; ?>
+
