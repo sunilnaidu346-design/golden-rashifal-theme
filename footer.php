@@ -105,16 +105,7 @@
         </div>
     </div>
 
-    <!-- Mini Trust Bar -->
-    <div class="gr-footer-trust">
-        <div class="gr-wrap gr-footer-trust__inner">
-            <span class="gr-footer-trust__item"><span class="gr-footer-trust__icon">&#9670;</span> <?php esc_html_e( 'वैदिक प्रमाणित', 'golden-rashifal' ); ?></span>
-            <span class="gr-footer-trust__item"><span class="gr-footer-trust__icon">&#9201;</span> <?php esc_html_e( 'प्रतिदिन अपडेट', 'golden-rashifal' ); ?></span>
-            <span class="gr-footer-trust__item"><span class="gr-footer-trust__icon">&#9733;</span> <?php esc_html_e( 'लाखों पाठक', 'golden-rashifal' ); ?></span>
-            <span class="gr-footer-trust__item"><span class="gr-footer-trust__icon">&#9745;</span> <?php esc_html_e( 'AdSense अनुमोदित', 'golden-rashifal' ); ?></span>
-            <span class="gr-footer-trust__item"><span class="gr-footer-trust__icon">&#9883;</span> <?php esc_html_e( 'SSL सुरक्षित', 'golden-rashifal' ); ?></span>
-        </div>
-    </div>
+
 </footer>
 
 <button class="gr-totop" data-gr-totop aria-label="<?php esc_attr_e( 'Back to top', 'golden-rashifal' ); ?>" hidden>↑</button>

@@ -115,11 +115,7 @@ details[open]>.gr-toc__summary::after{content:"-"}
 .gr-skeleton--img{aspect-ratio:16/10;border-radius:var(--radius-md)}
 .gr-skeleton--circle{width:44px;height:44px;border-radius:50%}
 
-/* --- Footer Mini Trust Bar --- */
-.gr-footer-trust{background:var(--gr-dark-deep);padding:var(--sp-4) 0;border-top:1px solid #1a2030}
-.gr-footer-trust__inner{display:flex;align-items:center;justify-content:center;gap:var(--sp-6);flex-wrap:wrap}
-.gr-footer-trust__item{display:flex;align-items:center;gap:6px;font-size:.76rem;color:#8e939d}
-.gr-footer-trust__icon{font-size:.9rem;color:var(--gr-gold)}
+/* --- Footer Trust Bar — Removed --- */
 
 /* --- Lightweight Animations --- */
 @keyframes gr-fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
