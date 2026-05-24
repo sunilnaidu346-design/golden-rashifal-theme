@@ -1,9 +1,8 @@
 <?php
 /**
- * Front page (Homepage).
- *
- * Each homepage section is its own template part so site editors can
- * reorder, hide, or replace any block without touching surrounding code.
+ * Front page — premium homepage.
+ * Each section is a dedicated template part for easy reordering.
+ * NO video/shorts section.
  *
  * @package GoldenRashifal
  */
@@ -20,21 +19,18 @@ get_header();
     <?php get_template_part( 'template-parts/home/zodiac-grid' ); ?>
 
     <?php
-    // Mid-page ad slot (optional, set in Customizer).
-    if ( get_theme_mod( 'gr_ad_home_mid', '' ) ) :
-        ?>
-        <div class="gr-wrap gr-section gr-section--ad">
-            <?php golden_rashifal_ad( 'gr_ad_home_mid', __( 'विज्ञापन', 'golden-rashifal' ) ); ?>
-        </div>
-        <?php
-    endif;
+    if ( get_theme_mod( 'gr_ad_home_mid', '' ) ) {
+        echo '<div class="gr-wrap gr-section gr-section--ad">';
+        golden_rashifal_ad( 'gr_ad_home_mid', __( 'विज्ञापन', 'golden-rashifal' ) );
+        echo '</div>';
+    }
     ?>
 
     <?php get_template_part( 'template-parts/home/trending' ); ?>
 
     <?php get_template_part( 'template-parts/home/countdown' ); ?>
 
-    <?php get_template_part( 'template-parts/home/video' ); ?>
+    <?php get_template_part( 'template-parts/home/newsletter' ); ?>
 
 </main>
 
