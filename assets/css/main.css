@@ -949,3 +949,53 @@ body.gr-page-sitemap .gr-article__title::before { content: "≡ "; }
     border: 0;
     white-space: nowrap;
 }
+
+/* ===================================================================
+   CRITICAL FIX — Remove breadcrumbs, title backgrounds, and all icons
+   Applied to ALL pages sitewide
+   =================================================================== */
+
+/* 1. BREADCRUMB — Completely removed */
+.gr-breadcrumbs-wrap {
+    display: none !important;
+}
+
+/* 2. TITLE BACKGROUNDS — Remove all colored backgrounds from headers */
+.gr-article__head {
+    background: none !important;
+    border: none !important;
+}
+body[class*="gr-page-"] .gr-article__head {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 0 var(--sp-5) 0 !important;
+    margin-bottom: var(--sp-6) !important;
+    border-bottom: 1px solid var(--gr-border-light) !important;
+}
+
+/* 3. REMOVE ALL ICONS from titles */
+.gr-article__title::before {
+    content: none !important;
+    display: none !important;
+}
+body[class*="gr-page-"] .gr-article__title::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* 4. REMOVE H2/H3 prefix icons */
+body[class*="gr-page-"] .gr-article__body h2::before {
+    content: none !important;
+    display: none !important;
+}
+body[class*="gr-page-"] .gr-article__body h3::before {
+    content: none !important;
+    display: none !important;
+}
+
+/* 5. Clean title — plain dark text, no background */
+.gr-article__title {
+    color: var(--gr-ink) !important;
+    background: none !important;
+}
