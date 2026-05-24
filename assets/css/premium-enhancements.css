@@ -403,3 +403,20 @@ h1,h2,h3,h4{text-rendering:geometricPrecision}
         margin-top: 2em;
     }
 }
+
+
+
+/* ===================================================================
+   SOCIAL SHARE BAR — Compact inline styling
+   =================================================================== */
+.gr-share{display:flex;align-items:center;gap:var(--sp-3);margin-bottom:var(--sp-5);padding:var(--sp-3) 0;border-bottom:1px solid var(--gr-border-light)}
+.gr-share__label{font-size:.74rem;font-weight:600;color:var(--gr-muted);text-transform:uppercase;letter-spacing:.04em}
+.gr-share__list{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0}
+.gr-share__btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--gr-border-light);color:var(--gr-muted);transition:all .15s var(--ease)}
+.gr-share__btn:hover{border-color:var(--gr-gold);color:var(--gr-gold-deep);background:var(--gr-cream)}
+.gr-share__btn svg{width:15px;height:15px}
+.gr-share__btn.is-copied{border-color:var(--gr-green);color:var(--gr-green)}
+.gr-share__btn--whatsapp:hover{color:#25d366;border-color:#25d366}
+.gr-share__btn--facebook:hover{color:#1877f2;border-color:#1877f2}
+.gr-share__btn--twitter:hover{color:#1da1f2;border-color:#1da1f2}
+.gr-share__btn--telegram:hover{color:#0088cc;border-color:#0088cc}
