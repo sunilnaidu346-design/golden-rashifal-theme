@@ -383,3 +383,304 @@
     .gr-footer__bottom-inner{flex-direction:column;align-items:flex-start;gap:10px}
     .gr-footer__legal{flex-wrap:wrap;gap:10px}
 }
+
+/* ===================================================================
+   CATEGORY-SPECIFIC VISUAL IDENTITY
+   Each page type gets unique accent color + icon styling
+   =================================================================== */
+
+/* --- Page accent system via body class --- */
+.gr-article__title::before {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 1.1em;
+    vertical-align: middle;
+}
+
+/* Choghadiya: clock/sunrise — warm amber */
+body.gr-page-choghadiya .gr-article__title::before { content: "⏳"; }
+body.gr-page-choghadiya .gr-article__title { color: #c97500; }
+body.gr-page-choghadiya .gr-faq__q strong { color: #c97500; }
+body.gr-page-choghadiya .gr-chog__row--best { border-left: 3px solid #10b981; }
+body.gr-page-choghadiya .gr-chog__row--good { border-left: 3px solid #f59e0b; }
+body.gr-page-choghadiya .gr-chog__row--inauspicious { border-left: 3px solid #ef4444; }
+
+/* Panchang: calendar — deep blue */
+body.gr-page-panchang .gr-article__title::before { content: "📅"; }
+body.gr-page-panchang .gr-article__title { color: #1d4ed8; }
+body.gr-page-panchang .gr-faq__q strong { color: #1d4ed8; }
+body.gr-page-panchang .gr-panchang-cell { border-left: 3px solid #3b82f6; }
+
+/* Rashifal: zodiac/star — royal purple */
+body.gr-page-rashifal .gr-article__title::before { content: "✦"; }
+body.gr-page-rashifal .gr-article__title { color: #6d28d9; }
+body.gr-page-rashifal .gr-faq__q strong { color: #6d28d9; }
+
+/* Vastu: compass/home — forest green */
+body.gr-page-vastu .gr-article__title::before { content: "🏠"; }
+body.gr-page-vastu .gr-article__title { color: #15803d; }
+body.gr-page-vastu .gr-faq__q strong { color: #15803d; }
+
+/* Muhurat: temple bell/sun — golden */
+body.gr-page-muhurat .gr-article__title::before { content: "🔔"; }
+body.gr-page-muhurat .gr-article__title { color: #b8860c; }
+body.gr-page-muhurat .gr-faq__q strong { color: #b8860c; }
+
+/* Rahukaal: warning/time — crimson */
+body.gr-page-rahukaal .gr-article__title::before { content: "⚠️"; }
+body.gr-page-rahukaal .gr-article__title { color: #b91c1c; }
+body.gr-page-rahukaal .gr-faq__q strong { color: #b91c1c; }
+
+/* Festival: diya — festive orange */
+body.gr-page-festival .gr-article__title::before { content: "🪔"; }
+body.gr-page-festival .gr-article__title { color: #c2410c; }
+body.gr-page-festival .gr-faq__q strong { color: #c2410c; }
+
+/* Kundli: horoscope chart — indigo */
+body.gr-page-kundli .gr-article__title::before { content: "🔮"; }
+body.gr-page-kundli .gr-article__title { color: #4338ca; }
+body.gr-page-kundli .gr-faq__q strong { color: #4338ca; }
+
+/* Numerology: numbers — teal */
+body.gr-page-numerology .gr-article__title::before { content: "🔢"; }
+body.gr-page-numerology .gr-article__title { color: #0f766e; }
+body.gr-page-numerology .gr-faq__q strong { color: #0f766e; }
+
+/* Navgraha: planets — dark slate */
+body.gr-page-navgraha .gr-article__title::before { content: "🪐"; }
+body.gr-page-navgraha .gr-article__title { color: #334155; }
+body.gr-page-navgraha .gr-faq__q strong { color: #334155; }
+
+/* Ekadashi: prayer — saffron */
+body.gr-page-ekadashi .gr-article__title::before { content: "🙏"; }
+body.gr-page-ekadashi .gr-article__title { color: #a16207; }
+body.gr-page-ekadashi .gr-faq__q strong { color: #a16207; }
+
+/* Purnima: moon — soft violet */
+body.gr-page-purnima .gr-article__title::before { content: "🌕"; }
+body.gr-page-purnima .gr-article__title { color: #7c3aed; }
+body.gr-page-purnima .gr-faq__q strong { color: #7c3aed; }
+
+/* Hindu Calendar: traditional — maroon */
+body.gr-page-hindu-calendar .gr-article__title::before { content: "📜"; }
+body.gr-page-hindu-calendar .gr-article__title { color: #881337; }
+body.gr-page-hindu-calendar .gr-faq__q strong { color: #881337; }
+
+/* Weekly/Monthly Rashifal — inherit purple */
+body.gr-page-weekly-rashifal .gr-article__title::before { content: "📊"; }
+body.gr-page-weekly-rashifal .gr-article__title { color: #7c3aed; }
+body.gr-page-monthly-rashifal .gr-article__title::before { content: "📈"; }
+body.gr-page-monthly-rashifal .gr-article__title { color: #6d28d9; }
+
+/* Legal pages — neutral dark */
+body.gr-page-about .gr-article__title::before { content: "ℹ️"; }
+body.gr-page-contact .gr-article__title::before { content: "📞"; }
+body.gr-page-privacy-policy .gr-article__title::before { content: "🔒"; }
+body.gr-page-disclaimer .gr-article__title::before { content: "⚖️"; }
+body.gr-page-terms .gr-article__title::before { content: "📋"; }
+body.gr-page-editorial-policy .gr-article__title::before { content: "✏️"; }
+body.gr-page-dmca .gr-article__title::before { content: "🛡️"; }
+body.gr-page-sitemap .gr-article__title::before { content: "🗺️"; }
+
+/* ===================================================================
+   IMPROVED FAQ BLOCKS — Premium lightweight design
+   =================================================================== */
+.gr-faq {
+    margin-top: 32px;
+    border: 1px solid var(--gr-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+.gr-faq__item {
+    border-bottom: 1px solid var(--gr-border-light);
+    padding: 0;
+}
+.gr-faq__item:last-child { border-bottom: none; }
+.gr-faq__q {
+    display: block;
+    width: 100%;
+    padding: 16px 20px;
+    font-size: .95rem;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 40px;
+    transition: background .12s ease;
+}
+.gr-faq__q:hover { background: var(--gr-bg-soft); }
+.gr-faq__q::after {
+    content: "+";
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--gr-muted);
+    font-weight: 300;
+    transition: transform .2s;
+}
+.gr-faq__item[open] .gr-faq__q::after {
+    content: "−";
+}
+.gr-faq__q::-webkit-details-marker { display: none; }
+.gr-faq__a {
+    padding: 0 20px 16px 20px;
+    font-size: .9rem;
+    line-height: 1.65;
+    color: var(--gr-ink-soft);
+}
+
+/* ===================================================================
+   IMPROVED ARTICLE BODY — Better readability
+   =================================================================== */
+.gr-article {
+    padding: var(--sp-7) 0 var(--sp-9);
+}
+.gr-article__head {
+    margin-bottom: var(--sp-6);
+    padding-bottom: var(--sp-5);
+    border-bottom: 1px solid var(--gr-border-light);
+}
+.gr-article__title {
+    font-size: clamp(1.4rem, 2vw + .8rem, 2.2rem);
+    line-height: 1.3;
+    margin-bottom: var(--sp-3);
+}
+.gr-article__lede {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--gr-muted);
+    max-width: 680px;
+}
+.gr-article__body {
+    font-size: .98rem;
+    line-height: 1.78;
+}
+.gr-article__body h2 {
+    margin-top: 2.2em;
+    margin-bottom: .6em;
+    padding-top: .4em;
+    font-size: 1.3rem;
+    border-top: 1px solid var(--gr-border-light);
+}
+.gr-article__body h2:first-of-type { border-top: none; padding-top: 0; }
+.gr-article__body h3 {
+    margin-top: 1.5em;
+    margin-bottom: .4em;
+    font-size: 1.08rem;
+    color: var(--gr-ink-soft);
+}
+.gr-article__body p { margin-bottom: 1.1em; }
+.gr-article__body a {
+    color: var(--gr-gold-deep);
+    border-bottom: 1px solid rgba(184,150,12,.3);
+    transition: color .15s, border-color .15s;
+}
+.gr-article__body a:hover {
+    color: var(--gr-orange);
+    border-bottom-color: var(--gr-orange);
+}
+.gr-article__body ul, .gr-article__body ol {
+    padding-left: 1.3em;
+    margin-bottom: 1.2em;
+}
+.gr-article__body li {
+    margin-bottom: .4em;
+    line-height: 1.6;
+}
+.gr-article__body strong { color: var(--gr-ink); }
+
+/* Info highlight block (used in choghadiya/panchang) */
+.gr-article__body > div[style*="background"] {
+    border-radius: var(--radius-lg) !important;
+}
+
+/* ===================================================================
+   CHOGHADIYA TABLE IMPROVEMENTS
+   =================================================================== */
+.gr-chog {
+    background: var(--gr-white);
+    border: 1px solid var(--gr-border);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-4);
+    margin-bottom: var(--sp-5);
+}
+.gr-chog h3 {
+    font-size: .95rem;
+    margin-bottom: var(--sp-3);
+    padding-bottom: var(--sp-2);
+    border-bottom: 1px solid var(--gr-border-light);
+    color: var(--gr-ink);
+}
+.gr-chog__list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.gr-chog__row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr auto;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    font-size: .86rem;
+    border-left: 3px solid transparent;
+    transition: background .12s;
+}
+.gr-chog__row:hover { background: var(--gr-bg-soft); }
+.gr-chog__row--best { background: #ecfdf5; }
+.gr-chog__row--good { background: #fffbeb; }
+.gr-chog__row--inauspicious { background: #fef2f2; }
+.gr-chog__name { font-weight: 600; color: var(--gr-ink); }
+.gr-chog__time { color: var(--gr-muted); font-variant-numeric: tabular-nums; }
+.gr-chog__type { font-size: .78rem; font-weight: 600; }
+
+/* ===================================================================
+   BREADCRUMB IMPROVEMENTS
+   =================================================================== */
+.gr-breadcrumbs-wrap {
+    background: var(--gr-white);
+    border-bottom: 1px solid var(--gr-border-light);
+    padding: 10px 0;
+}
+.gr-breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: .8rem;
+    color: var(--gr-muted);
+    align-items: center;
+}
+.gr-breadcrumbs li { display: flex; align-items: center; gap: 6px; }
+.gr-breadcrumbs a {
+    color: var(--gr-gold-deep);
+    font-weight: 500;
+}
+.gr-breadcrumbs a:hover { color: var(--gr-orange); }
+.gr-breadcrumbs__sep { color: var(--gr-border); font-size: .7rem; }
+
+/* ===================================================================
+   GLOBAL TYPOGRAPHY REFINEMENTS
+   =================================================================== */
+body { letter-spacing: 0.01em; }
+h1, h2, h3, h4 { letter-spacing: -0.01em; }
+.gr-article__body blockquote {
+    margin: 1.5em 0;
+    padding: 16px 20px;
+    border-left: 3px solid var(--gr-gold);
+    background: var(--gr-cream);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-style: italic;
+    color: var(--gr-ink-soft);
+}
+
+/* Improved spacing on mobile */
+@media(max-width:768px) {
+    .gr-article { padding: var(--sp-5) 0 var(--sp-7); }
+    .gr-article__title { font-size: 1.3rem; }
+    .gr-article__body h2 { font-size: 1.15rem; }
+    .gr-faq__q { padding: 14px 16px; padding-right: 36px; font-size: .9rem; }
+    .gr-faq__a { padding: 0 16px 14px; font-size: .86rem; }
+    .gr-chog__row { grid-template-columns: 1fr 1fr auto; padding: 8px 10px; font-size: .82rem; }
+}

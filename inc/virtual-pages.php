@@ -92,6 +92,12 @@ function golden_rashifal_handle_virtual_pages() {
         return $page['title'] . ' — ' . get_bloginfo( 'name' );
     });
 
+    // Add page-specific body class for category styling.
+    add_filter( 'body_class', function( $classes ) use ( $request_path ) {
+        $classes[] = 'gr-page-' . sanitize_html_class( $request_path );
+        return $classes;
+    });
+
     // Load the template.
     include $template_path;
     exit;
