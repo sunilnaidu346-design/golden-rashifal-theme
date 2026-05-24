@@ -25,10 +25,10 @@
     <div class="gr-wrap gr-topbar__inner">
         <div class="gr-topbar__left">
             <span class="gr-topbar__live">LIVE</span>
-            <span class="gr-topbar__item">☀ सूर्योदय <strong><?php echo esc_html( golden_rashifal_format_minutes( golden_rashifal_sun_times()['sunrise_min'] ) ); ?></strong></span>
-            <span class="gr-topbar__item">🌙 चंद्रोदय <strong>09:30 AM</strong></span>
-            <span class="gr-topbar__item">⭐ नक्षत्र <strong>रोहिणी</strong></span>
-            <span class="gr-topbar__item">📅 तिथि <strong>छठी</strong></span>
+            <span class="gr-topbar__item">सूर्योदय <strong><?php echo esc_html( golden_rashifal_format_minutes( golden_rashifal_sun_times()['sunrise_min'] ) ); ?></strong></span>
+            <span class="gr-topbar__item">चंद्रोदय <strong>09:30 AM</strong></span>
+            <span class="gr-topbar__item">नक्षत्र <strong>रोहिणी</strong></span>
+            <span class="gr-topbar__item">तिथि <strong>छठी</strong></span>
         </div>
         <div class="gr-topbar__right">
             <span class="gr-topbar__item">आज का चौघड़िया: लाभ 09:12-10:42 • अमृत 10:42-12:12 • शुभ 13:42-15:12</span>

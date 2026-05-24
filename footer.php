@@ -29,53 +29,53 @@
 
         <!-- Column 2: Quick Links -->
         <div class="gr-footer__col">
-            <h4 class="gr-footer__col-title">Quick Links</h4>
+            <h4 class="gr-footer__col-title">महत्वपूर्ण लिंक</h4>
             <nav class="gr-footer__links" aria-label="<?php esc_attr_e( 'Quick Links', 'golden-rashifal' ); ?>">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
-                <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">About Us</a>
-                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact Us</a>
-                <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">Privacy Policy</a>
-                <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">Disclaimer</a>
-                <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">Terms & Conditions</a>
-                <a href="<?php echo esc_url( home_url( '/editorial-policy/' ) ); ?>">Editorial Policy</a>
-                <a href="<?php echo esc_url( home_url( '/sitemap/' ) ); ?>">Sitemap</a>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">मुख्य पृष्ठ</a>
+                <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">हमारे बारे में</a>
+                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">संपर्क करें</a>
+                <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">गोपनीयता नीति</a>
+                <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">अस्वीकरण</a>
+                <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">नियम और शर्तें</a>
+                <a href="<?php echo esc_url( home_url( '/editorial-policy/' ) ); ?>">संपादकीय नीति</a>
+                <a href="<?php echo esc_url( home_url( '/sitemap/' ) ); ?>">साइटमैप</a>
             </nav>
         </div>
 
         <!-- Column 3: Categories -->
         <div class="gr-footer__col">
-            <h4 class="gr-footer__col-title">Categories</h4>
+            <h4 class="gr-footer__col-title">श्रेणियाँ</h4>
             <nav class="gr-footer__links" aria-label="<?php esc_attr_e( 'Categories', 'golden-rashifal' ); ?>">
-                <a href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>">Today Choghadiya</a>
-                <a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">Panchang</a>
-                <a href="<?php echo esc_url( home_url( '/rahukaal/' ) ); ?>">Rahukal</a>
-                <a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">Shubh Muhurat</a>
-                <a href="<?php echo esc_url( home_url( '/vastu/' ) ); ?>">Vastu Tips</a>
-                <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">Festival Dates</a>
-                <a href="<?php echo esc_url( home_url( '/ekadashi/' ) ); ?>">Ekadashi</a>
-                <a href="<?php echo esc_url( home_url( '/purnima/' ) ); ?>">Purnima</a>
-                <a href="<?php echo esc_url( home_url( '/hindu-calendar/' ) ); ?>">Hindu Calendar</a>
+                <a href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>">आज का चौघड़िया</a>
+                <a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">आज का पंचांग</a>
+                <a href="<?php echo esc_url( home_url( '/rahukaal/' ) ); ?>">राहुकाल</a>
+                <a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">शुभ मुहूर्त</a>
+                <a href="<?php echo esc_url( home_url( '/vastu/' ) ); ?>">वास्तु टिप्स</a>
+                <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार तिथियाँ</a>
+                <a href="<?php echo esc_url( home_url( '/ekadashi/' ) ); ?>">एकादशी</a>
+                <a href="<?php echo esc_url( home_url( '/purnima/' ) ); ?>">पूर्णिमा</a>
+                <a href="<?php echo esc_url( home_url( '/hindu-calendar/' ) ); ?>">हिंदू कैलेंडर</a>
             </nav>
         </div>
 
         <!-- Column 4: Contact Address -->
         <div class="gr-footer__col gr-footer__col--contact">
-            <h4 class="gr-footer__col-title">Contact Us</h4>
+            <h4 class="gr-footer__col-title">संपर्क जानकारी</h4>
             <div class="gr-footer__contact-info">
                 <div class="gr-footer__contact-item">
-                    <span class="gr-footer__contact-icon">🌐</span>
-                    <span><strong>Golden Rashifal</strong><br>Premium Jyotish Portal</span>
+                    <span class="gr-footer__contact-icon">◈</span>
+                    <span><strong>Golden Rashifal</strong><br>प्रीमियम ज्योतिष पोर्टल</span>
                 </div>
                 <div class="gr-footer__contact-item">
-                    <span class="gr-footer__contact-icon">✉️</span>
+                    <span class="gr-footer__contact-icon">✉</span>
                     <a href="mailto:contact@goldenrashifal.com">contact@goldenrashifal.com</a>
                 </div>
                 <div class="gr-footer__contact-item">
-                    <span class="gr-footer__contact-icon">📞</span>
+                    <span class="gr-footer__contact-icon">☎</span>
                     <span>+91 98765 43210</span>
                 </div>
                 <div class="gr-footer__contact-item">
-                    <span class="gr-footer__contact-icon">📍</span>
+                    <span class="gr-footer__contact-icon">⊙</span>
                     <span>India</span>
                 </div>
             </div>
@@ -86,15 +86,15 @@
     <!-- Copyright & Legal -->
     <div class="gr-footer__bottom">
         <div class="gr-wrap gr-footer__bottom-inner">
-            <p class="gr-footer__copy">© <?php echo esc_html( wp_date( 'Y' ) ); ?> <strong>Golden Rashifal</strong>. All Rights Reserved.</p>
+            <p class="gr-footer__copy">© <?php echo esc_html( wp_date( 'Y' ) ); ?> <strong>Golden Rashifal</strong>. सर्वाधिकार सुरक्षित।</p>
             <nav class="gr-footer__legal" aria-label="<?php esc_attr_e( 'Legal', 'golden-rashifal' ); ?>">
-                <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">Privacy</a>
-                <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">Disclaimer</a>
+                <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">गोपनीयता</a>
+                <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">अस्वीकरण</a>
                 <a href="<?php echo esc_url( home_url( '/dmca/' ) ); ?>">DMCA</a>
-                <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">Terms</a>
-                <a href="<?php echo esc_url( home_url( '/sitemap/' ) ); ?>">Sitemap</a>
+                <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">शर्तें</a>
+                <a href="<?php echo esc_url( home_url( '/sitemap/' ) ); ?>">साइटमैप</a>
             </nav>
-            <span class="gr-footer__made">Made with ❤️ in India</span>
+            <span class="gr-footer__made">भारत में निर्मित</span>
         </div>
     </div>
 
@@ -111,8 +111,8 @@
 <!-- Floating social buttons -->
 <div class="gr-floating" aria-hidden="true">
     <a class="gr-floating__btn gr-floating__btn--share" href="#" aria-label="Share">↗</a>
-    <a class="gr-floating__btn gr-floating__btn--chat" href="#" aria-label="Chat">💬</a>
-    <a class="gr-floating__btn gr-floating__btn--star" href="#" aria-label="Bookmark">⭐</a>
+    <a class="gr-floating__btn gr-floating__btn--chat" href="#" aria-label="Chat">✦</a>
+    <a class="gr-floating__btn gr-floating__btn--star" href="#" aria-label="Bookmark">☆</a>
 </div>
 
 <?php wp_footer(); ?>

@@ -905,3 +905,31 @@ body.gr-page-contact .gr-article__head {
 .gr-article__body h3 + p {
     margin-top: .1em;
 }
+
+
+/* ===================================================================
+   EMOJI REMOVAL — Clean Unicode symbols only
+   =================================================================== */
+body.gr-page-choghadiya .gr-article__title::before { content: "◷ "; }
+body.gr-page-panchang .gr-article__title::before { content: "▣ "; }
+body.gr-page-rashifal .gr-article__title::before { content: "✦ "; }
+body.gr-page-vastu .gr-article__title::before { content: "◈ "; }
+body.gr-page-muhurat .gr-article__title::before { content: "☆ "; }
+body.gr-page-rahukaal .gr-article__title::before { content: "◉ "; }
+body.gr-page-festival .gr-article__title::before { content: "✤ "; }
+body.gr-page-kundli .gr-article__title::before { content: "◎ "; }
+body.gr-page-numerology .gr-article__title::before { content: "# "; }
+body.gr-page-navgraha .gr-article__title::before { content: "● "; }
+body.gr-page-ekadashi .gr-article__title::before { content: "◇ "; }
+body.gr-page-purnima .gr-article__title::before { content: "○ "; }
+body.gr-page-hindu-calendar .gr-article__title::before { content: "□ "; }
+body.gr-page-weekly-rashifal .gr-article__title::before { content: "▪ "; }
+body.gr-page-monthly-rashifal .gr-article__title::before { content: "▫ "; }
+body.gr-page-about .gr-article__title::before { content: "· "; }
+body.gr-page-contact .gr-article__title::before { content: "· "; }
+body.gr-page-privacy-policy .gr-article__title::before { content: "§ "; }
+body.gr-page-disclaimer .gr-article__title::before { content: "§ "; }
+body.gr-page-terms .gr-article__title::before { content: "§ "; }
+body.gr-page-editorial-policy .gr-article__title::before { content: "· "; }
+body.gr-page-dmca .gr-article__title::before { content: "§ "; }
+body.gr-page-sitemap .gr-article__title::before { content: "≡ "; }
