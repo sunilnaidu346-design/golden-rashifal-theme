@@ -999,3 +999,154 @@ body[class*="gr-page-"] .gr-article__body h3::before {
     color: var(--gr-ink) !important;
     background: none !important;
 }
+
+/* ===================================================================
+   PREMIUM SINGLE ARTICLE — Editorial Layout Refinement
+   Targets WordPress single posts for handcrafted editorial feel
+   =================================================================== */
+
+/* Article container — optimal reading width */
+.single .gr-article,
+.single .gr-content-wrap {
+    max-width: 720px;
+    margin-inline: auto;
+    padding-inline: var(--sp-4);
+}
+
+/* Article header — clean, spacious, editorial */
+.single .gr-article__head {
+    padding-top: var(--sp-7);
+    padding-bottom: var(--sp-6);
+    margin-bottom: var(--sp-7);
+    border-bottom: 1px solid var(--gr-border-light);
+}
+.single .gr-article__title {
+    font-size: clamp(1.6rem, 2.5vw + .8rem, 2.4rem);
+    line-height: 1.28;
+    letter-spacing: -0.02em;
+    color: var(--gr-ink);
+    margin-bottom: var(--sp-4);
+}
+.single .gr-article__lede {
+    font-size: 1.08rem;
+    line-height: 1.72;
+    color: var(--gr-muted);
+}
+
+/* Article body — premium reading experience */
+.single .gr-article__body {
+    font-size: 1.02rem;
+    line-height: 1.82;
+    color: var(--gr-ink-soft);
+}
+.single .gr-article__body p {
+    margin-bottom: 1.4em;
+}
+.single .gr-article__body h2 {
+    font-size: 1.4rem;
+    margin-top: 2.8em;
+    margin-bottom: 0.8em;
+    padding-top: 1.6em;
+    border-top: 1px solid var(--gr-border-light);
+    color: var(--gr-ink);
+    letter-spacing: -0.01em;
+}
+.single .gr-article__body h2:first-of-type {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+.single .gr-article__body h3 {
+    font-size: 1.15rem;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+    color: var(--gr-ink);
+}
+.single .gr-article__body ul,
+.single .gr-article__body ol {
+    margin-bottom: 1.6em;
+    padding-left: 1.4em;
+}
+.single .gr-article__body li {
+    margin-bottom: 0.6em;
+    line-height: 1.7;
+}
+.single .gr-article__body li::marker {
+    color: var(--gr-gold-deep);
+}
+.single .gr-article__body a {
+    color: var(--gr-gold-deep);
+    text-decoration: underline;
+    text-decoration-color: rgba(184,150,12,.3);
+    text-underline-offset: 3px;
+}
+.single .gr-article__body a:hover {
+    text-decoration-color: var(--gr-orange);
+    color: var(--gr-orange);
+}
+.single .gr-article__body blockquote {
+    margin: 2em 0;
+    padding: 1.4em 1.6em;
+    border-left: 3px solid var(--gr-gold);
+    background: var(--gr-bg-soft);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-style: italic;
+    color: var(--gr-ink-soft);
+}
+.single .gr-article__body img {
+    border-radius: var(--radius-md);
+    margin: 2em 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+.single .gr-article__body strong {
+    color: var(--gr-ink);
+    font-weight: 600;
+}
+.single .gr-faq {
+    margin-top: 3em;
+}
+.single .gr-related,
+.single .gr-author {
+    margin-top: 3em;
+    padding-top: 2em;
+    border-top: 1px solid var(--gr-border-light);
+}
+.single .gr-article__hero {
+    margin-bottom: var(--sp-7);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+.single .gr-article__hero img {
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+.single .gr-article__tags {
+    margin-top: 2.5em;
+    padding-top: 1.5em;
+    border-top: 1px solid var(--gr-border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.single .gr-article__tags a {
+    padding: 5px 12px;
+    background: var(--gr-bg-soft);
+    border: 1px solid var(--gr-border);
+    border-radius: var(--radius-full);
+    font-size: .8rem;
+    color: var(--gr-ink-soft);
+    text-decoration: none;
+}
+.single .gr-article__tags a:hover {
+    border-color: var(--gr-gold);
+    color: var(--gr-gold-deep);
+}
+@media (max-width:768px) {
+    .single .gr-article__head { padding-top:var(--sp-5);padding-bottom:var(--sp-4);margin-bottom:var(--sp-5) }
+    .single .gr-article__title { font-size:1.4rem }
+    .single .gr-article__body { font-size:.96rem;line-height:1.76 }
+    .single .gr-article__body h2 { font-size:1.2rem;margin-top:2.2em;padding-top:1.2em }
+    .single .gr-article__body p { margin-bottom:1.2em }
+}
