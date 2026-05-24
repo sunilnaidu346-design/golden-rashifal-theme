@@ -31,8 +31,6 @@ get_header();
 
     <?php get_template_part( 'template-parts/home/why-trust' ); ?>
 
-    <?php get_template_part( 'template-parts/home/editorial-trust' ); ?>
-
     <?php get_template_part( 'template-parts/home/newsletter' ); ?>
 
     <?php get_template_part( 'template-parts/home/reader-benefits' ); ?>
