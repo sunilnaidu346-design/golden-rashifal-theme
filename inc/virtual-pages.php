@@ -59,6 +59,15 @@ function golden_rashifal_virtual_pages() {
         'mantra/gayatri'        => array( 'title' => 'गायत्री मंत्र — अर्थ और महत्व', 'template' => 'page-templates/rashifal.php' ),
         'mantra/hanuman-chalisa' => array( 'title' => 'हनुमान चालीसा — पाठ और लाभ', 'template' => 'page-templates/rashifal.php' ),
         'mantra/shri-sukta'     => array( 'title' => 'श्री सूक्त — अर्थ और विधि', 'template' => 'page-templates/rashifal.php' ),
+        'ratna/manikya'    => array( 'title' => 'माणिक्य रत्न — सूर्य का रत्न, लाभ और धारण विधि', 'template' => 'page-templates/ratna.php' ),
+        'ratna/moti'       => array( 'title' => 'मोती रत्न — चंद्रमा का रत्न, लाभ और धारण विधि', 'template' => 'page-templates/ratna.php' ),
+        'ratna/munga'      => array( 'title' => 'मूंगा रत्न — मंगल का रत्न, लाभ और धारण विधि', 'template' => 'page-templates/ratna.php' ),
+        'ratna/panna'      => array( 'title' => 'पन्ना रत्न — बुध का रत्न, लाभ और धारण विधि', 'template' => 'page-templates/ratna.php' ),
+        'ratna/pukhraj'    => array( 'title' => 'पुखराज रत्न — बृहस्पति का रत्न, लाभ और धारण विधि', 'template' => 'page-templates/ratna.php' ),
+        'ratna/heera'      => array( 'title' => 'हीरा रत्न — शुक्र का रत्न, लाभ और धारण विधि', 'template' => 'page-templates/ratna.php' ),
+        'ratna/neelam'     => array( 'title' => 'नीलम रत्न — शनि का रत्न, लाभ और धारण विधि', 'template' => 'page-templates/ratna.php' ),
+        'ratna/gomed'      => array( 'title' => 'गोमेद रत्न — राहु का रत्न, लाभ और धारण विधि', 'template' => 'page-templates/ratna.php' ),
+        'ratna/lahsuniya'  => array( 'title' => 'लहसुनिया रत्न — केतु का रत्न, लाभ और धारण विधि', 'template' => 'page-templates/ratna.php' ),
     );
 }
 
