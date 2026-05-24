@@ -18,6 +18,7 @@
 .gr-editorial-trust__inner{grid-template-columns:1fr;gap:var(--sp-6)}
 .gr-editorial-trust__right{justify-content:flex-start}
 .gr-editorial-trust__visual{max-width:300px}
+.gr-reader-benefits__grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
 body{font-size:.94rem}
@@ -42,6 +43,8 @@ body{font-size:.94rem}
 .gr-editorial-trust__visual{max-width:100%}
 .gr-editorial-trust__visual-card{padding:var(--sp-5) var(--sp-4)}
 .gr-editorial-trust__visual-icon{font-size:2rem}
+.gr-reader-benefits{padding:var(--sp-7) 0 var(--sp-6)}
+.gr-reader-benefits__grid{grid-template-columns:1fr}
 }
 @media(max-width:480px){
 .gr-services-grid{grid-template-columns:1fr}
