@@ -933,3 +933,19 @@ body.gr-page-terms .gr-article__title::before { content: "§ "; }
 body.gr-page-editorial-policy .gr-article__title::before { content: "· "; }
 body.gr-page-dmca .gr-article__title::before { content: "§ "; }
 body.gr-page-sitemap .gr-article__title::before { content: "≡ "; }
+
+/* ===================================================================
+   BREADCRUMB HIDDEN — Visually hidden, SEO schema preserved
+   =================================================================== */
+.gr-breadcrumbs-wrap {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    border: 0;
+    white-space: nowrap;
+}
