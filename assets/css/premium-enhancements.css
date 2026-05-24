@@ -238,3 +238,32 @@ h1,h2,h3,h4{text-rendering:geometricPrecision}
     .gr-kundli-result__footer{flex-direction:column;gap:var(--sp-2)}
     .gr-kundli-result__footer .gr-btn{width:100%;justify-content:center}
 }
+
+
+
+/* ===================================================================
+   WHY TRUST US — Premium Editorial Section
+   =================================================================== */
+.gr-why-trust{padding:var(--sp-9) 0;background:var(--gr-bg-soft);position:relative}
+.gr-why-trust::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gr-border),transparent)}
+.gr-why-trust__inner{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--sp-8);align-items:center}
+.gr-why-trust__label{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gr-gold-deep);margin-bottom:var(--sp-3)}
+.gr-why-trust__title{font-size:clamp(1.4rem,1.8vw+.7rem,1.9rem);font-weight:800;line-height:1.25;color:var(--gr-ink);margin-bottom:var(--sp-4)}
+.gr-why-trust__desc{font-size:.9rem;line-height:1.78;color:var(--gr-ink-soft);margin-bottom:var(--sp-6)}
+.gr-why-trust__points{display:flex;flex-direction:column;gap:var(--sp-4)}
+.gr-why-trust__point{display:flex;align-items:flex-start;gap:var(--sp-4)}
+.gr-why-trust__point-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;min-width:32px;border-radius:var(--radius-sm);background:var(--gr-white);border:1px solid var(--gr-border-light);color:var(--gr-gold-deep);font-size:.72rem;font-weight:800;letter-spacing:.02em}
+.gr-why-trust__point strong{display:block;font-size:.88rem;font-weight:700;color:var(--gr-ink);margin-bottom:2px}
+.gr-why-trust__point span{font-size:.82rem;line-height:1.5;color:var(--gr-muted)}
+.gr-why-trust__right{display:flex;align-items:center;justify-content:center}
+.gr-why-trust__card{width:100%;max-width:320px;background:var(--gr-white);border:1px solid var(--gr-border-light);border-radius:var(--radius-xl);padding:var(--sp-6);text-align:center}
+.gr-why-trust__card-top{margin-bottom:var(--sp-5)}
+.gr-why-trust__card-icon{display:block;font-size:2rem;color:var(--gr-gold);line-height:1;margin-bottom:var(--sp-2)}
+.gr-why-trust__card-badge{display:inline-block;padding:4px 12px;background:var(--gr-cream);border:1px solid var(--gr-border-light);border-radius:var(--radius-full);font-size:.7rem;font-weight:600;color:var(--gr-gold-deep);letter-spacing:.02em}
+.gr-why-trust__card-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--sp-3);margin-bottom:var(--sp-4)}
+.gr-why-trust__stat{display:flex;flex-direction:column;align-items:center;padding:var(--sp-3) var(--sp-2);background:var(--gr-bg-soft);border-radius:var(--radius-md);border:1px solid var(--gr-border-light)}
+.gr-why-trust__stat-val{font-size:1.2rem;font-weight:800;color:var(--gr-ink);line-height:1}
+.gr-why-trust__stat-label{font-size:.62rem;color:var(--gr-muted);margin-top:3px;font-weight:500}
+.gr-why-trust__card-note{font-size:.76rem;line-height:1.5;color:var(--gr-muted);margin:0}
+@media(max-width:1024px){.gr-why-trust__inner{grid-template-columns:1fr;gap:var(--sp-6)}.gr-why-trust__right{justify-content:flex-start}.gr-why-trust__card{max-width:280px}}
+@media(max-width:768px){.gr-why-trust{padding:var(--sp-7) 0}.gr-why-trust__card{max-width:100%}}
