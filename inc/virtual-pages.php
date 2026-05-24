@@ -43,6 +43,22 @@ function golden_rashifal_virtual_pages() {
         'navgraha'         => array( 'title' => 'नवग्रह — ग्रहों का प्रभाव और उपाय', 'template' => 'page-templates/navgraha.php' ),
         'weekly-rashifal'  => array( 'title' => 'साप्ताहिक राशिफल — इस सप्ताह का भविष्यफल', 'template' => 'page-templates/weekly-rashifal.php' ),
         'monthly-rashifal' => array( 'title' => 'मासिक राशिफल — इस महीने का भविष्यफल', 'template' => 'page-templates/monthly-rashifal.php' ),
+        'rashifal/mesh'      => array( 'title' => 'मेष राशिफल — आज का भविष्यफल', 'template' => 'page-templates/rashifal.php' ),
+        'rashifal/vrishabh'  => array( 'title' => 'वृषभ राशिफल — आज का भविष्यफल', 'template' => 'page-templates/rashifal.php' ),
+        'rashifal/mithun'    => array( 'title' => 'मिथुन राशिफल — आज का भविष्यफल', 'template' => 'page-templates/rashifal.php' ),
+        'rashifal/kark'      => array( 'title' => 'कर्क राशिफल — आज का भविष्यफल', 'template' => 'page-templates/rashifal.php' ),
+        'rashifal/singh'     => array( 'title' => 'सिंह राशिफल — आज का भविष्यफल', 'template' => 'page-templates/rashifal.php' ),
+        'rashifal/kanya'     => array( 'title' => 'कन्या राशिफल — आज का भविष्यफल', 'template' => 'page-templates/rashifal.php' ),
+        'rashifal/tula'      => array( 'title' => 'तुला राशिफल — आज का भविष्यफल', 'template' => 'page-templates/rashifal.php' ),
+        'rashifal/vrischik'  => array( 'title' => 'वृश्चिक राशिफल — आज का भविष्यफल', 'template' => 'page-templates/rashifal.php' ),
+        'rashifal/dhanu'     => array( 'title' => 'धनु राशिफल — आज का भविष्यफल', 'template' => 'page-templates/rashifal.php' ),
+        'rashifal/makar'     => array( 'title' => 'मकर राशिफल — आज का भविष्यफल', 'template' => 'page-templates/rashifal.php' ),
+        'rashifal/kumbh'     => array( 'title' => 'कुंभ राशिफल — आज का भविष्यफल', 'template' => 'page-templates/rashifal.php' ),
+        'rashifal/meen'      => array( 'title' => 'मीन राशिफल — आज का भविष्यफल', 'template' => 'page-templates/rashifal.php' ),
+        'mantra/mahamrityunjay' => array( 'title' => 'महामृत्युंजय मंत्र — अर्थ और विधि', 'template' => 'page-templates/rashifal.php' ),
+        'mantra/gayatri'        => array( 'title' => 'गायत्री मंत्र — अर्थ और महत्व', 'template' => 'page-templates/rashifal.php' ),
+        'mantra/hanuman-chalisa' => array( 'title' => 'हनुमान चालीसा — पाठ और लाभ', 'template' => 'page-templates/rashifal.php' ),
+        'mantra/shri-sukta'     => array( 'title' => 'श्री सूक्त — अर्थ और विधि', 'template' => 'page-templates/rashifal.php' ),
     );
 }
 
