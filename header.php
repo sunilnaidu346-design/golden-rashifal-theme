@@ -66,13 +66,42 @@
                     'depth'          => 2,
                 ) );
             } else {
-                echo '<ul class="gr-nav__list">';
-                echo '<li><a href="' . esc_url( home_url( '/rashifal/' ) ) . '">राशिफल</a></li>';
-                echo '<li><a href="' . esc_url( home_url( '/panchang/' ) ) . '">पंचांग ▾</a></li>';
-                echo '<li><a href="' . esc_url( home_url( '/choghadiya/' ) ) . '">चौघड़िया ▾</a></li>';
-                echo '<li><a href="' . esc_url( home_url( '/muhurat/' ) ) . '">मुहूर्त ▾</a></li>';
-                echo '<li><a href="' . esc_url( home_url( '/festival/' ) ) . '">त्योहार लेख</a></li>';
-                echo '</ul>';
+                ?>
+                <ul class="gr-nav__list">
+                    <li><a href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>">राशिफल</a>
+                        <ul class="sub-menu">
+                            <li><a href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>">दैनिक राशिफल</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/weekly-rashifal/' ) ); ?>">साप्ताहिक राशिफल</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/monthly-rashifal/' ) ); ?>">मासिक राशिफल</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">पंचांग</a>
+                        <ul class="sub-menu">
+                            <li><a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">आज का पंचांग</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>">चौघड़िया</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/rahukaal/' ) ); ?>">राहुकाल</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">शुभ मुहूर्त</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/hindu-calendar/' ) ); ?>">हिंदू कैलेंडर</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="<?php echo esc_url( home_url( '/kundli/' ) ); ?>">ज्योतिष टूल</a>
+                        <ul class="sub-menu">
+                            <li><a href="<?php echo esc_url( home_url( '/kundli/' ) ); ?>">कुंडली</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/navgraha/' ) ); ?>">नवग्रह</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/numerology/' ) ); ?>">अंकज्योतिष</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/vastu/' ) ); ?>">वास्तु</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/ratna/manikya/' ) ); ?>">नवग्रह रत्न</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार</a>
+                        <ul class="sub-menu">
+                            <li><a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार कैलेंडर</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/ekadashi/' ) ); ?>">एकादशी</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/purnima/' ) ); ?>">पूर्णिमा</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <?php
             }
             ?>
         </nav>
@@ -97,8 +126,29 @@
         <?php
         if ( has_nav_menu( 'primary' ) ) {
             wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'gr-mobile__list', 'depth' => 2 ) );
-        }
+        } else {
         ?>
+        <ul class="gr-mobile__list">
+            <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">होम</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>">दैनिक राशिफल</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/weekly-rashifal/' ) ); ?>">साप्ताहिक राशिफल</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">आज का पंचांग</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>">चौघड़िया</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/rahukaal/' ) ); ?>">राहुकाल</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">शुभ मुहूर्त</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/kundli/' ) ); ?>">कुंडली</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/navgraha/' ) ); ?>">नवग्रह</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/numerology/' ) ); ?>">अंकज्योतिष</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/vastu/' ) ); ?>">वास्तु टिप्स</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/ratna/manikya/' ) ); ?>">नवग्रह रत्न</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार कैलेंडर</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/ekadashi/' ) ); ?>">एकादशी</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/purnima/' ) ); ?>">पूर्णिमा</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/hindu-calendar/' ) ); ?>">हिंदू कैलेंडर</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">हमारे बारे में</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">संपर्क करें</a></li>
+        </ul>
+        <?php } ?>
     </div>
 </div>
 
