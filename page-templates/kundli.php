@@ -76,7 +76,7 @@ get_header();
 <p>जैसे अगर शनि दशा चल रही है — तो शनि से related themes (discipline, delays, hard work) ज़्यादा prominent होंगी। ये general framework है — exact results व्यक्ति की कुंडली पर depend करते हैं।</p>
 
 <h2>क्या कुंडली से भविष्य पता चलता है?</h2>
-<p>Honest perspective — कुंडली tendencies और patterns indicate करती है, exact events नहीं। "आपको 2025 में promotion मिलेगी" — ऐसी specific prediction reliable नहीं मानी जानी चाहिए।</p>
+<p>Honest perspective — कुंडली tendencies और patterns indicate करती है, exact events नहीं। "आपको 2026 में promotion मिलेगी" — ऐसी specific prediction reliable नहीं मानी जानी चाहिए।</p>
 
 <p>"आपके career में growth period है" — ये broad trend indication acceptable है।</p>
 

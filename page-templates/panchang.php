@@ -96,7 +96,7 @@ $panchang = golden_rashifal_panchang_summary();
 <p>📅 <a href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>">आज का चौघड़िया</a> — शुभ-अशुभ समय का चार्ट</p>
 <p>🚫 <a href="<?php echo esc_url( home_url( '/rahukaal/' ) ); ?>">राहुकाल</a> — आज किस समय शुभ काम न करें</p>
 <p>✨ <a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">शुभ मुहूर्त</a> — विवाह, गृह प्रवेश के लिए</p>
-<p>🪔 <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार कैलेंडर</a> — 2025 के प्रमुख हिंदू पर्व</p>
+<p>🪔 <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार कैलेंडर</a> — 2026 के प्रमुख हिंदू पर्व</p>
 <p>🔮 <a href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>">आज का राशिफल</a> — 12 राशियों का भविष्यफल</p>
 
 <h2>अक्सर पूछे जाने वाले सवाल</h2>

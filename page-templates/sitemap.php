@@ -43,10 +43,10 @@ get_header();
 
 <h2>कैलेंडर और त्योहार (Calendar & Festivals)</h2>
 <ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li><a href="<?php echo esc_url( home_url( '/hindu-calendar/' ) ); ?>">हिंदू कैलेंडर 2025</a> — पंचांग तिथियाँ और महीने</li>
-<li><a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार कैलेंडर 2025</a> — प्रमुख हिंदू पर्वों की सूची</li>
+<li><a href="<?php echo esc_url( home_url( '/hindu-calendar/' ) ); ?>">हिंदू कैलेंडर 2026</a> — पंचांग तिथियाँ और महीने</li>
+<li><a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार कैलेंडर 2026</a> — प्रमुख हिंदू पर्वों की सूची</li>
 <li><a href="<?php echo esc_url( home_url( '/ekadashi/' ) ); ?>">एकादशी व्रत</a> — तिथि, महत्व, नियम</li>
-<li><a href="<?php echo esc_url( home_url( '/purnima/' ) ); ?>">पूर्णिमा</a> — व्रत विधि और 2025 की तिथियाँ</li>
+<li><a href="<?php echo esc_url( home_url( '/purnima/' ) ); ?>">पूर्णिमा</a> — व्रत विधि और 2026 की तिथियाँ</li>
 </ul>
 
 <h2>वास्तु और जीवनशैली (Vastu & Lifestyle)</h2>

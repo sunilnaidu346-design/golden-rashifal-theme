@@ -13,7 +13,7 @@ get_header();
 <article class="gr-wrap gr-content-wrap gr-article">
 
 <header class="gr-article__head">
-    <h1 class="gr-article__title">पूर्णिमा — व्रत विधि, महत्व और 2025 की तिथियाँ</h1>
+    <h1 class="gr-article__title">पूर्णिमा — व्रत विधि, महत्व और 2026 की तिथियाँ</h1>
     <p class="gr-article__lede">पूर्णिमा यानी पूरे चाँद की रात। हिंदू कैलेंडर में हर महीने की शुक्ल पक्ष की 15वीं तिथि पूर्णिमा कहलाती है। इस दिन व्रत रखने और पूजा करने की परंपरा सदियों पुरानी है।</p>
 </header>
 
@@ -24,20 +24,20 @@ get_header();
 
 <p>Scientifically — full moon की रात ocean tides highest होती हैं (gravitational pull की वजह से)। कुछ research suggest करती है कि full moon से sleep patterns affect हो सकते हैं, हालांकि ये debatable है।</p>
 
-<h2>2025 की पूर्णिमा तिथियाँ</h2>
+<h2>2026 की पूर्णिमा तिथियाँ</h2>
 <ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li><strong>पौष पूर्णिमा</strong> — जनवरी 2025 (शाकम्भरी पूर्णिमा)</li>
-<li><strong>माघ पूर्णिमा</strong> — फरवरी 2025 (माघी पूर्णिमा स्नान)</li>
-<li><strong>फाल्गुन पूर्णिमा</strong> — मार्च 2025 (होलिका दहन)</li>
-<li><strong>चैत्र पूर्णिमा</strong> — अप्रैल 2025 (हनुमान जयंती)</li>
-<li><strong>वैशाख पूर्णिमा</strong> — मई 2025 (बुद्ध पूर्णिमा)</li>
-<li><strong>ज्येष्ठ पूर्णिमा</strong> — जून 2025 (वट सावित्री)</li>
-<li><strong>आषाढ़ पूर्णिमा</strong> — जुलाई 2025 (गुरु पूर्णिमा)</li>
-<li><strong>श्रावण पूर्णिमा</strong> — अगस्त 2025 (रक्षाबंधन)</li>
-<li><strong>भाद्रपद पूर्णिमा</strong> — सितंबर 2025</li>
-<li><strong>आश्विन पूर्णिमा</strong> — अक्टूबर 2025 (शरद पूर्णिमा)</li>
-<li><strong>कार्तिक पूर्णिमा</strong> — नवंबर 2025 (देव दीपावली)</li>
-<li><strong>मार्गशीर्ष पूर्णिमा</strong> — दिसंबर 2025 (दत्तात्रेय जयंती)</li>
+<li><strong>पौष पूर्णिमा</strong> — जनवरी 2026 (शाकम्भरी पूर्णिमा)</li>
+<li><strong>माघ पूर्णिमा</strong> — फरवरी 2026 (माघी पूर्णिमा स्नान)</li>
+<li><strong>फाल्गुन पूर्णिमा</strong> — मार्च 2026 (होलिका दहन)</li>
+<li><strong>चैत्र पूर्णिमा</strong> — अप्रैल 2026 (हनुमान जयंती)</li>
+<li><strong>वैशाख पूर्णिमा</strong> — मई 2026 (बुद्ध पूर्णिमा)</li>
+<li><strong>ज्येष्ठ पूर्णिमा</strong> — जून 2026 (वट सावित्री)</li>
+<li><strong>आषाढ़ पूर्णिमा</strong> — जुलाई 2026 (गुरु पूर्णिमा)</li>
+<li><strong>श्रावण पूर्णिमा</strong> — अगस्त 2026 (रक्षाबंधन)</li>
+<li><strong>भाद्रपद पूर्णिमा</strong> — सितंबर 2026</li>
+<li><strong>आश्विन पूर्णिमा</strong> — अक्टूबर 2026 (शरद पूर्णिमा)</li>
+<li><strong>कार्तिक पूर्णिमा</strong> — नवंबर 2026 (देव दीपावली)</li>
+<li><strong>मार्गशीर्ष पूर्णिमा</strong> — दिसंबर 2026 (दत्तात्रेय जयंती)</li>
 </ul>
 
 <p><em>Exact dates चंद्र कैलेंडर based हैं — 1 दिन का variation possible है।</em></p>
@@ -89,8 +89,8 @@ get_header();
 
 <h2>संबंधित जानकारी</h2>
 <p>👉 <a href="<?php echo esc_url( home_url( '/ekadashi/' ) ); ?>">एकादशी व्रत</a> — हर महीने की एकादशी तिथि</p>
-<p>👉 <a href="<?php echo esc_url( home_url( '/hindu-calendar/' ) ); ?>">हिंदू कैलेंडर 2025</a> — पूरे साल की तिथियाँ</p>
-<p>👉 <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार कैलेंडर</a> — 2025 के प्रमुख पर्व</p>
+<p>👉 <a href="<?php echo esc_url( home_url( '/hindu-calendar/' ) ); ?>">हिंदू कैलेंडर 2026</a> — पूरे साल की तिथियाँ</p>
+<p>👉 <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार कैलेंडर</a> — 2026 के प्रमुख पर्व</p>
 <p>👉 <a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">आज का पंचांग</a> — आज की तिथि</p>
 <p>👉 <a href="<?php echo esc_url( home_url( '/navgraha/' ) ); ?>">नवग्रह</a> — चंद्रमा और अन्य ग्रहों की जानकारी</p>
 

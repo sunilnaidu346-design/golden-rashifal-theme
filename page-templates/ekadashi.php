@@ -13,7 +13,7 @@ get_header();
 <article class="gr-wrap gr-content-wrap gr-article">
 
 <header class="gr-article__head">
-    <h1 class="gr-article__title">एकादशी व्रत — तिथि, महत्व, नियम और 2025 की तिथियाँ</h1>
+    <h1 class="gr-article__title">एकादशी व्रत — तिथि, महत्व, नियम और 2026 की तिथियाँ</h1>
     <p class="gr-article__lede">एकादशी हिंदू कैलेंडर की 11वीं तिथि है जो हर महीने दो बार आती है — शुक्ल पक्ष (चाँद बढ़ते समय) और कृष्ण पक्ष (चाँद घटते समय) में। भगवान विष्णु की आराधना का यह प्रमुख दिन माना जाता है।</p>
 </header>
 
@@ -29,22 +29,22 @@ get_header();
 
 <p>एक practical perspective से — monthly fasting (उपवास) शरीर को detox करता है। Ayurveda में भी periodic fasting को beneficial माना गया है। तो चाहे आप धार्मिक कारण से व्रत करें या health के लिए — दोनों तरह से फ़ायदा है।</p>
 
-<h2>2025 की प्रमुख एकादशियाँ</h2>
+<h2>2026 की प्रमुख एकादशियाँ</h2>
 
-<h3>शुक्ल पक्ष एकादशियाँ (2025)</h3>
+<h3>शुक्ल पक्ष एकादशियाँ (2026)</h3>
 <ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li><strong>पौष पुत्रदा एकादशी</strong> — जनवरी 2025</li>
-<li><strong>षट्तिला एकादशी</strong> — फरवरी 2025</li>
-<li><strong>जया एकादशी</strong> — फरवरी/मार्च 2025</li>
-<li><strong>आमलकी एकादशी</strong> — मार्च 2025</li>
-<li><strong>कामदा एकादशी</strong> — अप्रैल 2025</li>
-<li><strong>मोहिनी एकादशी</strong> — मई 2025</li>
-<li><strong>निर्जला एकादशी</strong> — जून 2025 (सबसे कठिन)</li>
-<li><strong>देवशयनी एकादशी</strong> — जुलाई 2025</li>
-<li><strong>कामिका एकादशी</strong> — जुलाई/अगस्त 2025</li>
-<li><strong>परिवर्तिनी एकादशी</strong> — सितंबर 2025</li>
-<li><strong>इंदिरा एकादशी</strong> — सितंबर/अक्टूबर 2025</li>
-<li><strong>देवउठनी एकादशी</strong> — नवंबर 2025 (तुलसी विवाह)</li>
+<li><strong>पौष पुत्रदा एकादशी</strong> — जनवरी 2026</li>
+<li><strong>षट्तिला एकादशी</strong> — फरवरी 2026</li>
+<li><strong>जया एकादशी</strong> — फरवरी/मार्च 2026</li>
+<li><strong>आमलकी एकादशी</strong> — मार्च 2026</li>
+<li><strong>कामदा एकादशी</strong> — अप्रैल 2026</li>
+<li><strong>मोहिनी एकादशी</strong> — मई 2026</li>
+<li><strong>निर्जला एकादशी</strong> — जून 2026 (सबसे कठिन)</li>
+<li><strong>देवशयनी एकादशी</strong> — जुलाई 2026</li>
+<li><strong>कामिका एकादशी</strong> — जुलाई/अगस्त 2026</li>
+<li><strong>परिवर्तिनी एकादशी</strong> — सितंबर 2026</li>
+<li><strong>इंदिरा एकादशी</strong> — सितंबर/अक्टूबर 2026</li>
+<li><strong>देवउठनी एकादशी</strong> — नवंबर 2026 (तुलसी विवाह)</li>
 </ul>
 
 <p><em>Note: Exact dates चंद्र कैलेंडर पर based हैं। 1-2 दिन का variation possible है।</em></p>
@@ -89,8 +89,8 @@ get_header();
 
 <h2>संबंधित जानकारी</h2>
 <p>👉 <a href="<?php echo esc_url( home_url( '/purnima/' ) ); ?>">पूर्णिमा</a> — हर महीने की पूर्णिमा तिथि और व्रत</p>
-<p>👉 <a href="<?php echo esc_url( home_url( '/hindu-calendar/' ) ); ?>">हिंदू कैलेंडर 2025</a> — सभी तिथियों की list</p>
-<p>👉 <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार कैलेंडर</a> — 2025 के प्रमुख पर्व</p>
+<p>👉 <a href="<?php echo esc_url( home_url( '/hindu-calendar/' ) ); ?>">हिंदू कैलेंडर 2026</a> — सभी तिथियों की list</p>
+<p>👉 <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार कैलेंडर</a> — 2026 के प्रमुख पर्व</p>
 <p>👉 <a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">आज का पंचांग</a> — आज की तिथि check करें</p>
 
 <h2>अक्सर पूछे जाने वाले सवाल</h2>

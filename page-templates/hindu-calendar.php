@@ -1,6 +1,6 @@
 <?php
 /**
- * Virtual Page: हिंदू कैलेंडर 2025
+ * Virtual Page: हिंदू कैलेंडर 2026
  * Full Hindi content about Hindu calendar system.
  *
  * @package GoldenRashifal
@@ -13,8 +13,8 @@ get_header();
 <article class="gr-wrap gr-content-wrap gr-article">
 
 <header class="gr-article__head">
-    <h1 class="gr-article__title">हिंदू कैलेंडर 2025 — विक्रम संवत 2081-2082 की पंचांग तिथियाँ</h1>
-    <p class="gr-article__lede">हिंदू कैलेंडर (पंचांग) चंद्रमा और सूर्य दोनों की गति पर आधारित एक lunisolar calendar है। 2025 ई. में विक्रम संवत 2081-2082 चल रहा है। यहाँ इसकी पूरी संरचना और महीनों की जानकारी दी गई है।</p>
+    <h1 class="gr-article__title">हिंदू कैलेंडर 2026 — विक्रम संवत 2081-2082 की पंचांग तिथियाँ</h1>
+    <p class="gr-article__lede">हिंदू कैलेंडर (पंचांग) चंद्रमा और सूर्य दोनों की गति पर आधारित एक lunisolar calendar है। 2026 ई. में विक्रम संवत 2081-2082 चल रहा है। यहाँ इसकी पूरी संरचना और महीनों की जानकारी दी गई है।</p>
 </header>
 
 <div class="gr-article__body">
@@ -57,10 +57,10 @@ get_header();
 <h2>संवत (Era) Systems</h2>
 
 <h3>विक्रम संवत</h3>
-<p>सबसे widely used भारतीय calendar era। 57 BCE में शुरू हुआ (राजा विक्रमादित्य के नाम पर)। 2025 AD = विक्रम संवत 2081-2082। Nepal का official calendar भी Vikram Samvat based है।</p>
+<p>सबसे widely used भारतीय calendar era। 57 BCE में शुरू हुआ (राजा विक्रमादित्य के नाम पर)। 2026 AD = विक्रम संवत 2081-2082। Nepal का official calendar भी Vikram Samvat based है।</p>
 
 <h3>शक संवत</h3>
-<p>भारत सरकार का official calendar। 78 AD में शुरू। 2025 AD = शक संवत 1947। Indian government documents, All India Radio, और Doordarshan इसे use करते हैं।</p>
+<p>भारत सरकार का official calendar। 78 AD में शुरू। 2026 AD = शक संवत 1947। Indian government documents, All India Radio, और Doordarshan इसे use करते हैं।</p>
 
 <h2>नक्षत्र — 27 तारा-समूह</h2>
 <p>पंचांग में तिथि के साथ "नक्षत्र" भी दिया जाता है। आकाश को 27 equal parts में बाँटा गया है — हर part एक नक्षत्र। चंद्रमा हर दिन एक नक्षत्र से गुज़रता है (approximately)।</p>
@@ -79,9 +79,9 @@ get_header();
 
 <h2>संबंधित जानकारी</h2>
 <p>👉 <a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">आज का पंचांग</a> — daily तिथि, नक्षत्र, योग</p>
-<p>👉 <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार कैलेंडर 2025</a> — सभी प्रमुख पर्वों की dates</p>
+<p>👉 <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार कैलेंडर 2026</a> — सभी प्रमुख पर्वों की dates</p>
 <p>👉 <a href="<?php echo esc_url( home_url( '/ekadashi/' ) ); ?>">एकादशी</a> — साल भर की एकादशी तिथियाँ</p>
-<p>👉 <a href="<?php echo esc_url( home_url( '/purnima/' ) ); ?>">पूर्णिमा</a> — 2025 की सभी पूर्णिमा dates</p>
+<p>👉 <a href="<?php echo esc_url( home_url( '/purnima/' ) ); ?>">पूर्णिमा</a> — 2026 की सभी पूर्णिमा dates</p>
 <p>👉 <a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">शुभ मुहूर्त</a> — विवाह और गृह प्रवेश</p>
 
 <h2>अक्सर पूछे जाने वाले सवाल</h2>
@@ -108,8 +108,8 @@ get_header();
 </details>
 
 <details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>विक्रम संवत 2025 में कौन सा चल रहा है?</strong></summary>
-<div class="gr-faq__a">2025 AD में विक्रम संवत 2081 (अप्रैल 2025 तक) और 2082 (अप्रैल 2025 से) चल रहा है। चैत्र शुक्ल प्रतिपदा पर नया विक्रम संवत शुरू होता है।</div>
+<summary class="gr-faq__q"><strong>विक्रम संवत 2026 में कौन सा चल रहा है?</strong></summary>
+<div class="gr-faq__a">2026 AD में विक्रम संवत 2081 (अप्रैल 2026 तक) और 2082 (अप्रैल 2026 से) चल रहा है। चैत्र शुक्ल प्रतिपदा पर नया विक्रम संवत शुरू होता है।</div>
 </details>
 </div>
 

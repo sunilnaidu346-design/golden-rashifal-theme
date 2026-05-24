@@ -7,12 +7,12 @@
  */
 
 $articles = array(
-    array( 'title' => 'मेष राशि 2025 वार्षिक राशिफल: करियर, प्रेम और बड़े बदलाव', 'cat' => 'राशिफल', 'badge' => 'ट्रेंडिंग', 'gradient' => 'linear-gradient(135deg,#7c3aed,#4f46e5)', 'featured' => true ),
-    array( 'title' => 'शनि की साढ़ेसाती 2025: किन राशियों पर होगा असर, जानें उपाय', 'cat' => 'ज्योतिष', 'badge' => 'लोकप्रिय', 'gradient' => 'linear-gradient(135deg,#4f46e5,#7c3aed)', 'time' => '8 मिनट', 'views' => '67.8K' ),
+    array( 'title' => 'मेष राशि 2026 वार्षिक राशिफल: करियर, प्रेम और बड़े बदलाव', 'cat' => 'राशिफल', 'badge' => 'ट्रेंडिंग', 'gradient' => 'linear-gradient(135deg,#7c3aed,#4f46e5)', 'featured' => true ),
+    array( 'title' => 'शनि की साढ़ेसाती 2026: किन राशियों पर होगा असर, जानें उपाय', 'cat' => 'ज्योतिष', 'badge' => 'लोकप्रिय', 'gradient' => 'linear-gradient(135deg,#4f46e5,#7c3aed)', 'time' => '8 मिनट', 'views' => '67.8K' ),
     array( 'title' => 'घर में लक्ष्मी माता को बुलाने के 7 वास्तु टिप्स', 'cat' => 'वास्तु', 'badge' => '✨ नया', 'gradient' => 'linear-gradient(135deg,#10b981,#059669)', 'time' => '6 मिनट', 'views' => '38.9K' ),
-    array( 'title' => 'विवाह के लिए सर्वश्रेष्ठ राशि मिलान 2025 - गुण मिलान गाइड', 'cat' => 'कुंडली', 'badge' => 'ट्रेंडिंग', 'gradient' => 'linear-gradient(135deg,#ec4899,#db2777)', 'time' => '10 मिनट', 'views' => '52.3K' ),
+    array( 'title' => 'विवाह के लिए सर्वश्रेष्ठ राशि मिलान 2026 - गुण मिलान गाइड', 'cat' => 'कुंडली', 'badge' => 'ट्रेंडिंग', 'gradient' => 'linear-gradient(135deg,#ec4899,#db2777)', 'time' => '10 मिनट', 'views' => '52.3K' ),
     array( 'title' => 'गायत्री मंत्र का सही उच्चारण और इसके चमत्कारी लाभ', 'cat' => 'मंत्र', 'badge' => 'लोकप्रिय', 'gradient' => 'linear-gradient(135deg,#7c3aed,#9333ea)', 'time' => '7 मिनट', 'views' => '89.1K' ),
-    array( 'title' => 'राहु-केतु गोचर 2025: इन राशियों की बदलेगी किस्मत', 'cat' => 'नवग्रह', 'badge' => '✨ नया', 'gradient' => 'linear-gradient(135deg,#1f2937,#374151)', 'time' => '9 मिनट', 'views' => '41.5K' ),
+    array( 'title' => 'राहु-केतु गोचर 2026: इन राशियों की बदलेगी किस्मत', 'cat' => 'नवग्रह', 'badge' => '✨ नया', 'gradient' => 'linear-gradient(135deg,#1f2937,#374151)', 'time' => '9 मिनट', 'views' => '41.5K' ),
 );
 ?>
 <section class="gr-section gr-section--articles">

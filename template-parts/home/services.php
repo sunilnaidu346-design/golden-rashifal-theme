@@ -13,8 +13,8 @@ $services = array(
     array( 'title' => 'चौघड़िया', 'en' => 'Choghadiya Today', 'desc' => 'शुभ और अशुभ समय की जानकारी', 'icon' => '🔥', 'color' => '#ff8c00', 'badge' => 'आज', 'url' => '/choghadiya/' ),
     array( 'title' => 'राहुकाल', 'en' => 'Rahukaal Timing', 'desc' => 'आज राहु काल और बचने के उपाय', 'icon' => '🚫', 'color' => '#dc3545', 'badge' => '07:30-09:00', 'url' => '/rahukaal/' ),
     array( 'title' => 'पंचांग', 'en' => "Today's Panchang", 'desc' => 'तिथि, नक्षत्र, योग, करण की जानकारी', 'icon' => '🪐', 'color' => '#f59e0b', 'badge' => 'आज', 'url' => '/panchang/' ),
-    array( 'title' => 'त्योहार कैलेंडर', 'en' => 'Festival Calendar', 'desc' => '2025 के सभी हिंदू त्योहारों की सूची', 'icon' => '🌺', 'color' => '#10b981', 'badge' => '2025', 'url' => '/festival/' ),
-    array( 'title' => 'मुहूर्त', 'en' => 'Auspicious Muhurat', 'desc' => 'विवाह, गृह प्रवेश और अन्य शुभ मुहूर्त', 'icon' => '⭐', 'color' => '#7c3aed', 'badge' => '2025', 'url' => '/muhurat/' ),
+    array( 'title' => 'त्योहार कैलेंडर', 'en' => 'Festival Calendar', 'desc' => '2026 के सभी हिंदू त्योहारों की सूची', 'icon' => '🌺', 'color' => '#10b981', 'badge' => '2026', 'url' => '/festival/' ),
+    array( 'title' => 'मुहूर्त', 'en' => 'Auspicious Muhurat', 'desc' => 'विवाह, गृह प्रवेश और अन्य शुभ मुहूर्त', 'icon' => '⭐', 'color' => '#7c3aed', 'badge' => '2026', 'url' => '/muhurat/' ),
 );
 ?>
 <section class="gr-section gr-section--services">

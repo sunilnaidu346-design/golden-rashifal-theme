@@ -88,7 +88,7 @@ get_header();
 <p>इन Terms & Conditions से related कोई सवाल हो तो:</p>
 <p>✉️ Email: contact@goldenrashifal.com</p>
 
-<p><strong>Last Updated:</strong> January 2025</p>
+<p><strong>Last Updated:</strong> January 2026</p>
 
 <h2>संबंधित पेज</h2>
 <p>📋 <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">गोपनीयता नीति (Privacy Policy)</a></p>
@@ -117,7 +117,7 @@ get_header();
 
 <details class="gr-faq__item">
 <summary class="gr-faq__q"><strong>ये Terms कब update हुई हैं?</strong></summary>
-<div class="gr-faq__a">ये Terms January 2025 में last update हुई हैं। हम ज़रूरत पड़ने पर बिना notice के changes कर सकते हैं। Regular basis पर इस page को check करते रहें।</div>
+<div class="gr-faq__a">ये Terms January 2026 में last update हुई हैं। हम ज़रूरत पड़ने पर बिना notice के changes कर सकते हैं। Regular basis पर इस page को check करते रहें।</div>
 </details>
 </div>
 

@@ -684,3 +684,224 @@ h1, h2, h3, h4 { letter-spacing: -0.01em; }
     .gr-faq__a { padding: 0 16px 14px; font-size: .86rem; }
     .gr-chog__row { grid-template-columns: 1fr 1fr auto; padding: 8px 10px; font-size: .82rem; }
 }
+
+/* ===================================================================
+   FINAL PREMIUM REFINEMENT — May 2026
+   Enhanced visual identity for key pages
+   =================================================================== */
+
+/* --- VASTU PAGE — Compass/Direction visual identity --- */
+body.gr-page-vastu .gr-article__head {
+    background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+    border: 1px solid #bbf7d0;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    margin-bottom: 32px;
+}
+body.gr-page-vastu .gr-article__body h2 {
+    border-top-color: #86efac;
+}
+body.gr-page-vastu .gr-article__body h2::before {
+    content: "◈ ";
+    color: #15803d;
+}
+body.gr-page-vastu .gr-article__body h3::before {
+    content: "→ ";
+    color: #22c55e;
+}
+
+/* --- RASHIFAL PAGE — Zodiac/Star visual identity --- */
+body.gr-page-rashifal .gr-article__head,
+body.gr-page-weekly-rashifal .gr-article__head,
+body.gr-page-monthly-rashifal .gr-article__head {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    border: 1px solid #c4b5fd;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    margin-bottom: 32px;
+}
+body.gr-page-rashifal .gr-article__body h2 {
+    border-top-color: #c4b5fd;
+}
+body.gr-page-rashifal .gr-article__body h2::before {
+    content: "✧ ";
+    color: #7c3aed;
+}
+
+/* --- DISCLAIMER PAGE — Legal/editorial styling --- */
+body.gr-page-disclaimer .gr-article__head,
+body.gr-page-terms .gr-article__head,
+body.gr-page-privacy-policy .gr-article__head {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    margin-bottom: 32px;
+}
+body.gr-page-disclaimer .gr-article__body h2 {
+    border-top-color: #cbd5e1;
+}
+body.gr-page-disclaimer .gr-article__body h2::before {
+    content: "§ ";
+    color: #64748b;
+    font-weight: 400;
+}
+body.gr-page-disclaimer .gr-article__body ul {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-md);
+    padding: 16px 16px 16px 32px;
+    margin-bottom: 1.4em;
+}
+body.gr-page-disclaimer .gr-article__body li {
+    border-bottom: 1px dashed #e2e8f0;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+body.gr-page-disclaimer .gr-article__body li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* --- CHOGHADIYA PAGE — Clock/Sunrise visual identity --- */
+body.gr-page-choghadiya .gr-article__head {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 1px solid #fde68a;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    margin-bottom: 32px;
+}
+body.gr-page-choghadiya .gr-article__body h2 {
+    border-top-color: #fde68a;
+}
+body.gr-page-choghadiya .gr-article__body h2::before {
+    content: "◷ ";
+    color: #d97706;
+}
+body.gr-page-choghadiya .gr-chog {
+    box-shadow: 0 2px 8px rgba(217,119,6,.06);
+}
+body.gr-page-choghadiya .gr-chog h3 {
+    color: #92400e;
+}
+
+/* --- PANCHANG PAGE — Calendar identity --- */
+body.gr-page-panchang .gr-article__head {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border: 1px solid #93c5fd;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    margin-bottom: 32px;
+}
+body.gr-page-panchang .gr-article__body h2::before {
+    content: "▣ ";
+    color: #2563eb;
+}
+
+/* --- FESTIVAL PAGE — Festive warm identity --- */
+body.gr-page-festival .gr-article__head,
+body.gr-page-ekadashi .gr-article__head,
+body.gr-page-purnima .gr-article__head {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    border: 1px solid #fdba74;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    margin-bottom: 32px;
+}
+body.gr-page-festival .gr-article__body h2::before {
+    content: "✤ ";
+    color: #ea580c;
+}
+
+/* --- MUHURAT PAGE — Golden bell identity --- */
+body.gr-page-muhurat .gr-article__head {
+    background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
+    border: 1px solid #fde047;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    margin-bottom: 32px;
+}
+body.gr-page-muhurat .gr-article__body h2::before {
+    content: "☆ ";
+    color: #a16207;
+}
+
+/* --- RAHUKAAL PAGE — Warning/caution identity --- */
+body.gr-page-rahukaal .gr-article__head {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border: 1px solid #fca5a5;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    margin-bottom: 32px;
+}
+body.gr-page-rahukaal .gr-article__body h2::before {
+    content: "◉ ";
+    color: #dc2626;
+}
+
+/* --- KUNDLI/NAVGRAHA — Deep identity --- */
+body.gr-page-kundli .gr-article__head,
+body.gr-page-navgraha .gr-article__head {
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+    border: 1px solid #a5b4fc;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    margin-bottom: 32px;
+}
+body.gr-page-kundli .gr-article__body h2::before {
+    content: "◎ ";
+    color: #4338ca;
+}
+body.gr-page-navgraha .gr-article__body h2::before {
+    content: "● ";
+    color: #475569;
+}
+
+/* --- NUMEROLOGY — Teal identity --- */
+body.gr-page-numerology .gr-article__head {
+    background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+    border: 1px solid #5eead4;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    margin-bottom: 32px;
+}
+body.gr-page-numerology .gr-article__body h2::before {
+    content: "# ";
+    color: #0f766e;
+    font-weight: 800;
+}
+
+/* --- ABOUT/CONTACT — Clean professional --- */
+body.gr-page-about .gr-article__head,
+body.gr-page-contact .gr-article__head {
+    background: linear-gradient(135deg, #fafaf9 0%, #f5f5f4 100%);
+    border: 1px solid #d6d3d1;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    margin-bottom: 32px;
+}
+
+/* --- Enhanced content blocks within articles --- */
+.gr-article__body > div[style*="background"] {
+    transition: box-shadow .2s ease;
+}
+.gr-article__body > div[style*="background"]:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,.04);
+}
+
+/* Better paragraph max-width for readability */
+.gr-article__body p {
+    max-width: 680px;
+}
+.gr-article__body ul, .gr-article__body ol {
+    max-width: 680px;
+}
+
+/* Improved section visual rhythm */
+.gr-article__body h2 + p {
+    margin-top: .2em;
+}
+.gr-article__body h3 + p {
+    margin-top: .1em;
+}

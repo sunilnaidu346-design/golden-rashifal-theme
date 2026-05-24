@@ -103,7 +103,7 @@ $chog = golden_rashifal_choghadiya_today();
 <p>👉 <a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">आज का पंचांग</a> — तिथि, नक्षत्र, योग, करण की जानकारी</p>
 <p>👉 <a href="<?php echo esc_url( home_url( '/rahukaal/' ) ); ?>">आज का राहुकाल</a> — किस समय शुभ काम न करें</p>
 <p>👉 <a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">शुभ मुहूर्त</a> — विवाह, गृह प्रवेश के लिए उचित समय</p>
-<p>👉 <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार कैलेंडर 2025</a> — आने वाले प्रमुख हिंदू पर्व</p>
+<p>👉 <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">त्योहार कैलेंडर 2026</a> — आने वाले प्रमुख हिंदू पर्व</p>
 
 <h2>अक्सर पूछे जाने वाले सवाल</h2>
 
