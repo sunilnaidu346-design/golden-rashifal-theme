@@ -104,9 +104,46 @@
             <p><strong>Disclaimer:</strong> Golden Rashifal पर प्रकाशित सामग्री पारंपरिक मान्यताओं और सामान्य जानकारी पर आधारित है। किसी भी महत्वपूर्ण निर्णय से पहले योग्य ज्योतिषाचार्य से परामर्श लें। यह किसी चिकित्सकीय, कानूनी या वित्तीय सलाह का विकल्प नहीं है।</p>
         </div>
     </div>
+
+    <!-- Mini Trust Bar -->
+    <div class="gr-footer-trust">
+        <div class="gr-wrap gr-footer-trust__inner">
+            <span class="gr-footer-trust__item"><span class="gr-footer-trust__icon">&#9670;</span> <?php esc_html_e( 'वैदिक प्रमाणित', 'golden-rashifal' ); ?></span>
+            <span class="gr-footer-trust__item"><span class="gr-footer-trust__icon">&#9201;</span> <?php esc_html_e( 'प्रतिदिन अपडेट', 'golden-rashifal' ); ?></span>
+            <span class="gr-footer-trust__item"><span class="gr-footer-trust__icon">&#9733;</span> <?php esc_html_e( 'लाखों पाठक', 'golden-rashifal' ); ?></span>
+            <span class="gr-footer-trust__item"><span class="gr-footer-trust__icon">&#9745;</span> <?php esc_html_e( 'AdSense अनुमोदित', 'golden-rashifal' ); ?></span>
+            <span class="gr-footer-trust__item"><span class="gr-footer-trust__icon">&#9883;</span> <?php esc_html_e( 'SSL सुरक्षित', 'golden-rashifal' ); ?></span>
+        </div>
+    </div>
 </footer>
 
 <button class="gr-totop" data-gr-totop aria-label="<?php esc_attr_e( 'Back to top', 'golden-rashifal' ); ?>" hidden>↑</button>
+
+<!-- Mobile Bottom Navigation -->
+<nav class="gr-mobile-nav" aria-label="<?php esc_attr_e( 'मोबाइल नेविगेशन', 'golden-rashifal' ); ?>">
+    <div class="gr-mobile-nav__inner">
+        <a class="gr-mobile-nav__item" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <span class="gr-mobile-nav__icon">&#9750;</span>
+            <?php esc_html_e( 'होम', 'golden-rashifal' ); ?>
+        </a>
+        <a class="gr-mobile-nav__item" href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>">
+            <span class="gr-mobile-nav__icon">&#10026;</span>
+            <?php esc_html_e( 'राशिफल', 'golden-rashifal' ); ?>
+        </a>
+        <a class="gr-mobile-nav__item" href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">
+            <span class="gr-mobile-nav__icon">&#9788;</span>
+            <?php esc_html_e( 'पंचांग', 'golden-rashifal' ); ?>
+        </a>
+        <a class="gr-mobile-nav__item" href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>">
+            <span class="gr-mobile-nav__icon">&#9201;</span>
+            <?php esc_html_e( 'चौघड़िया', 'golden-rashifal' ); ?>
+        </a>
+        <a class="gr-mobile-nav__item" href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">
+            <span class="gr-mobile-nav__icon">&#9734;</span>
+            <?php esc_html_e( 'मुहूर्त', 'golden-rashifal' ); ?>
+        </a>
+    </div>
+</nav>
 
 <!-- Floating social buttons -->
 <div class="gr-floating" aria-hidden="true">

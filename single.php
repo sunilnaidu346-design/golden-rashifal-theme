@@ -44,6 +44,12 @@ while ( have_posts() ) :
                                 </span>
                             </span>
                         </span>
+                        <?php if ( get_the_modified_date() !== get_the_date() ) : ?>
+                            <span class="gr-last-updated">
+                                <span class="gr-last-updated__icon" aria-hidden="true">&#9679;</span>
+                                <?php printf( esc_html__( 'अपडेट: %s', 'golden-rashifal' ), esc_html( get_the_modified_date() ) ); ?>
+                            </span>
+                        <?php endif; ?>
                     </div>
                 </header>
 

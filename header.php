@@ -108,6 +108,18 @@
         <button class="gr-search-pop__close" data-gr-toggle="search" aria-label="<?php esc_attr_e( 'बंद', 'golden-rashifal' ); ?>">×</button>
         <h2><?php esc_html_e( 'क्या खोज रहे हैं?', 'golden-rashifal' ); ?></h2>
         <?php get_search_form(); ?>
+        <div class="gr-search-pop__popular">
+            <span class="gr-search-pop__popular-title"><?php esc_html_e( 'लोकप्रिय खोज', 'golden-rashifal' ); ?></span>
+            <div class="gr-search-pop__tags">
+                <a href="#"><?php esc_html_e( 'आज का राशिफल', 'golden-rashifal' ); ?></a>
+                <a href="#"><?php esc_html_e( 'चौघड़िया', 'golden-rashifal' ); ?></a>
+                <a href="#"><?php esc_html_e( 'शुभ मुहूर्त', 'golden-rashifal' ); ?></a>
+                <a href="#"><?php esc_html_e( 'राहुकाल', 'golden-rashifal' ); ?></a>
+                <a href="#"><?php esc_html_e( 'पंचांग', 'golden-rashifal' ); ?></a>
+                <a href="#"><?php esc_html_e( 'एकादशी', 'golden-rashifal' ); ?></a>
+                <a href="#"><?php esc_html_e( 'वास्तु टिप्स', 'golden-rashifal' ); ?></a>
+            </div>
+        </div>
     </div>
 </div>
 

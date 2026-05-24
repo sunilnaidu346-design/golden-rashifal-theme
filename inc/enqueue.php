@@ -71,6 +71,14 @@ function golden_rashifal_enqueue_assets() {
         $ver
     );
 
+    // Premium enhancements — progress bar, mobile nav, skeletons, animations.
+    wp_enqueue_style(
+        'golden-rashifal-premium',
+        GOLDEN_RASHIFAL_URI . 'assets/css/premium-enhancements.css',
+        array( 'golden-rashifal-responsive' ),
+        $ver
+    );
+
     // Comments script only when needed.
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
@@ -85,6 +93,16 @@ function golden_rashifal_enqueue_assets() {
         true
     );
     wp_script_add_data( 'golden-rashifal-main', 'defer', true );
+
+    // Premium enhancements JS — mobile nav, animations, search suggestions.
+    wp_enqueue_script(
+        'golden-rashifal-premium',
+        GOLDEN_RASHIFAL_URI . 'assets/js/premium.js',
+        array( 'golden-rashifal-main' ),
+        $ver,
+        true
+    );
+    wp_script_add_data( 'golden-rashifal-premium', 'defer', true );
 
     // Live header clock — only loaded if the user shows it via Customizer.
     if ( get_theme_mod( 'gr_show_live_clock', true ) ) {

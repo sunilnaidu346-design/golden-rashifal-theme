@@ -38,6 +38,7 @@ $gr_modules = array(
     'inc/astrology-functions.php',
     'inc/virtual-pages.php',
     'inc/admin-pages-creator.php',
+    'inc/premium-features.php',
 );
 
 foreach ( $gr_modules as $gr_module ) {

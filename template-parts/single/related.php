@@ -1,6 +1,6 @@
 <?php
 /**
- * Single — Related posts.
+ * Single — Related posts (premium card layout).
  *
  * @package GoldenRashifal
  */
@@ -10,7 +10,7 @@ $cats       = wp_get_post_categories( $current_id );
 
 $args = array(
     'post_type'           => 'post',
-    'posts_per_page'      => 3,
+    'posts_per_page'      => 4,
     'post__not_in'        => array( $current_id ),
     'ignore_sticky_posts' => true,
     'no_found_rows'       => true,
@@ -24,7 +24,7 @@ $related = get_posts( $args );
 if ( count( $related ) < 2 ) {
     $extra = get_posts( array(
         'post_type'           => 'post',
-        'posts_per_page'      => 3 - count( $related ),
+        'posts_per_page'      => 4 - count( $related ),
         'post__not_in'        => array_merge( array( $current_id ), wp_list_pluck( $related, 'ID' ) ),
         'ignore_sticky_posts' => true,
         'no_found_rows'       => true,
@@ -37,24 +37,20 @@ if ( empty( $related ) ) {
 }
 ?>
 <section class="gr-related" aria-label="<?php esc_attr_e( 'संबंधित लेख', 'golden-rashifal' ); ?>">
-    <div class="gr-related__head">
-        <h3 class="gr-related__title"><?php esc_html_e( 'संबंधित लेख', 'golden-rashifal' ); ?></h3>
-    </div>
+    <h3 class="gr-related__title"><?php esc_html_e( 'संबंधित लेख', 'golden-rashifal' ); ?></h3>
     <div class="gr-related__grid">
         <?php foreach ( $related as $rel ) : ?>
-        <article class="gr-rcard">
-            <a class="gr-rcard__media" href="<?php echo esc_url( get_permalink( $rel ) ); ?>">
+        <a class="gr-related__card" href="<?php echo esc_url( get_permalink( $rel ) ); ?>">
+            <div class="gr-related__thumb">
                 <?php if ( has_post_thumbnail( $rel ) ) : ?>
-                    <?php echo get_the_post_thumbnail( $rel, 'gr-thumb', array( 'loading' => 'lazy', 'class' => 'gr-rcard__img' ) ); ?>
-                <?php else : ?>
-                    <div class="gr-rcard__placeholder">✦</div>
+                    <?php echo get_the_post_thumbnail( $rel, 'thumbnail', array( 'loading' => 'lazy' ) ); ?>
                 <?php endif; ?>
-            </a>
-            <div class="gr-rcard__body">
-                <h4 class="gr-rcard__title"><a href="<?php echo esc_url( get_permalink( $rel ) ); ?>"><?php echo esc_html( get_the_title( $rel ) ); ?></a></h4>
-                <span class="gr-rcard__date"><?php echo esc_html( get_the_date( '', $rel ) ); ?></span>
             </div>
-        </article>
+            <div class="gr-related__info">
+                <span class="gr-related__card-title"><?php echo esc_html( get_the_title( $rel ) ); ?></span>
+                <span class="gr-related__card-meta"><?php echo esc_html( get_the_date( '', $rel ) ); ?></span>
+            </div>
+        </a>
         <?php endforeach; ?>
     </div>
 </section>
