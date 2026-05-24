@@ -577,17 +577,18 @@ body.gr-page-sitemap .gr-article__title::before { content: "🗺️"; }
    IMPROVED ARTICLE BODY — Better readability
    =================================================================== */
 .gr-article {
-    padding: var(--sp-7) 0 var(--sp-9);
+    padding: var(--sp-9) 0;
 }
 .gr-article__head {
-    margin-bottom: var(--sp-6);
-    padding-bottom: var(--sp-5);
+    margin-bottom: var(--sp-7);
+    padding-bottom: var(--sp-6);
     border-bottom: 1px solid var(--gr-border-light);
 }
 .gr-article__title {
-    font-size: clamp(1.4rem, 2vw + .8rem, 2.2rem);
-    line-height: 1.3;
-    margin-bottom: var(--sp-3);
+    font-size: clamp(1.6rem, 2.2vw + .8rem, 2.4rem);
+    line-height: 1.22;
+    margin-bottom: var(--sp-4);
+    letter-spacing: -0.02em;
 }
 .gr-article__lede {
     font-size: 1.02rem;
@@ -720,8 +721,8 @@ h1, h2, h3, h4 { letter-spacing: -0.01em; }
 
 /* Improved spacing on mobile */
 @media(max-width:768px) {
-    .gr-article { padding: var(--sp-5) 0 var(--sp-7); }
-    .gr-article__title { font-size: 1.3rem; }
+    .gr-article { padding: var(--sp-7) 0 var(--sp-8); }
+    .gr-article__title { font-size: 1.4rem; letter-spacing: -0.01em; }
     .gr-article__body h2 { font-size: 1.15rem; }
     .gr-faq__q { padding: 14px 16px; padding-right: 36px; font-size: .9rem; }
     .gr-faq__a { padding: 0 16px 14px; font-size: .86rem; }
