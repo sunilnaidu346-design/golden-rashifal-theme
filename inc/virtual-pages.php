@@ -3,9 +3,12 @@
  * Virtual Pages — registers theme-defined pages that serve content
  * without requiring manual page creation in WordPress admin.
  *
- * This solves the 404 problem: when a user visits /choghadiya/ or /about/,
- * the theme intercepts the request and renders the appropriate template
- * with built-in content.
+ * IMPORTANT: This system is a FALLBACK. If a real WordPress page exists
+ * with the same slug, WordPress handles it normally — with full admin bar,
+ * Edit button, Gutenberg/Classic editor, SEO fields, etc.
+ *
+ * To make all pages editable from WP admin, go to:
+ * Appearance → पृष्ठ बनाएँ → Click "सभी बाकी पृष्ठ बनाएँ"
  *
  * @package GoldenRashifal
  */
@@ -73,8 +76,8 @@ function golden_rashifal_virtual_pages() {
 
 /**
  * Intercept requests for virtual page slugs.
- * If a WordPress page with that slug already exists, WordPress handles it normally.
- * If not, we serve our theme template instead of a 404.
+ * ONLY triggers on 404 — if a real WordPress page exists, WP handles it
+ * normally with full edit support, admin bar, Gutenberg, etc.
  */
 function golden_rashifal_handle_virtual_pages() {
 
@@ -119,7 +122,8 @@ function golden_rashifal_handle_virtual_pages() {
 
     // Add page-specific body class for category styling.
     add_filter( 'body_class', function( $classes ) use ( $request_path ) {
-        $classes[] = 'gr-page-' . sanitize_html_class( $request_path );
+        $slug_class = str_replace( '/', '-', $request_path );
+        $classes[] = 'gr-page-' . sanitize_html_class( $slug_class );
         return $classes;
     });
 
@@ -128,6 +132,101 @@ function golden_rashifal_handle_virtual_pages() {
     exit;
 }
 add_action( 'template_redirect', 'golden_rashifal_handle_virtual_pages' );
+
+/**
+ * Add "Edit Page" or "Manage Pages" link to admin bar for virtual pages.
+ * This ensures logged-in admins always see an editing action.
+ */
+function golden_rashifal_admin_bar_virtual_edit( $wp_admin_bar ) {
+    if ( ! is_admin() && ! is_404() && is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+        // Check if this is a virtual page (no queried object = virtual).
+        $queried = get_queried_object();
+        if ( ! $queried ) {
+            $wp_admin_bar->add_node( array(
+                'id'    => 'gr-manage-pages',
+                'title' => 'पृष्ठ प्रबंधन',
+                'href'  => admin_url( 'themes.php?page=gr-create-pages' ),
+                'meta'  => array( 'class' => 'gr-admin-bar-manage' ),
+            ) );
+        }
+    }
+}
+add_action( 'admin_bar_menu', 'golden_rashifal_admin_bar_virtual_edit', 80 );
+
+/**
+ * Auto-create pages on theme activation.
+ * This ensures all pages are immediately editable from WP admin.
+ */
+function golden_rashifal_auto_create_pages_on_activation() {
+    $pages = golden_rashifal_virtual_pages();
+
+    foreach ( $pages as $slug => $data ) {
+        $existing = get_page_by_path( $slug );
+        if ( $existing ) {
+            continue;
+        }
+
+        $page_data = array(
+            'post_title'   => $data['title'],
+            'post_name'    => sanitize_title( basename( $slug ) ),
+            'post_content' => '',
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+            'post_author'  => 1,
+        );
+
+        // Handle nested slugs (rashifal/mesh, ratna/manikya, etc.)
+        if ( strpos( $slug, '/' ) !== false ) {
+            $parts = explode( '/', $slug );
+            $page_data['post_name'] = end( $parts );
+
+            $parent_slug = $parts[0];
+            $parent = get_page_by_path( $parent_slug );
+            if ( $parent ) {
+                $page_data['post_parent'] = $parent->ID;
+            }
+        }
+
+        wp_insert_post( $page_data );
+    }
+}
+add_action( 'after_switch_theme', 'golden_rashifal_auto_create_pages_on_activation' );
+
+/**
+ * Assign theme template to pages that match virtual page slugs.
+ * This tells WordPress to use our custom template when rendering real pages.
+ */
+function golden_rashifal_assign_page_templates( $template ) {
+    if ( ! is_page() ) {
+        return $template;
+    }
+
+    $page_obj = get_queried_object();
+    if ( ! $page_obj ) {
+        return $template;
+    }
+
+    // Build the full slug path (handles child pages).
+    $slug = $page_obj->post_name;
+    if ( $page_obj->post_parent ) {
+        $parent = get_post( $page_obj->post_parent );
+        if ( $parent ) {
+            $slug = $parent->post_name . '/' . $slug;
+        }
+    }
+
+    $pages = golden_rashifal_virtual_pages();
+
+    if ( isset( $pages[ $slug ] ) ) {
+        $theme_template = GOLDEN_RASHIFAL_DIR . $pages[ $slug ]['template'];
+        if ( file_exists( $theme_template ) ) {
+            return $theme_template;
+        }
+    }
+
+    return $template;
+}
+add_filter( 'template_include', 'golden_rashifal_assign_page_templates', 99 );
 
 /**
  * Add virtual pages to the XML sitemap (for Yoast/RankMath/default WP sitemap).
@@ -141,5 +240,4 @@ function golden_rashifal_add_virtual_to_sitemap( $url_list ) {
     }
     return $url_list;
 }
-// Hook for WP core sitemaps (WP 5.5+).
 add_filter( 'wp_sitemaps_posts_pre_url_list', 'golden_rashifal_add_virtual_to_sitemap' );

@@ -6,8 +6,12 @@
  * Once created, pages become fully editable from WP admin (title, content,
  * featured image, SEO fields, Gutenberg/Classic editor).
  *
- * The virtual-pages.php fallback only triggers on 404 — so if a real WP
- * page exists with the same slug, WordPress serves that page normally.
+ * HOW IT WORKS:
+ * 1. Go to Appearance → पृष्ठ बनाएँ
+ * 2. Click "सभी बाकी पृष्ठ बनाएँ"
+ * 3. All pages appear in Pages menu — fully editable
+ * 4. Frontend admin bar shows "Edit Page" for all pages
+ * 5. Theme templates render the content automatically
  *
  * @package GoldenRashifal
  */
@@ -37,8 +41,8 @@ function golden_rashifal_admin_pages_render() {
 
     // Handle form submission.
     if ( isset( $_POST['gr_create_pages_nonce'] ) && wp_verify_nonce( $_POST['gr_create_pages_nonce'], 'gr_create_pages' ) ) {
-        golden_rashifal_create_all_pages();
-        echo '<div class="notice notice-success"><p>सभी पृष्ठ सफलतापूर्वक बना दिए गए। अब आप Pages मेनू से इन्हें edit कर सकते हैं।</p></div>';
+        $created = golden_rashifal_create_all_pages();
+        echo '<div class="notice notice-success"><p>' . sprintf( '%d पृष्ठ बनाए गए। अब आप Pages मेनू से इन्हें edit कर सकते हैं।', $created ) . '</p></div>';
     }
 
     $pages = golden_rashifal_virtual_pages();
@@ -57,32 +61,36 @@ function golden_rashifal_admin_pages_render() {
     ?>
     <div class="wrap">
         <h1>Golden Rashifal — पृष्ठ प्रबंधन</h1>
-        <p>यह tool सभी virtual pages को real WordPress pages में बदल देता है ताकि आप उन्हें admin panel से आसानी से edit कर सकें।</p>
+        <p>यह tool सभी theme pages को real WordPress pages में बदल देता है।<br>
+        बनाने के बाद आप हर page को WordPress admin से edit कर सकते हैं — title, content, SEO, featured image सब।</p>
 
-        <table class="widefat" style="max-width:600px;margin:20px 0">
-            <tr><td><strong>कुल registered pages:</strong></td><td><?php echo count( $pages ); ?></td></tr>
-            <tr><td><strong>WordPress में मौजूद:</strong></td><td><?php echo $existing; ?></td></tr>
-            <tr><td><strong>अभी बनाने बाकी:</strong></td><td><?php echo $missing; ?></td></tr>
-        </table>
+        <div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:20px;max-width:600px;margin:20px 0;">
+            <h3 style="margin-top:0;">स्थिति</h3>
+            <table class="widefat" style="border:none;box-shadow:none;">
+                <tr><td><strong>कुल registered pages:</strong></td><td><strong><?php echo count( $pages ); ?></strong></td></tr>
+                <tr><td>WordPress में editable:</td><td style="color:green;font-weight:bold;"><?php echo $existing; ?></td></tr>
+                <tr><td>Virtual fallback (edit नहीं हो सकते):</td><td style="color:<?php echo $missing > 0 ? 'orange' : 'green'; ?>;font-weight:bold;"><?php echo $missing; ?></td></tr>
+            </table>
 
-        <?php if ( $missing > 0 ) : ?>
-        <form method="post">
-            <?php wp_nonce_field( 'gr_create_pages', 'gr_create_pages_nonce' ); ?>
-            <p><button type="submit" class="button button-primary button-hero">सभी बाकी पृष्ठ बनाएँ (<?php echo $missing; ?>)</button></p>
-            <p class="description">यह बटन दबाने पर सभी missing pages WordPress में create हो जाएँगे। उसके बाद Pages मेनू से edit करें।</p>
-        </form>
-        <?php else : ?>
-        <p style="color:green;font-weight:bold;">सभी पृष्ठ पहले से मौजूद हैं। Pages मेनू से edit करें।</p>
-        <?php endif; ?>
+            <?php if ( $missing > 0 ) : ?>
+            <form method="post" style="margin-top:16px;">
+                <?php wp_nonce_field( 'gr_create_pages', 'gr_create_pages_nonce' ); ?>
+                <button type="submit" class="button button-primary button-hero">सभी <?php echo $missing; ?> पृष्ठ WordPress में बनाएँ</button>
+                <p class="description" style="margin-top:8px;">बनाने के बाद: Pages → All Pages → Edit करें।<br>Frontend पर admin bar में "Edit Page" button दिखेगा।</p>
+            </form>
+            <?php else : ?>
+            <p style="color:green;font-weight:bold;margin-top:12px;">सभी पृष्ठ WordPress में मौजूद हैं। Pages → All Pages से edit करें।</p>
+            <?php endif; ?>
+        </div>
 
-        <h2 style="margin-top:30px">पृष्ठों की स्थिति</h2>
-        <table class="widefat striped" style="max-width:800px">
+        <h2 style="margin-top:30px;">सभी पृष्ठों की सूची</h2>
+        <table class="widefat striped" style="max-width:900px;">
             <thead>
                 <tr>
-                    <th>Slug</th>
+                    <th>URL</th>
                     <th>शीर्षक</th>
                     <th>स्थिति</th>
-                    <th>Action</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -90,68 +98,129 @@ function golden_rashifal_admin_pages_render() {
                 $page = get_page_by_path( $slug );
                 ?>
                 <tr>
-                    <td><code>/<?php echo esc_html( $slug ); ?>/</code></td>
+                    <td><code style="font-size:12px;">/<?php echo esc_html( $slug ); ?>/</code></td>
                     <td><?php echo esc_html( $data['title'] ); ?></td>
                     <td>
                         <?php if ( $page ) : ?>
-                            <span style="color:green;">WordPress page मौजूद</span>
+                            <span style="color:green;font-weight:500;">Editable</span>
                         <?php else : ?>
-                            <span style="color:orange;">Virtual fallback active</span>
+                            <span style="color:#b45309;">Virtual only</span>
                         <?php endif; ?>
                     </td>
                     <td>
                         <?php if ( $page ) : ?>
-                            <a href="<?php echo get_edit_post_link( $page->ID ); ?>">Edit</a>
+                            <a href="<?php echo get_edit_post_link( $page->ID ); ?>" class="button button-small">Edit</a>
                         <?php else : ?>
-                            —
+                            <span style="color:#999;">—</span>
                         <?php endif; ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
         </table>
+
+        <div style="background:#f0f8ff;border:1px solid #b3d4fc;border-radius:6px;padding:16px;max-width:700px;margin:30px 0;">
+            <h3 style="margin:0 0 8px;">कैसे काम करता है?</h3>
+            <ol style="margin:0;padding-left:20px;font-size:13px;line-height:1.8;">
+                <li>ऊपर बटन दबाकर pages बनाएँ</li>
+                <li>Pages → All Pages में जाएँ</li>
+                <li>किसी भी page को click करके edit करें (title, content, meta, image सब)</li>
+                <li>Frontend पर login होने पर admin bar में "Edit Page" दिखेगा</li>
+                <li>Theme template automatically page का content render करेगा</li>
+                <li>URL structure और SEO structure वैसा ही रहेगा</li>
+            </ol>
+        </div>
     </div>
     <?php
 }
 
 /**
  * Create all missing pages as real WordPress pages.
+ * Returns count of pages created.
  */
 function golden_rashifal_create_all_pages() {
 
     $pages = golden_rashifal_virtual_pages();
+    $created = 0;
 
+    // First pass: create parent pages (non-nested slugs).
     foreach ( $pages as $slug => $data ) {
+        if ( strpos( $slug, '/' ) !== false ) {
+            continue; // Skip nested, handle in second pass.
+        }
 
-        // Skip if page already exists.
         $existing = get_page_by_path( $slug );
         if ( $existing ) {
             continue;
         }
 
-        // Create the page.
-        $page_data = array(
+        wp_insert_post( array(
             'post_title'   => $data['title'],
-            'post_name'    => sanitize_title( basename( $slug ) ),
-            'post_content' => '<!-- यह पृष्ठ अभी virtual template से content दिखा रहा है। यहाँ content लिखने पर WordPress का content दिखेगा। -->',
+            'post_name'    => $slug,
+            'post_content' => '',
             'post_status'  => 'publish',
             'post_type'    => 'page',
             'post_author'  => get_current_user_id(),
-        );
+        ) );
+        $created++;
+    }
 
-        // Handle nested slugs like rashifal/mesh.
-        if ( strpos( $slug, '/' ) !== false ) {
-            $parts = explode( '/', $slug );
-            $page_data['post_name'] = end( $parts );
-
-            // Find or create parent page.
-            $parent_slug = $parts[0];
-            $parent = get_page_by_path( $parent_slug );
-            if ( $parent ) {
-                $page_data['post_parent'] = $parent->ID;
-            }
+    // Second pass: create child pages (nested slugs like rashifal/mesh).
+    foreach ( $pages as $slug => $data ) {
+        if ( strpos( $slug, '/' ) === false ) {
+            continue;
         }
 
-        wp_insert_post( $page_data );
+        $existing = get_page_by_path( $slug );
+        if ( $existing ) {
+            continue;
+        }
+
+        $parts = explode( '/', $slug );
+        $child_slug = end( $parts );
+        $parent_slug = $parts[0];
+
+        $parent = get_page_by_path( $parent_slug );
+        $parent_id = $parent ? $parent->ID : 0;
+
+        wp_insert_post( array(
+            'post_title'   => $data['title'],
+            'post_name'    => $child_slug,
+            'post_content' => '',
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+            'post_parent'  => $parent_id,
+            'post_author'  => get_current_user_id(),
+        ) );
+        $created++;
+    }
+
+    return $created;
+}
+
+/**
+ * Show admin notice on Pages screen reminding about the tool.
+ */
+function golden_rashifal_pages_admin_notice() {
+    $screen = get_current_screen();
+    if ( ! $screen || 'edit-page' !== $screen->id ) {
+        return;
+    }
+
+    $pages = golden_rashifal_virtual_pages();
+    $missing = 0;
+    foreach ( $pages as $slug => $data ) {
+        if ( ! get_page_by_path( $slug ) ) {
+            $missing++;
+        }
+    }
+
+    if ( $missing > 0 ) {
+        printf(
+            '<div class="notice notice-info is-dismissible"><p><strong>Golden Rashifal:</strong> %d pages अभी virtual mode में हैं (edit नहीं हो सकते)। <a href="%s">यहाँ click करें</a> उन्हें editable बनाने के लिए।</p></div>',
+            $missing,
+            admin_url( 'themes.php?page=gr-create-pages' )
+        );
     }
 }
+add_action( 'admin_notices', 'golden_rashifal_pages_admin_notice' );
