@@ -38,6 +38,8 @@ function golden_rashifal_virtual_pages() {
         'editorial-policy' => array( 'title' => 'संपादकीय नीति — Editorial Policy', 'template' => 'page-templates/editorial-policy.php' ),
         'fact-check-policy' => array( 'title' => 'Fact-Check Policy — तथ्य-जाँच नीति', 'template' => 'page-templates/fact-check-policy.php' ),
         'cookie-policy'    => array( 'title' => 'Cookie Policy — कुकी नीति', 'template' => 'page-templates/cookie-policy.php' ),
+        'correction-policy' => array( 'title' => 'Correction Policy — सुधार नीति', 'template' => 'page-templates/correction-policy.php' ),
+        'web-stories'      => array( 'title' => 'Web Stories — ज्योतिष कहानियाँ', 'template' => 'page-templates/web-stories.php' ),
         'horoscope'        => array( 'title' => 'राशिफल — Horoscope Hub', 'template' => 'page-templates/horoscope.php' ),
         'authors'          => array( 'title' => 'हमारी संपादकीय टीम — Authors', 'template' => 'page-templates/authors.php' ),
         'dmca'             => array( 'title' => 'DMCA नीति — DMCA Policy', 'template' => 'page-templates/dmca.php' ),

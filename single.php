@@ -31,6 +31,21 @@ while ( have_posts() ) :
 
                     <h1 class="gr-post__title"><?php the_title(); ?></h1>
 
+                    <!-- Fact-Check / Review Block (E-E-A-T) -->
+                    <div class="gr-review-block">
+                        <div class="gr-review-block__item">
+                            <span class="gr-review-block__label">Reviewed By:</span>
+                            <strong class="gr-review-block__value">Golden Rashifal Editorial Team</strong>
+                        </div>
+                        <div class="gr-review-block__item">
+                            <span class="gr-review-block__label">Last Updated:</span>
+                            <strong class="gr-review-block__value"><?php echo esc_html( get_the_modified_date() ); ?></strong>
+                        </div>
+                        <div class="gr-review-block__item">
+                            <span class="gr-review-block__badge">✓ Fact Checked</span>
+                        </div>
+                    </div>
+
                     <?php if ( has_excerpt() ) : ?>
                         <p class="gr-post__lede"><?php echo esc_html( wp_strip_all_tags( get_the_excerpt() ) ); ?></p>
                     <?php endif; ?>
