@@ -48,14 +48,12 @@ $signs = golden_rashifal_zodiac_signs();
 
 <h2>राशिवार साप्ताहिक भविष्यफल</h2>
 
-<?php if ( ! empty( $signs ) ) : ?>
 <?php foreach ( $signs as $sign ) : ?>
 <div class="gr-weekly-sign" style="margin-bottom:1.5em;padding-bottom:1em;border-bottom:1px solid #eee;">
     <h3><?php echo esc_html( $sign['icon'] . ' ' . $sign['hi'] ); ?> (<?php echo esc_html( $sign['en'] ); ?>) — <?php echo esc_html( $sign['range'] ); ?></h3>
-    <p>इस सप्ताह <?php echo esc_html( $sign['hi'] ); ?> राशि वालों के लिए ग्रहों की स्थिति के अनुसार general trends available हैं। विस्तृत साप्ताहिक राशिफल जल्द update किया जाएगा।</p>
+    <p>इस सप्ताह <?php echo esc_html( $sign['hi'] ); ?> राशि वालों के लिए ग्रहों की स्थिति के अनुसार सामान्य रुझान उपलब्ध हैं। करियर और आर्थिक मामलों में सजग रहें। परिवार को समय दें। स्वास्थ्य का ध्यान रखें।</p>
 </div>
 <?php endforeach; ?>
-<?php endif; ?>
 
 <h2>साप्ताहिक राशिफल कैसे पढ़ें?</h2>
 <p>कुछ practical tips जो weekly rashifal पढ़ते समय ध्यान रखनी चाहिए:</p>

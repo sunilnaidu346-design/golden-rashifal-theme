@@ -72,7 +72,7 @@
                 </div>
                 <div class="gr-footer__contact-item">
                     <span class="gr-footer__contact-icon">☎</span>
-                    <span>+91 98765 43210</span>
+                    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'संपर्क फ़ॉर्म', 'golden-rashifal' ); ?></a>
                 </div>
                 <div class="gr-footer__contact-item">
                     <span class="gr-footer__contact-icon">⊙</span>

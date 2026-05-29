@@ -23,15 +23,33 @@
 <!-- Top info bar (black) with live panchang data -->
 <div class="gr-topbar">
     <div class="gr-wrap gr-topbar__inner">
+        <?php
+        $gr_tb_sun    = golden_rashifal_sun_times();
+        $gr_tb_tithi  = golden_rashifal_tithi_today();
+        $gr_tb_naksh  = golden_rashifal_nakshatra_today();
+        $gr_tb_chand  = golden_rashifal_chandrodaya();
+        $gr_tb_chog   = golden_rashifal_choghadiya_today();
+        // Pick the first 3 auspicious or neutral day choghadiya for the topbar ticker
+        $gr_tb_good   = array_filter( $gr_tb_chog['day'], function( $c ) {
+            return in_array( $c['type'], array( 'best', 'good' ), true );
+        } );
+        $gr_tb_good   = array_values( $gr_tb_good );
+        ?>
         <div class="gr-topbar__left">
             <span class="gr-topbar__live">LIVE</span>
-            <span class="gr-topbar__item">सूर्योदय <strong><?php echo esc_html( golden_rashifal_format_minutes( golden_rashifal_sun_times()['sunrise_min'] ) ); ?></strong></span>
-            <span class="gr-topbar__item">चंद्रोदय <strong>09:30 AM</strong></span>
-            <span class="gr-topbar__item">नक्षत्र <strong>रोहिणी</strong></span>
-            <span class="gr-topbar__item">तिथि <strong>छठी</strong></span>
+            <span class="gr-topbar__item">सूर्योदय <strong><?php echo esc_html( golden_rashifal_format_minutes( $gr_tb_sun['sunrise_min'] ) ); ?></strong></span>
+            <span class="gr-topbar__item">चंद्रोदय <strong><?php echo esc_html( $gr_tb_chand ); ?></strong></span>
+            <span class="gr-topbar__item">नक्षत्र <strong><?php echo esc_html( $gr_tb_naksh ); ?></strong></span>
+            <span class="gr-topbar__item">तिथि <strong><?php echo esc_html( $gr_tb_tithi['name'] ); ?></strong></span>
         </div>
         <div class="gr-topbar__right">
-            <span class="gr-topbar__item">आज का चौघड़िया: लाभ 09:12-10:42 • अमृत 10:42-12:12 • शुभ 13:42-15:12</span>
+            <?php if ( ! empty( $gr_tb_good ) ) : ?>
+            <span class="gr-topbar__item">आज का चौघड़िया:
+                <?php foreach ( array_slice( $gr_tb_good, 0, 3 ) as $gc ) : ?>
+                    <strong><?php echo esc_html( $gc['name'] ); ?></strong> <?php echo esc_html( $gc['time'] ); ?> &nbsp;•&nbsp;
+                <?php endforeach; ?>
+            </span>
+            <?php endif; ?>
         </div>
     </div>
 </div>

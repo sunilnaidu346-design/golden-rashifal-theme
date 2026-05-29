@@ -1,12 +1,22 @@
 <?php
 /**
  * Homepage — Spiritual section (3 columns: time table, mantras, gemstones).
+ * All times are calculated dynamically — no hardcoded values.
  *
  * @package GoldenRashifal
  */
 
-$sun = golden_rashifal_sun_times();
-$rahu = golden_rashifal_rahukaal();
+$sun      = golden_rashifal_sun_times();
+$rahu     = golden_rashifal_rahukaal();
+$abhijit  = golden_rashifal_abhijit();
+$brahma   = golden_rashifal_brahma_muhurat();
+$godhuli  = golden_rashifal_godhuli();
+
+// Pratahkal = sunrise to sunrise+50min
+$pratah_end = golden_rashifal_format_minutes( $sun['sunrise_min'] + 50 );
+// Pradosh = sunset+15 to sunset+90
+$pradosh_start = golden_rashifal_format_minutes( $sun['sunset_min'] + 15 );
+$pradosh_end   = golden_rashifal_format_minutes( $sun['sunset_min'] + 90 );
 ?>
 <section class="gr-section gr-section--spiritual">
     <div class="gr-wrap">
@@ -22,14 +32,13 @@ $rahu = golden_rashifal_rahukaal();
             <div class="gr-spiritual-col">
                 <h3 class="gr-spiritual-col__title">आज का समय सारणी</h3>
                 <ul class="gr-time-list">
-                    <li><span>ब्रह्म मुहूर्त</span><strong>04:32-05:22</strong><span class="gr-dot gr-dot--green"></span></li>
-                    <li><span>प्रातःकाल</span><strong>05:22-06:12</strong><span class="gr-dot gr-dot--green"></span></li>
+                    <li><span>ब्रह्म मुहूर्त</span><strong><?php echo esc_html( $brahma['start'] . '–' . $brahma['end'] ); ?></strong><span class="gr-dot gr-dot--green"></span></li>
+                    <li><span>प्रातःकाल</span><strong><?php echo esc_html( golden_rashifal_format_minutes( $sun['sunrise_min'] ) . '–' . $pratah_end ); ?></strong><span class="gr-dot gr-dot--green"></span></li>
                     <li><span>सूर्योदय</span><strong><?php echo esc_html( golden_rashifal_format_minutes( $sun['sunrise_min'] ) ); ?></strong><span class="gr-dot gr-dot--green"></span></li>
-                    <li><span>राहु काल</span><strong><?php echo esc_html( $rahu['start'] . '-' . $rahu['end'] ); ?></strong><span class="gr-dot gr-dot--red"></span></li>
-                    <li><span>अभिजित</span><strong>11:55-12:45</strong><span class="gr-dot gr-dot--green"></span></li>
-                    <li><span>गोधूलि</span><strong>18:30-18:54</strong><span class="gr-dot gr-dot--green"></span></li>
-                    <li><span>प्रदोष</span><strong>18:45-20:15</strong><span class="gr-dot gr-dot--green"></span></li>
-
+                    <li><span>राहु काल</span><strong><?php echo esc_html( $rahu['start'] . '–' . $rahu['end'] ); ?></strong><span class="gr-dot gr-dot--red"></span></li>
+                    <li><span>अभिजित</span><strong><?php echo esc_html( $abhijit['start'] . '–' . $abhijit['end'] ); ?></strong><span class="gr-dot gr-dot--green"></span></li>
+                    <li><span>गोधूलि</span><strong><?php echo esc_html( $godhuli['start'] . '–' . $godhuli['end'] ); ?></strong><span class="gr-dot gr-dot--green"></span></li>
+                    <li><span>प्रदोष</span><strong><?php echo esc_html( $pradosh_start . '–' . $pradosh_end ); ?></strong><span class="gr-dot gr-dot--green"></span></li>
                     <li><span>सूर्यास्त</span><strong><?php echo esc_html( golden_rashifal_format_minutes( $sun['sunset_min'] ) ); ?></strong><span class="gr-dot gr-dot--green"></span></li>
                 </ul>
             </div>
@@ -55,7 +64,6 @@ $rahu = golden_rashifal_rahukaal();
                         <div><strong>श्री सूक्त</strong><span>धन और समृद्धि</span></div>
                     </a>
                 </div>
-
                 <div class="gr-spiritual-quote">
                     <p>"जो सोचा जाए वह हो जाए,<br>जो चाहा जाए वह मिल जाए!"</p>
                     <span>— वेद वचन</span>
@@ -78,7 +86,6 @@ $rahu = golden_rashifal_rahukaal();
                         <span class="gr-gem__stone" style="color:#d32f2f;">&#9650;</span>
                         <strong>मूंगा</strong><span>मंगल<br>साहस</span>
                     </a>
-
                     <a class="gr-gem" href="<?php echo esc_url( home_url( '/ratna/panna/' ) ); ?>">
                         <span class="gr-gem__stone" style="color:#2e7d32;">&#9671;</span>
                         <strong>पन्ना</strong><span>बुध<br>बुद्धि</span>

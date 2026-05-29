@@ -1,13 +1,29 @@
 <?php
 /**
- * Homepage — Panchang section with golden header, live clock, data grid, rahukaal bar.
- * Matches screenshot 2.
+ * Homepage — Panchang section with live clock and fully dynamic data grid.
+ *
+ * All values are calculated dynamically from astrology-functions.php.
+ * No hardcoded panchang values remain.
  *
  * @package GoldenRashifal
  */
 
-$sun = golden_rashifal_sun_times();
-$rahu = golden_rashifal_rahukaal();
+$sun      = golden_rashifal_sun_times();
+$rahu     = golden_rashifal_rahukaal();
+$abhijit  = golden_rashifal_abhijit();
+$tithi    = golden_rashifal_tithi_today();
+$nakshatra = golden_rashifal_nakshatra_today();
+$yoga     = golden_rashifal_yoga_today();
+$karan    = golden_rashifal_karan_today();
+$chandrodaya = golden_rashifal_chandrodaya();
+$vs       = golden_rashifal_vikram_samvat();
+
+$weekday_index = (int) wp_date( 'w' );
+$vaar_map = array(
+    0 => 'रविवार', 1 => 'सोमवार', 2 => 'मंगलवार', 3 => 'बुधवार',
+    4 => 'गुरुवार', 5 => 'शुक्रवार', 6 => 'शनिवार',
+);
+$todays_vaar = $vaar_map[ $weekday_index ];
 ?>
 <section class="gr-section gr-section--panchang">
     <div class="gr-wrap">
@@ -30,18 +46,18 @@ $rahu = golden_rashifal_rahukaal();
         </div>
 
         <div class="gr-panchang-grid">
-            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">तिथि</span><strong>छठी</strong></div>
-            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">वार</span><strong>सोमवार</strong></div>
-            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">नक्षत्र</span><strong>रोहिणी</strong></div>
-            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">योग</span><strong>सिद्धि</strong></div>
-            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">करण</span><strong>गर</strong></div>
-            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">पक्ष</span><strong>शुक्ल पक्ष</strong></div>
+            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">तिथि</span><strong><?php echo esc_html( $tithi['name'] ); ?></strong></div>
+            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">वार</span><strong><?php echo esc_html( $todays_vaar ); ?></strong></div>
+            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">नक्षत्र</span><strong><?php echo esc_html( $nakshatra ); ?></strong></div>
+            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">योग</span><strong><?php echo esc_html( $yoga ); ?></strong></div>
+            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">करण</span><strong><?php echo esc_html( $karan ); ?></strong></div>
+            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">पक्ष</span><strong><?php echo esc_html( $tithi['paksha'] ); ?></strong></div>
             <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">सूर्योदय</span><strong><?php echo esc_html( golden_rashifal_format_minutes( $sun['sunrise_min'] ) ); ?></strong></div>
             <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">सूर्यास्त</span><strong><?php echo esc_html( golden_rashifal_format_minutes( $sun['sunset_min'] ) ); ?></strong></div>
-            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">चंद्रोदय</span><strong>09:30 AM</strong></div>
-            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">राहु काल</span><strong><?php echo esc_html( $rahu['start'] . '-' . $rahu['end'] ); ?></strong></div>
-            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">अभिजित</span><strong>11:55-12:45</strong></div>
-            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">विक्रम संवत</span><strong>2081</strong></div>
+            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">चंद्रोदय</span><strong><?php echo esc_html( $chandrodaya ); ?></strong></div>
+            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">राहु काल</span><strong><?php echo esc_html( $rahu['start'] . '–' . $rahu['end'] ); ?></strong></div>
+            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">अभिजित</span><strong><?php echo esc_html( $abhijit['start'] . '–' . $abhijit['end'] ); ?></strong></div>
+            <div class="gr-panchang-cell"><span class="gr-panchang-cell__label">विक्रम संवत</span><strong><?php echo esc_html( $vs ); ?></strong></div>
         </div>
 
         <div class="gr-rahukaal-bar">

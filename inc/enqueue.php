@@ -37,7 +37,20 @@ add_filter( 'wp_resource_hints', 'golden_rashifal_resource_hints', 10, 2 );
  */
 function golden_rashifal_enqueue_assets() {
 
-    $ver = GOLDEN_RASHIFAL_VERSION;
+    /*
+     * Cache-busting: use file modification time (filemtime) for local assets
+     * so browsers immediately pick up CSS/JS changes after any deployment.
+     * Falls back to GOLDEN_RASHIFAL_VERSION for files that don't exist on disk
+     * (e.g. during unit tests or when the path is wrong).
+     */
+    $base = GOLDEN_RASHIFAL_DIR;
+    $fallback = GOLDEN_RASHIFAL_VERSION;
+
+    $ver_fn = function( $rel_path ) use ( $base, $fallback ) {
+        $abs = $base . ltrim( $rel_path, '/' );
+        $mtime = @filemtime( $abs );
+        return $mtime ? (string) $mtime : $fallback;
+    };
 
     // Fonts — single, tuned request. Noto Sans Devanagari covers Hindi cleanly.
     wp_enqueue_style(
@@ -52,7 +65,7 @@ function golden_rashifal_enqueue_assets() {
         'golden-rashifal-base',
         get_stylesheet_uri(),
         array( 'golden-rashifal-fonts' ),
-        $ver
+        $ver_fn( 'style.css' )
     );
 
     // Main UI styles.
@@ -60,7 +73,7 @@ function golden_rashifal_enqueue_assets() {
         'golden-rashifal-main',
         GOLDEN_RASHIFAL_URI . 'assets/css/main.css',
         array( 'golden-rashifal-base' ),
-        $ver
+        $ver_fn( 'assets/css/main.css' )
     );
 
     // Responsive layer is small — load it everywhere.
@@ -68,7 +81,7 @@ function golden_rashifal_enqueue_assets() {
         'golden-rashifal-responsive',
         GOLDEN_RASHIFAL_URI . 'assets/css/responsive.css',
         array( 'golden-rashifal-main' ),
-        $ver
+        $ver_fn( 'assets/css/responsive.css' )
     );
 
     // Premium enhancements — progress bar, mobile nav, skeletons, animations.
@@ -76,7 +89,7 @@ function golden_rashifal_enqueue_assets() {
         'golden-rashifal-premium',
         GOLDEN_RASHIFAL_URI . 'assets/css/premium-enhancements.css',
         array( 'golden-rashifal-responsive' ),
-        $ver
+        $ver_fn( 'assets/css/premium-enhancements.css' )
     );
 
     // Single post premium layout CSS.
@@ -85,7 +98,7 @@ function golden_rashifal_enqueue_assets() {
             'golden-rashifal-single',
             GOLDEN_RASHIFAL_URI . 'assets/css/single-post.css',
             array( 'golden-rashifal-premium' ),
-            $ver
+            $ver_fn( 'assets/css/single-post.css' )
         );
     }
 
@@ -99,7 +112,7 @@ function golden_rashifal_enqueue_assets() {
         'golden-rashifal-main',
         GOLDEN_RASHIFAL_URI . 'assets/js/main.js',
         array(),
-        $ver,
+        $ver_fn( 'assets/js/main.js' ),
         true
     );
     wp_script_add_data( 'golden-rashifal-main', 'defer', true );
@@ -109,7 +122,7 @@ function golden_rashifal_enqueue_assets() {
         'golden-rashifal-premium',
         GOLDEN_RASHIFAL_URI . 'assets/js/premium.js',
         array( 'golden-rashifal-main' ),
-        $ver,
+        $ver_fn( 'assets/js/premium.js' ),
         true
     );
     wp_script_add_data( 'golden-rashifal-premium', 'defer', true );
@@ -120,7 +133,7 @@ function golden_rashifal_enqueue_assets() {
             'golden-rashifal-clock',
             GOLDEN_RASHIFAL_URI . 'assets/js/live-clock.js',
             array(),
-            $ver,
+            $ver_fn( 'assets/js/live-clock.js' ),
             true
         );
         wp_script_add_data( 'golden-rashifal-clock', 'defer', true );
@@ -132,7 +145,7 @@ function golden_rashifal_enqueue_assets() {
             'golden-rashifal-countdown',
             GOLDEN_RASHIFAL_URI . 'assets/js/countdown.js',
             array(),
-            $ver,
+            $ver_fn( 'assets/js/countdown.js' ),
             true
         );
         wp_script_add_data( 'golden-rashifal-countdown', 'defer', true );
