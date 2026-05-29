@@ -21,7 +21,6 @@
 .gr-post__author-name{font-size:.88rem;color:var(--gr-ink);display:block}
 .gr-post__dates{display:flex;align-items:center;gap:8px;font-size:.76rem;color:var(--gr-muted);flex-wrap:wrap}
 .gr-post__dates span{display:inline-flex;align-items:center;gap:3px}
-.gr-post__updated{color:var(--gr-green);font-weight:600}
 
 /* --- Hero Image --- */
 .gr-post__hero{margin-bottom:24px;border-radius:var(--radius-lg);overflow:hidden}
@@ -58,13 +57,6 @@
 .gr-post__internal-links a{padding:6px 14px;border:1px solid var(--gr-border);border-radius:var(--radius-full);font-size:.8rem;color:var(--gr-ink-soft);transition:all .15s;text-decoration:none}
 .gr-post__internal-links a:hover{border-color:var(--gr-gold);color:var(--gr-gold-deep);background:var(--gr-cream)}
 
-/* --- E-E-A-T Trust Section --- */
-.gr-post__trust{margin:24px 0;padding:20px;background:var(--gr-cream);border:1px solid var(--gr-border-light);border-radius:var(--radius-lg)}
-.gr-post__trust h3{font-size:.92rem;font-weight:700;color:var(--gr-ink);margin-bottom:12px}
-.gr-post__trust ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.gr-post__trust li{font-size:.82rem;color:var(--gr-ink-soft);padding-left:18px;position:relative;line-height:1.5}
-.gr-post__trust li::before{content:"";position:absolute;left:0;top:6px;width:10px;height:10px;border-radius:50%;background:var(--gr-green)}
-
 /* --- Sidebar --- */
 .gr-col-side{position:sticky;top:80px}
 .gr-widget{margin-bottom:20px;padding:20px;background:var(--gr-white);border:1px solid var(--gr-border-light);border-radius:var(--radius-lg)}
@@ -85,18 +77,6 @@
 .gr-trending__rank{width:24px;height:24px;display:flex;align-items:center;justify-content:center;background:var(--gr-bg-soft);border-radius:var(--radius-sm);font-size:.72rem;font-weight:700;color:var(--gr-gold-deep);flex-shrink:0}
 .gr-trending__link{color:var(--gr-ink-soft);line-height:1.35;transition:color .15s}
 .gr-trending__link:hover{color:var(--gr-gold-deep)}
-
-/* --- Comments Redesign --- */
-.gr-post .comments-area{margin-top:32px;padding-top:24px;border-top:1px solid var(--gr-border-light)}
-.gr-post .comment-reply-title{font-size:1.1rem;font-weight:700;color:var(--gr-ink);margin-bottom:16px}
-.gr-post .comment-notes{font-size:.8rem;color:var(--gr-muted);margin-bottom:16px}
-.gr-post .comments-area label{display:block;font-size:.76rem;font-weight:600;color:var(--gr-ink-soft);margin-bottom:4px}
-.gr-post .comments-area input[type="text"],.gr-post .comments-area input[type="email"],.gr-post .comments-area input[type="url"],.gr-post .comments-area textarea{width:100%;padding:12px 16px;border:1px solid var(--gr-border);border-radius:var(--radius-md);font-size:.9rem;font-family:var(--gr-font);color:var(--gr-ink);background:var(--gr-white);transition:border-color .15s,box-shadow .15s;margin-bottom:12px}
-.gr-post .comments-area input:focus,.gr-post .comments-area textarea:focus{border-color:var(--gr-gold);box-shadow:0 0 0 3px rgba(212,175,55,.08);outline:none}
-.gr-post .comments-area textarea{min-height:120px;resize:vertical}
-.gr-post .comment-form-cookies-consent{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--gr-muted);margin-bottom:16px}
-.gr-post .form-submit .submit{display:inline-flex;padding:12px 28px;background:var(--gr-gold);color:var(--gr-ink);border:none;border-radius:var(--radius-full);font-size:.9rem;font-weight:700;cursor:pointer;transition:all .15s}
-.gr-post .form-submit .submit:hover{background:var(--gr-gold-light);transform:translateY(-1px)}
 
 /* --- Share Bar (inside single post) --- */
 .gr-post .gr-share{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:12px 0;border-bottom:1px solid var(--gr-border-light)}

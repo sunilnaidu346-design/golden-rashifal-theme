@@ -42,9 +42,6 @@ while ( have_posts() ) :
                                 <strong class="gr-post__author-name"><?php the_author(); ?></strong>
                                 <div class="gr-post__dates">
                                     <span><?php echo esc_html( get_the_date() ); ?></span>
-                                    <?php if ( get_the_modified_date() !== get_the_date() ) : ?>
-                                        <span class="gr-post__updated">Updated: <?php echo esc_html( get_the_modified_date() ); ?></span>
-                                    <?php endif; ?>
                                     <span><?php echo esc_html( golden_rashifal_reading_time() ); ?></span>
                                 </div>
                             </div>
@@ -98,17 +95,6 @@ while ( have_posts() ) :
                         <a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">शुभ मुहूर्त</a>
                     </div>
                 </nav>
-
-                <!-- E-E-A-T Trust Section -->
-                <div class="gr-post__trust">
-                    <h3><?php esc_html_e( 'Golden Rashifal पर भरोसा क्यों करें?', 'golden-rashifal' ); ?></h3>
-                    <ul>
-                        <li><?php esc_html_e( 'संपादकीय समीक्षा द्वारा सत्यापित', 'golden-rashifal' ); ?></li>
-                        <li><?php esc_html_e( 'वैदिक ज्योतिष आधारित गणना', 'golden-rashifal' ); ?></li>
-                        <li><?php esc_html_e( 'प्रतिदिन अपडेट', 'golden-rashifal' ); ?></li>
-                        <li><?php esc_html_e( 'अनुभवी ज्योतिषाचार्यों की टीम', 'golden-rashifal' ); ?></li>
-                    </ul>
-                </div>
 
                 <!-- Author Box -->
                 <?php get_template_part( 'template-parts/single/author-box' ); ?>

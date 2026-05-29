@@ -283,3 +283,50 @@ function golden_rashifal_zodiac_wheel_svg() {
     $svg .= '</svg>';
     return $svg;
 }
+
+
+/**
+ * Premium comment item callback for wp_list_comments().
+ *
+ * @param WP_Comment $comment Comment object.
+ * @param array      $args    wp_list_comments args.
+ * @param int        $depth   Nesting depth.
+ */
+function golden_rashifal_comment_template( $comment, $args, $depth ) {
+    $tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
+    ?>
+    <<?php echo esc_attr( $tag ); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( 'gr-comment-card', $comment ); ?>>
+        <div class="gr-comment-card__inner">
+            <div class="gr-comment-card__avatar">
+                <?php echo get_avatar( $comment, 48, '', '', array( 'class' => 'gr-comment-card__img' ) ); ?>
+            </div>
+            <div class="gr-comment-card__body">
+                <div class="gr-comment-card__header">
+                    <strong class="gr-comment-card__author"><?php comment_author( $comment ); ?></strong>
+                    <time class="gr-comment-card__date" datetime="<?php comment_date( DATE_W3C, $comment ); ?>">
+                        <?php comment_date( get_option( 'date_format' ), $comment ); ?>
+                    </time>
+                </div>
+                <?php if ( '0' === $comment->comment_approved ) : ?>
+                    <p class="gr-comment-card__pending"><?php esc_html_e( 'आपकी टिप्पणी समीक्षाधीन है।', 'golden-rashifal' ); ?></p>
+                <?php endif; ?>
+                <div class="gr-comment-card__text">
+                    <?php comment_text( $comment ); ?>
+                </div>
+                <div class="gr-comment-card__actions">
+                    <?php
+                    comment_reply_link( array_merge( $args, array(
+                        'depth'      => $depth,
+                        'max_depth'  => $args['max_depth'],
+                        'before'     => '',
+                        'after'      => '',
+                        'reply_text' => __( '↩ जवाब दें', 'golden-rashifal' ),
+                        'login_text' => __( 'जवाब देने के लिए लॉगिन करें', 'golden-rashifal' ),
+                    ) ), $comment );
+                    ?>
+                </div>
+            </div>
+        </div>
+    </<?php echo esc_attr( $tag ); ?>>
+    <?php
+}
