@@ -33,6 +33,8 @@ get_header();
 
     <?php get_template_part( 'template-parts/home/newsletter' ); ?>
 
+    <?php get_template_part( 'template-parts/home/editorial-trust' ); ?>
+
 </main>
 
 <?php

@@ -1090,3 +1090,333 @@
     .gr-zodiac-hub { grid-template-columns: repeat(2, 1fr); }
     .gr-contact-cards { grid-template-columns: 1fr; }
 }
+
+
+/* ============================================================
+   PREMIUM EDITORIAL AUTHORITY BLOCK — Homepage
+   Full-width, 60/40 two-column, brand story, trust, E-E-A-T
+   ============================================================ */
+.gr-authority {
+    background: linear-gradient(135deg, #fdfbf7 0%, #fff9ed 50%, #faf7f0 100%);
+    border-top: 1px solid rgba(212,175,55,.15);
+    border-bottom: 1px solid rgba(212,175,55,.15);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+.gr-authority::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(212,175,55,.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+.gr-authority::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(124,58,237,.04) 0%, transparent 70%);
+    pointer-events: none;
+}
+.gr-authority__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* LEFT CONTENT */
+.gr-authority__content {
+    max-width: 620px;
+}
+.gr-authority__label {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--gr-gold-deep, #a68b1b);
+    background: rgba(212,175,55,.1);
+    padding: 5px 14px;
+    border-radius: 50px;
+    border: 1px solid rgba(212,175,55,.2);
+    margin-bottom: 18px;
+}
+.gr-authority__title {
+    font-size: clamp(1.8rem, 3vw + .5rem, 2.6rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--gr-ink, #1f2937);
+    margin-bottom: 12px;
+}
+.gr-authority__subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--gr-gold-deep, #a68b1b);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+.gr-authority__desc {
+    margin-bottom: 24px;
+}
+.gr-authority__desc p {
+    font-size: .95rem;
+    line-height: 1.8;
+    color: var(--gr-ink-soft, #374151);
+    margin-bottom: 10px;
+}
+.gr-authority__desc-en {
+    font-style: italic;
+    font-size: .88rem !important;
+    color: var(--gr-muted, #6b7280) !important;
+}
+
+/* Trust Badges */
+.gr-authority__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+.gr-authority__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: #fff;
+    border: 1px solid rgba(212,175,55,.18);
+    border-radius: 8px;
+    font-size: .8rem;
+    font-weight: 500;
+    color: var(--gr-ink-soft, #374151);
+    transition: border-color .2s, box-shadow .2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,.03);
+}
+.gr-authority__badge:hover {
+    border-color: var(--gr-gold, #d4af37);
+    box-shadow: 0 3px 10px rgba(212,175,55,.1);
+}
+.gr-authority__badge-check {
+    color: #16a34a;
+    font-weight: 800;
+    font-size: .9rem;
+}
+
+/* Statistics */
+.gr-authority__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+}
+.gr-authority__stat {
+    text-align: center;
+    padding: 16px 10px;
+    background: #fff;
+    border: 1px solid rgba(212,175,55,.12);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.03);
+    transition: transform .2s, box-shadow .2s;
+}
+.gr-authority__stat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+.gr-authority__stat-num {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--gr-gold-deep, #a68b1b);
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+.gr-authority__stat-label {
+    font-size: .72rem;
+    font-weight: 500;
+    color: var(--gr-muted, #6b7280);
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}
+
+/* CTA Buttons */
+.gr-authority__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.gr-authority__btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 11px 22px;
+    border-radius: 8px;
+    font-size: .88rem;
+    font-weight: 600;
+    transition: all .2s;
+    text-decoration: none;
+}
+.gr-authority__btn--primary {
+    background: var(--gr-gold, #d4af37);
+    color: var(--gr-ink, #1f2937);
+    box-shadow: 0 2px 8px rgba(212,175,55,.2);
+}
+.gr-authority__btn--primary:hover {
+    background: var(--gr-gold-light, #f0d060);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(212,175,55,.3);
+}
+.gr-authority__btn--outline {
+    background: transparent;
+    color: var(--gr-gold-deep, #a68b1b);
+    border: 1.5px solid rgba(212,175,55,.4);
+}
+.gr-authority__btn--outline:hover {
+    border-color: var(--gr-gold, #d4af37);
+    background: rgba(212,175,55,.06);
+}
+
+/* RIGHT VISUAL */
+.gr-authority__visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.gr-authority__image-wrap {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,.08), 0 4px 12px rgba(212,175,55,.08);
+    border: 1px solid rgba(212,175,55,.15);
+    margin-bottom: 24px;
+    background: #fff;
+}
+.gr-authority__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+.gr-authority__placeholder {
+    width: 100%;
+    aspect-ratio: 400/440;
+}
+.gr-authority__placeholder svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Identity below image */
+.gr-authority__identity {
+    max-width: 320px;
+}
+.gr-authority__identity-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--gr-ink, #1f2937);
+    margin-bottom: 4px;
+}
+.gr-authority__identity-role {
+    font-size: .84rem;
+    font-weight: 600;
+    color: var(--gr-gold-deep, #a68b1b);
+    margin-bottom: 8px;
+}
+.gr-authority__identity-desc {
+    font-size: .82rem;
+    line-height: 1.6;
+    color: var(--gr-muted, #6b7280);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .gr-authority { padding: 60px 0; }
+    .gr-authority__inner { gap: 40px; }
+    .gr-authority__stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .gr-authority { padding: 48px 0; }
+    .gr-authority__inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+    .gr-authority__content { max-width: 100%; text-align: center; }
+    .gr-authority__badges { justify-content: center; }
+    .gr-authority__stats { grid-template-columns: repeat(2, 1fr); }
+    .gr-authority__buttons { justify-content: center; }
+    .gr-authority__visual { order: -1; }
+    .gr-authority__image-wrap { max-width: 280px; }
+    .gr-authority__title { font-size: 1.6rem; }
+}
+@media (max-width: 480px) {
+    .gr-authority__stats { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .gr-authority__stat { padding: 12px 8px; }
+    .gr-authority__stat-num { font-size: 1.2rem; }
+    .gr-authority__badges { gap: 6px; }
+    .gr-authority__badge { font-size: .74rem; padding: 5px 10px; }
+    .gr-authority__buttons { flex-direction: column; align-items: center; }
+}
+
+/* ============================================================
+   HOMEPAGE SPACING & TYPOGRAPHY AUDIT FIXES
+   Tighter, premium, no unnecessary white space
+   ============================================================ */
+
+/* Reduce excessive section gaps */
+.gr-section { padding: 52px 0; }
+.gr-section--alt { padding: 52px 0; }
+.gr-section__head { margin-bottom: 28px; }
+
+/* Newsletter bar tighter */
+.gr-newsletter-bar {
+    padding: 28px 0;
+}
+.gr-newsletter-bar__inner {
+    gap: 20px;
+}
+
+/* Footer spacing fix */
+.gr-footer__top {
+    padding-top: 48px;
+    padding-bottom: 36px;
+}
+.gr-footer__bottom {
+    padding: 16px 0;
+}
+.gr-footer__disclaimer {
+    padding: 14px 0;
+}
+
+/* Hero section better bottom spacing */
+.gr-hero {
+    padding-bottom: 52px;
+}
+
+/* Card grid spacing tighter */
+.gr-services-grid {
+    gap: 14px;
+}
+
+/* Section title stronger */
+.gr-section__title {
+    font-size: clamp(1.4rem, 2.2vw + .4rem, 1.9rem);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+/* Homepage sections: remove double padding between sections */
+.gr-main--home .gr-section + .gr-section {
+    padding-top: 0;
+}
+.gr-main--home .gr-section + .gr-section--alt,
+.gr-main--home .gr-section--alt + .gr-section {
+    padding-top: 52px;
+}
