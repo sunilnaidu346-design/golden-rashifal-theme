@@ -91,7 +91,7 @@ function golden_rashifal_meta_tags() {
 add_action( 'wp_head', 'golden_rashifal_meta_tags', 5 );
 
 /**
- * Article + Website JSON-LD schema.
+ * Article + Website + Organization JSON-LD schema.
  */
 function golden_rashifal_schema_jsonld() {
 
@@ -101,7 +101,23 @@ function golden_rashifal_schema_jsonld() {
 
     $graph = array();
 
-    // Website / Organisation.
+    // Organization schema.
+    $graph[] = array(
+        '@type'       => 'Organization',
+        '@id'         => home_url( '/#organization' ),
+        'name'        => get_bloginfo( 'name' ),
+        'url'         => home_url( '/' ),
+        'description' => get_bloginfo( 'description' ),
+        'contactPoint' => array(
+            '@type'       => 'ContactPoint',
+            'email'       => 'contact@goldenrashifal.com',
+            'contactType' => 'customer service',
+            'availableLanguage' => array( 'Hindi', 'English' ),
+        ),
+        'sameAs' => array(),
+    );
+
+    // Website / SearchAction.
     $graph[] = array(
         '@type' => 'WebSite',
         '@id'   => home_url( '/#website' ),
@@ -109,12 +125,53 @@ function golden_rashifal_schema_jsonld() {
         'name'  => get_bloginfo( 'name' ),
         'description' => get_bloginfo( 'description' ),
         'inLanguage'  => get_locale(),
+        'publisher'   => array( '@id' => home_url( '/#organization' ) ),
         'potentialAction' => array(
             '@type'       => 'SearchAction',
-            'target'      => home_url( '/?s={search_term_string}' ),
+            'target'      => array(
+                '@type'        => 'EntryPoint',
+                'urlTemplate'  => home_url( '/?s={search_term_string}' ),
+            ),
             'query-input' => 'required name=search_term_string',
         ),
     );
+
+    // Breadcrumb schema for singular pages.
+    if ( is_singular() || is_page() ) {
+        $breadcrumb_items = array();
+        $breadcrumb_items[] = array(
+            '@type'    => 'ListItem',
+            'position' => 1,
+            'name'     => 'Home',
+            'item'     => home_url( '/' ),
+        );
+        $breadcrumb_items[] = array(
+            '@type'    => 'ListItem',
+            'position' => 2,
+            'name'     => get_the_title(),
+            'item'     => get_permalink(),
+        );
+        $graph[] = array(
+            '@type'           => 'BreadcrumbList',
+            '@id'             => get_permalink() . '#breadcrumb',
+            'itemListElement' => $breadcrumb_items,
+        );
+    }
+
+    // Author schema on author archives.
+    if ( is_author() ) {
+        $author = get_queried_object();
+        if ( $author ) {
+            $graph[] = array(
+                '@type'       => 'Person',
+                '@id'         => get_author_posts_url( $author->ID ) . '#author',
+                'name'        => $author->display_name,
+                'url'         => get_author_posts_url( $author->ID ),
+                'description' => get_the_author_meta( 'description', $author->ID ),
+                'worksFor'    => array( '@id' => home_url( '/#organization' ) ),
+            );
+        }
+    }
 
     if ( is_singular( 'post' ) ) {
         $post_id = get_queried_object_id();
@@ -128,6 +185,7 @@ function golden_rashifal_schema_jsonld() {
             'datePublished' => get_the_date( DATE_W3C, $post_id ),
             'dateModified'  => get_the_modified_date( DATE_W3C, $post_id ),
             'inLanguage'    => get_locale(),
+            'isPartOf'      => array( '@id' => home_url( '/#website' ) ),
             'author'        => array(
                 '@type' => 'Person',
                 'name'  => get_the_author_meta( 'display_name', $author_id ),
@@ -135,6 +193,7 @@ function golden_rashifal_schema_jsonld() {
             ),
             'publisher'     => array(
                 '@type' => 'Organization',
+                '@id'   => home_url( '/#organization' ),
                 'name'  => get_bloginfo( 'name' ),
                 'url'   => home_url( '/' ),
             ),

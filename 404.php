@@ -1,6 +1,7 @@
 <?php
 /**
- * 404 page.
+ * 404 Page — Premium Design with Hero, Navigation & Trust Block.
+ * No default WordPress look. Full premium experience.
  *
  * @package GoldenRashifal
  */
@@ -8,37 +9,68 @@
 get_header();
 ?>
 
-<main id="primary" class="gr-main" role="main">
-    <div class="gr-wrap gr-404">
+<main id="primary" class="gr-main gr-main--404" role="main">
 
-        <div class="gr-404__icon" aria-hidden="true">
-            <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="#faf7f0" stroke="#d4af37" stroke-width="2"/><text x="60" y="74" text-anchor="middle" font-family="Noto Sans Devanagari, serif" font-size="36" font-weight="700" fill="#a68b1b">ॐ</text></svg>
+    <!-- Premium 404 Hero -->
+    <section class="gr-404-hero">
+        <div class="gr-page-hero__inner">
+            <div class="gr-page-hero__breadcrumb">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">होम</a>
+                <span class="sep">›</span>
+                <span>404 - पेज नहीं मिला</span>
+            </div>
+            <div class="gr-404-hero__code">404</div>
+            <h1 class="gr-404-hero__title"><?php esc_html_e( 'यह पेज अभी उपलब्ध नहीं है', 'golden-rashifal' ); ?></h1>
+            <p class="gr-404-hero__text"><?php esc_html_e( 'शायद लिंक बदल गया हो या पेज हटा दिया गया हो। नीचे खोज करें या हमारे लोकप्रिय पेज देखें।', 'golden-rashifal' ); ?></p>
+            <div class="gr-404-hero__search">
+                <?php get_search_form(); ?>
+            </div>
+            <div class="gr-page-cta__buttons">
+                <a class="gr-page-cta__btn gr-page-cta__btn--gold" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'होम पर जाएँ', 'golden-rashifal' ); ?></a>
+                <a class="gr-page-cta__btn gr-page-cta__btn--outline" href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>"><?php esc_html_e( 'राशिफल पढ़ें', 'golden-rashifal' ); ?></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internal Linking Section -->
+    <div class="gr-premium-content gr-premium-content--wide">
+        <div class="gr-internal-links">
+            <h2 class="gr-internal-links__title"><?php esc_html_e( 'लोकप्रिय पेज देखें', 'golden-rashifal' ); ?></h2>
+            <div class="gr-internal-links__grid">
+                <a href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>"><span class="icon">✦</span> आज का राशिफल</a>
+                <a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>"><span class="icon">☉</span> आज का पंचांग</a>
+                <a href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>"><span class="icon">⏱</span> चौघड़िया</a>
+                <a href="<?php echo esc_url( home_url( '/rahukaal/' ) ); ?>"><span class="icon">◐</span> राहुकाल</a>
+                <a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>"><span class="icon">☆</span> शुभ मुहूर्त</a>
+                <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>"><span class="icon">⚑</span> त्योहार</a>
+                <a href="<?php echo esc_url( home_url( '/weekly-rashifal/' ) ); ?>"><span class="icon">◈</span> साप्ताहिक राशिफल</a>
+                <a href="<?php echo esc_url( home_url( '/vastu/' ) ); ?>"><span class="icon">⌂</span> वास्तु टिप्स</a>
+                <a href="<?php echo esc_url( home_url( '/kundli/' ) ); ?>"><span class="icon">✧</span> कुंडली</a>
+                <a href="<?php echo esc_url( home_url( '/monthly-rashifal/' ) ); ?>"><span class="icon">☾</span> मासिक राशिफल</a>
+                <a href="<?php echo esc_url( home_url( '/numerology/' ) ); ?>"><span class="icon">∞</span> अंकज्योतिष</a>
+                <a href="<?php echo esc_url( home_url( '/ekadashi/' ) ); ?>"><span class="icon">☸</span> एकादशी</a>
+            </div>
         </div>
 
-        <span class="gr-404__pre"><?php esc_html_e( '404 — पेज नहीं मिला', 'golden-rashifal' ); ?></span>
-        <h1 class="gr-404__title"><?php esc_html_e( 'यह पेज अभी उपलब्ध नहीं है', 'golden-rashifal' ); ?></h1>
-        <p class="gr-404__quote"><em><?php esc_html_e( '"रास्ता बदला है, मंज़िल नहीं।"', 'golden-rashifal' ); ?></em></p>
-        <p class="gr-404__text"><?php esc_html_e( 'शायद लिंक बदल गया हो या पेज हटा दिया गया हो। नीचे खोज सकते हैं या होम पर वापस जा सकते हैं।', 'golden-rashifal' ); ?></p>
-
-        <div class="gr-404__cta">
-            <a class="gr-btn gr-btn--primary" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'होम पर जाएँ', 'golden-rashifal' ); ?></a>
-            <a class="gr-btn gr-btn--outline" href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>"><?php esc_html_e( 'राशिफल पढ़ें', 'golden-rashifal' ); ?></a>
+        <!-- Trust Block -->
+        <div class="gr-trust-block">
+            <h2 class="gr-trust-block__title"><?php esc_html_e( 'Golden Rashifal पर भरोसा क्यों करें?', 'golden-rashifal' ); ?></h2>
+            <div class="gr-trust-block__grid">
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> संपादकीय समीक्षित</div>
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> पंचांग सत्यापित</div>
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> प्रतिदिन अपडेट</div>
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> पारंपरिक स्रोत</div>
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> पाठक केंद्रित</div>
+            </div>
         </div>
 
-        <div class="gr-404__search">
-            <?php get_search_form(); ?>
+        <!-- Footer Transition -->
+        <div class="gr-footer-transition">
+            <div class="gr-footer-transition__line"></div>
+            <p class="gr-footer-transition__text"><?php esc_html_e( 'Golden Rashifal — भरोसेमंद ज्योतिष जानकारी', 'golden-rashifal' ); ?></p>
         </div>
-
-        <div class="gr-404__links">
-            <a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>"><?php esc_html_e( 'पंचांग', 'golden-rashifal' ); ?></a>
-            <a href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>"><?php esc_html_e( 'चौघड़िया', 'golden-rashifal' ); ?></a>
-            <a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>"><?php esc_html_e( 'मुहूर्त', 'golden-rashifal' ); ?></a>
-            <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>"><?php esc_html_e( 'त्योहार', 'golden-rashifal' ); ?></a>
-            <a href="<?php echo esc_url( home_url( '/vastu/' ) ); ?>"><?php esc_html_e( 'वास्तु', 'golden-rashifal' ); ?></a>
-            <a href="<?php echo esc_url( home_url( '/kundli/' ) ); ?>"><?php esc_html_e( 'कुंडली', 'golden-rashifal' ); ?></a>
-        </div>
-
     </div>
+
 </main>
 
 <?php get_footer(); ?>

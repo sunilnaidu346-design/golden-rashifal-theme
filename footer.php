@@ -143,6 +143,41 @@
     <a class="gr-floating__btn gr-floating__btn--star" href="#" aria-label="Bookmark">☆</a>
 </div>
 
+<!-- Cookie Consent Banner -->
+<div class="gr-cookie-consent" id="gr-cookie-consent" aria-label="<?php esc_attr_e( 'Cookie Consent', 'golden-rashifal' ); ?>">
+    <div class="gr-cookie-consent__inner">
+        <div class="gr-cookie-consent__text">
+            🍪 <?php esc_html_e( 'हम cookies use करते हैं website experience बेहतर बनाने, traffic analyze करने, और personalized ads दिखाने के लिए।', 'golden-rashifal' ); ?>
+            <a href="<?php echo esc_url( home_url( '/cookie-policy/' ) ); ?>"><?php esc_html_e( 'Cookie Policy पढ़ें', 'golden-rashifal' ); ?></a>
+        </div>
+        <div class="gr-cookie-consent__actions">
+            <button class="gr-cookie-consent__btn gr-cookie-consent__btn--accept" data-gr-cookie="accept"><?php esc_html_e( 'Accept All', 'golden-rashifal' ); ?></button>
+            <button class="gr-cookie-consent__btn gr-cookie-consent__btn--reject" data-gr-cookie="reject"><?php esc_html_e( 'Reject All', 'golden-rashifal' ); ?></button>
+            <button class="gr-cookie-consent__btn gr-cookie-consent__btn--prefs" data-gr-cookie="prefs"><?php esc_html_e( 'Preferences', 'golden-rashifal' ); ?></button>
+        </div>
+    </div>
+</div>
+<script>
+(function(){
+    var el = document.getElementById('gr-cookie-consent');
+    if (!el) return;
+    var stored = localStorage.getItem('gr_cookie_consent');
+    if (stored) return; // Already consented
+    setTimeout(function(){ el.classList.add('is-visible'); }, 1500);
+    el.addEventListener('click', function(e){
+        var btn = e.target.closest('[data-gr-cookie]');
+        if (!btn) return;
+        var choice = btn.getAttribute('data-gr-cookie');
+        if (choice === 'accept' || choice === 'reject') {
+            localStorage.setItem('gr_cookie_consent', choice);
+            el.classList.remove('is-visible');
+        } else if (choice === 'prefs') {
+            window.location.href = '<?php echo esc_url( home_url( '/cookie-policy/' ) ); ?>';
+        }
+    });
+})();
+</script>
+
 <?php wp_footer(); ?>
 </body>
 </html>

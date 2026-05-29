@@ -1,7 +1,6 @@
 <?php
 /**
- * Virtual Page: Disclaimer — अस्वीकरण
- * Required for AdSense. Sets clear expectations about content limitations.
+ * Virtual Page: Disclaimer — Premium Layout.
  *
  * @package GoldenRashifal
  */
@@ -9,131 +8,149 @@
 get_header();
 ?>
 
-<main id="primary" class="gr-main" role="main">
-<article class="gr-wrap gr-content-wrap gr-article">
+<main id="primary" class="gr-main gr-main--disclaimer" role="main">
 
-<header class="gr-article__head">
-    <h1 class="gr-article__title">अस्वीकरण — Disclaimer</h1>
-    <p class="gr-article__lede">Golden Rashifal (sipindustries.in) पर प्रकाशित सभी सामग्री informational purpose से है। कृपया इस page को ध्यान से पढ़ें — यहाँ हमारी content की सीमाएँ और जिम्मेदारियाँ स्पष्ट की गई हैं।</p>
-</header>
+    <!-- Premium Hero -->
+    <section class="gr-page-hero">
+        <div class="gr-page-hero__inner">
+            <div class="gr-page-hero__breadcrumb">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">होम</a>
+                <span class="sep">›</span>
+                <span>अस्वीकरण</span>
+            </div>
+            <span class="gr-page-hero__badge">⚖ पारदर्शिता</span>
+            <h1 class="gr-page-hero__title"><?php esc_html_e( 'अस्वीकरण — Disclaimer', 'golden-rashifal' ); ?></h1>
+            <p class="gr-page-hero__subtitle"><?php esc_html_e( 'Golden Rashifal पर प्रकाशित सभी सामग्री informational purpose से है। यहाँ हमारी content की सीमाएँ और जिम्मेदारियाँ स्पष्ट की गई हैं।', 'golden-rashifal' ); ?></p>
+            <div class="gr-page-hero__meta">
+                <span>Last Updated: <?php echo esc_html( wp_date( 'F Y' ) ); ?></span>
+            </div>
+        </div>
+    </section>
 
-<div class="gr-article__body">
+    <div class="gr-premium-content gr-premium-content--narrow">
 
-<p><strong>Last Updated:</strong> <?php echo esc_html( wp_date( 'F Y' ) ); ?></p>
+        <h2>सामान्य अस्वीकरण</h2>
+        <p>Golden Rashifal पर published सभी content — articles, पंचांग data, चौघड़िया charts, राशिफल, मुहूर्त information — पूरी तरह से <strong>सामान्य जानकारी और शैक्षिक उद्देश्य</strong> से प्रदान की जाती है।</p>
+        <p>यह content किसी भी professional advice (चिकित्सा, कानूनी, वित्तीय, या ज्योतिषीय) का विकल्प नहीं है।</p>
 
-<h2>सामान्य अस्वीकरण (General Disclaimer)</h2>
-<p>Golden Rashifal website पर published सभी content — articles, पंचांग data, चौघड़िया charts, राशिफल, मुहूर्त information — पूरी तरह से <strong>सामान्य जानकारी और शैक्षिक उद्देश्य</strong> से प्रदान की जाती है।</p>
+        <h2>ज्योतिष content के बारे में</h2>
+        <div class="gr-pcard-grid gr-pcard-grid--3">
+            <div class="gr-pcard">
+                <div class="gr-pcard__icon">☆</div>
+                <div class="gr-pcard__title">पारंपरिक मान्यता</div>
+                <div class="gr-pcard__text">राशिफल और मुहूर्त content पारंपरिक मान्यताओं पर based है, scientifically proven नहीं।</div>
+            </div>
+            <div class="gr-pcard">
+                <div class="gr-pcard__icon">⚡</div>
+                <div class="gr-pcard__title">कोई Guarantee नहीं</div>
+                <div class="gr-pcard__text">हम किसी outcome की guarantee नहीं देते। Content entertainment और cultural reference के लिए है।</div>
+            </div>
+            <div class="gr-pcard">
+                <div class="gr-pcard__icon">⚠</div>
+                <div class="gr-pcard__title">निर्णय लेने से पहले</div>
+                <div class="gr-pcard__text">बड़े जीवन-निर्णय के लिए सिर्फ राशिफल पर depend न करें। Professional advice लें।</div>
+            </div>
+        </div>
 
-<p>यह content किसी भी professional advice (चिकित्सा, कानूनी, वित्तीय, या ज्योतिषीय) का विकल्प नहीं है।</p>
+        <h2>पंचांग और समय-संबंधी data</h2>
+        <p>हमारी website पर दिए गए सूर्योदय/सूर्यास्त, राहुकाल, चौघड़िया, तिथि, नक्षत्र ये सब <strong>approximate values</strong> हैं जो standard algorithms से calculate की जाती हैं।</p>
+        <p>ये North India (Delhi region) के coordinates पर primarily based हैं। आपके specific location पर 5-15 मिनट का variation हो सकता है।</p>
 
-<h2>ज्योतिष content के बारे में</h2>
-<p>स्पष्ट शब्दों में कहें तो:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>हमारा राशिफल, मुहूर्त, और ज्योतिष content <strong>पारंपरिक मान्यताओं</strong> पर based है</li>
-<li>ये scientifically proven predictions नहीं हैं</li>
-<li>इन्हें entertainment और cultural reference के तौर पर लिया जाना चाहिए</li>
-<li>किसी भी बड़े जीवन-निर्णय (शादी, career change, property purchase) के लिए सिर्फ राशिफल पर depend न करें</li>
-<li>हम किसी outcome की guarantee नहीं देते</li>
-</ul>
+        <h2>Medical Disclaimer</h2>
+        <ul>
+            <li>Medical advice नहीं है</li>
+            <li>किसी doctor की सलाह का विकल्प नहीं है</li>
+            <li>Self-diagnosis या self-treatment के लिए use न करें</li>
+        </ul>
 
-<p>हम "ये करो तो सफलता मिलेगी" या "ये न करो तो बुरा होगा" — ऐसी fear-based या guarantee-based भाषा से बचते हैं। लेकिन readers को भी ये समझना ज़रूरी है कि ज्योतिष content एक belief system है, proven science नहीं।</p>
+        <h2>Financial Disclaimer</h2>
+        <ul>
+            <li>Financial advice नहीं है</li>
+            <li>Investment decisions qualified financial advisor की सलाह पर लें</li>
+            <li>"शुभ मुहूर्त में invest करने से profit होगा" — ऐसा हम claim नहीं करते</li>
+        </ul>
 
-<h2>पंचांग और समय-संबंधी data</h2>
-<p>हमारी website पर दिए गए:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>सूर्योदय / सूर्यास्त timings</li>
-<li>राहुकाल</li>
-<li>चौघड़िया</li>
-<li>तिथि, नक्षत्र</li>
-</ul>
-<p>ये सब <strong>approximate values</strong> हैं जो standard algorithms से calculate की जाती हैं। ये North India (Delhi region) के coordinates पर primarily based हैं। आपके specific location पर 5-15 मिनट का variation हो सकता है।</p>
-<p>100% accurate local timings के लिए अपने शहर-specific पंचांग या Drik Panchang जैसी specialized service use करें।</p>
+        <h2>External Links</h2>
+        <ul>
+            <li>External websites के content, accuracy, या safety की ज़िम्मेदारी नहीं लेते</li>
+            <li>External link provide करने का मतलब endorsement नहीं है</li>
+            <li>Users अपनी responsibility पर external links follow करें</li>
+        </ul>
 
-<h2>Medical Disclaimer</h2>
-<p>हमारी website पर कभी-कभी आयुर्वेद, योग, या traditional health practices से related content हो सकता है। ये content:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>Medical advice नहीं है</li>
-<li>किसी doctor या healthcare professional की सलाह का विकल्प नहीं है</li>
-<li>किसी भी health issue के लिए qualified medical professional से consult करें</li>
-<li>Self-diagnosis या self-treatment के लिए इस content का use न करें</li>
-</ul>
+        <h2>Advertising Disclaimer</h2>
+        <ul>
+            <li>Ads का content हमारे control में नहीं है</li>
+            <li>Advertised products/services की quality की guarantee हम नहीं देते</li>
+            <li>Ad पर click करने और purchase करने का decision user की responsibility है</li>
+        </ul>
 
-<h2>Financial Disclaimer</h2>
-<p>अगर कहीं investment, business, या financial decisions से related ज्योतिषीय content हो, तो:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>ये financial advice नहीं है</li>
-<li>Investment decisions अपनी research और qualified financial advisor की सलाह पर लें</li>
-<li>"शुभ मुहूर्त में invest करने से profit होगा" — ऐसा हम claim नहीं करते</li>
-</ul>
+        <h2>Limitation of Liability</h2>
+        <p>Golden Rashifal किसी भी direct, indirect, incidental, या consequential damages के लिए liable नहीं है। Website "as is" basis पर provide की जाती है।</p>
 
-<h2>External Links</h2>
-<p>हमारी website पर external websites के links हो सकते हैं। हम:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>External websites के content, accuracy, या safety की ज़िम्मेदारी नहीं लेते</li>
-<li>External link provide करने का मतलब endorsement नहीं है</li>
-<li>Users अपनी responsibility पर external links follow करें</li>
-</ul>
+        <h2>संपर्क</h2>
+        <p>इस disclaimer से related कोई सवाल हो: <strong>contact@goldenrashifal.com</strong></p>
 
-<h2>Advertising Disclaimer</h2>
-<p>हमारी website पर Google AdSense और संभवतः अन्य advertising networks के ads दिख सकते हैं। इन ads में:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>Ads का content हमारे control में नहीं है</li>
-<li>Advertised products/services की quality की guarantee हम नहीं देते</li>
-<li>Ad पर click करने और purchase करने का decision user की अपनी responsibility है</li>
-</ul>
+        <!-- FAQ -->
+        <h2>अक्सर पूछे जाने वाले सवाल</h2>
+        <div class="gr-faq">
+            <details class="gr-faq__item" open>
+                <summary class="gr-faq__q"><strong>क्या राशिफल content पर पूरा भरोसा कर सकते हैं?</strong></summary>
+                <div class="gr-faq__a">राशिफल पारंपरिक मान्यताओं पर based है। Entertainment/cultural reference के तौर पर लें। Life decisions सिर्फ राशिफल पर based न लें।</div>
+            </details>
+            <details class="gr-faq__item">
+                <summary class="gr-faq__q"><strong>पंचांग timings 100% accurate हैं?</strong></summary>
+                <div class="gr-faq__a">Approximate values हैं। Location पर 5-15 मिनट difference हो सकता है।</div>
+            </details>
+            <details class="gr-faq__item">
+                <summary class="gr-faq__q"><strong>Ads में दिखने वाले products recommend किए गए हैं?</strong></summary>
+                <div class="gr-faq__a">नहीं। Ads automatically serve होते हैं। हम products endorse नहीं करते।</div>
+            </details>
+            <details class="gr-faq__item">
+                <summary class="gr-faq__q"><strong>Content गलत लगे तो क्या करें?</strong></summary>
+                <div class="gr-faq__a">Email करें: contact@goldenrashifal.com। 48 घंटे में correction की कोशिश।</div>
+            </details>
+        </div>
 
-<h2>Content Accuracy</h2>
-<p>हम अपना best effort करते हैं content accurate रखने का। लेकिन:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>Human error संभव है</li>
-<li>Information outdated हो सकती है</li>
-<li>Typos और calculation errors हो सकते हैं</li>
-<li>अगर कोई गलती दिखे तो हमें <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">contact करें</a></li>
-</ul>
-<p>हम errors report मिलने पर जल्द-से-जल्द correction करने की कोशिश करते हैं।</p>
+        <!-- CTA -->
+        <div class="gr-page-cta">
+            <h2 class="gr-page-cta__title"><?php esc_html_e( 'आज का पंचांग देखें', 'golden-rashifal' ); ?></h2>
+            <p class="gr-page-cta__text"><?php esc_html_e( 'तिथि, नक्षत्र, योग, करण — सब एक जगह', 'golden-rashifal' ); ?></p>
+            <div class="gr-page-cta__buttons">
+                <a class="gr-page-cta__btn gr-page-cta__btn--gold" href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">पंचांग देखें</a>
+                <a class="gr-page-cta__btn gr-page-cta__btn--outline" href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>">राशिफल पढ़ें</a>
+            </div>
+        </div>
 
-<h2>Limitation of Liability</h2>
-<p>Golden Rashifal और इसकी team किसी भी direct, indirect, incidental, या consequential damages के लिए liable नहीं है जो इस website के content use करने से हो सकते हैं।</p>
-<p>Website "as is" basis पर provide की जाती है — बिना किसी express या implied warranty के।</p>
+        <!-- Trust & Links -->
+        <div class="gr-trust-block">
+            <h2 class="gr-trust-block__title"><?php esc_html_e( 'Golden Rashifal पर भरोसा क्यों करें?', 'golden-rashifal' ); ?></h2>
+            <div class="gr-trust-block__grid">
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> संपादकीय समीक्षित</div>
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> पंचांग सत्यापित</div>
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> प्रतिदिन अपडेट</div>
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> पारंपरिक स्रोत</div>
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> पाठक केंद्रित</div>
+            </div>
+        </div>
 
-<h2>Changes to Disclaimer</h2>
-<p>हम ये disclaimer update कर सकते हैं। "Last Updated" date check करके latest version देख सकते हैं।</p>
+        <div class="gr-internal-links">
+            <h2 class="gr-internal-links__title"><?php esc_html_e( 'संबंधित पेज', 'golden-rashifal' ); ?></h2>
+            <div class="gr-internal-links__grid">
+                <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>"><span class="icon">🔒</span> गोपनीयता नीति</a>
+                <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>"><span class="icon">📜</span> नियम और शर्तें</a>
+                <a href="<?php echo esc_url( home_url( '/editorial-policy/' ) ); ?>"><span class="icon">✏</span> संपादकीय नीति</a>
+                <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><span class="icon">📞</span> संपर्क करें</a>
+                <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>"><span class="icon">👥</span> हमारे बारे में</a>
+                <a href="<?php echo esc_url( home_url( '/dmca/' ) ); ?>"><span class="icon">🛡</span> DMCA</a>
+            </div>
+        </div>
 
-<h2>संपर्क</h2>
-<p>इस disclaimer से related कोई सवाल हो:</p>
-<p>✉️ <a href="mailto:contact@goldenrashifal.com">contact@goldenrashifal.com</a></p>
+        <div class="gr-footer-transition">
+            <div class="gr-footer-transition__line"></div>
+            <p class="gr-footer-transition__text"><?php esc_html_e( 'Golden Rashifal — पारदर्शी और जिम्मेदार', 'golden-rashifal' ); ?></p>
+        </div>
+    </div>
 
-<h2>अक्सर पूछे जाने वाले सवाल</h2>
-
-<div class="gr-faq">
-<details class="gr-faq__item" open>
-<summary class="gr-faq__q"><strong>क्या राशिफल content पर पूरा भरोसा कर सकते हैं?</strong></summary>
-<div class="gr-faq__a">राशिफल पारंपरिक मान्यताओं पर based है और इसे entertainment/cultural reference के तौर पर लिया जाना चाहिए। Life decisions सिर्फ राशिफल पर based न लें।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>पंचांग timings 100% accurate हैं?</strong></summary>
-<div class="gr-faq__a">ये approximate values हैं। आपके exact location पर 5-15 मिनट का difference हो सकता है। Precise timings के लिए city-specific पंचांग tools use करें।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>Website पर दिए उपाय follow करने से नुकसान हो तो?</strong></summary>
-<div class="gr-faq__a">हमारा content informational है। किसी भी उपाय या सुझाव को follow करना reader की अपनी choice और responsibility है। हम outcomes की guarantee नहीं देते।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>Ads में दिखने वाले products recommend किए गए हैं?</strong></summary>
-<div class="gr-faq__a">नहीं। Ads Google AdSense द्वारा automatically serve होते हैं। हम advertised products/services endorse नहीं करते। Purchase decisions user की responsibility है।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>Content गलत लगे तो क्या करें?</strong></summary>
-<div class="gr-faq__a">हमें email करें: contact@goldenrashifal.com। Page URL और गलती की details बताएं। हम verify करके 48 घंटे में correction करने की कोशिश करते हैं।</div>
-</details>
-</div>
-
-</div>
-</article>
 </main>
 
 <?php get_footer(); ?>
