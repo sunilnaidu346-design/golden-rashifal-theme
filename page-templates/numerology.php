@@ -18,6 +18,26 @@ get_header();
 </header>
 
 <div class="gr-article__body">
+    <?php
+    /*
+     * WordPress Editor Content — shown immediately when this page is edited
+     * from WP Admin → Pages → Edit. Add your own content there and it will
+     * appear here, above the default fallback text below.
+     */
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            $editor_content = get_the_content();
+            if ( ! empty( trim( $editor_content ) ) ) {
+                the_content();
+                echo '<hr class="gr-content-divider" />';
+            }
+        }
+        rewind_posts();
+    }
+    ?>
+
+
 
 <h2>अंकज्योतिष क्या है?</h2>
 <p>Simple शब्दों में — अंकज्योतिष वो system है जो numbers (1-9) को specific characteristics, planets, और energies से जोड़ता है। आपकी birth date से एक "मूलांक" (Root Number) निकलता है, और full date of birth से "भाग्यांक" (Destiny Number)।</p>

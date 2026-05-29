@@ -18,6 +18,26 @@ get_header();
 </header>
 
 <div class="gr-article__body">
+    <?php
+    /*
+     * WordPress Editor Content — shown immediately when this page is edited
+     * from WP Admin → Pages → Edit. Add your own content there and it will
+     * appear here, above the default fallback text below.
+     */
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            $editor_content = get_the_content();
+            if ( ! empty( trim( $editor_content ) ) ) {
+                the_content();
+                echo '<hr class="gr-content-divider" />';
+            }
+        }
+        rewind_posts();
+    }
+    ?>
+
+
 
 <h2>नवग्रह कौन-कौन से हैं?</h2>
 <p>Vedic astrology में 9 celestial bodies consider किए जाते हैं। ध्यान दें — ये modern astronomy से अलग है। यहाँ "ग्रह" का मतलब planet नहीं बल्कि "influencing body" है। सूर्य एक star है, चंद्रमा satellite है, राहु-केतु mathematical points हैं — लेकिन ज्योतिष में सबको "ग्रह" कहा जाता है।</p>

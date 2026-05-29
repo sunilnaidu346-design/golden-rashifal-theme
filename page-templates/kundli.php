@@ -18,6 +18,26 @@ get_header();
 </header>
 
 <div class="gr-article__body">
+    <?php
+    /*
+     * WordPress Editor Content — shown immediately when this page is edited
+     * from WP Admin → Pages → Edit. Add your own content there and it will
+     * appear here, above the default fallback text below.
+     */
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            $editor_content = get_the_content();
+            if ( ! empty( trim( $editor_content ) ) ) {
+                the_content();
+                echo '<hr class="gr-content-divider" />';
+            }
+        }
+        rewind_posts();
+    }
+    ?>
+
+
 
 <h2>कुंडली क्या होती है?</h2>
 <p>जब आप पैदा हुए — उस exact moment पर सूर्य, चंद्रमा, और बाकी ग्रह आकाश में एक specific position पर थे। कुंडली इसी position का diagram है। 12 भावों (houses) में 9 ग्रहों की placement — ये है आपकी कुंडली।</p>

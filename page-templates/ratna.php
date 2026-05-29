@@ -161,6 +161,25 @@ get_header();
 
 <div class="gr-article__body">
 
+    <?php
+    /*
+     * WordPress Editor Content — shown immediately when this page is edited
+     * from WP Admin → Pages → Edit. Add your own content there and it will
+     * appear here, above the default fallback text below.
+     */
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            $editor_content = get_the_content();
+            if ( ! empty( trim( $editor_content ) ) ) {
+                the_content();
+                echo '<hr class="gr-content-divider" />';
+            }
+        }
+        rewind_posts();
+    }
+    ?>
+
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:32px;">
     <div style="padding:16px;background:#f9f7f4;border:1px solid #eae4d8;border-radius:10px;text-align:center;">
         <span style="font-size:1.6rem;color:<?php echo esc_attr( $gem['color'] ); ?>;display:block;margin-bottom:4px;"><?php echo $gem['icon']; ?></span>

@@ -18,6 +18,26 @@ get_header();
 </header>
 
 <div class="gr-article__body">
+    <?php
+    /*
+     * WordPress Editor Content — shown immediately when this page is edited
+     * from WP Admin → Pages → Edit. Add your own content there and it will
+     * appear here, above the default fallback text below.
+     */
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            $editor_content = get_the_content();
+            if ( ! empty( trim( $editor_content ) ) ) {
+                the_content();
+                echo '<hr class="gr-content-divider" />';
+            }
+        }
+        rewind_posts();
+    }
+    ?>
+
+
 
 <h2>हिंदू कैलेंडर की बुनियादी संरचना</h2>
 <p>Western (Gregorian) calendar सूर्य पर based है — 365 दिन, 12 महीने। Islamic calendar purely lunar है — 354 दिन। हिंदू कैलेंडर दोनों को combine करता है — इसलिए इसे "lunisolar" कहते हैं।</p>

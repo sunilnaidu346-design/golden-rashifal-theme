@@ -194,7 +194,16 @@ add_action( 'after_switch_theme', 'golden_rashifal_auto_create_pages_on_activati
 
 /**
  * Assign theme template to pages that match virtual page slugs.
- * This tells WordPress to use our custom template when rendering real pages.
+ *
+ * IMPORTANT: This filter only fires when the WordPress page has NO content
+ * saved in the editor (post_content is empty / whitespace only).
+ *
+ * If an admin has written content for the page via Pages → Edit, WordPress
+ * will route the request through page.php which calls the_content() — so
+ * the editor content is shown immediately without any theme file changes.
+ *
+ * The theme template is used as a FALLBACK / default layout when the page
+ * was just created and has not been edited yet.
  */
 function golden_rashifal_assign_page_templates( $template ) {
     if ( ! is_page() ) {
@@ -203,6 +212,15 @@ function golden_rashifal_assign_page_templates( $template ) {
 
     $page_obj = get_queried_object();
     if ( ! $page_obj ) {
+        return $template;
+    }
+
+    /*
+     * If the page already has content written in the WordPress editor,
+     * step aside and let WordPress render it through the standard page.php
+     * template (which calls the_content()).  Editor content ALWAYS wins.
+     */
+    if ( ! empty( trim( $page_obj->post_content ) ) ) {
         return $template;
     }
 

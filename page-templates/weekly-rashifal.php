@@ -20,6 +20,26 @@ $signs = golden_rashifal_zodiac_signs();
 </header>
 
 <div class="gr-article__body">
+    <?php
+    /*
+     * WordPress Editor Content — shown immediately when this page is edited
+     * from WP Admin → Pages → Edit. Add your own content there and it will
+     * appear here, above the default fallback text below.
+     */
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            $editor_content = get_the_content();
+            if ( ! empty( trim( $editor_content ) ) ) {
+                the_content();
+                echo '<hr class="gr-content-divider" />';
+            }
+        }
+        rewind_posts();
+    }
+    ?>
+
+
 
 <h2>इस सप्ताह के प्रमुख ग्रह योग</h2>
 <p>साप्ताहिक राशिफल में daily rashifal से ज़्यादा बड़े trends देखे जाते हैं। चंद्रमा हर 2.25 दिन में राशि बदलता है — यानी एक week में 3 राशियों से गुज़रता है। बुध और शुक्र भी relatively fast-moving हैं — इनकी position weekly forecast में important role play करती है।</p>

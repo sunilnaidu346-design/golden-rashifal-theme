@@ -125,10 +125,12 @@ function golden_rashifal_admin_pages_render() {
                 <li>ऊपर बटन दबाकर pages बनाएँ</li>
                 <li>Pages → All Pages में जाएँ</li>
                 <li>किसी भी page को click करके edit करें (title, content, meta, image सब)</li>
-                <li>Frontend पर login होने पर admin bar में "Edit Page" दिखेगा</li>
-                <li>Theme template automatically page का content render करेगा</li>
+                <li>Content save करते ही frontend पर automatically दिखने लगेगा — कोई code change ज़रूरी नहीं</li>
+                <li>अगर editor में content empty हो तो theme का default layout दिखेगा (fallback)</li>
+                <li>Frontend पर login होने पर admin bar में "Edit Page" button दिखेगा</li>
                 <li>URL structure और SEO structure वैसा ही रहेगा</li>
             </ol>
+            <p style="margin:10px 0 0;font-size:12px;color:#1d4ed8;font-weight:600;">✅ नई प्रणाली: WP Editor content हमेशा theme के default layout से पहले दिखता है।</p>
         </div>
     </div>
     <?php

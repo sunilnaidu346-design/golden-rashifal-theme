@@ -244,7 +244,10 @@
 .gr-article-card{border-radius:var(--radius-lg);overflow:hidden;background:#fff;border:1px solid var(--gr-border);transition:transform .2s,box-shadow .2s}
 .gr-article-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
 .gr-article-card--featured{grid-row:span 2}
-.gr-article-card__thumb{position:relative;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;font-size:2.2rem}
+/* Link wrapper — makes the whole card a link without breaking block display */
+.gr-article-card__link{display:block;text-decoration:none;color:inherit;height:100%}
+.gr-article-card__thumb{position:relative;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;font-size:2.2rem;overflow:hidden}
+.gr-article-card__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .gr-article-card--featured .gr-article-card__thumb{aspect-ratio:3/4}
 .gr-article-card__cat{position:absolute;top:10px;left:10px;padding:3px 10px;background:rgba(0,0,0,.55);color:#fff;border-radius:var(--radius-full);font-size:.66rem;font-weight:700}
 .gr-article-card__status{position:absolute;top:10px;right:10px;padding:3px 10px;background:rgba(255,255,255,.92);color:var(--gr-ink);border-radius:var(--radius-full);font-size:.66rem;font-weight:700}
@@ -599,6 +602,13 @@ body.gr-page-sitemap .gr-article__title::before { content: "🗺️"; }
 .gr-article__body {
     font-size: .98rem;
     line-height: 1.78;
+}
+/* Divider shown between WP editor content and the theme default fallback */
+hr.gr-content-divider {
+    border: none;
+    border-top: 2px dashed var(--gr-border);
+    margin: var(--sp-7) 0;
+    opacity: .5;
 }
 .gr-article__body h2 {
     margin-top: 2.2em;

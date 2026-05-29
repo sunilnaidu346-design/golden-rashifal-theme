@@ -21,6 +21,26 @@ $chog = golden_rashifal_choghadiya_today();
 </header>
 
 <div class="gr-article__body">
+    <?php
+    /*
+     * WordPress Editor Content — shown immediately when this page is edited
+     * from WP Admin → Pages → Edit. Add your own content there and it will
+     * appear here, above the default fallback text below.
+     */
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            $editor_content = get_the_content();
+            if ( ! empty( trim( $editor_content ) ) ) {
+                the_content();
+                echo '<hr class="gr-content-divider" />';
+            }
+        }
+        rewind_posts();
+    }
+    ?>
+
+
 
 <h2>चौघड़िया क्या होता है?</h2>
 <p>सीधी बात करें तो चौघड़िया एक तरह का टाइम-टेबल है। जैसे स्कूल में पीरियड होते हैं, वैसे ही दिन को शुभ और अशुभ समय-खंडों में बाँटा गया है। सूर्योदय से सूर्यास्त तक 8 भाग — इन्हें "दिन का चौघड़िया" कहते हैं। फिर सूर्यास्त से अगले दिन सूर्योदय तक 8 भाग — ये "रात का चौघड़िया" कहलाता है।</p>
