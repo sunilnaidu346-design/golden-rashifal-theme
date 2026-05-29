@@ -1,7 +1,7 @@
 <?php
 /**
- * Virtual Page: Contact Us — संपर्क करें
- * AdSense trust page with contact details and simple form placeholder.
+ * Virtual Page: Contact Us — Premium Layout.
+ * Cards, FAQ, trust block, internal links.
  *
  * @package GoldenRashifal
  */
@@ -9,113 +9,185 @@
 get_header();
 ?>
 
-<main id="primary" class="gr-main" role="main">
-<article class="gr-wrap gr-content-wrap gr-article">
+<main id="primary" class="gr-main gr-main--contact" role="main">
 
-<header class="gr-article__head">
-    <h1 class="gr-article__title">संपर्क करें — Contact Us</h1>
-    <p class="gr-article__lede">कोई सवाल, सुझाव, correction request, या feedback हो — हमसे बात करें। हम हर genuine message का जवाब देने की कोशिश करते हैं।</p>
-</header>
+    <!-- Premium Hero -->
+    <section class="gr-page-hero">
+        <div class="gr-page-hero__inner">
+            <div class="gr-page-hero__breadcrumb">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">होम</a>
+                <span class="sep">›</span>
+                <span>संपर्क करें</span>
+            </div>
+            <span class="gr-page-hero__badge">✉ हमसे बात करें</span>
+            <h1 class="gr-page-hero__title"><?php esc_html_e( 'संपर्क करें — Contact Us', 'golden-rashifal' ); ?></h1>
+            <p class="gr-page-hero__subtitle"><?php esc_html_e( 'कोई सवाल, सुझाव, correction request, या feedback हो — हमसे बात करें। हम हर genuine message का जवाब देने की कोशिश करते हैं।', 'golden-rashifal' ); ?></p>
+        </div>
+    </section>
 
-<div class="gr-article__body">
+    <div class="gr-premium-content gr-premium-content--narrow">
 
-<h2>हमसे कैसे संपर्क करें?</h2>
-<p>सबसे आसान तरीका email है। नीचे दी गई details पर आप हमें लिख सकते हैं:</p>
+        <!-- Contact Cards -->
+        <div class="gr-contact-cards">
+            <div class="gr-contact-card">
+                <div class="gr-contact-card__icon">📧</div>
+                <div class="gr-contact-card__label">Email Address</div>
+                <div class="gr-contact-card__value"><a href="mailto:contact@goldenrashifal.com">contact@goldenrashifal.com</a></div>
+            </div>
+            <div class="gr-contact-card">
+                <div class="gr-contact-card__icon">🌐</div>
+                <div class="gr-contact-card__label">Website</div>
+                <div class="gr-contact-card__value"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Golden Rashifal</a></div>
+            </div>
+            <div class="gr-contact-card">
+                <div class="gr-contact-card__icon">📍</div>
+                <div class="gr-contact-card__label">Location</div>
+                <div class="gr-contact-card__value">India</div>
+            </div>
+            <div class="gr-contact-card">
+                <div class="gr-contact-card__icon">⏰</div>
+                <div class="gr-contact-card__label">Response Time</div>
+                <div class="gr-contact-card__value">2-5 Working Days</div>
+            </div>
+        </div>
 
-<div style="background:var(--gr-bg-soft);border:1px solid var(--gr-border);border-radius:var(--radius-lg);padding:28px;margin-bottom:28px">
-    <p style="margin-bottom:14px"><strong style="font-size:1.1rem">📧 Email Address</strong></p>
-    <p style="margin-bottom:20px;font-size:1.05rem"><a href="mailto:contact@goldenrashifal.com" style="color:var(--gr-gold-deep);font-weight:600">contact@goldenrashifal.com</a></p>
+        <h2>किन कामों के लिए संपर्क कर सकते हैं?</h2>
+        <div class="gr-pcard-grid gr-pcard-grid--3">
+            <div class="gr-pcard">
+                <div class="gr-pcard__icon">✎</div>
+                <div class="gr-pcard__title">Content Correction</div>
+                <div class="gr-pcard__text">किसी article में गलत जानकारी दिखी है? हम 48 घंटे के अंदर fix करते हैं।</div>
+            </div>
+            <div class="gr-pcard">
+                <div class="gr-pcard__icon">💡</div>
+                <div class="gr-pcard__title">Feedback / सुझाव</div>
+                <div class="gr-pcard__text">कोई नया topic cover करना चाहिए? आपका feedback directly team तक पहुँचता है।</div>
+            </div>
+            <div class="gr-pcard">
+                <div class="gr-pcard__icon">©</div>
+                <div class="gr-pcard__title">Copyright / DMCA</div>
+                <div class="gr-pcard__text">Copyrighted material बिना permission use हुआ है? Details के साथ email करें।</div>
+            </div>
+            <div class="gr-pcard">
+                <div class="gr-pcard__icon">💼</div>
+                <div class="gr-pcard__title">Business Inquiry</div>
+                <div class="gr-pcard__text">Advertising या collaboration? Subject line में "Business Inquiry" लिखें।</div>
+            </div>
+            <div class="gr-pcard">
+                <div class="gr-pcard__icon">🔧</div>
+                <div class="gr-pcard__title">Technical Issue</div>
+                <div class="gr-pcard__text">Website ठीक से load नहीं हो रही? Mobile पर दिक्कत? हमें बताएं।</div>
+            </div>
+            <div class="gr-pcard">
+                <div class="gr-pcard__icon">🙏</div>
+                <div class="gr-pcard__title">Appreciation</div>
+                <div class="gr-pcard__text">अगर हमारा content helpful लगा तो बताएं — team को motivation मिलता है!</div>
+            </div>
+        </div>
 
-    <p style="margin-bottom:14px"><strong style="font-size:1.1rem">🌐 Website</strong></p>
-    <p style="margin-bottom:20px"><a href="<?php echo esc_url( home_url( '/' ) ); ?>">sipindustries.in</a> (Golden Rashifal)</p>
+        <h2>किन कामों के लिए संपर्क न करें</h2>
+        <ul>
+            <li><strong>Personal ज्योतिष consultation</strong> — हम paid या free कोई भी personal prediction service नहीं देते।</li>
+            <li><strong>Kundli matching / गुण मिलान</strong> — ये service हम provide नहीं करते।</li>
+            <li><strong>"मेरी शादी कब होगी?" जैसे personal सवाल</strong> — इनका जवाब देना हमारे scope में नहीं है।</li>
+            <li><strong>Spam, link exchange, या guest post requests</strong> — ऐसे emails का reply नहीं दिया जाता।</li>
+        </ul>
 
-    <p style="margin-bottom:14px"><strong style="font-size:1.1rem">📍 Location</strong></p>
-    <p style="margin-bottom:20px">India</p>
+        <h2>Email भेजते समय ध्यान रखें</h2>
+        <ul>
+            <li>Subject line clear लिखें (जैसे: "Panchang page पर date correction")</li>
+            <li>अगर किसी specific page की बात है तो उसका URL दें</li>
+            <li>Screenshot attach कर सकते हैं (optional)</li>
+            <li>अपना नाम लिखें (optional, लेकिन helpful)</li>
+        </ul>
 
-    <p style="margin-bottom:14px"><strong style="font-size:1.1rem">⏰ Response Time</strong></p>
-    <p>आमतौर पर 2-5 working days में reply मिल जाता है। Weekends और holidays पर थोड़ी देर हो सकती है।</p>
-</div>
+        <h2>Social Media</h2>
+        <div class="gr-pcard-grid gr-pcard-grid--4">
+            <div class="gr-pcard" style="text-align:center;padding:20px;">
+                <div class="gr-pcard__icon" style="margin:0 auto 8px;">📘</div>
+                <div class="gr-pcard__title">Facebook</div>
+            </div>
+            <div class="gr-pcard" style="text-align:center;padding:20px;">
+                <div class="gr-pcard__icon" style="margin:0 auto 8px;">📸</div>
+                <div class="gr-pcard__title">Instagram</div>
+            </div>
+            <div class="gr-pcard" style="text-align:center;padding:20px;">
+                <div class="gr-pcard__icon" style="margin:0 auto 8px;">📺</div>
+                <div class="gr-pcard__title">YouTube</div>
+            </div>
+            <div class="gr-pcard" style="text-align:center;padding:20px;">
+                <div class="gr-pcard__icon" style="margin:0 auto 8px;">✈</div>
+                <div class="gr-pcard__title">Telegram</div>
+            </div>
+        </div>
+        <p style="font-size:.84rem;color:var(--gr-muted);text-align:center;">Social media पर DM का reply हमेशा possible नहीं होता। Important communication के लिए email prefer करें।</p>
 
-<h2>किन कामों के लिए संपर्क कर सकते हैं?</h2>
-<p>आप हमें इन reasons से लिख सकते हैं:</p>
+        <!-- FAQ -->
+        <h2>अक्सर पूछे जाने वाले सवाल</h2>
+        <div class="gr-faq">
+            <details class="gr-faq__item" open>
+                <summary class="gr-faq__q"><strong>Email का reply कितने दिन में मिलता है?</strong></summary>
+                <div class="gr-faq__a">आमतौर पर 2-5 working days। हम हर genuine email पढ़ते हैं।</div>
+            </details>
+            <details class="gr-faq__item">
+                <summary class="gr-faq__q"><strong>क्या phone पर बात हो सकती है?</strong></summary>
+                <div class="gr-faq__a">फिलहाल phone support available नहीं है। Email सबसे reliable तरीका है।</div>
+            </details>
+            <details class="gr-faq__item">
+                <summary class="gr-faq__q"><strong>Guest post या backlink exchange के लिए contact कर सकते हैं?</strong></summary>
+                <div class="gr-faq__a">नहीं। हम guest posts accept नहीं करते और link exchange requests का reply नहीं देते।</div>
+            </details>
+            <details class="gr-faq__item">
+                <summary class="gr-faq__q"><strong>Content में mistake report करने पर क्या action होता है?</strong></summary>
+                <div class="gr-faq__a">हम report verify करते हैं। अगर गलती सही पाई जाती है तो 48 घंटे के अंदर correction publish कर दी जाती है।</div>
+            </details>
+            <details class="gr-faq__item">
+                <summary class="gr-faq__q"><strong>Advertising rates क्या हैं?</strong></summary>
+                <div class="gr-faq__a">Subject line में "Advertising Inquiry" लिखकर email करें। Spam-type ads हम accept नहीं करते।</div>
+            </details>
+        </div>
 
-<p><strong>Content Correction</strong> — अगर किसी article में गलत जानकारी दिखी है (गलत तिथि, गलत timing, spelling mistake) तो हमें बताएं। हम 48 घंटे के अंदर fix करने की कोशिश करते हैं।</p>
+        <!-- CTA -->
+        <div class="gr-page-cta">
+            <h2 class="gr-page-cta__title"><?php esc_html_e( 'आज का राशिफल देखें', 'golden-rashifal' ); ?></h2>
+            <p class="gr-page-cta__text"><?php esc_html_e( 'अपनी राशि चुनें और आज की भविष्यवाणी पढ़ें', 'golden-rashifal' ); ?></p>
+            <div class="gr-page-cta__buttons">
+                <a class="gr-page-cta__btn gr-page-cta__btn--gold" href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>">राशिफल पढ़ें</a>
+                <a class="gr-page-cta__btn gr-page-cta__btn--outline" href="<?php echo esc_url( home_url( '/about/' ) ); ?>">हमारे बारे में</a>
+            </div>
+        </div>
 
-<p><strong>Feedback / सुझाव</strong> — कोई नया topic cover करना चाहिए? Website में कुछ improve हो सकता है? आपका feedback directly हमारी team तक पहुँचता है।</p>
+        <!-- Trust Block -->
+        <div class="gr-trust-block">
+            <h2 class="gr-trust-block__title"><?php esc_html_e( 'Golden Rashifal पर भरोसा क्यों करें?', 'golden-rashifal' ); ?></h2>
+            <div class="gr-trust-block__grid">
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> संपादकीय समीक्षित</div>
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> पंचांग सत्यापित</div>
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> प्रतिदिन अपडेट</div>
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> पारंपरिक स्रोत</div>
+                <div class="gr-trust-block__item"><span class="gr-trust-block__check">✓</span> पाठक केंद्रित</div>
+            </div>
+        </div>
 
-<p><strong>Copyright / DMCA</strong> — अगर आपको लगता है कि हमारे किसी content में आपका copyrighted material बिना permission के use हुआ है, तो कृपया details के साथ email करें। हम seriously लेते हैं।</p>
+        <!-- Internal Links -->
+        <div class="gr-internal-links">
+            <h2 class="gr-internal-links__title"><?php esc_html_e( 'महत्वपूर्ण पेज', 'golden-rashifal' ); ?></h2>
+            <div class="gr-internal-links__grid">
+                <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>"><span class="icon">👥</span> हमारे बारे में</a>
+                <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>"><span class="icon">🔒</span> गोपनीयता नीति</a>
+                <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>"><span class="icon">⚖</span> अस्वीकरण</a>
+                <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>"><span class="icon">📜</span> नियम और शर्तें</a>
+                <a href="<?php echo esc_url( home_url( '/editorial-policy/' ) ); ?>"><span class="icon">✏</span> संपादकीय नीति</a>
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="icon">🏠</span> मुख्य पृष्ठ</a>
+            </div>
+        </div>
 
-<p><strong>Advertising / Business Inquiry</strong> — Advertising या collaboration से जुड़ा कोई proposal हो तो email subject line में "Business Inquiry" लिखें।</p>
+        <div class="gr-footer-transition">
+            <div class="gr-footer-transition__line"></div>
+            <p class="gr-footer-transition__text"><?php esc_html_e( 'Golden Rashifal — भरोसेमंद ज्योतिष जानकारी', 'golden-rashifal' ); ?></p>
+        </div>
+    </div>
 
-<p><strong>Technical Issue</strong> — Website ठीक से load नहीं हो रही? कोई page broken है? Mobile पर कुछ दिक्कत है? हमें बताएं — ये bugs fix करने में reader feedback बहुत help करता है।</p>
-
-<h2>किन कामों के लिए संपर्क न करें</h2>
-<p>ये clear करना ज़रूरी है ताकि आपका और हमारा — दोनों का समय बचे:</p>
-
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li><strong>Personal ज्योतिष consultation</strong> — हम paid या free कोई भी personal prediction service नहीं देते। इसके लिए किसी qualified ज्योतिषाचार्य से मिलें।</li>
-<li><strong>Kundli matching / गुण मिलान</strong> — ये service हम provide नहीं करते।</li>
-<li><strong>"मेरी शादी कब होगी?" जैसे personal सवाल</strong> — इनका जवाब देना हमारे scope में नहीं है।</li>
-<li><strong>Spam, link exchange, या guest post requests</strong> — ऐसे emails का reply नहीं दिया जाता।</li>
-</ul>
-
-<h2>Email भेजते समय ध्यान रखें</h2>
-<p>ताकि हम जल्दी और सही response दे सकें, email में ये include करें:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>Subject line clear लिखें (जैसे: "Panchang page पर date correction")</li>
-<li>अगर किसी specific page की बात है तो उसका URL दें</li>
-<li>Screenshot attach कर सकते हैं (optional)</li>
-<li>अपना नाम लिखें (optional, लेकिन helpful)</li>
-</ul>
-
-<h2>Social Media</h2>
-<p>हम कुछ social platforms पर भी मौजूद हैं। Updates के लिए follow कर सकते हैं:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>Facebook — Golden Rashifal</li>
-<li>Instagram — @goldenrashifal</li>
-<li>YouTube — Golden Rashifal</li>
-<li>Telegram — Golden Rashifal Channel</li>
-</ul>
-<p style="font-size:.86rem;color:var(--gr-muted)">(Social media पर DM का reply हमेशा possible नहीं होता। Important communication के लिए email prefer करें।)</p>
-
-<h2>महत्वपूर्ण पेज</h2>
-<p>📖 <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">हमारे बारे में</a> — Golden Rashifal के बारे में विस्तृत जानकारी</p>
-<p>📋 <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">Privacy Policy</a> — आपका data कैसे handle होता है</p>
-<p>⚖️ <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">Disclaimer</a> — content की सीमाएँ और जिम्मेदारी</p>
-<p>📜 <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">Terms & Conditions</a> — website use करने की शर्तें</p>
-<p>🏠 <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Homepage</a> — मुख्य पृष्ठ पर जाएँ</p>
-
-<h2>अक्सर पूछे जाने वाले सवाल</h2>
-
-<div class="gr-faq">
-<details class="gr-faq__item" open>
-<summary class="gr-faq__q"><strong>Email का reply कितने दिन में मिलता है?</strong></summary>
-<div class="gr-faq__a">आमतौर पर 2-5 working days। अगर volume ज़्यादा हो तो थोड़ा और समय लग सकता है। लेकिन हम हर genuine email पढ़ते हैं।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>क्या phone पर बात हो सकती है?</strong></summary>
-<div class="gr-faq__a">फिलहाल phone support available नहीं है। Email सबसे reliable तरीका है हमसे संपर्क करने का।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>Guest post या backlink exchange के लिए contact कर सकते हैं?</strong></summary>
-<div class="gr-faq__a">नहीं। हम guest posts accept नहीं करते और link exchange requests का reply नहीं देते। ऐसे emails automatically ignore होते हैं।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>Content में mistake report करने पर क्या action होता है?</strong></summary>
-<div class="gr-faq__a">हम report verify करते हैं। अगर गलती सही पाई जाती है तो 48 घंटे के अंदर correction publish कर दी जाती है। Reporter को acknowledgment email भी भेजा जाता है।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>Advertising rates क्या हैं?</strong></summary>
-<div class="gr-faq__a">Advertising inquiries के लिए subject line में "Advertising Inquiry" लिखकर email करें। हम relevant details share कर देंगे। Spam-type ads या misleading products की advertising हम accept नहीं करते।</div>
-</details>
-</div>
-
-</div>
-</article>
 </main>
 
 <?php get_footer(); ?>

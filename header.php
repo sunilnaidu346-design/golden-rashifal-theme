@@ -11,6 +11,7 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#1a1230" />
+    <meta name="robots" content="max-image-preview:large" />
     <link rel="profile" href="https://gmpg.org/xfn/11" />
     <?php wp_head(); ?>
 </head>
@@ -73,6 +74,7 @@
                             <li><a href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>">दैनिक राशिफल</a></li>
                             <li><a href="<?php echo esc_url( home_url( '/weekly-rashifal/' ) ); ?>">साप्ताहिक राशिफल</a></li>
                             <li><a href="<?php echo esc_url( home_url( '/monthly-rashifal/' ) ); ?>">मासिक राशिफल</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/horoscope/' ) ); ?>">Horoscope Hub</a></li>
                         </ul>
                     </li>
                     <li><a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">पंचांग</a>
@@ -80,8 +82,16 @@
                             <li><a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">आज का पंचांग</a></li>
                             <li><a href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>">चौघड़िया</a></li>
                             <li><a href="<?php echo esc_url( home_url( '/rahukaal/' ) ); ?>">राहुकाल</a></li>
-                            <li><a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">शुभ मुहूर्त</a></li>
                             <li><a href="<?php echo esc_url( home_url( '/hindu-calendar/' ) ); ?>">हिंदू कैलेंडर</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">मुहूर्त</a>
+                        <ul class="sub-menu">
+                            <li><a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">शुभ मुहूर्त</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>#vivah">विवाह मुहूर्त</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>#grih-pravesh">गृह प्रवेश</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>#vehicle">वाहन खरीदी</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>#business">व्यापार मुहूर्त</a></li>
                         </ul>
                     </li>
                     <li><a href="<?php echo esc_url( home_url( '/kundli/' ) ); ?>">ज्योतिष टूल</a>

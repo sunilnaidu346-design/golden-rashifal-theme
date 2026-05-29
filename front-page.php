@@ -29,8 +29,6 @@ get_header();
 
     <?php get_template_part( 'template-parts/home/articles' ); ?>
 
-    <?php get_template_part( 'template-parts/home/why-trust' ); ?>
-
     <?php get_template_part( 'template-parts/home/newsletter' ); ?>
 
 </main>

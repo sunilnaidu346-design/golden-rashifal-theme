@@ -1,6 +1,6 @@
 <?php
 /**
- * AdSense-friendly ad placement helpers.
+ * Ad placement helpers — renders configured ad slots.
  *
  * @package GoldenRashifal
  */

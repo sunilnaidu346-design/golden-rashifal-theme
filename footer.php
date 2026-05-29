@@ -27,17 +27,21 @@
             </div>
         </div>
 
-        <!-- Column 2: Quick Links -->
+        <!-- Column 2: Quick Links + Policies -->
         <div class="gr-footer__col">
             <h4 class="gr-footer__col-title">महत्वपूर्ण लिंक</h4>
             <nav class="gr-footer__links" aria-label="<?php esc_attr_e( 'Quick Links', 'golden-rashifal' ); ?>">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>">मुख्य पृष्ठ</a>
                 <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">हमारे बारे में</a>
+                <a href="<?php echo esc_url( home_url( '/authors/' ) ); ?>">लेखक टीम</a>
                 <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">संपर्क करें</a>
                 <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">गोपनीयता नीति</a>
                 <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">अस्वीकरण</a>
                 <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">नियम और शर्तें</a>
                 <a href="<?php echo esc_url( home_url( '/editorial-policy/' ) ); ?>">संपादकीय नीति</a>
+                <a href="<?php echo esc_url( home_url( '/fact-check-policy/' ) ); ?>">Fact-Check Policy</a>
+                <a href="<?php echo esc_url( home_url( '/correction-policy/' ) ); ?>">Correction Policy</a>
+                <a href="<?php echo esc_url( home_url( '/cookie-policy/' ) ); ?>">Cookie Policy</a>
                 <a href="<?php echo esc_url( home_url( '/sitemap/' ) ); ?>">साइटमैप</a>
             </nav>
         </div>
@@ -136,12 +140,74 @@
     </div>
 </nav>
 
-<!-- Floating social buttons -->
-<div class="gr-floating" aria-hidden="true">
-    <a class="gr-floating__btn gr-floating__btn--share" href="#" aria-label="Share">↗</a>
-    <a class="gr-floating__btn gr-floating__btn--chat" href="#" aria-label="Chat">✦</a>
-    <a class="gr-floating__btn gr-floating__btn--star" href="#" aria-label="Bookmark">☆</a>
+<!-- Floating Share System -->
+<div class="gr-share-float" id="gr-share-float" aria-label="<?php esc_attr_e( 'Share', 'golden-rashifal' ); ?>">
+    <a class="gr-share-float__btn gr-share-float__btn--wa" href="#" data-gr-share="whatsapp" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2-1c-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.1-.4-2.2-1.3-.8-.7-1.3-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.1-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.8L2 22l5.3-1.4C8.7 21.5 10.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+    </a>
+    <a class="gr-share-float__btn gr-share-float__btn--fb" href="#" data-gr-share="facebook" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a class="gr-share-float__btn gr-share-float__btn--tw" href="#" data-gr-share="twitter" aria-label="Twitter">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.4.36a9 9 0 0 1-2.88 1.1A4.52 4.52 0 0 0 12 7.5 12.94 12.94 0 0 1 2.46 2.11 4.48 4.48 0 0 0 3.8 8.16 4.4 4.4 0 0 1 1.64 7.6v.05a4.52 4.52 0 0 0 3.63 4.43 4.5 4.5 0 0 1-2.04.08 4.53 4.53 0 0 0 4.22 3.14A9.06 9.06 0 0 1 1 19.54a12.8 12.8 0 0 0 6.92 2.03c8.3 0 12.84-6.87 12.84-12.84 0-.2 0-.39-.01-.58A9.2 9.2 0 0 0 23 3z"/></svg>
+    </a>
+    <button class="gr-share-float__btn gr-share-float__btn--copy" data-gr-share="copy" aria-label="Copy Link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+    </button>
 </div>
+<script>
+(function(){
+    var sf = document.getElementById('gr-share-float');
+    if (!sf) return;
+    sf.addEventListener('click', function(e){
+        var btn = e.target.closest('[data-gr-share]');
+        if (!btn) return;
+        e.preventDefault();
+        var url = encodeURIComponent(window.location.href);
+        var title = encodeURIComponent(document.title);
+        var type = btn.getAttribute('data-gr-share');
+        if (type === 'whatsapp') window.open('https://wa.me/?text=' + title + '%20' + url, '_blank');
+        else if (type === 'facebook') window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, '_blank');
+        else if (type === 'twitter') window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + title, '_blank');
+        else if (type === 'copy') { navigator.clipboard.writeText(window.location.href); btn.innerHTML = '✓'; setTimeout(function(){ btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>'; }, 2000); }
+    });
+})();
+</script>
+
+<!-- Cookie Consent Banner -->
+<div class="gr-cookie-consent" id="gr-cookie-consent" aria-label="<?php esc_attr_e( 'Cookie Consent', 'golden-rashifal' ); ?>">
+    <div class="gr-cookie-consent__inner">
+        <div class="gr-cookie-consent__text">
+            🍪 <?php esc_html_e( 'हम cookies use करते हैं website experience बेहतर बनाने, traffic analyze करने, और personalized ads दिखाने के लिए।', 'golden-rashifal' ); ?>
+            <a href="<?php echo esc_url( home_url( '/cookie-policy/' ) ); ?>"><?php esc_html_e( 'Cookie Policy पढ़ें', 'golden-rashifal' ); ?></a>
+        </div>
+        <div class="gr-cookie-consent__actions">
+            <button class="gr-cookie-consent__btn gr-cookie-consent__btn--accept" data-gr-cookie="accept"><?php esc_html_e( 'Accept All', 'golden-rashifal' ); ?></button>
+            <button class="gr-cookie-consent__btn gr-cookie-consent__btn--reject" data-gr-cookie="reject"><?php esc_html_e( 'Reject All', 'golden-rashifal' ); ?></button>
+            <button class="gr-cookie-consent__btn gr-cookie-consent__btn--prefs" data-gr-cookie="prefs"><?php esc_html_e( 'Preferences', 'golden-rashifal' ); ?></button>
+        </div>
+    </div>
+</div>
+<script>
+(function(){
+    var el = document.getElementById('gr-cookie-consent');
+    if (!el) return;
+    var stored = localStorage.getItem('gr_cookie_consent');
+    if (stored) return; // Already consented
+    setTimeout(function(){ el.classList.add('is-visible'); }, 1500);
+    el.addEventListener('click', function(e){
+        var btn = e.target.closest('[data-gr-cookie]');
+        if (!btn) return;
+        var choice = btn.getAttribute('data-gr-cookie');
+        if (choice === 'accept' || choice === 'reject') {
+            localStorage.setItem('gr_cookie_consent', choice);
+            el.classList.remove('is-visible');
+        } else if (choice === 'prefs') {
+            window.location.href = '<?php echo esc_url( home_url( '/cookie-policy/' ) ); ?>';
+        }
+    });
+})();
+</script>
 
 <?php wp_footer(); ?>
 </body>

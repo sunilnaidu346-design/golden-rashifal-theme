@@ -223,8 +223,7 @@ class Golden_Rashifal_Trending_Widget extends WP_Widget {
 }
 
 /**
- * Sticky AdSense slot widget — renders a slot wrapper users can paste their
- * AdSense unit into via the Customizer.
+ * Sticky ad slot widget — renders a slot wrapper for ad code via the Customizer.
  */
 class Golden_Rashifal_Ad_Widget extends WP_Widget {
 
@@ -232,7 +231,7 @@ class Golden_Rashifal_Ad_Widget extends WP_Widget {
         parent::__construct(
             'gr_ad_slot',
             __( 'Golden Rashifal — विज्ञापन स्लॉट', 'golden-rashifal' ),
-            array( 'description' => __( 'AdSense या किसी भी HTML विज्ञापन कोड के लिए साफ़ कंटेनर।', 'golden-rashifal' ) )
+            array( 'description' => __( 'किसी भी HTML विज्ञापन कोड के लिए साफ़ कंटेनर।', 'golden-rashifal' ) )
         );
     }
 
