@@ -79,6 +79,16 @@ function golden_rashifal_enqueue_assets() {
         $ver
     );
 
+    // Single post premium layout CSS.
+    if ( is_singular( 'post' ) ) {
+        wp_enqueue_style(
+            'golden-rashifal-single',
+            GOLDEN_RASHIFAL_URI . 'assets/css/single-post.css',
+            array( 'golden-rashifal-premium' ),
+            $ver
+        );
+    }
+
     // Comments script only when needed.
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );

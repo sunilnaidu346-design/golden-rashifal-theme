@@ -1,6 +1,7 @@
 <?php
 /**
- * Single post — refined article layout.
+ * Single post — Premium astrology portal layout.
+ * Full-width 1280px container with 820px content + 360px sidebar.
  *
  * @package GoldenRashifal
  */
@@ -14,86 +15,111 @@ while ( have_posts() ) :
     <div class="gr-progress" data-gr-progress aria-hidden="true"><span class="gr-progress__bar"></span></div>
 
     <main id="primary" class="gr-main gr-main--single" role="main">
-        <div class="gr-wrap gr-grid">
+        <div class="gr-single-wrap">
 
-            <article id="post-<?php the_ID(); ?>" <?php post_class( 'gr-article' ); ?>>
+            <!-- Article Column -->
+            <article id="post-<?php the_ID(); ?>" <?php post_class( 'gr-post' ); ?>>
 
-                <header class="gr-article__head">
+                <!-- Article Header -->
+                <header class="gr-post__header">
                     <?php
                     $cats = get_the_category();
                     if ( ! empty( $cats ) ) :
-                        ?>
-                        <a class="gr-article__cat" href="<?php echo esc_url( get_category_link( $cats[0]->term_id ) ); ?>"><?php echo esc_html( $cats[0]->name ); ?></a>
+                    ?>
+                    <a class="gr-post__cat" href="<?php echo esc_url( get_category_link( $cats[0]->term_id ) ); ?>"><?php echo esc_html( $cats[0]->name ); ?></a>
                     <?php endif; ?>
 
-                    <h1 class="gr-article__title"><?php the_title(); ?></h1>
+                    <h1 class="gr-post__title"><?php the_title(); ?></h1>
 
                     <?php if ( has_excerpt() ) : ?>
-                        <p class="gr-article__lede"><?php echo esc_html( wp_strip_all_tags( get_the_excerpt() ) ); ?></p>
+                        <p class="gr-post__lede"><?php echo esc_html( wp_strip_all_tags( get_the_excerpt() ) ); ?></p>
                     <?php endif; ?>
 
-                    <div class="gr-article__meta">
-                        <span class="gr-article__author">
-                            <?php echo get_avatar( get_the_author_meta( 'ID' ), 34, '', '', array( 'class' => 'gr-article__avatar' ) ); ?>
-                            <span>
-                                <strong><?php the_author(); ?></strong>
-                                <span class="gr-article__meta-sub">
-                                    <?php golden_rashifal_posted_on(); ?>
-                                    <span class="gr-meta__sep">·</span>
-                                    <?php echo esc_html( golden_rashifal_reading_time() ); ?>
-                                </span>
-                            </span>
-                        </span>
-                        <?php if ( get_the_modified_date() !== get_the_date() ) : ?>
-                            <span class="gr-last-updated">
-                                <span class="gr-last-updated__icon" aria-hidden="true">&#9679;</span>
-                                <?php printf( esc_html__( 'अपडेट: %s', 'golden-rashifal' ), esc_html( get_the_modified_date() ) ); ?>
-                            </span>
-                        <?php endif; ?>
+                    <div class="gr-post__meta">
+                        <div class="gr-post__author-row">
+                            <?php echo get_avatar( get_the_author_meta( 'ID' ), 36, '', '', array( 'class' => 'gr-post__avatar' ) ); ?>
+                            <div>
+                                <strong class="gr-post__author-name"><?php the_author(); ?></strong>
+                                <div class="gr-post__dates">
+                                    <span><?php echo esc_html( get_the_date() ); ?></span>
+                                    <?php if ( get_the_modified_date() !== get_the_date() ) : ?>
+                                        <span class="gr-post__updated">Updated: <?php echo esc_html( get_the_modified_date() ); ?></span>
+                                    <?php endif; ?>
+                                    <span><?php echo esc_html( golden_rashifal_reading_time() ); ?></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </header>
 
                 <?php if ( has_post_thumbnail() ) : ?>
-                    <figure class="gr-article__hero">
-                        <?php the_post_thumbnail( 'post-thumbnail', array( 'class' => 'gr-article__hero-img', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?>
-                        <?php
-                        $cap = get_the_post_thumbnail_caption();
-                        if ( $cap ) :
-                            ?>
-                            <figcaption class="gr-article__hero-cap"><?php echo esc_html( $cap ); ?></figcaption>
-                        <?php endif; ?>
+                    <figure class="gr-post__hero">
+                        <?php the_post_thumbnail( 'large', array( 'class' => 'gr-post__hero-img', 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?>
                     </figure>
                 <?php endif; ?>
 
+                <!-- Ad Position 1: After Intro -->
                 <?php golden_rashifal_ad( 'gr_ad_above_content', __( 'विज्ञापन', 'golden-rashifal' ) ); ?>
 
+                <!-- Share Bar -->
                 <?php get_template_part( 'template-parts/single/share' ); ?>
 
+                <!-- Table of Contents -->
                 <?php get_template_part( 'template-parts/single/toc' ); ?>
 
-                <div class="gr-article__body">
+                <!-- Article Body -->
+                <div class="gr-post__body">
                     <?php the_content(); ?>
-                    <?php wp_link_pages( array( 'before' => '<nav class="gr-pagelinks">', 'after' => '</nav>' ) ); ?>
                 </div>
 
+                <!-- Ad Position 2: After Content -->
+                <?php golden_rashifal_ad( 'gr_ad_below_content', __( 'विज्ञापन', 'golden-rashifal' ) ); ?>
+
+                <!-- Tags -->
                 <?php
                 $tags = get_the_tags();
                 if ( $tags ) :
-                    ?>
-                    <div class="gr-article__tags">
-                        <span class="gr-article__tags-label"><?php esc_html_e( 'टैग:', 'golden-rashifal' ); ?></span>
-                        <?php foreach ( $tags as $tag ) : ?>
-                            <a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>">#<?php echo esc_html( $tag->name ); ?></a>
-                        <?php endforeach; ?>
-                    </div>
+                ?>
+                <div class="gr-post__tags">
+                    <?php foreach ( $tags as $tag ) : ?>
+                        <a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>">#<?php echo esc_html( $tag->name ); ?></a>
+                    <?php endforeach; ?>
+                </div>
                 <?php endif; ?>
 
-                <?php golden_rashifal_ad( 'gr_ad_below_content', __( 'विज्ञापन', 'golden-rashifal' ) ); ?>
+                <!-- Internal Links -->
+                <nav class="gr-post__internal" aria-label="<?php esc_attr_e( 'संबंधित पृष्ठ', 'golden-rashifal' ); ?>">
+                    <h3><?php esc_html_e( 'और पढ़ें', 'golden-rashifal' ); ?></h3>
+                    <div class="gr-post__internal-links">
+                        <a href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>">दैनिक राशिफल</a>
+                        <a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">आज का पंचांग</a>
+                        <a href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>">चौघड़िया</a>
+                        <a href="<?php echo esc_url( home_url( '/rahukaal/' ) ); ?>">राहुकाल</a>
+                        <a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">शुभ मुहूर्त</a>
+                    </div>
+                </nav>
 
+                <!-- E-E-A-T Trust Section -->
+                <div class="gr-post__trust">
+                    <h3><?php esc_html_e( 'Golden Rashifal पर भरोसा क्यों करें?', 'golden-rashifal' ); ?></h3>
+                    <ul>
+                        <li><?php esc_html_e( 'संपादकीय समीक्षा द्वारा सत्यापित', 'golden-rashifal' ); ?></li>
+                        <li><?php esc_html_e( 'वैदिक ज्योतिष आधारित गणना', 'golden-rashifal' ); ?></li>
+                        <li><?php esc_html_e( 'प्रतिदिन अपडेट', 'golden-rashifal' ); ?></li>
+                        <li><?php esc_html_e( 'अनुभवी ज्योतिषाचार्यों की टीम', 'golden-rashifal' ); ?></li>
+                    </ul>
+                </div>
+
+                <!-- Author Box -->
                 <?php get_template_part( 'template-parts/single/author-box' ); ?>
 
+                <!-- Ad Position 3: Before Related -->
+                <?php golden_rashifal_ad( 'gr_ad_home_mid', __( 'विज्ञापन', 'golden-rashifal' ) ); ?>
+
+                <!-- Related Posts -->
                 <?php get_template_part( 'template-parts/single/related' ); ?>
 
+                <!-- Comments -->
                 <?php
                 if ( comments_open() || get_comments_number() ) :
                     comments_template();
@@ -102,6 +128,7 @@ while ( have_posts() ) :
 
             </article>
 
+            <!-- Sidebar Column -->
             <?php get_sidebar(); ?>
 
         </div>
