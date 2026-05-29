@@ -126,17 +126,6 @@
     </div>
 </header>
 
-<!-- Sitewide Trust Badges Bar -->
-<div class="gr-trust-bar" aria-label="<?php esc_attr_e( 'Trust Signals', 'golden-rashifal' ); ?>">
-    <div class="gr-wrap gr-trust-bar__inner">
-        <span class="gr-trust-bar__item"><span class="gr-trust-bar__check">✓</span> Daily Updated</span>
-        <span class="gr-trust-bar__item"><span class="gr-trust-bar__check">✓</span> Panchang Verified</span>
-        <span class="gr-trust-bar__item"><span class="gr-trust-bar__check">✓</span> Astrology Reviewed</span>
-        <span class="gr-trust-bar__item"><span class="gr-trust-bar__check">✓</span> Secure Website</span>
-        <span class="gr-trust-bar__item"><span class="gr-trust-bar__check">✓</span> Reader Focused</span>
-    </div>
-</div>
-
 <!-- Mobile drawer -->
 <div class="gr-mobile" id="gr-mobile-menu" data-gr-mobile aria-hidden="true">
     <div class="gr-mobile__panel">
