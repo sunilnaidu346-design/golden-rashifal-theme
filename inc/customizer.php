@@ -189,12 +189,12 @@ function golden_rashifal_customize_register( $wp_customize ) {
         )
     );
 
-    // ----- AdSense slots -----
+    // ----- Ad Slots -----
     $wp_customize->add_section(
         'gr_ads',
         array(
-            'title'       => __( 'विज्ञापन (AdSense) कोड', 'golden-rashifal' ),
-            'description' => __( 'अपना AdSense कोड यहाँ चिपकाएँ। कोड HTML के रूप में आउटपुट होगा।', 'golden-rashifal' ),
+            'title'       => __( 'विज्ञापन कोड', 'golden-rashifal' ),
+            'description' => __( 'अपना विज्ञापन कोड यहाँ चिपकाएँ। कोड HTML के रूप में आउटपुट होगा।', 'golden-rashifal' ),
             'priority'    => 50,
         )
     );

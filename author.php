@@ -1,7 +1,7 @@
 <?php
 /**
  * Author Archive — Premium Editorial Profile Page.
- * E-E-A-T optimized, AdSense friendly, professional design.
+ * E-E-A-T optimized, professional design.
  *
  * @package GoldenRashifal
  */
