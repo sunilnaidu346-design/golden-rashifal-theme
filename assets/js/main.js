@@ -140,6 +140,31 @@
         }
     })();
 
+    /* Trust-signal section — staggered fade-in on scroll */
+    (function () {
+        var items = $$('[data-gr-ts-fadein]');
+        if (!items.length) return;
+
+        // If IntersectionObserver is not supported, just make everything visible.
+        if (!('IntersectionObserver' in window)) {
+            items.forEach(function (el) { el.classList.add('is-visible'); });
+            return;
+        }
+
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                var delay = parseInt(entry.target.getAttribute('data-gr-ts-delay') || '0', 10);
+                setTimeout(function () {
+                    entry.target.classList.add('is-visible');
+                }, delay);
+                io.unobserve(entry.target);
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        items.forEach(function (el) { io.observe(el); });
+    })();
+
     /* External links in article open in new tab */
     (function () {
         var body = $('.gr-article__body');
