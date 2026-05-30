@@ -171,5 +171,45 @@
 </div>
 
 <?php wp_footer(); ?>
+<?php
+/*
+ * Cookie consent banner — rendered inline so it is always present in the DOM.
+ * Visibility is controlled entirely by JS (cookie-notice.js) + CSS.
+ * aria-hidden="true" by default; JS removes the attribute after the delay.
+ */
+$gr_privacy_url = esc_url( home_url( '/privacy-policy/' ) );
+?>
+<div
+    id="gr-cookie-banner"
+    class="gr-cookie"
+    role="dialog"
+    aria-modal="false"
+    aria-label="<?php esc_attr_e( 'Cookie सूचना', 'golden-rashifal' ); ?>"
+    aria-hidden="true"
+>
+    <div class="gr-cookie__inner">
+        <div class="gr-cookie__icon" aria-hidden="true">🍪</div>
+        <div class="gr-cookie__content">
+            <p class="gr-cookie__text">
+                <?php esc_html_e( 'यह वेबसाइट आपके अनुभव को बेहतर बनाने के लिए Cookies और विश्लेषण सेवाओं का उपयोग करती है।', 'golden-rashifal' ); ?>
+                <a href="<?php echo $gr_privacy_url; ?>" class="gr-cookie__link">
+                    <?php esc_html_e( 'गोपनीयता नीति पढ़ें', 'golden-rashifal' ); ?>
+                </a>
+            </p>
+        </div>
+        <div class="gr-cookie__actions">
+            <button
+                type="button"
+                class="gr-cookie__btn gr-cookie__btn--accept"
+                data-gr-cookie-accept
+            ><?php esc_html_e( 'स्वीकार करें', 'golden-rashifal' ); ?></button>
+            <button
+                type="button"
+                class="gr-cookie__btn gr-cookie__btn--decline"
+                data-gr-cookie-decline
+            ><?php esc_html_e( 'अस्वीकार', 'golden-rashifal' ); ?></button>
+        </div>
+    </div>
+</div>
 </body>
 </html>

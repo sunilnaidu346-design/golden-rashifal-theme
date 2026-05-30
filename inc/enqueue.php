@@ -150,6 +150,20 @@ function golden_rashifal_enqueue_assets() {
         );
         wp_script_add_data( 'golden-rashifal-countdown', 'defer', true );
     }
+
+    /*
+     * Cookie consent notice — loaded on every public page.
+     * Deferred so it never blocks rendering. The banner itself is rendered
+     * inline in footer.php; this script only handles show/hide logic.
+     */
+    wp_enqueue_script(
+        'golden-rashifal-cookie',
+        GOLDEN_RASHIFAL_URI . 'assets/js/cookie-notice.js',
+        array(), // no dependencies
+        $ver_fn( 'assets/js/cookie-notice.js' ),
+        true  // footer
+    );
+    wp_script_add_data( 'golden-rashifal-cookie', 'defer', true );
 }
 add_action( 'wp_enqueue_scripts', 'golden_rashifal_enqueue_assets' );
 

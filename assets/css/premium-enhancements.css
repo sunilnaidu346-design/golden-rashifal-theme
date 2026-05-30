@@ -2605,3 +2605,190 @@ details[open]>.gr-toc__summary::after{content:"-"}
     color: rgba(255,255,255,.85);
     font-weight: 600;
 }
+
+
+
+/* ==========================================================================
+   COOKIE CONSENT BANNER
+   Appears at the bottom of every page for first-time visitors.
+   State: opacity:0 + translateY(100%) by default.
+   JS adds .gr-cookie--visible to slide it in after 600ms.
+   After accept/decline it slides back out then is removed from DOM.
+   ========================================================================== */
+
+.gr-cookie {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9990; /* above everything except WP admin bar */
+    background: var(--gr-dark-deep, #0f0a1e);
+    border-top: 2px solid rgba(212, 175, 55, 0.35);
+    padding: 16px 0;
+    opacity: 0;
+    transform: translateY(100%);
+    transition:
+        opacity 380ms cubic-bezier(0.22, 0.61, 0.36, 1),
+        transform 380ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    pointer-events: none;
+    /* Sit above mobile bottom nav */
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Visible state — added by JS */
+.gr-cookie.gr-cookie--visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Push body up on mobile so the banner doesn't cover content */
+@media (max-width: 768px) {
+    .gr-cookie.gr-cookie--visible {
+        /* Push above the sticky mobile nav */
+        bottom: 60px;
+        padding-bottom: 16px;
+    }
+}
+
+/* Inner layout */
+.gr-cookie__inner {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Cookie icon */
+.gr-cookie__icon {
+    font-size: 1.6rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+/* Text area */
+.gr-cookie__content {
+    flex: 1;
+    min-width: 200px;
+}
+
+.gr-cookie__text {
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.82);
+    margin: 0;
+}
+
+.gr-cookie__link {
+    color: var(--gr-gold-light, #f5d060);
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color 0.15s;
+    margin-left: 4px;
+}
+
+.gr-cookie__link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Button group */
+.gr-cookie__actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+/* Base button */
+.gr-cookie__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    font-family: var(--gr-font, inherit);
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition:
+        background 220ms ease,
+        border-color 220ms ease,
+        color 220ms ease,
+        transform 220ms ease,
+        box-shadow 220ms ease;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.gr-cookie__btn:focus-visible {
+    outline: 2px solid var(--gr-gold, #d4af37);
+    outline-offset: 3px;
+}
+
+/* Accept — gold filled */
+.gr-cookie__btn--accept {
+    background: linear-gradient(135deg, var(--gr-gold-light, #f5d060), var(--gr-gold, #d4af37));
+    color: #0f0a1e;
+    box-shadow: 0 3px 12px rgba(212, 175, 55, 0.3);
+}
+
+.gr-cookie__btn--accept:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.4);
+    filter: brightness(1.06);
+}
+
+.gr-cookie__btn--accept:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(212, 175, 55, 0.2);
+}
+
+/* Decline — ghost border */
+.gr-cookie__btn--decline {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.65);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.gr-cookie__btn--decline:hover {
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Tablet: stack text above buttons */
+@media (max-width: 860px) {
+    .gr-cookie__inner {
+        gap: 12px;
+    }
+    .gr-cookie__actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+/* Mobile: full-width buttons */
+@media (max-width: 480px) {
+    .gr-cookie__icon {
+        display: none;
+    }
+    .gr-cookie__inner {
+        padding-inline: 16px;
+    }
+    .gr-cookie__text {
+        font-size: 0.82rem;
+    }
+    .gr-cookie__actions {
+        gap: 8px;
+    }
+    .gr-cookie__btn {
+        flex: 1;
+        padding: 11px 16px;
+        font-size: 0.84rem;
+    }
+}
