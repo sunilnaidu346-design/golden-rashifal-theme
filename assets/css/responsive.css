@@ -60,3 +60,20 @@ body{font-size:.94rem}
 .gr-header,.gr-topbar,.gr-footer,.gr-floating,.gr-totop,.gr-newsletter-bar,.gr-mobile,.gr-search-pop{display:none!important}
 body{background:#fff;color:#000}
 }
+
+
+/* Search results header — responsive */
+@media(max-width:640px){
+.gr-search-head__title{font-size:1.4rem}
+.gr-search-head .gr-search{max-width:100%}
+}
+
+/* Content wrapper — generic pages */
+@media(max-width:768px){
+.gr-content-wrap{padding:var(--sp-6) var(--sp-4) var(--sp-7)}
+}
+
+/* Floating buttons — hide on mobile (covered by bottom nav) */
+@media(max-width:768px){
+.gr-floating{display:none}
+}

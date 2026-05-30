@@ -328,10 +328,15 @@
 .gr-footer__made{font-size:.76rem;color:#666}
 .gr-footer__disclaimer{border-top:1px solid #1a1a1a;padding:var(--sp-3) 0;font-size:.7rem;color:#555;line-height:1.5}
 
-/* Floating & Misc */
-.gr-floating{position:fixed;left:12px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:90}
-.gr-floating__btn{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:#fff;box-shadow:var(--shadow-md);transition:transform .15s}
-.gr-floating__btn:hover{transform:scale(1.08)}
+/* Floating action buttons — WhatsApp channel + back-to-top */
+.gr-floating{position:fixed;right:20px;bottom:100px;display:flex;flex-direction:column;gap:10px;z-index:90}
+.gr-floating__btn{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s,background .2s;color:#fff}
+.gr-floating__btn:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.gr-floating__btn--wa{background:#25d366}
+.gr-floating__btn--wa:hover{background:#1ebe5d}
+.gr-floating__btn--top{background:var(--gr-gold);color:var(--gr-ink)}
+.gr-floating__btn--top:hover{background:var(--gr-gold-light)}
+/* Legacy aliases — kept for backwards compatibility */
 .gr-floating__btn--share{background:#555}
 .gr-floating__btn--chat{background:#25d366}
 .gr-floating__btn--star{background:var(--gr-pink)}
@@ -1220,6 +1225,17 @@ body[class*="gr-page-"] .gr-article__body h3::before {
 .gr-col-main {
     min-width: 0; /* prevent grid blowout */
 }
+
+/* Generic page content wrapper — used by page.php */
+.gr-content-wrap{max-width:var(--content-max,820px);margin-inline:auto;padding:var(--sp-8) var(--sp-4) var(--sp-9)}
+@media(max-width:768px){.gr-content-wrap{padding:var(--sp-6) var(--sp-4) var(--sp-7)}}
+
+/* Search results header */
+.gr-search-head{margin-bottom:var(--sp-6);padding-bottom:var(--sp-5);border-bottom:2px solid var(--gr-border-light)}
+.gr-search-head__pre{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gr-gold-deep);margin-bottom:var(--sp-2)}
+.gr-search-head__title{font-size:clamp(1.4rem,2vw+.6rem,2rem);font-weight:800;color:var(--gr-ink);margin-bottom:var(--sp-2)}
+.gr-search-head__count{font-size:.88rem;color:var(--gr-muted);margin-bottom:var(--sp-4);display:block}
+.gr-search-head .gr-search{max-width:480px}
 
 /* Archive header */
 .gr-archive__head {

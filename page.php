@@ -9,7 +9,7 @@ get_header();
 ?>
 
 <main id="primary" class="gr-main" role="main">
-    <div class="gr-content-wrap">
+    <div class="gr-wrap gr-content-wrap">
         <?php
         while ( have_posts() ) :
             the_post();
