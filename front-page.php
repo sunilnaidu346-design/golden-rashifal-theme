@@ -94,6 +94,8 @@ if ( $front_page_id > 0 ) {
 
     <?php get_template_part( 'template-parts/home/trust-signal' ); ?>
 
+    <?php get_template_part( 'template-parts/home/faq' ); ?>
+
 <?php endif; ?>
 
 </main>

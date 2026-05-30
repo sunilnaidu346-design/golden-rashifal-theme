@@ -140,6 +140,78 @@
         }
     })();
 
+    /* FAQ accordion — smooth open/close with max-height animation */
+    (function () {
+        var list = document.querySelector('[data-gr-faq-list]');
+        if (!list) return;
+
+        var items = [].slice.call(list.querySelectorAll('[data-gr-faq-item]'));
+
+        function openItem(item) {
+            var panel  = item.querySelector('[data-gr-faq-panel]');
+            var btn    = item.querySelector('[data-gr-faq-trigger]');
+            if (!panel || !btn) return;
+            item.classList.add('is-open');
+            btn.setAttribute('aria-expanded', 'true');
+            /* Set max-height to exact scrollHeight so transition runs correctly */
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+
+        function closeItem(item) {
+            var panel = item.querySelector('[data-gr-faq-panel]');
+            var btn   = item.querySelector('[data-gr-faq-trigger]');
+            if (!panel || !btn) return;
+            /* Animate from current scrollHeight down to 0 */
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+            /* Force reflow so the browser registers the starting value */
+            panel.offsetHeight; // eslint-disable-line no-unused-expressions
+            panel.style.maxHeight = '0px';
+            item.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+
+        /* Initialise first item as open (matches PHP class="is-open") */
+        items.forEach(function (item, idx) {
+            var panel = item.querySelector('[data-gr-faq-panel]');
+            if (!panel) return;
+            if (idx === 0) {
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+            } else {
+                panel.style.maxHeight = '0px';
+            }
+        });
+
+        /* Click handler — one item open at a time (accordion behaviour) */
+        items.forEach(function (item) {
+            var btn = item.querySelector('[data-gr-faq-trigger]');
+            if (!btn) return;
+            btn.addEventListener('click', function () {
+                var isOpen = item.classList.contains('is-open');
+                /* Close all */
+                items.forEach(function (other) {
+                    if (other !== item) closeItem(other);
+                });
+                /* Toggle clicked */
+                if (isOpen) { closeItem(item); } else { openItem(item); }
+            });
+        });
+
+        /* Keyboard: Enter / Space already fires click on <button>;
+           Arrow keys for navigation between triggers */
+        list.addEventListener('keydown', function (e) {
+            if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+            var triggers = [].slice.call(list.querySelectorAll('[data-gr-faq-trigger]'));
+            var cur = document.activeElement;
+            var idx = triggers.indexOf(cur);
+            if (idx === -1) return;
+            e.preventDefault();
+            var next = e.key === 'ArrowDown'
+                ? triggers[Math.min(idx + 1, triggers.length - 1)]
+                : triggers[Math.max(idx - 1, 0)];
+            if (next) next.focus();
+        });
+    })();
+
     /* Trust-signal section — staggered fade-in on scroll */
     (function () {
         var items = $$('[data-gr-ts-fadein]');

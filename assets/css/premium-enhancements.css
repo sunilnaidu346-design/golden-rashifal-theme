@@ -1033,3 +1033,238 @@ h1,h2,h3,h4{text-rendering:geometricPrecision}
     .gr-ts__title { font-size: 1.7rem; }
     .gr-ts__stat-label { font-size: .78rem; white-space: normal; }
 }
+
+
+
+/* ==========================================================================
+   FAQ SECTION — Premium Accordion
+   Homepage position: directly above footer, below trust-signal section
+   ========================================================================== */
+
+/* ── Section wrapper ─────────────────────────────────────────────────────── */
+.gr-faq-section {
+    position: relative;
+    padding: 88px 0 80px;
+    background: #f8f7f4;
+    overflow: hidden;
+}
+
+/* Top decorative gradient line */
+.gr-faq-section__topline {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(860px, 90%);
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--gr-border-light) 25%,
+        var(--gr-gold) 50%,
+        var(--gr-border-light) 75%,
+        transparent 100%
+    );
+}
+
+/* ── Inner container ─────────────────────────────────────────────────────── */
+.gr-faq-section__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 52px;
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+/* ── Section header ──────────────────────────────────────────────────────── */
+.gr-faq-section__header {
+    text-align: center;
+}
+.gr-faq-section__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    background: #fff;
+    border: 1px solid rgba(212,175,55,.3);
+    border-radius: 100px;
+    font-size: .71rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--gr-gold-deep);
+    margin-bottom: 18px;
+    box-shadow: 0 1px 4px rgba(212,175,55,.08);
+}
+.gr-faq-section__eyebrow svg { color: var(--gr-gold); flex-shrink: 0; }
+
+.gr-faq-section__title {
+    font-size: clamp(1.7rem, 2.6vw + .7rem, 2.6rem);
+    font-weight: 800;
+    line-height: 1.18;
+    color: var(--gr-ink);
+    letter-spacing: -.02em;
+    margin-bottom: 14px;
+}
+.gr-faq-section__title-accent {
+    background: linear-gradient(135deg, var(--gr-gold-deep), var(--gr-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.gr-faq-section__subtitle {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--gr-muted);
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* ── Accordion list container ────────────────────────────────────────────── */
+.gr-faq-section__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ── Single accordion item ───────────────────────────────────────────────── */
+.gr-faq-section__item {
+    background: #ffffff;
+    border: 1.5px solid var(--gr-border-light);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 250ms ease, box-shadow 250ms ease;
+}
+.gr-faq-section__item:hover {
+    border-color: rgba(212,175,55,.35);
+    box-shadow: 0 4px 20px rgba(0,0,0,.05);
+}
+.gr-faq-section__item.is-open {
+    border-color: rgba(212,175,55,.5);
+    box-shadow: 0 6px 28px rgba(212,175,55,.10);
+}
+
+/* ── Question button ─────────────────────────────────────────────────────── */
+.gr-faq-section__question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    transition: background 200ms ease;
+}
+.gr-faq-section__question:hover {
+    background: #fdfbf6;
+}
+.gr-faq-section__item.is-open .gr-faq-section__question {
+    background: linear-gradient(135deg, #fffdf5, #fffbec);
+}
+
+/* Question number badge */
+.gr-faq-section__q-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: var(--gr-bg-soft);
+    border: 1px solid var(--gr-border-light);
+    font-size: .72rem;
+    font-weight: 800;
+    color: var(--gr-muted);
+    flex-shrink: 0;
+    transition: background 250ms ease, color 250ms ease, border-color 250ms ease;
+    font-feature-settings: "tnum";
+}
+.gr-faq-section__item.is-open .gr-faq-section__q-num {
+    background: linear-gradient(135deg, var(--gr-gold-light), var(--gr-gold));
+    color: var(--gr-ink);
+    border-color: var(--gr-gold);
+}
+
+/* Question text */
+.gr-faq-section__q-text {
+    flex: 1;
+    font-size: .98rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: var(--gr-ink);
+    transition: color 200ms ease;
+}
+.gr-faq-section__item.is-open .gr-faq-section__q-text {
+    color: var(--gr-gold-deep);
+}
+
+/* Plus / minus icon */
+.gr-faq-section__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1.5px solid var(--gr-border-light);
+    color: var(--gr-muted);
+    flex-shrink: 0;
+    transition: background 250ms ease, border-color 250ms ease, color 250ms ease, transform 300ms cubic-bezier(.22,.61,.36,1);
+    position: relative;
+}
+.gr-faq-section__item.is-open .gr-faq-section__icon {
+    background: var(--gr-gold);
+    border-color: var(--gr-gold);
+    color: var(--gr-ink);
+    transform: rotate(0deg);
+}
+
+/* Show correct icon based on open state */
+.gr-faq-section__icon-plus  { display: block; }
+.gr-faq-section__icon-minus { display: none;  }
+.gr-faq-section__item.is-open .gr-faq-section__icon-plus  { display: none;  }
+.gr-faq-section__item.is-open .gr-faq-section__icon-minus { display: block; }
+
+/* ── Answer panel ────────────────────────────────────────────────────────── */
+.gr-faq-section__answer-wrap {
+    /* JS sets max-height for smooth animation */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 320ms cubic-bezier(.22,.61,.36,1);
+}
+.gr-faq-section__item.is-open .gr-faq-section__answer-wrap {
+    /* JS overrides this to scrollHeight */
+    max-height: 400px;
+}
+.gr-faq-section__answer {
+    padding: 0 24px 22px 72px; /* left-aligned with q-text (32px num + 16px gap + 24px pad) */
+    border-top: 1px solid var(--gr-border-light);
+}
+.gr-faq-section__answer p {
+    font-size: .93rem;
+    line-height: 1.78;
+    color: var(--gr-ink-soft);
+    margin: 16px 0 0;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .gr-faq-section { padding: 64px 0 56px; }
+    .gr-faq-section__inner { gap: 40px; }
+    .gr-faq-section__question { padding: 18px 18px; gap: 12px; }
+    .gr-faq-section__answer { padding: 0 18px 18px 56px; }
+    .gr-faq-section__q-text { font-size: .93rem; }
+}
+@media (max-width: 480px) {
+    .gr-faq-section { padding: 52px 0 44px; }
+    .gr-faq-section__title { font-size: 1.65rem; }
+    .gr-faq-section__question { padding: 16px 16px; gap: 10px; }
+    .gr-faq-section__q-num { width: 28px; height: 28px; font-size: .68rem; border-radius: 8px; }
+    .gr-faq-section__icon { width: 30px; height: 30px; border-radius: 8px; }
+    .gr-faq-section__answer { padding: 0 16px 16px 16px; }
+    .gr-faq-section__answer p { font-size: .88rem; }
+    .gr-faq-section__subtitle { font-size: .92rem; }
+}
