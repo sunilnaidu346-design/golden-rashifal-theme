@@ -96,6 +96,8 @@ if ( $front_page_id > 0 ) {
 
     <?php get_template_part( 'template-parts/home/faq' ); ?>
 
+    <?php get_template_part( 'template-parts/home/social-connect' ); ?>
+
 <?php endif; ?>
 
 </main>
