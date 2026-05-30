@@ -2457,3 +2457,41 @@ details[open]>.gr-toc__summary::after{content:"-"}
 @media (max-width: 600px) {
     .gr-legal-links { flex-direction: column; align-items: flex-start; gap: 8px; }
 }
+
+
+
+/* About page — contact CTA row */
+.gr-about-contact-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: var(--sp-4);
+    margin-bottom: var(--sp-5);
+}
+.gr-about-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 11px 22px;
+    background: var(--gr-gold);
+    color: var(--gr-ink);
+    border-radius: var(--radius-full);
+    font-size: .88rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .2s, transform .2s;
+}
+.gr-about-contact-btn:hover {
+    background: var(--gr-gold-light);
+    transform: translateY(-2px);
+}
+.gr-about-contact-btn--outline {
+    background: transparent;
+    border: 1.5px solid var(--gr-border);
+    color: var(--gr-ink-soft);
+}
+.gr-about-contact-btn--outline:hover {
+    border-color: var(--gr-gold);
+    color: var(--gr-gold-deep);
+    background: var(--gr-cream);
+}
