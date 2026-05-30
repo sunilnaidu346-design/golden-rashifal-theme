@@ -26,7 +26,32 @@
 /* Header */
 .gr-header{background:var(--gr-white);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--gr-border);box-shadow:var(--shadow-sm);transition:box-shadow var(--dur)}
 .gr-header.is-scrolled{box-shadow:var(--shadow-md)}
-.gr-header__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px}
+.gr-header__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+
+/* ── Logo sizing — desktop 55-65px, tablet 50-55px, mobile 40-48px ──
+   Applies to both the custom logo image (the_custom_logo) and the
+   text logo fallback. Aspect ratio is always preserved.
+   Also applies when the header is sticky (.is-scrolled).           */
+
+/* Custom logo image — WordPress outputs .custom-logo inside .custom-logo-link */
+.custom-logo-link { display:inline-flex; align-items:center; line-height:0; flex-shrink:0; }
+.custom-logo {
+    height: 60px;          /* desktop: 55–65px target */
+    max-height: 60px;
+    max-width: 300px;      /* desktop: 260–320px target */
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+/* Text logo fallback sizing */
+.gr-logo { font-size: 1.22rem; }
+
+/* Sticky header — keep the same optimised size */
+.gr-header.is-scrolled .custom-logo {
+    height: 60px;
+    max-height: 60px;
+    max-width: 300px;
+}
 .gr-header__left{display:flex;align-items:center;gap:18px}
 .gr-header__right{display:flex;align-items:center;gap:10px}
 .gr-logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.22rem;color:var(--gr-ink)}

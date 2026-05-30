@@ -38,7 +38,11 @@ body{font-size:.94rem}
 .gr-hero__subtitle{font-size:1.1rem}
 .gr-floating{display:none}
 .gr-topbar__left{gap:8px;font-size:.68rem}
-.gr-header__inner{height:54px}
+.gr-header__inner{height:60px}
+
+/* Tablet logo: 50–55px, max-width 220–280px */
+.custom-logo { height:52px; max-height:52px; max-width:260px; }
+.gr-header.is-scrolled .custom-logo { height:52px; max-height:52px; max-width:260px; }
 .gr-editorial-trust{padding:var(--sp-7) 0}
 .gr-editorial-trust__visual{max-width:100%}
 .gr-editorial-trust__visual-card{padding:var(--sp-5) var(--sp-4)}
@@ -55,6 +59,10 @@ body{font-size:.94rem}
 .gr-rashifal-sidebar{overflow-x:auto;flex-wrap:nowrap}
 .gr-gems-grid{grid-template-columns:repeat(3,1fr)}
 .gr-rashifal-lucky-row{flex-wrap:wrap;gap:var(--sp-4)}
+/* Mobile logo: 40–48px, max-width 180–220px */
+.custom-logo { height:44px; max-height:44px; max-width:200px; }
+.gr-header.is-scrolled .custom-logo { height:44px; max-height:44px; max-width:200px; }
+.gr-header__inner { height:56px; }
 }
 @media print{
 .gr-header,.gr-topbar,.gr-footer,.gr-floating,.gr-totop,.gr-newsletter-bar,.gr-mobile,.gr-search-pop{display:none!important}
