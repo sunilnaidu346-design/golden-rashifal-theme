@@ -138,9 +138,60 @@ details[open]>.gr-toc__summary::after{content:"-"}
 .gr-newsletter-bar__form input{box-shadow:0 2px 8px rgba(0,0,0,.08)}
 .gr-newsletter-bar__form input:focus{box-shadow:0 2px 12px rgba(0,0,0,.12);outline:2px solid var(--gr-gold)}
 
-/* --- Floating Back to Top (Enhanced) --- */
-.gr-totop{width:40px;height:40px;border-radius:var(--radius-md);font-size:.9rem;font-weight:700;transition:all .2s var(--ease)}
-.gr-totop:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1);border-color:var(--gr-gold);color:var(--gr-gold-deep)}
+/* --- Floating Back to Top — Single authoritative button ---
+   Powered by data-gr-totop + JS scroll handler in main.js
+   Gold brand colour, smooth scroll, right-bottom fixed position
+   Hidden until user scrolls 500px; display:none on mobile
+   ------------------------------------------------------------------ */
+.gr-totop {
+    position: fixed;
+    right: 20px;
+    bottom: 24px;
+    z-index: 95;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--gr-gold);
+    color: var(--gr-ink);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 4px 16px rgba(212,175,55,.35), 0 2px 6px rgba(0,0,0,.12);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition:
+        opacity 250ms ease,
+        transform 250ms ease,
+        background 200ms ease,
+        box-shadow 200ms ease;
+    /* Ensure it never shows as white square */
+    appearance: none;
+    -webkit-appearance: none;
+}
+.gr-totop.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.gr-totop:hover {
+    background: var(--gr-gold-light);
+    box-shadow: 0 6px 22px rgba(212,175,55,.45), 0 2px 8px rgba(0,0,0,.14);
+    transform: translateY(-3px);
+}
+.gr-totop:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(212,175,55,.25);
+}
+/* On mobile the back-to-top sits above the mobile nav bar */
+@media(max-width:768px) {
+    .gr-totop { bottom: 70px; right: 14px; width: 40px; height: 40px; }
+}
 
 /* ===================================================================
    RELATED ARTICLES — Premium Card Layout
