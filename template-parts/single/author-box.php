@@ -1,25 +1,14 @@
 <?php
 /**
  * Single — Author box.
- * Displays Vedansh Vallabh's profile on every single post.
- * Falls back to WP user data when a different author is assigned.
+ * Uses global GR_AUTHOR_* constants defined in functions.php.
+ * Constants are NOT re-defined here to prevent PHP fatal errors.
  *
  * @package GoldenRashifal
  */
 
-// ── Real author constants ─────────────────────────────────────────────────
-define( 'GR_AUTHOR_NAME',  'Vedansh Vallabh' );
-define( 'GR_AUTHOR_ROLE',  'Co-Founder & Astrology Content Editor' );
-define( 'GR_AUTHOR_BIO',   'Vedansh Vallabh is the Co-Founder of Golden Rashifal and contributes astrology, Panchang, Choghadiya, Muhurat, and horoscope-related content. His focus is to present traditional information in a simple, reader-friendly, and easy-to-understand format.' );
-define( 'GR_AUTHOR_IMG',   'https://goldenrashifal.in/wp-content/uploads/2026/05/Co-founders-Author-Vedansh-Vallabh.webp' );
-define( 'GR_AUTHOR_FB',    'https://www.facebook.com/astrovedansh/' );
-define( 'GR_AUTHOR_IG',    'https://www.instagram.com/astro_vedansh/' );
-define( 'GR_AUTHOR_YT',    'https://www.youtube.com/@Astrovedansh/' );
-define( 'GR_AUTHOR_WA',    'https://wa.me/919045432034' );
-define( 'GR_AUTHOR_EMAIL', 'support@goldenrashifal.in' );
-
-$author_id   = (int) get_the_author_meta( 'ID' );
-$author_url  = get_author_posts_url( $author_id );
+$author_id  = (int) get_the_author_meta( 'ID' );
+$author_url = get_author_posts_url( $author_id );
 ?>
 <section
     class="gr-author-box"

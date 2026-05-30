@@ -37,9 +37,20 @@ while ( have_posts() ) :
 
                     <div class="gr-post__meta">
                         <div class="gr-post__author-row">
-                            <?php echo get_avatar( get_the_author_meta( 'ID' ), 36, '', '', array( 'class' => 'gr-post__avatar' ) ); ?>
+                            <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" class="gr-post__avatar-link" tabindex="-1" aria-hidden="true">
+                                <img
+                                    src="<?php echo esc_url( GR_AUTHOR_IMG ); ?>"
+                                    alt="<?php echo esc_attr( GR_AUTHOR_NAME ); ?>"
+                                    width="36"
+                                    height="36"
+                                    class="gr-post__avatar"
+                                    loading="lazy"
+                                    decoding="async"
+                                    onerror="this.onerror=null;this.src='<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 36 ) ) ); ?>';"
+                                />
+                            </a>
                             <div>
-                                <strong class="gr-post__author-name"><?php the_author(); ?></strong>
+                                <strong class="gr-post__author-name"><?php echo esc_html( GR_AUTHOR_NAME ); ?></strong>
                                 <div class="gr-post__dates">
                                     <span><?php echo esc_html( get_the_date() ); ?></span>
                                     <span><?php echo esc_html( golden_rashifal_reading_time() ); ?></span>

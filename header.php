@@ -179,13 +179,13 @@
         <div class="gr-search-pop__popular">
             <span class="gr-search-pop__popular-title"><?php esc_html_e( 'लोकप्रिय खोज', 'golden-rashifal' ); ?></span>
             <div class="gr-search-pop__tags">
-                <a href="#"><?php esc_html_e( 'आज का राशिफल', 'golden-rashifal' ); ?></a>
-                <a href="#"><?php esc_html_e( 'चौघड़िया', 'golden-rashifal' ); ?></a>
-                <a href="#"><?php esc_html_e( 'शुभ मुहूर्त', 'golden-rashifal' ); ?></a>
-                <a href="#"><?php esc_html_e( 'राहुकाल', 'golden-rashifal' ); ?></a>
-                <a href="#"><?php esc_html_e( 'पंचांग', 'golden-rashifal' ); ?></a>
-                <a href="#"><?php esc_html_e( 'एकादशी', 'golden-rashifal' ); ?></a>
-                <a href="#"><?php esc_html_e( 'वास्तु टिप्स', 'golden-rashifal' ); ?></a>
+                <a href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>"><?php esc_html_e( 'आज का राशिफल', 'golden-rashifal' ); ?></a>
+                <a href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>"><?php esc_html_e( 'चौघड़िया', 'golden-rashifal' ); ?></a>
+                <a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>"><?php esc_html_e( 'शुभ मुहूर्त', 'golden-rashifal' ); ?></a>
+                <a href="<?php echo esc_url( home_url( '/rahukaal/' ) ); ?>"><?php esc_html_e( 'राहुकाल', 'golden-rashifal' ); ?></a>
+                <a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>"><?php esc_html_e( 'पंचांग', 'golden-rashifal' ); ?></a>
+                <a href="<?php echo esc_url( home_url( '/ekadashi/' ) ); ?>"><?php esc_html_e( 'एकादशी', 'golden-rashifal' ); ?></a>
+                <a href="<?php echo esc_url( home_url( '/vastu/' ) ); ?>"><?php esc_html_e( 'वास्तु टिप्स', 'golden-rashifal' ); ?></a>
             </div>
         </div>
     </div>

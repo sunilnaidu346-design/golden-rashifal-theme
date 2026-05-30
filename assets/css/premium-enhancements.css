@@ -214,9 +214,22 @@ details[open]>.gr-toc__summary::after{content:"-"}
 :focus-visible{outline:2px solid var(--gr-gold);outline-offset:2px;border-radius:2px}
 .gr-btn:focus-visible{box-shadow:0 0 0 3px rgba(212,175,55,.25)}
 
-/* --- Hindi Font Rendering --- */
-body{text-rendering:optimizeLegibility;font-feature-settings:"kern" 1,"liga" 1}
-h1,h2,h3,h4{text-rendering:geometricPrecision}
+/* Post avatar — real author image, circular */
+.gr-post__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 6px rgba(0,0,0,.12);
+    flex-shrink: 0;
+    display: block;
+}
+.gr-post__avatar-link {
+    display: block;
+    flex-shrink: 0;
+    line-height: 0;
+}
 
 
 /* ===================================================================

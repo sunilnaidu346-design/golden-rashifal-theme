@@ -18,12 +18,10 @@
             </a>
             <p class="gr-footer__desc">Golden Rashifal एक भरोसेमंद हिंदी ज्योतिष पोर्टल है जहाँ आपको दैनिक पंचांग, चौघड़िया, शुभ मुहूर्त, राहुकाल और हिंदू त्योहारों की सही जानकारी सरल भाषा में मिलती है। हमारा उद्देश्य पारंपरिक ज्ञान को संतुलित और पाठक-केंद्रित तरीके से प्रस्तुत करना है।</p>
             <div class="gr-footer__social">
-                <a href="#" aria-label="Facebook" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                <a href="#" aria-label="Instagram" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3H8a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5h8a5 5 0 0 0 5-5V8a5 5 0 0 0-5-5zm-4 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm5-9a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg></a>
-                <a href="#" aria-label="YouTube" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 6.4a2.8 2.8 0 0 0-2-2C18.9 4 12 4 12 4s-6.9 0-8.5.4a2.8 2.8 0 0 0-2 2A30 30 0 0 0 1 12a30 30 0 0 0 .5 5.6 2.8 2.8 0 0 0 2 2c1.6.4 8.5.4 8.5.4s6.9 0 8.5-.4a2.8 2.8 0 0 0 2-2c.5-1.6.5-5.6.5-5.6s0-4-.5-5.6zM10 15V9l5.2 3L10 15z"/></svg></a>
-                <a href="#" aria-label="Twitter" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.4.36a9 9 0 0 1-2.88 1.1A4.52 4.52 0 0 0 12 7.5 12.94 12.94 0 0 1 2.46 2.11 4.48 4.48 0 0 0 3.8 8.16 4.4 4.4 0 0 1 1.64 7.6v.05a4.52 4.52 0 0 0 3.63 4.43 4.5 4.5 0 0 1-2.04.08 4.53 4.53 0 0 0 4.22 3.14A9.06 9.06 0 0 1 1 19.54a12.8 12.8 0 0 0 6.92 2.03c8.3 0 12.84-6.87 12.84-12.84 0-.2 0-.39-.01-.58A9.2 9.2 0 0 0 23 3z"/></svg></a>
-                <a href="#" aria-label="Telegram" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></a>
-                <a href="#" aria-label="Pinterest" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.2 2.6 7.8 6.3 9.3-.1-.8-.2-2 0-2.9l1.3-5.5s-.3-.7-.3-1.6c0-1.5.9-2.7 2-2.7 1 0 1.4.7 1.4 1.6 0 1-.6 2.5-1 4 .3 1.1 1.2 1.8 2.3 1.8 2.8 0 4.9-2.9 4.9-7.2 0-3.7-2.7-6.4-6.5-6.4-4.4 0-7 3.3-7 6.8 0 1.3.5 2.8 1.1 3.5.1.2.2.2.1.4l-.4 1.6c-.1.3-.2.4-.5.2-1.8-.8-2.9-3.5-2.9-5.6 0-4.6 3.3-8.8 9.6-8.8 5 0 8.9 3.6 8.9 8.4 0 5-3.1 9-7.5 9-1.5 0-2.8-.8-3.3-1.7l-.9 3.4c-.3 1.2-1.2 2.7-1.8 3.6C10 22 11 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></a>
+                <a href="<?php echo esc_url( GR_AUTHOR_FB ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                <a href="<?php echo esc_url( GR_AUTHOR_IG ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3H8a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5h8a5 5 0 0 0 5-5V8a5 5 0 0 0-5-5zm-4 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm5-9a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg></a>
+                <a href="<?php echo esc_url( GR_AUTHOR_YT ); ?>" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 6.4a2.8 2.8 0 0 0-2-2C18.9 4 12 4 12 4s-6.9 0-8.5.4a2.8 2.8 0 0 0-2 2A30 30 0 0 0 1 12a30 30 0 0 0 .5 5.6 2.8 2.8 0 0 0 2 2c1.6.4 8.5.4 8.5.4s6.9 0 8.5-.4a2.8 2.8 0 0 0 2-2c.5-1.6.5-5.6.5-5.6s0-4-.5-5.6zM10 15V9l5.2 3L10 15z"/></svg></a>
+                <a href="<?php echo esc_url( GR_AUTHOR_WA ); ?>" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.121 1.532 5.855L.057 23.48a.75.75 0 0 0 .914.914l5.674-1.485A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.694-.513-5.228-1.407l-.374-.222-3.875 1.015 1.033-3.772-.243-.389A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
             </div>
         </div>
 
@@ -68,7 +66,7 @@
                 </div>
                 <div class="gr-footer__contact-item">
                     <span class="gr-footer__contact-icon">✉</span>
-                    <a href="mailto:contact@goldenrashifal.com">contact@goldenrashifal.com</a>
+                    <a href="mailto:<?php echo esc_attr( GR_AUTHOR_EMAIL ); ?>"><?php echo esc_html( GR_AUTHOR_EMAIL ); ?></a>
                 </div>
                 <div class="gr-footer__contact-item">
                     <span class="gr-footer__contact-icon">☎</span>
@@ -138,9 +136,10 @@
 
 <!-- Floating social buttons -->
 <div class="gr-floating" aria-hidden="true">
-    <a class="gr-floating__btn gr-floating__btn--share" href="#" aria-label="Share">↗</a>
-    <a class="gr-floating__btn gr-floating__btn--chat" href="#" aria-label="Chat">✦</a>
-    <a class="gr-floating__btn gr-floating__btn--star" href="#" aria-label="Bookmark">☆</a>
+    <a class="gr-floating__btn gr-floating__btn--wa" href="<?php echo esc_url( GR_AUTHOR_WA ); ?>" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.121 1.532 5.855L.057 23.48a.75.75 0 0 0 .914.914l5.674-1.485A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.694-.513-5.228-1.407l-.374-.222-3.875 1.015 1.033-3.772-.243-.389A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    </a>
+    <a class="gr-floating__btn gr-floating__btn--top" href="#" aria-label="Top">↑</a>
 </div>
 
 <?php wp_footer(); ?>
