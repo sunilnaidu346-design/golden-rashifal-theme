@@ -1,148 +1,117 @@
 <?php
 /**
- * Virtual Page: संपादकीय नीति — Editorial Policy
- * E-E-A-T trust page.
- *
+ * Page Template: संपादकीय नीति — Editorial Policy
+ * Template Name: Editorial Policy
  * @package GoldenRashifal
  */
-
 get_header();
+$updated = wp_date( 'd F Y' );
 ?>
-
 <main id="primary" class="gr-main" role="main">
-<article class="gr-wrap gr-content-wrap gr-article">
+<article class="gr-wrap gr-content-wrap gr-article" itemscope itemtype="https://schema.org/WebPage">
 
 <header class="gr-article__head">
-    <h1 class="gr-article__title">संपादकीय नीति — Editorial Policy</h1>
-    <p class="gr-article__lede">Golden Rashifal पर publish होने वाले हर article की quality, accuracy, और balance maintain करने के लिए हम एक strict editorial process follow करते हैं। ये page बताता है कि हमारा content कैसे बनता है और किन standards को follow करता है।</p>
+    <div class="gr-legal-badge">✏️ <?php esc_html_e( 'संपादकीय नीति', 'golden-rashifal' ); ?></div>
+    <h1 class="gr-article__title" itemprop="name"><?php esc_html_e( 'संपादकीय नीति', 'golden-rashifal' ); ?></h1>
+    <p class="gr-article__lede"><?php esc_html_e( 'Golden Rashifal पर प्रकाशित प्रत्येक लेख एक स्पष्ट संपादकीय प्रक्रिया से गुज़रता है। यह पृष्ठ बताता है कि हमारी सामग्री कैसे तैयार होती है, किन सिद्धांतों पर आधारित है, और हम पाठकों के प्रति किस प्रकार जवाबदेह हैं।', 'golden-rashifal' ); ?></p>
+    <p class="gr-legal-meta">
+        <strong><?php esc_html_e( 'संपादकीय संपर्क:', 'golden-rashifal' ); ?></strong>
+        <a href="mailto:<?php echo esc_attr( GR_AUTHOR_EMAIL ); ?>"><?php echo esc_html( GR_AUTHOR_EMAIL ); ?></a>
+        &nbsp;|&nbsp;
+        <strong><?php esc_html_e( 'अंतिम अद्यतन:', 'golden-rashifal' ); ?></strong> <?php echo esc_html( $updated ); ?>
+    </p>
 </header>
 
 <div class="gr-article__body">
-    <?php
-    /*
-     * WordPress Editor Content — shown immediately when this page is edited
-     * from WP Admin → Pages → Edit. Add your own content there and it will
-     * appear here, above the default fallback text below.
-     */
-    if ( have_posts() ) {
-        while ( have_posts() ) {
-            the_post();
-            $editor_content = get_the_content();
-            if ( ! empty( trim( $editor_content ) ) ) {
-                the_content();
-                echo '<hr class="gr-content-divider" />';
-            }
-        }
-        rewind_posts();
-    }
-    ?>
+<?php
+if ( have_posts() ) { while ( have_posts() ) { the_post();
+    $ec = get_the_content();
+    if ( ! empty( trim( $ec ) ) ) { the_content(); echo '<hr class="gr-content-divider" />'; }
+} rewind_posts(); }
+?>
 
+<h2>हमारी संपादकीय पहचान</h2>
+<p>Golden Rashifal एक पाठक-केंद्रित ज्योतिष सूचना पोर्टल है। हमारे सह-संस्थापक एवं संपादक Vedansh Vallabh के नेतृत्व में यह वेबसाइट ऐसी सामग्री प्रकाशित करती है जो पारंपरिक ज्योतिष ज्ञान को सरल, संतुलित और पाठक-हितैषी भाषा में प्रस्तुत करे।</p>
+<p>हम ज्योतिष को न तो अंधविश्वास की तरह बढ़ावा देते हैं और न ही पूरी तरह नकारते हैं। हमारा दृष्टिकोण सांस्कृतिक, शैक्षणिक और जिम्मेदार है।</p>
 
+<h2>सामग्री निर्माण की प्रक्रिया</h2>
 
-<h2>हमारे Content Standards</h2>
-<p>हम ज्योतिष और आध्यात्मिक content publish करते हैं — एक ऐसा domain जहाँ misinformation और exaggeration बहुत common है। हमारी editorial policy का मकसद है — इस space में responsible और balanced content create करना।</p>
+<h3>चरण १ — शोध और स्रोत चयन</h3>
+<p>राशिफल, पंचांग, चौघड़िया, मुहूर्त और एकादशी जैसे विषयों पर सामग्री तैयार करते समय हम परंपरागत ज्योतिष ग्रंथों, प्रामाणिक पंचांग प्रकाशनों और स्थापित खगोलीय गणना पद्धतियों का संदर्भ लेते हैं। किसी भी अज्ञात या अविश्वसनीय स्रोत पर निर्भर नहीं किया जाता।</p>
 
-<h3>Accuracy (सटीकता)</h3>
-<p>Panchang data (तिथि, नक्षत्र, sunrise, sunset) astronomical calculations पर based है। हम standard algorithms use करते हैं। फिर भी — ये approximate values हैं और location-specific variations possible हैं। हम ये clearly mention करते हैं।</p>
+<h3>चरण २ — लेखन और भाषा</h3>
+<p>सामग्री स्पष्ट हिंदी में लिखी जाती है। संस्कृत पारिभाषिक शब्दों के साथ उनका अर्थ भी दिया जाता है। हमारा लक्ष्य है कि एक सामान्य पाठक — चाहे वह ज्योतिष का विशेषज्ञ हो या नहीं — सामग्री को सहजता से समझ सके। डर आधारित, अतिशयोक्तिपूर्ण या भ्रामक भाषा से बचा जाता है।</p>
 
-<h3>Balance (संतुलन)</h3>
-<p>हम traditional beliefs को respect करते हैं, लेकिन उन्हें "proven facts" की तरह present नहीं करते। हमारी भाषा: "पारंपरिक रूप से माना जाता है", "कई लोग मानते हैं", "शास्त्रों के अनुसार" — न तो blindly promote, न reject।</p>
-
-<h3>Clarity (स्पष्टता)</h3>
-<p>Technical jargon को simple Hindi में explain करते हैं। Sanskrit terms use करें तो translation भी देते हैं। 18 साल का student भी समझ सके — ये हमारा benchmark है।</p>
-
-<h2>Content Creation Process</h2>
-
-<h3>Step 1: Research</h3>
-<p>हर article traditional texts, reliable sources, और established ज्योतिष principles से research करके लिखा जाता है। Random internet content copy नहीं किया जाता।</p>
-
-<h3>Step 2: Writing</h3>
-<p>Content 90% Hindi + 10% English mix में लिखा जाता है — जैसे आम हिंदी speaker बोलता है। Conversational tone, short paragraphs, specific details।</p>
-
-<h3>Step 3: Review</h3>
-<p>Publish से पहले हर article check किया जाता है:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>क्या कोई misleading claim है?</li>
-<li>क्या भाषा balanced है?</li>
-<li>क्या factual errors हैं?</li>
-<li>क्या content family-safe है?</li>
-<li>क्या reader को practical value मिल रही है?</li>
+<h3>चरण ३ — समीक्षा और तथ्य जाँच</h3>
+<p>प्रकाशन से पहले प्रत्येक लेख की समीक्षा की जाती है:</p>
+<ul>
+    <li>क्या कोई भ्रामक दावा है?</li>
+    <li>क्या पंचांग डेटा सही तरीके से प्रस्तुत किया गया है?</li>
+    <li>क्या भाषा संतुलित और तथ्यपरक है?</li>
+    <li>क्या सामग्री पारिवारिक और सार्वजनिक उपयोग के लिए उपयुक्त है?</li>
+    <li>क्या पाठक को वास्तविक उपयोगी जानकारी मिल रही है?</li>
 </ul>
 
-<h3>Step 4: Updates</h3>
-<p>Published content को regularly review किया जाता है। Outdated information update होती है। Reader feedback पर corrections किए जाते हैं।</p>
+<h3>चरण ४ — प्रकाशन और अद्यतन</h3>
+<p>दैनिक जानकारी — जैसे आज का राशिफल, चौघड़िया और राहुकाल — नियमित रूप से अद्यतन की जाती है। पुराने लेखों की भी समय-समय पर समीक्षा की जाती है और आवश्यकता अनुसार सुधार किया जाता है।</p>
 
-<h2>ये हम नहीं करते</h2>
-
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li><strong>Fear-based content</strong> — "ये न करें वरना बर्बाद हो जाएँगे" — ऐसी भाषा हम use नहीं करते</li>
-<li><strong>Guaranteed predictions</strong> — "100% सटीक भविष्यवाणी" — ऐसे claims हम नहीं करते</li>
-<li><strong>Paid promotions without disclosure</strong> — अगर कोई sponsored content होगा तो clearly marked होगा</li>
-<li><strong>Plagiarism</strong> — दूसरी websites से content copy करना strictly prohibited है</li>
-<li><strong>Sensationalism</strong> — clickbait titles या exaggerated claims हम avoid करते हैं</li>
+<h2>जानकारी के स्रोत</h2>
+<p>हमारी सामग्री मुख्यतः इन आधारों पर तैयार होती है:</p>
+<ul>
+    <li><strong>परंपरागत ग्रंथ</strong> — बृहत् पाराशर होराशास्त्र, लघु पाराशरी, फलदीपिका जैसे शास्त्रीय स्रोत।</li>
+    <li><strong>प्रामाणिक पंचांग</strong> — विश्व पंचांग, विक्रमी पंचांग और अन्य मान्य प्रकाशन।</li>
+    <li><strong>खगोलीय गणनाएँ</strong> — सूर्योदय, सूर्यास्त, तिथि और नक्षत्र के लिए मानक एल्गोरिदम।</li>
+    <li><strong>सरकारी स्रोत</strong> — त्योहार तिथियाँ और सार्वजनिक अवकाश।</li>
 </ul>
 
-<h2>Sources और Attribution</h2>
-<p>हमारा content इन sources पर based है:</p>
-
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>पारंपरिक ज्योतिष ग्रंथ — बृहत् पाराशर होराशास्त्र, लघु पाराशरी, फलदीपिका</li>
-<li>Standard पंचांग — विभिन्न established पंचांग publications</li>
-<li>Astronomical data — standard sunrise/sunset algorithms</li>
-<li>Government sources — festival dates और public holidays</li>
+<h2>हम क्या नहीं करते</h2>
+<ul>
+    <li><strong>गारंटी नहीं देते</strong> — "यह करने से निश्चित रूप से सफलता मिलेगी" — ऐसे दावे हम कभी नहीं करते।</li>
+    <li><strong>डर नहीं दिखाते</strong> — "यह न किया तो बुरा होगा" — ऐसी भाषा से पूरी तरह परहेज।</li>
+    <li><strong>नकल नहीं करते</strong> — किसी अन्य वेबसाइट की सामग्री कॉपी करना हमारी नीति के विरुद्ध है।</li>
+    <li><strong>बिना खुलासे के विज्ञापन नहीं</strong> — यदि कोई सामग्री प्रायोजित हो तो वह स्पष्ट रूप से चिह्नित होगी।</li>
+    <li><strong>व्यक्तिगत परामर्श नहीं</strong> — यह वेबसाइट व्यक्तिगत ज्योतिष परामर्श सेवा नहीं देती।</li>
 </ul>
 
-<p>जहाँ specific sources cite करना relevant हो, हम reference provide करते हैं।</p>
+<h2>पंचांग डेटा की सीमाएँ</h2>
+<p>सूर्योदय, सूर्यास्त, राहुकाल और चौघड़िया के समय अनुमानित मान हैं, जो मुख्यतः उत्तर भारत के निर्देशांकों पर आधारित हैं। स्थान के अनुसार ५ से १५ मिनट का अंतर संभव है। इस सीमा को हम अपनी सामग्री में स्पष्ट रूप से उल्लेख करते हैं।</p>
 
-<h2>Corrections Policy</h2>
-<p>गलती हो सकती है — हम human हैं। अगर कोई factual error reported हो:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>48 घंटे के अंदर review</li>
-<li>अगर error confirmed हो — immediate correction</li>
-<li>Major corrections पर "Updated" note add किया जाता है</li>
+<h2>त्रुटि सुधार नीति</h2>
+<p>हम यह स्वीकार करते हैं कि लेखन और गणना में मानवीय त्रुटि हो सकती है। यदि कोई त्रुटि हमें सूचित की जाए:</p>
+<ul>
+    <li>४८ घंटों के भीतर समीक्षा।</li>
+    <li>त्रुटि की पुष्टि होने पर तत्काल सुधार।</li>
+    <li>महत्वपूर्ण सुधारों पर "अद्यतन" टिप्पणी जोड़ी जाती है।</li>
 </ul>
+<p>त्रुटि सूचित करें: <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">संपर्क पृष्ठ</a> पर जाएँ और लेख का URL तथा त्रुटि का विवरण दें।</p>
 
-<p>Errors report करने के लिए: contact@goldenrashifal.com</p>
+<h2>पाठक प्रतिक्रिया</h2>
+<p>पाठकों की प्रतिक्रिया हमारे लिए अत्यंत मूल्यवान है। यदि किसी विषय पर अधिक जानकारी चाहिए, किसी लेख में सुधार की आवश्यकता लगे, या कोई नया विषय सुझाना हो — तो हमें <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">संपर्क करें</a>। हम हर सुझाव पर विचार करते हैं।</p>
 
-<h2>AI Content Disclosure</h2>
-<p>हम content creation में AI tools (ChatGPT, etc.) की help ले सकते हैं — research, drafting, या structuring के लिए। लेकिन हर article human-reviewed और human-edited है। Raw AI output publish नहीं किया जाता।</p>
+<h2>AI सामग्री प्रकटीकरण</h2>
+<p>कभी-कभी शोध, रूपरेखा तैयार करने या भाषा सुधार के लिए AI उपकरणों की सहायता ली जा सकती है। परंतु प्रत्येक लेख को मानव संपादक द्वारा समीक्षित, तथ्य जाँचा और अंतिम रूप दिया जाता है। कच्चा AI-जनित पाठ कभी प्रकाशित नहीं किया जाता।</p>
 
-<h2>Advertising और Editorial Independence</h2>
-<p>Ads हमारी revenue source हैं, लेकिन advertisers हमारे editorial content influence नहीं करते। Ad content और editorial content separate रहता है। हम किसी product या service को editorial recommendation के रूप में promote नहीं करते (unless clearly disclosed)।</p>
+<h2>विज्ञापन और संपादकीय स्वतंत्रता</h2>
+<p>विज्ञापन हमारी आय का स्रोत है, परंतु विज्ञापनदाता हमारी संपादकीय सामग्री को प्रभावित नहीं करते। विज्ञापन और संपादकीय सामग्री हमेशा अलग रहती है। बिना स्पष्ट खुलासे के किसी उत्पाद या सेवा का प्रचार हमारी नीति के विरुद्ध है।</p>
 
-<h2>संबंधित पेज</h2>
-<p>📋 <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">हमारे बारे में</a></p>
-<p>🔒 <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">गोपनीयता नीति</a></p>
-<p>⚖️ <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">अस्वीकरण</a></p>
-<p>📜 <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">नियम और शर्तें</a></p>
-<p>📞 <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">संपर्क करें</a></p>
+<h2>निष्पक्षता और पारदर्शिता</h2>
+<p>Golden Rashifal किसी विशेष संप्रदाय, पंथ या व्यावसायिक हित से जुड़ा नहीं है। हमारी सामग्री सभी पाठकों के लिए समान रूप से उपयोगी होने का प्रयास करती है। हम अपनी सीमाओं और अनिश्चितताओं के बारे में ईमानदार हैं।</p>
 
-<h2>अक्सर पूछे जाने वाले सवाल</h2>
+<h2>संपर्क</h2>
+<p>संपादकीय नीति से संबंधित किसी प्रश्न के लिए:</p>
+<p>📧 <a href="mailto:<?php echo esc_attr( GR_AUTHOR_EMAIL ); ?>"><?php echo esc_html( GR_AUTHOR_EMAIL ); ?></a></p>
+<p>✒️ <strong><?php esc_html_e( 'संपादकीय टीम:', 'golden-rashifal' ); ?></strong> <?php echo esc_html( GR_AUTHOR_NAME ); ?>, <?php echo esc_html( GR_AUTHOR_ROLE ); ?></p>
 
-<div class="gr-faq">
-<details class="gr-faq__item" open>
-<summary class="gr-faq__q"><strong>क्या आपके articles में AI-generated content है?</strong></summary>
-<div class="gr-faq__a">हम AI tools research और drafting में use कर सकते हैं। लेकिन हर article human-reviewed, fact-checked, और manually edited है। Raw AI output publish नहीं होता। Final content की responsibility हमारी editorial team की है।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>अगर content में कोई गलती मिले तो कैसे report करें?</strong></summary>
-<div class="gr-faq__a">contact@goldenrashifal.com पर email करें — article URL और specific error mention करें। हम 48 hours के अंदर review करके correction करने की कोशिश करते हैं। Genuine feedback हमारे लिए बहुत valuable है।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>आपकी team में qualified ज्योतिषी हैं?</strong></summary>
-<div class="gr-faq__a">हमारी team में content writers और researchers हैं जिन्हें हिंदी ज्योतिष साहित्य की अच्छी समझ है। हम किसी को "certified ज्योतिषाचार्य" होने का दावा नहीं करते। हम information provide करते हैं, personal consultation नहीं।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>Sponsored content कैसे identify करें?</strong></summary>
-<div class="gr-faq__a">अगर कोई content sponsored या promoted है, तो उसमें clearly "Sponsored", "Promoted", या "Paid Partnership" label होगा। बिना disclosure के paid content publish करना हमारी policy के ख़िलाफ़ है।</div>
-</details>
+<div class="gr-legal-links">
+    <strong><?php esc_html_e( 'संबंधित नीतियाँ:', 'golden-rashifal' ); ?></strong>
+    <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">🔒 <?php esc_html_e( 'गोपनीयता नीति', 'golden-rashifal' ); ?></a>
+    <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">⚖️ <?php esc_html_e( 'अस्वीकरण', 'golden-rashifal' ); ?></a>
+    <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">📜 <?php esc_html_e( 'नियम एवं शर्तें', 'golden-rashifal' ); ?></a>
+    <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">📖 <?php esc_html_e( 'हमारे बारे में', 'golden-rashifal' ); ?></a>
+    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">📞 <?php esc_html_e( 'संपर्क करें', 'golden-rashifal' ); ?></a>
 </div>
 
 </div>
 </article>
 </main>
-
 <?php get_footer(); ?>

@@ -2399,3 +2399,61 @@ details[open]>.gr-toc__summary::after{content:"-"}
     padding-top: 14px;
     border-top: 1px solid var(--gr-border-light);
 }
+
+
+
+/* ==========================================================================
+   LEGAL PAGES — गोपनीयता नीति, अस्वीकरण, नियम, संपादकीय नीति
+   ========================================================================== */
+.gr-legal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    background: var(--gr-cream);
+    border: 1px solid rgba(212,175,55,.3);
+    border-radius: 100px;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--gr-gold-deep);
+    margin-bottom: 16px;
+}
+.gr-legal-meta {
+    font-size: .82rem;
+    color: var(--gr-muted);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gr-border-light);
+}
+.gr-legal-meta a { color: var(--gr-gold-deep); }
+.gr-article__body ul {
+    list-style: disc;
+    padding-left: 1.4em;
+    margin-bottom: 1.2em;
+}
+.gr-article__body ul li { margin-bottom: 5px; line-height: 1.65; }
+.gr-legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: var(--sp-7);
+    padding: 18px 22px;
+    background: var(--gr-bg-soft);
+    border: 1px solid var(--gr-border-light);
+    border-radius: 12px;
+    font-size: .84rem;
+}
+.gr-legal-links strong { color: var(--gr-ink); flex-shrink: 0; }
+.gr-legal-links a {
+    color: var(--gr-gold-deep);
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color .15s;
+}
+.gr-legal-links a:hover { color: var(--gr-orange); }
+@media (max-width: 600px) {
+    .gr-legal-links { flex-direction: column; align-items: flex-start; gap: 8px; }
+}

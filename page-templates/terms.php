@@ -1,148 +1,98 @@
 <?php
 /**
- * Virtual Page: नियम और शर्तें — Terms & Conditions
- * Trust page for AdSense compliance.
- *
+ * Page Template: नियम एवं शर्तें — Terms & Conditions
+ * Template Name: Terms and Conditions
  * @package GoldenRashifal
  */
-
 get_header();
+$updated = wp_date( 'd F Y' );
 ?>
-
 <main id="primary" class="gr-main" role="main">
-<article class="gr-wrap gr-content-wrap gr-article">
+<article class="gr-wrap gr-content-wrap gr-article" itemscope itemtype="https://schema.org/WebPage">
 
 <header class="gr-article__head">
-    <h1 class="gr-article__title">नियम और शर्तें — Terms & Conditions</h1>
-    <p class="gr-article__lede">Golden Rashifal (goldenrashifal.com / sipindustries.in) website का उपयोग करने से पहले कृपया ये नियम और शर्तें ध्यान से पढ़ें। website access करने का मतलब है कि आप इन शर्तों से सहमत हैं।</p>
+    <div class="gr-legal-badge">📜 <?php esc_html_e( 'नियम एवं शर्तें', 'golden-rashifal' ); ?></div>
+    <h1 class="gr-article__title" itemprop="name"><?php esc_html_e( 'नियम एवं शर्तें', 'golden-rashifal' ); ?></h1>
+    <p class="gr-article__lede"><?php esc_html_e( 'goldenrashifal.in का उपयोग करने से पहले कृपया इन नियमों को ध्यानपूर्वक पढ़ें। वेबसाइट पर आने का अर्थ है कि आप इन शर्तों से सहमत हैं।', 'golden-rashifal' ); ?></p>
+    <p class="gr-legal-meta">
+        <strong><?php esc_html_e( 'वेबसाइट:', 'golden-rashifal' ); ?></strong> <a href="<?php echo esc_url( home_url( '/' ) ); ?>">goldenrashifal.in</a> &nbsp;|&nbsp;
+        <strong><?php esc_html_e( 'अंतिम अद्यतन:', 'golden-rashifal' ); ?></strong> <?php echo esc_html( $updated ); ?>
+    </p>
 </header>
 
 <div class="gr-article__body">
-    <?php
-    /*
-     * WordPress Editor Content — shown immediately when this page is edited
-     * from WP Admin → Pages → Edit. Add your own content there and it will
-     * appear here, above the default fallback text below.
-     */
-    if ( have_posts() ) {
-        while ( have_posts() ) {
-            the_post();
-            $editor_content = get_the_content();
-            if ( ! empty( trim( $editor_content ) ) ) {
-                the_content();
-                echo '<hr class="gr-content-divider" />';
-            }
-        }
-        rewind_posts();
-    }
-    ?>
+<?php
+if ( have_posts() ) { while ( have_posts() ) { the_post();
+    $ec = get_the_content();
+    if ( ! empty( trim( $ec ) ) ) { the_content(); echo '<hr class="gr-content-divider" />'; }
+} rewind_posts(); }
+?>
 
+<h2>१. स्वीकृति</h2>
+<p>इस वेबसाइट पर आकर और सामग्री पढ़कर आप इन नियमों एवं शर्तों को स्वीकार करते हैं। यदि आप किसी भी बिंदु से असहमत हैं, तो कृपया वेबसाइट का उपयोग न करें। हम इन नियमों को आवश्यकता अनुसार संशोधित कर सकते हैं — परिवर्तन इसी पृष्ठ पर प्रकाशित होंगे।</p>
 
+<h2>२. वेबसाइट का उद्देश्य</h2>
+<p>Golden Rashifal एक सूचनात्मक पोर्टल है जो दैनिक राशिफल, पंचांग, चौघड़िया, राहुकाल, शुभ मुहूर्त, एकादशी, पूर्णिमा, वास्तु मार्गदर्शन और हिंदू पंचांग से जुड़ी जानकारी प्रदान करता है। यह जानकारी शैक्षणिक एवं सांस्कृतिक उद्देश्यों के लिए है — किसी भी प्रकार के व्यावसायिक परामर्श का विकल्प नहीं।</p>
 
-<h2>1. स्वीकृति (Acceptance)</h2>
-<p>इस website को access करके और इसका content पढ़कर आप इन Terms & Conditions को accept करते हैं। अगर आप किसी भी शर्त से असहमत हैं, तो कृपया website का उपयोग न करें।</p>
-
-<p>हम समय-समय पर इन नियमों में बदलाव कर सकते हैं — बिना पूर्व सूचना के। Updated terms इसी page पर publish किए जाएँगे।</p>
-
-<h2>2. Website का उद्देश्य</h2>
-<p>Golden Rashifal एक informational website है। हम ज्योतिष, पंचांग, राशिफल, वास्तु, मुहूर्त, और हिंदू त्योहारों से related content provide करते हैं।</p>
-
-<p>ये content educational और informational purpose के लिए है। ये किसी भी तरह की professional advice (medical, legal, financial) का विकल्प नहीं है।</p>
-
-<h2>3. Content Disclaimer</h2>
-<p>हमारी website पर दी गई जानकारी पारंपरिक ज्योतिष शास्त्र और हिंदू धर्म ग्रंथों पर आधारित है। हम:</p>
-
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>किसी prediction या forecast की accuracy guarantee नहीं करते</li>
-<li>किसी "उपाय" या remedy के result की ज़िम्मेदारी नहीं लेते</li>
-<li>पंचांग data approximate है — exact values location, time zone, और calculation method पर depend करती हैं</li>
-<li>राशिफल general guidance है, personalized prediction नहीं</li>
+<h2>३. सामग्री संबंधी सीमाएँ</h2>
+<p>हमारी वेबसाइट पर प्रकाशित सामग्री परंपरागत ज्योतिष शास्त्र और हिंदू धर्मग्रंथों पर आधारित है। हम:</p>
+<ul>
+    <li>किसी भी भविष्यवाणी की सटीकता की गारंटी नहीं देते।</li>
+    <li>किसी उपाय या सुझाव के परिणाम की जिम्मेदारी नहीं लेते।</li>
+    <li>पंचांग डेटा अनुमानित है — सटीकता स्थान और समय क्षेत्र पर निर्भर करती है।</li>
+    <li>राशिफल सामान्य मार्गदर्शन है, व्यक्तिगत भविष्यवाणी नहीं।</li>
 </ul>
 
-<h2>4. Intellectual Property</h2>
-<p>इस website पर सभी content — text, images, graphics, layout — Golden Rashifal की intellectual property है। बिना written permission के इसे copy, reproduce, या distribute करना prohibited है।</p>
+<h2>४. बौद्धिक संपदा अधिकार</h2>
+<p>इस वेबसाइट पर प्रकाशित सभी सामग्री — लेख, लेआउट, चित्र, चार्ट, पंचांग सारणी — Golden Rashifal की बौद्धिक संपदा है। बिना लिखित अनुमति के सामग्री को कॉपी, पुनर्मुद्रण या वितरित करना प्रतिबंधित है।</p>
+<p>आप व्यक्तिगत, गैर-व्यावसायिक उपयोग के लिए लिंक साझा कर सकते हैं। संपूर्ण लेख कॉपी करना कॉपीराइट उल्लंघन है।</p>
 
-<p>आप personal, non-commercial use के लिए content पढ़ और share कर सकते हैं (link share करके, copy-paste करके नहीं)।</p>
-
-<h2>5. User Conduct</h2>
-<p>Website use करते समय आपसे ये अपेक्षा है:</p>
-
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>किसी भी automated tool (scraper, bot) से content copy न करें</li>
-<li>Website की functionality को disrupt करने की कोशिश न करें</li>
-<li>किसी offensive, hateful, या inappropriate content को comments या forms में submit न करें</li>
-<li>किसी दूसरे person की identity impersonate न करें</li>
+<h2>५. उपयोगकर्ता आचरण दिशानिर्देश</h2>
+<p>वेबसाइट का उपयोग करते समय अपेक्षा की जाती है कि आप:</p>
+<ul>
+    <li>स्वचालित उपकरणों (बॉट, स्क्रेपर) से सामग्री न निकालें।</li>
+    <li>वेबसाइट की कार्यप्रणाली को बाधित करने का प्रयास न करें।</li>
+    <li>टिप्पणी या संपर्क प्रपत्र में आपत्तिजनक, असत्य या अनुचित सामग्री न डालें।</li>
+    <li>किसी अन्य व्यक्ति की पहचान का उपयोग न करें।</li>
 </ul>
 
-<h2>6. Third-Party Links</h2>
-<p>हमारी website पर कभी-कभी external websites के links हो सकते हैं। इन websites का content, privacy practices, या accuracy हमारी ज़िम्मेदारी नहीं है। External links follow करना आपकी अपनी choice है।</p>
+<h2>६. बाहरी कड़ियाँ</h2>
+<p>इस वेबसाइट पर अन्य वेबसाइटों के लिंक हो सकते हैं। उनकी सामग्री, नीतियाँ या सुरक्षा हमारी जिम्मेदारी नहीं है। बाहरी लिंक पर जाना पाठक की अपनी पसंद और जिम्मेदारी है।</p>
 
-<h2>7. Advertising</h2>
-<p>हम Google AdSense और/या अन्य advertising networks के through ads display कर सकते हैं। ये ads third-party advertisers के हैं — उनके products या services की quality हमारी responsibility नहीं है।</p>
+<h2>७. विज्ञापन सेवाएँ</h2>
+<p>हम Google AdSense के माध्यम से विज्ञापन प्रदर्शित करते हैं। इन विज्ञापनों की सामग्री तृतीय पक्ष विज्ञापनदाताओं की है। विज्ञापित उत्पादों या सेवाओं की गुणवत्ता के लिए हम उत्तरदायी नहीं हैं। विज्ञापन राजस्व से ही यह वेबसाइट निःशुल्क सामग्री प्रदान कर पाती है।</p>
 
-<p>Advertising revenue से ही ये website free content provide कर पाती है। Ad blockers use करना आपकी choice है, लेकिन ये हमारी revenue affect करता है।</p>
-
-<h2>8. Limitation of Liability</h2>
-<p>Golden Rashifal किसी भी direct, indirect, incidental, या consequential damage के लिए liable नहीं है जो इस website के content use करने से हो सकता है।</p>
-
-<p>Specifically:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>ज्योतिष predictions पर based decisions से होने वाला कोई भी नुकसान</li>
-<li>Incorrect timing data (राहुकाल, चौघड़िया) से कोई inconvenience</li>
-<li>वास्तु या मुहूर्त suggestions follow करने के results</li>
-<li>Website downtime या technical issues</li>
+<h2>८. उत्तरदायित्व की सीमा</h2>
+<p>Golden Rashifal किसी भी प्रत्यक्ष, अप्रत्यक्ष, आकस्मिक या परिणामी क्षति के लिए उत्तरदायी नहीं है जो इस वेबसाइट की सामग्री के उपयोग से उत्पन्न हो सकती है। इसमें विशेष रूप से शामिल है:</p>
+<ul>
+    <li>ज्योतिषीय भविष्यवाणियों पर आधारित किसी निर्णय से होने वाली हानि।</li>
+    <li>राहुकाल, चौघड़िया या मुहूर्त डेटा में अंतर से होने वाली असुविधा।</li>
+    <li>वेबसाइट की तकनीकी समस्याओं से उत्पन्न व्यवधान।</li>
 </ul>
 
-<h2>9. Changes to Website</h2>
-<p>हम कभी भी, बिना notice के:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>Website content modify कर सकते हैं</li>
-<li>Features add या remove कर सकते हैं</li>
-<li>Website temporarily या permanently बंद कर सकते हैं</li>
-</ul>
+<h2>९. वेबसाइट में परिवर्तन का अधिकार</h2>
+<p>हम बिना पूर्व सूचना के वेबसाइट की सामग्री में बदलाव कर सकते हैं, नई सुविधाएँ जोड़ या हटा सकते हैं, और आवश्यकता पड़ने पर वेबसाइट को अस्थायी रूप से बंद कर सकते हैं।</p>
 
-<h2>10. Governing Law</h2>
-<p>ये Terms & Conditions भारतीय कानून (Indian Law) के अधीन हैं। किसी भी dispute की स्थिति में भारत की courts jurisdiction रखेंगी।</p>
+<h2>१०. लागू कानून</h2>
+<p>ये नियम भारतीय कानून के अधीन हैं। किसी भी विवाद की स्थिति में भारत की न्यायालयों का अधिकार क्षेत्र मान्य होगा।</p>
 
-<h2>11. Contact</h2>
-<p>इन Terms & Conditions से related कोई सवाल हो तो:</p>
-<p>✉️ Email: contact@goldenrashifal.com</p>
+<h2>११. नियमों में संशोधन</h2>
+<p>हम आवश्यकता पड़ने पर इन नियमों को अद्यतन कर सकते हैं। "अंतिम अद्यतन" तिथि से नवीनतम संस्करण की पुष्टि करें।</p>
 
-<p><strong>Last Updated:</strong> January 2026</p>
+<h2>१२. संपर्क</h2>
+<p>इन नियमों से संबंधित किसी प्रश्न के लिए:</p>
+<p>📧 <a href="mailto:<?php echo esc_attr( GR_AUTHOR_EMAIL ); ?>"><?php echo esc_html( GR_AUTHOR_EMAIL ); ?></a></p>
+<p>📞 <a href="tel:<?php echo esc_attr( preg_replace( '/\s+/', '', GR_AUTHOR_PHONE ) ); ?>"><?php echo esc_html( GR_AUTHOR_PHONE ); ?></a></p>
 
-<h2>संबंधित पेज</h2>
-<p>📋 <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">गोपनीयता नीति (Privacy Policy)</a></p>
-<p>⚖️ <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">अस्वीकरण (Disclaimer)</a></p>
-<p>✏️ <a href="<?php echo esc_url( home_url( '/editorial-policy/' ) ); ?>">संपादकीय नीति (Editorial Policy)</a></p>
-<p>🛡️ <a href="<?php echo esc_url( home_url( '/dmca/' ) ); ?>">DMCA नीति</a></p>
-<p>📞 <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">संपर्क करें</a></p>
-
-<h2>अक्सर पूछे जाने वाले सवाल</h2>
-
-<div class="gr-faq">
-<details class="gr-faq__item" open>
-<summary class="gr-faq__q"><strong>क्या इस website का content free है?</strong></summary>
-<div class="gr-faq__a">हाँ, सभी content free में पढ़ा जा सकता है। हमारी revenue advertising (ads) से आती है। कोई paid subscription या premium content नहीं है।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>क्या मैं इस website का content अपने blog पर copy कर सकता हूँ?</strong></summary>
-<div class="gr-faq__a">नहीं। Content copy करना copyright infringement है। आप link share कर सकते हैं, या कम शब्दों में (with proper attribution और link) reference दे सकते हैं। Full article copy करना prohibited है।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>ज्योतिष predictions ग़लत निकलें तो?</strong></summary>
-<div class="gr-faq__a">हमारा content informational है, guaranteed prediction नहीं। राशिफल general trends दिखाता है — specific results की guarantee कोई नहीं दे सकता। Important decisions में professional advice लें, सिर्फ राशिफल पर depend न करें।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>ये Terms कब update हुई हैं?</strong></summary>
-<div class="gr-faq__a">ये Terms January 2026 में last update हुई हैं। हम ज़रूरत पड़ने पर बिना notice के changes कर सकते हैं। Regular basis पर इस page को check करते रहें।</div>
-</details>
+<div class="gr-legal-links">
+    <strong><?php esc_html_e( 'संबंधित नीतियाँ:', 'golden-rashifal' ); ?></strong>
+    <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>">🔒 <?php esc_html_e( 'गोपनीयता नीति', 'golden-rashifal' ); ?></a>
+    <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">⚖️ <?php esc_html_e( 'अस्वीकरण', 'golden-rashifal' ); ?></a>
+    <a href="<?php echo esc_url( home_url( '/editorial-policy/' ) ); ?>">✏️ <?php esc_html_e( 'संपादकीय नीति', 'golden-rashifal' ); ?></a>
+    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">📞 <?php esc_html_e( 'संपर्क करें', 'golden-rashifal' ); ?></a>
 </div>
 
 </div>
 </article>
 </main>
-
 <?php get_footer(); ?>
