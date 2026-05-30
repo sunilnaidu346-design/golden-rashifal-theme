@@ -328,7 +328,7 @@ function golden_rashifal_founder_customizer( $wp_customize ) {
 
     // Founder Image
     $wp_customize->add_setting( 'gr_founder_image', array(
-        'default'           => '',
+        'default'           => GR_AUTHOR_IMG,
         'sanitize_callback' => 'esc_url_raw',
     ) );
     $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'gr_founder_image', array(
@@ -338,7 +338,7 @@ function golden_rashifal_founder_customizer( $wp_customize ) {
 
     // Founder Name
     $wp_customize->add_setting( 'gr_founder_name', array(
-        'default'           => 'Golden Rashifal टीम',
+        'default'           => GR_AUTHOR_NAME,
         'sanitize_callback' => 'sanitize_text_field',
     ) );
     $wp_customize->add_control( 'gr_founder_name', array(
@@ -347,9 +347,20 @@ function golden_rashifal_founder_customizer( $wp_customize ) {
         'type'    => 'text',
     ) );
 
+    // Founder Role
+    $wp_customize->add_setting( 'gr_founder_role', array(
+        'default'           => GR_AUTHOR_ROLE,
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'gr_founder_role', array(
+        'label'   => __( 'संस्थापक का पद', 'golden-rashifal' ),
+        'section' => 'gr_founder',
+        'type'    => 'text',
+    ) );
+
     // Founder Bio
     $wp_customize->add_setting( 'gr_founder_bio', array(
-        'default'           => 'वैदिक ज्योतिष और पंचांग विज्ञान में अनुभवी। पाठकों को प्रामाणिक, संतुलित और सरल ज्योतिषीय जानकारी देने के उद्देश्य से Golden Rashifal की स्थापना की।',
+        'default'           => GR_AUTHOR_BIO,
         'sanitize_callback' => 'sanitize_textarea_field',
     ) );
     $wp_customize->add_control( 'gr_founder_bio', array(
