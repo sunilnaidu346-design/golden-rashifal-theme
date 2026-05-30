@@ -2495,3 +2495,62 @@ details[open]>.gr-toc__summary::after{content:"-"}
     color: var(--gr-gold-deep);
     background: var(--gr-cream);
 }
+
+
+
+/* ==========================================================================
+   FOOTER — Founder mini-card + full address
+   ========================================================================== */
+.gr-footer__founder {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 12px;
+    margin-bottom: 18px;
+}
+.gr-footer__founder-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(212,175,55,.4);
+    flex-shrink: 0;
+    display: block;
+    background: rgba(212,175,55,.15);
+}
+.gr-footer__founder-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+.gr-footer__founder-text strong {
+    font-size: .85rem;
+    font-weight: 700;
+    color: var(--gr-gold-light, #f5d060);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.gr-footer__founder-text span {
+    font-size: .72rem;
+    color: rgba(255,255,255,.55);
+    line-height: 1.35;
+}
+/* Full address in footer contact column */
+.gr-footer__contact-item--address {
+    align-items: flex-start !important;
+}
+.gr-footer__contact-item--address address {
+    font-style: normal;
+    font-size: .82rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,.65);
+}
+.gr-footer__contact-item--address address strong {
+    color: rgba(255,255,255,.85);
+    font-weight: 600;
+}

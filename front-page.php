@@ -92,13 +92,19 @@ if ( $front_page_id > 0 ) {
 
     <?php get_template_part( 'template-parts/home/newsletter' ); ?>
 
-    <?php get_template_part( 'template-parts/home/trust-signal' ); ?>
-
-    <?php get_template_part( 'template-parts/home/faq' ); ?>
-
-    <?php get_template_part( 'template-parts/home/social-connect' ); ?>
-
 <?php endif; ?>
+
+<?php
+/*
+ * These three sections always appear above the footer —
+ * regardless of whether the homepage has WP editor content or not.
+ */
+?>
+<?php get_template_part( 'template-parts/home/trust-signal' ); ?>
+
+<?php get_template_part( 'template-parts/home/faq' ); ?>
+
+<?php get_template_part( 'template-parts/home/social-connect' ); ?>
 
 </main>
 
