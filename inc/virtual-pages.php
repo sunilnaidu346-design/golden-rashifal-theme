@@ -238,10 +238,29 @@ function golden_rashifal_auto_create_pages_on_activation() {
 
         // Handle nested slugs (rashifal/mesh, ratna/manikya, etc.)
         if ( strpos( $slug, '/' ) !== false ) {
-            $parts = explode( '/', $slug );
-            $page_data['post_name'] = end( $parts );
-
+            $parts       = explode( '/', $slug );
+            $child_slug  = end( $parts );
             $parent_slug = $parts[0];
+
+            $page_data['post_name'] = $child_slug;
+
+            // ── DUPLICATE CHECK — prevents /munga-2/ style duplicates ──────
+            // If a page with this child slug already exists (any parent),
+            // do not insert a new one. Update parent if needed instead.
+            $existing_by_slug = get_page_by_path( $child_slug );
+            if ( $existing_by_slug ) {
+                $parent      = get_page_by_path( $parent_slug );
+                $correct_pid = $parent ? $parent->ID : 0;
+                if ( (int) $existing_by_slug->post_parent !== $correct_pid ) {
+                    wp_update_post( array(
+                        'ID'          => $existing_by_slug->ID,
+                        'post_parent' => $correct_pid,
+                    ) );
+                }
+                continue; // Never create a duplicate.
+            }
+            // ── END DUPLICATE CHECK ─────────────────────────────────────────
+
             $parent = get_page_by_path( $parent_slug );
             if ( $parent ) {
                 $page_data['post_parent'] = $parent->ID;
@@ -290,8 +309,11 @@ function golden_rashifal_fix_empty_page_content() {
     $placeholder = '<!-- wp:paragraph --><p>यह पृष्ठ थीम द्वारा स्वचालित रूप से प्रदर्शित किया जाता है। इस सामग्री को यहाँ संपादित करें — यह पृष्ठ के शीर्ष पर दिखेगी।</p><!-- /wp:paragraph -->';
 
     foreach ( $pages as $slug => $data ) {
-        $base_slug = basename( $slug );
-        $existing  = get_page_by_path( $base_slug );
+        // Check by full path first, then by base slug as fallback.
+        $existing = get_page_by_path( $slug );
+        if ( ! $existing ) {
+            $existing = get_page_by_path( basename( $slug ) );
+        }
         if ( $existing && empty( trim( $existing->post_content ) ) ) {
             wp_update_post( array(
                 'ID'           => $existing->ID,

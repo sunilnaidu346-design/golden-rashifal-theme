@@ -139,10 +139,16 @@ function golden_rashifal_admin_pages_render() {
 /**
  * Create all missing pages as real WordPress pages.
  * Returns count of pages created.
+ *
+ * DUPLICATE PREVENTION: Before creating any page, we check BOTH:
+ *   1. get_page_by_path( $full_slug ) — finds pages with correct parent hierarchy
+ *   2. get_page_by_path( $child_slug ) — finds any page with this slug (any parent)
+ * This prevents WordPress auto-incrementing slugs to 'munga-2', 'manikya-2' etc.
+ * which happens when a page with the same post_name already exists.
  */
 function golden_rashifal_create_all_pages() {
 
-    $pages = golden_rashifal_virtual_pages();
+    $pages   = golden_rashifal_virtual_pages();
     $created = 0;
 
     // First pass: create parent pages (non-nested slugs).
@@ -150,16 +156,14 @@ function golden_rashifal_create_all_pages() {
         if ( strpos( $slug, '/' ) !== false ) {
             continue; // Skip nested, handle in second pass.
         }
-
-        $existing = get_page_by_path( $slug );
-        if ( $existing ) {
+        // Check: does a page with this slug already exist anywhere?
+        if ( get_page_by_path( $slug ) ) {
             continue;
         }
-
         wp_insert_post( array(
             'post_title'   => $data['title'],
             'post_name'    => $slug,
-            'post_content' => '',
+            'post_content' => '<!-- wp:paragraph --><p>यह पृष्ठ थीम द्वारा स्वचालित रूप से प्रदर्शित किया जाता है।</p><!-- /wp:paragraph -->',
             'post_status'  => 'publish',
             'post_type'    => 'page',
             'post_author'  => get_current_user_id(),
@@ -167,28 +171,47 @@ function golden_rashifal_create_all_pages() {
         $created++;
     }
 
-    // Second pass: create child pages (nested slugs like rashifal/mesh).
+    // Second pass: create child pages (nested slugs like rashifal/mesh, ratna/munga).
     foreach ( $pages as $slug => $data ) {
         if ( strpos( $slug, '/' ) === false ) {
             continue;
         }
 
-        $existing = get_page_by_path( $slug );
-        if ( $existing ) {
-            continue;
-        }
-
-        $parts = explode( '/', $slug );
-        $child_slug = end( $parts );
+        $parts       = explode( '/', $slug );
+        $child_slug  = end( $parts );
         $parent_slug = $parts[0];
 
-        $parent = get_page_by_path( $parent_slug );
+        // ── DUPLICATE CHECK (this is where /munga-2/ was created) ──────────
+        // get_page_by_path with full slug finds the page in its correct location.
+        if ( get_page_by_path( $slug ) ) {
+            continue; // Already exists at the correct path — skip.
+        }
+        // Also check by child slug alone — prevents creating a duplicate if
+        // the page was already created (possibly without a parent) by
+        // golden_rashifal_auto_create_pages_on_activation().
+        $existing_by_slug = get_page_by_path( $child_slug );
+        if ( $existing_by_slug ) {
+            // Page exists with this slug. Ensure it has the correct parent.
+            $parent      = get_page_by_path( $parent_slug );
+            $correct_pid = $parent ? $parent->ID : 0;
+            if ( (int) $existing_by_slug->post_parent !== $correct_pid ) {
+                // Update parent only — do not create a new page.
+                wp_update_post( array(
+                    'ID'          => $existing_by_slug->ID,
+                    'post_parent' => $correct_pid,
+                ) );
+            }
+            continue; // Never insert a second page with the same slug.
+        }
+        // ── END DUPLICATE CHECK ─────────────────────────────────────────────
+
+        $parent    = get_page_by_path( $parent_slug );
         $parent_id = $parent ? $parent->ID : 0;
 
         wp_insert_post( array(
             'post_title'   => $data['title'],
             'post_name'    => $child_slug,
-            'post_content' => '',
+            'post_content' => '<!-- wp:paragraph --><p>यह पृष्ठ थीम द्वारा स्वचालित रूप से प्रदर्शित किया जाता है।</p><!-- /wp:paragraph -->',
             'post_status'  => 'publish',
             'post_type'    => 'page',
             'post_parent'  => $parent_id,
