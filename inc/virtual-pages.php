@@ -37,7 +37,9 @@ function golden_rashifal_virtual_pages() {
         'terms'            => array( 'title' => 'नियम और शर्तें — Terms & Conditions', 'template' => 'page-templates/terms.php' ),
         'editorial-policy' => array( 'title' => 'संपादकीय नीति — Editorial Policy', 'template' => 'page-templates/editorial-policy.php' ),
         'dmca'             => array( 'title' => 'DMCA नीति — DMCA Policy', 'template' => 'page-templates/dmca.php' ),
-        'sitemap'          => array( 'title' => 'साइटमैप — Sitemap', 'template' => 'page-templates/sitemap.php' ),
+        /* 'sitemap' removed — /sitemap/ page deregistered. The HTML sitemap
+         * page is no longer needed. XML sitemaps are handled exclusively by
+         * Rank Math: /sitemap_index.xml, /post-sitemap.xml, /page-sitemap.xml. */
         'ekadashi'         => array( 'title' => 'एकादशी व्रत — तिथि, महत्व और नियम', 'template' => 'page-templates/ekadashi.php' ),
         'purnima'          => array( 'title' => 'पूर्णिमा — तिथि, व्रत विधि और महत्व', 'template' => 'page-templates/purnima.php' ),
         'hindu-calendar'   => array( 'title' => 'हिंदू कैलेंडर 2026 — पंचांग तिथियाँ', 'template' => 'page-templates/hindu-calendar.php' ),

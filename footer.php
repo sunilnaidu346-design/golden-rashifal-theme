@@ -36,7 +36,6 @@
                 <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">अस्वीकरण</a>
                 <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">नियम और शर्तें</a>
                 <a href="<?php echo esc_url( home_url( '/editorial-policy/' ) ); ?>">संपादकीय नीति</a>
-                <a href="<?php echo esc_url( home_url( '/sitemap/' ) ); ?>">साइटमैप</a>
             </nav>
         </div>
 
@@ -119,7 +118,6 @@
                 <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">अस्वीकरण</a>
                 <a href="<?php echo esc_url( home_url( '/dmca/' ) ); ?>">DMCA</a>
                 <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">शर्तें</a>
-                <a href="<?php echo esc_url( home_url( '/sitemap/' ) ); ?>">साइटमैप</a>
             </nav>
             <span class="gr-footer__made">भारत में निर्मित</span>
         </div>
