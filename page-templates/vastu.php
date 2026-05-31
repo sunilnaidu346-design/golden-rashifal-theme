@@ -18,6 +18,26 @@ get_header();
 </header>
 
 <div class="gr-article__body">
+    <?php
+    /*
+     * WordPress Editor Content — shown immediately when this page is edited
+     * from WP Admin → Pages → Edit. Add your own content there and it will
+     * appear here, above the default fallback text below.
+     */
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            $editor_content = get_the_content();
+            if ( ! empty( trim( $editor_content ) ) ) {
+                the_content();
+                echo '<hr class="gr-content-divider" />';
+            }
+        }
+        rewind_posts();
+    }
+    ?>
+
+
 
 <h2>वास्तु शास्त्र क्या है?</h2>
 <p>वास्तु शास्त्र — Sanskrit में "वास्तु" का अर्थ है निवास स्थान, और "शास्त्र" का अर्थ है विज्ञान या ज्ञान। ये एक traditional Indian system है जो architecture और space design से related है।</p>

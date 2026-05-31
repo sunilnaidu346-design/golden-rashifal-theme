@@ -4,7 +4,7 @@ Contributors: goldenrashifal
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 3.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, news, two-columns, right-sidebar, custom-menu, custom-logo, featured-images, threaded-comments, translation-ready, block-styles, accessibility-ready, rtl-language-support
@@ -41,6 +41,17 @@ Golden Rashifal एक हाथ से कोड किया गया प्�
 हाँ। Noto Sans Devanagari को मुख्य फ़ॉन्ट के रूप में लोड किया गया है।
 
 == Changelog ==
+
+= 3.1.0 =
+* Complete premium redesign — dynamic panchang, rashifal, festival calendar.
+* All astrology data (tithi, nakshatra, yoga, karan, paksha, chandrodaya, abhijit, vikram samvat) calculated dynamically.
+* Festival done/upcoming badges use real date comparison.
+* Topbar choghadiya times are now fully calculated, not hardcoded.
+* Duplicate OG, FAQ, and Article schema blocks removed.
+* Author page, archive, and search pages fully styled.
+* Cache-busting via filemtime on all CSS/JS assets.
+* Newsletter form uses nonce-based AJAX submission.
+* Fake placeholder contact number removed.
 
 = 1.0.0 =
 * पहला रिलीज़।

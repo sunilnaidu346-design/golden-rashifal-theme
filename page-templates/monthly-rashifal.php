@@ -20,6 +20,26 @@ $signs = golden_rashifal_zodiac_signs();
 </header>
 
 <div class="gr-article__body">
+    <?php
+    /*
+     * WordPress Editor Content — shown immediately when this page is edited
+     * from WP Admin → Pages → Edit. Add your own content there and it will
+     * appear here, above the default fallback text below.
+     */
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            $editor_content = get_the_content();
+            if ( ! empty( trim( $editor_content ) ) ) {
+                the_content();
+                echo '<hr class="gr-content-divider" />';
+            }
+        }
+        rewind_posts();
+    }
+    ?>
+
+
 
 <h2>इस महीने के ग्रह संयोग</h2>
 <p>Monthly rashifal में daily और weekly से अलग factors consider होते हैं। सूर्य हर महीने एक नई राशि में enter करता है — ये biggest monthly change है। बृहस्पति और शनि slow-moving हैं, लेकिन इनकी existing position monthly themes define करती है।</p>
@@ -28,14 +48,12 @@ $signs = golden_rashifal_zodiac_signs();
 
 <h2>राशिवार मासिक भविष्यफल</h2>
 
-<?php if ( ! empty( $signs ) ) : ?>
 <?php foreach ( $signs as $sign ) : ?>
 <div class="gr-monthly-sign" style="margin-bottom:1.5em;padding-bottom:1em;border-bottom:1px solid #eee;">
     <h3><?php echo esc_html( $sign['icon'] . ' ' . $sign['hi'] ); ?> (<?php echo esc_html( $sign['en'] ); ?>) — <?php echo esc_html( $sign['range'] ); ?></h3>
-    <p>इस महीने <?php echo esc_html( $sign['hi'] ); ?> राशि वालों के लिए ग्रहों की transit position के अनुसार general monthly trends available हैं। विस्तृत मासिक राशिफल जल्द update किया जाएगा।</p>
+    <p>इस महीने <?php echo esc_html( $sign['hi'] ); ?> राशि वालों के लिए ग्रहों की transit position के अनुसार सामान्य मासिक रुझान उपलब्ध हैं। जीवन के प्रमुख क्षेत्रों — करियर, स्वास्थ्य, प्रेम, और आर्थिक स्थिति — में सतर्क और सकारात्मक रहें।</p>
 </div>
 <?php endforeach; ?>
-<?php endif; ?>
 
 <h2>मासिक राशिफल में क्या-क्या cover होता है?</h2>
 <p>एक अच्छे monthly rashifal में ये areas typically address किए जाते हैं:</p>

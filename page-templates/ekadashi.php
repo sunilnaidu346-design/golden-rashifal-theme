@@ -18,6 +18,26 @@ get_header();
 </header>
 
 <div class="gr-article__body">
+    <?php
+    /*
+     * WordPress Editor Content — shown immediately when this page is edited
+     * from WP Admin → Pages → Edit. Add your own content there and it will
+     * appear here, above the default fallback text below.
+     */
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            $editor_content = get_the_content();
+            if ( ! empty( trim( $editor_content ) ) ) {
+                the_content();
+                echo '<hr class="gr-content-divider" />';
+            }
+        }
+        rewind_posts();
+    }
+    ?>
+
+
 
 <h2>एकादशी क्या है?</h2>
 <p>"एकादशी" शब्द "एकादश" (ग्यारह) से बना है। हर चंद्र मास 30 तिथियों में बँटा होता है — 15 शुक्ल पक्ष की, 15 कृष्ण पक्ष की। दोनों पक्षों की 11वीं तिथि एकादशी कहलाती है।</p>

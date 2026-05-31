@@ -20,6 +20,26 @@ $signs = golden_rashifal_zodiac_signs();
 </header>
 
 <div class="gr-article__body">
+    <?php
+    /*
+     * WordPress Editor Content — shown immediately when this page is edited
+     * from WP Admin → Pages → Edit. Add your own content there and it will
+     * appear here, above the default fallback text below.
+     */
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            $editor_content = get_the_content();
+            if ( ! empty( trim( $editor_content ) ) ) {
+                the_content();
+                echo '<hr class="gr-content-divider" />';
+            }
+        }
+        rewind_posts();
+    }
+    ?>
+
+
 
 <h2>राशिफल क्या होता है?</h2>
 <p>राशिफल (horoscope) का मतलब है — आपकी जन्म राशि के अनुसार ग्रहों की वर्तमान स्थिति का विश्लेषण। Vedic astrology में चंद्र राशि (moon sign) को primary माना जाता है, जबकि Western astrology में सूर्य राशि (sun sign) को।</p>

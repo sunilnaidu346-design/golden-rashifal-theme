@@ -314,3 +314,59 @@ function golden_rashifal_ad_allowed_tags() {
         'br'     => array(),
     );
 }
+
+
+/**
+ * Founder/Author Bio section settings (Why Trust Us on homepage).
+ */
+function golden_rashifal_founder_customizer( $wp_customize ) {
+
+    $wp_customize->add_section( 'gr_founder', array(
+        'title'    => __( 'संस्थापक / संपादक प्रोफ़ाइल', 'golden-rashifal' ),
+        'priority' => 35,
+    ) );
+
+    // Founder Image
+    $wp_customize->add_setting( 'gr_founder_image', array(
+        'default'           => GR_AUTHOR_IMG,
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'gr_founder_image', array(
+        'label'   => __( 'संस्थापक की फ़ोटो', 'golden-rashifal' ),
+        'section' => 'gr_founder',
+    ) ) );
+
+    // Founder Name
+    $wp_customize->add_setting( 'gr_founder_name', array(
+        'default'           => GR_AUTHOR_NAME,
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'gr_founder_name', array(
+        'label'   => __( 'संस्थापक का नाम', 'golden-rashifal' ),
+        'section' => 'gr_founder',
+        'type'    => 'text',
+    ) );
+
+    // Founder Role
+    $wp_customize->add_setting( 'gr_founder_role', array(
+        'default'           => GR_AUTHOR_ROLE,
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'gr_founder_role', array(
+        'label'   => __( 'संस्थापक का पद', 'golden-rashifal' ),
+        'section' => 'gr_founder',
+        'type'    => 'text',
+    ) );
+
+    // Founder Bio
+    $wp_customize->add_setting( 'gr_founder_bio', array(
+        'default'           => GR_AUTHOR_BIO,
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ) );
+    $wp_customize->add_control( 'gr_founder_bio', array(
+        'label'   => __( 'संस्थापक का परिचय', 'golden-rashifal' ),
+        'section' => 'gr_founder',
+        'type'    => 'textarea',
+    ) );
+}
+add_action( 'customize_register', 'golden_rashifal_founder_customizer' );

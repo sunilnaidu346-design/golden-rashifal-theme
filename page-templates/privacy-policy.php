@@ -1,135 +1,101 @@
 <?php
 /**
- * Virtual Page: Privacy Policy — गोपनीयता नीति
- * Required for AdSense approval. Bilingual (Hindi + English terms).
- *
+ * Page Template: गोपनीयता नीति — Privacy Policy
+ * Template Name: Privacy Policy
  * @package GoldenRashifal
  */
-
 get_header();
+$updated = wp_date( 'd F Y' );
 ?>
-
 <main id="primary" class="gr-main" role="main">
-<article class="gr-wrap gr-content-wrap gr-article">
+<article class="gr-wrap gr-content-wrap gr-article" itemscope itemtype="https://schema.org/WebPage">
 
 <header class="gr-article__head">
-    <h1 class="gr-article__title">गोपनीयता नीति — Privacy Policy</h1>
-    <p class="gr-article__lede">Golden Rashifal (sipindustries.in) पर आपकी privacy हमारे लिए महत्वपूर्ण है। ये page बताता है कि हम आपकी information कैसे collect, use और protect करते हैं।</p>
+    <div class="gr-legal-badge">🔒 <?php esc_html_e( 'गोपनीयता नीति', 'golden-rashifal' ); ?></div>
+    <h1 class="gr-article__title" itemprop="name"><?php esc_html_e( 'गोपनीयता नीति', 'golden-rashifal' ); ?></h1>
+    <p class="gr-article__lede"><?php esc_html_e( 'Golden Rashifal पर आपकी गोपनीयता हमारी प्राथमिकता है। यह नीति स्पष्ट करती है कि हम कौन सी जानकारी एकत्र करते हैं, उसका उपयोग किस प्रकार होता है, और आपके अधिकार क्या हैं।', 'golden-rashifal' ); ?></p>
+    <p class="gr-legal-meta">
+        <strong><?php esc_html_e( 'वेबसाइट:', 'golden-rashifal' ); ?></strong> <a href="<?php echo esc_url( home_url( '/' ) ); ?>">goldenrashifal.in</a> &nbsp;|&nbsp;
+        <strong><?php esc_html_e( 'अंतिम अद्यतन:', 'golden-rashifal' ); ?></strong> <?php echo esc_html( $updated ); ?>
+    </p>
 </header>
 
 <div class="gr-article__body">
+<?php
+if ( have_posts() ) { while ( have_posts() ) { the_post();
+    $ec = get_the_content();
+    if ( ! empty( trim( $ec ) ) ) { the_content(); echo '<hr class="gr-content-divider" />'; }
+} rewind_posts(); }
+?>
 
-<p><strong>Last Updated:</strong> <?php echo esc_html( wp_date( 'F Y' ) ); ?></p>
-<p><strong>Website:</strong> <?php echo esc_url( home_url( '/' ) ); ?></p>
+<h2>१. हमारे बारे में</h2>
+<p>Golden Rashifal (goldenrashifal.in) एक हिंदी ज्योतिष सूचना पोर्टल है जो दैनिक राशिफल, पंचांग, चौघड़िया, राहुकाल, शुभ मुहूर्त, एकादशी, पूर्णिमा और हिंदू त्योहारों की जानकारी प्रदान करता है। इस वेबसाइट के सह-संस्थापक एवं संपादक Vedansh Vallabh हैं।</p>
+<p>संपर्क ईमेल: <a href="mailto:<?php echo esc_attr( GR_AUTHOR_EMAIL ); ?>"><?php echo esc_html( GR_AUTHOR_EMAIL ); ?></a></p>
 
-<h2>हम कौन सी information collect करते हैं?</h2>
+<h2>२. कौन सी जानकारी एकत्र होती है?</h2>
 
-<h3>Automatically collected data</h3>
-<p>जब आप हमारी website visit करते हैं, तो कुछ information automatically collect होती है:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>IP Address (approximate location identify करने के लिए)</li>
-<li>Browser type और version</li>
-<li>Operating system</li>
-<li>Pages visited और time spent</li>
-<li>Referring website (आप कहाँ से आए)</li>
-<li>Device type (mobile/desktop/tablet)</li>
+<h3>स्वत: एकत्र होने वाली तकनीकी जानकारी</h3>
+<p>जब आप इस वेबसाइट पर आते हैं, तो कुछ सामान्य तकनीकी जानकारी स्वत: दर्ज होती है जैसे — आपके उपकरण का प्रकार (मोबाइल, टैबलेट, कंप्यूटर), ब्राउज़र का नाम, अनुमानित स्थान, देखे गए पृष्ठ और उन पर बिताया गया समय। यह जानकारी व्यक्तिगत पहचान से नहीं जुड़ी होती।</p>
+
+<h3>संपर्क प्रपत्र की जानकारी</h3>
+<p>यदि आप हमारे संपर्क पृष्ठ से संदेश भेजते हैं, तो आपका नाम, ईमेल पता और संदेश हमें प्राप्त होता है। इसका उपयोग केवल आपके संदेश का उत्तर देने के लिए किया जाता है। यह जानकारी किसी तृतीय पक्ष के साथ साझा नहीं की जाती।</p>
+
+<h3>टिप्पणी प्रणाली</h3>
+<p>यदि आप किसी लेख पर टिप्पणी करते हैं तो आपका नाम, ईमेल और टिप्पणी सहेजी जाती है। ईमेल सार्वजनिक नहीं किया जाता — केवल अनुमोदन प्रक्रिया के लिए उपयोग होता है।</p>
+
+<h2>३. कुकी (Cookie) का उपयोग</h2>
+<p>कुकी एक छोटी सी डिजिटल फ़ाइल होती है जो ब्राउज़र में सहेजी जाती है। हम निम्नलिखित प्रकार की कुकी उपयोग करते हैं:</p>
+<ul>
+    <li><strong>आवश्यक कुकी</strong> — वेबसाइट के सही संचालन के लिए अनिवार्य।</li>
+    <li><strong>विश्लेषण कुकी</strong> — यह समझने के लिए कि कौन से पृष्ठ अधिक देखे जाते हैं (Google Analytics)।</li>
+    <li><strong>विज्ञापन कुकी</strong> — आपकी रुचि के अनुसार विज्ञापन दिखाने के लिए जो विज्ञापन नेटवर्क उपयोग करता है।</li>
+</ul>
+<p>आप अपने ब्राउज़र की सेटिंग में जाकर कुकी बंद कर सकते हैं। ध्यान रखें कि कुछ सुविधाएँ उसके बाद ठीक से काम नहीं कर सकतीं।</p>
+
+<h2>४. Google Analytics और विश्लेषण सेवाएँ</h2>
+<p>हम Google Analytics का उपयोग वेबसाइट के आगंतुकों की संख्या और व्यवहार समझने के लिए करते हैं — जैसे कौन से राशिफल, पंचांग या मुहूर्त पृष्ठ सबसे अधिक पढ़े जाते हैं। यह सेवा Google LLC द्वारा संचालित है। इसमें कोई व्यक्तिगत पहचान योग्य जानकारी एकत्र नहीं होती।</p>
+<p>Google Analytics से बाहर निकलें: <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener nofollow" target="_blank">tools.google.com/dlpage/gaoptout</a></p>
+
+<h2>५. विज्ञापन सेवाएँ</h2>
+<p>यह वेबसाइट विज्ञापन नेटवर्क के माध्यम से विज्ञापन दिखाती है। ये विज्ञापन कभी-कभी आपकी पिछली ब्राउज़िंग रुचि के आधार पर हो सकते हैं। इसके लिए एक छोटी कुकी का उपयोग होता है।</p>
+<p>यदि आप व्यक्तिगत विज्ञापन नहीं देखना चाहते, तो ब्राउज़र सेटिंग में कुकी बंद करें।</p>
+
+<h2>६. तृतीय पक्ष सेवाएँ</h2>
+<p>इस वेबसाइट पर बाहरी पृष्ठों के लिंक हो सकते हैं। उन वेबसाइटों की गोपनीयता नीतियाँ भिन्न हो सकती हैं और उनके लिए हम उत्तरदायी नहीं हैं। किसी बाहरी लिंक पर जाने से पहले उस साइट की नीति स्वयं पढ़ें।</p>
+
+<h2>७. आपकी जानकारी की सुरक्षा</h2>
+<p>हम SSL एन्क्रिप्शन (HTTPS), नियमित सुरक्षा अद्यतन और सीमित प्रशासनिक पहुँच के माध्यम से डेटा सुरक्षा बनाए रखते हैं। हम आपकी जानकारी किसी को बेचते या किराए पर नहीं देते।</p>
+
+<h2>८. आपके अधिकार</h2>
+<p>आपके पास ये अधिकार हैं:</p>
+<ul>
+    <li><strong>जानने का अधिकार</strong> — हमारे पास आपकी कौन सी जानकारी है।</li>
+    <li><strong>हटाने का अनुरोध</strong> — हमारे पास जमा जानकारी हटवाने का अनुरोध।</li>
+    <li><strong>विज्ञापन प्राथमिकताएँ</strong> — Google के माध्यम से व्यक्तिगत विज्ञापन नियंत्रित करना।</li>
+    <li><strong>शिकायत</strong> — किसी चिंता के लिए <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">संपर्क पृष्ठ</a> पर आएँ।</li>
 </ul>
 
-<h3>Cookies</h3>
-<p>हमारी website cookies use करती है। Cookies छोटी text files हैं जो आपके browser में store होती हैं। ये website को properly function करने और user experience improve करने में help करती हैं।</p>
+<h2>९. नाबालिगों की गोपनीयता</h2>
+<p>यह वेबसाइट 13 वर्ष से कम आयु के बच्चों से कोई जानकारी जानबूझकर एकत्र नहीं करती। यदि आपको लगता है कि किसी बच्चे की जानकारी हमारे पास आ गई है, तो कृपया हमसे संपर्क करें — हम तुरंत कार्रवाई करेंगे।</p>
 
-<p>हम ये cookies use करते हैं:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li><strong>Essential cookies</strong> — website ठीक से चलाने के लिए ज़रूरी</li>
-<li><strong>Analytics cookies</strong> — traffic patterns समझने के लिए (Google Analytics)</li>
-<li><strong>Advertising cookies</strong> — relevant ads दिखाने के लिए (Google AdSense)</li>
-</ul>
+<h2>१०. नीति में परिवर्तन</h2>
+<p>हम आवश्यकता पड़ने पर इस गोपनीयता नीति को अद्यतन कर सकते हैं। प्रत्येक परिवर्तन के बाद इस पृष्ठ पर "अंतिम अद्यतन" तिथि बदल जाएगी। नियमित पाठकों को सलाह है कि समय-समय पर इस पृष्ठ को देखते रहें।</p>
 
-<h3>Personal information</h3>
-<p>हम deliberately कोई personal information collect नहीं करते। हमारी website पर कोई registration, login, या account creation feature नहीं है।</p>
-<p>अगर आप हमें email करते हैं, तो आपका email address और message content हमारे पास रहता है — सिर्फ reply देने के purpose से।</p>
+<h2>११. संपर्क</h2>
+<p>गोपनीयता संबंधी किसी भी प्रश्न या अनुरोध के लिए:</p>
+<p>📧 <strong>ईमेल:</strong> <a href="mailto:<?php echo esc_attr( GR_AUTHOR_EMAIL ); ?>"><?php echo esc_html( GR_AUTHOR_EMAIL ); ?></a></p>
+<p>📞 <strong>फ़ोन:</strong> <a href="tel:<?php echo esc_attr( preg_replace( '/\s+/', '', GR_AUTHOR_PHONE ) ); ?>"><?php echo esc_html( GR_AUTHOR_PHONE ); ?></a></p>
+<p>📍 <strong>पता:</strong> D-9 A/1, Indira Colony, Sector 52, Gurugram, Haryana 122003, India</p>
 
-<h2>Google AdSense और Third-Party Advertising</h2>
-<p>हम Google AdSense use करते हैं जो third-party advertising service है। Google और उसके partners:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>Cookies use करके ads personalize कर सकते हैं</li>
-<li>आपकी पिछली visits के based पर relevant ads दिखा सकते हैं</li>
-<li>DoubleClick cookie use करते हैं</li>
-</ul>
-<p>आप Google Ad Settings (<a href="https://adssettings.google.com/" rel="noopener nofollow" target="_blank">adssettings.google.com</a>) पर जाकर personalized advertising opt-out कर सकते हैं।</p>
-
-<h2>Google Analytics</h2>
-<p>हम Google Analytics use करते हैं website traffic analyze करने के लिए। ये service Google Inc. द्वारा provide की जाती है। Google Analytics cookies use करके visitor behavior track करती है, लेकिन personally identifiable information collect नहीं करती।</p>
-<p>Google Analytics opt-out: <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener nofollow" target="_blank">tools.google.com/dlpage/gaoptout</a></p>
-
-<h2>Data कैसे use होता है?</h2>
-<p>Collected data का use:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>Website improve करने के लिए (कौन से pages popular हैं, कहाँ users drop करते हैं)</li>
-<li>Technical issues identify और fix करने के लिए</li>
-<li>Content strategy plan करने के लिए</li>
-<li>Advertising revenue generate करने के लिए (Google AdSense through)</li>
-</ul>
-<p>हम आपका data किसी third party को sell नहीं करते। कभी नहीं।</p>
-
-<h2>Data Security</h2>
-<p>हम standard security measures follow करते हैं:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>SSL/HTTPS encryption — सारा data encrypted travel करता है</li>
-<li>Regular security updates</li>
-<li>Limited access — सिर्फ authorized team members को admin access</li>
-</ul>
-<p>लेकिन ईमानदारी से — internet पर 100% security guarantee करना किसी के लिए possible नहीं है। हम best practices follow करते हैं।</p>
-
-<h2>Children's Privacy</h2>
-<p>हमारी website specifically 13 साल से कम उम्र के बच्चों को target नहीं करती। हम जानबूझकर minors से personal information collect नहीं करते।</p>
-
-<h2>External Links</h2>
-<p>हमारी website पर कभी-कभी external websites के links हो सकते हैं। उन websites की privacy practices हमारे control में नहीं हैं। External link click करने से पहले उस website की privacy policy ज़रूर पढ़ें।</p>
-
-<h2>आपके अधिकार (Your Rights)</h2>
-<p>आपके पास ये rights हैं:</p>
-<ul style="list-style:disc;padding-left:1.4em;margin-bottom:1.2em">
-<li>जानने का अधिकार — हम क्या data रखते हैं</li>
-<li>Deletion का अधिकार — अपना data delete करवाने का request</li>
-<li>Opt-out — advertising cookies disable करने का option</li>
-<li>Complaint — अगर कोई concern हो तो हमसे संपर्क करें</li>
-</ul>
-
-<h2>Policy Changes</h2>
-<p>हम ये privacy policy समय-समय पर update कर सकते हैं। कोई major change होने पर page पर "Last Updated" date change हो जाएगी। Regular visitors को recommend करते हैं कि occasionally ये page check करें।</p>
-
-<h2>संपर्क</h2>
-<p>Privacy से related कोई सवाल या request हो:</p>
-<p>✉️ <strong>Email:</strong> contact@goldenrashifal.com</p>
-<p>Subject line में "Privacy Request" लिखें।</p>
-
-<h2>अक्सर पूछे जाने वाले सवाल</h2>
-
-<div class="gr-faq">
-<details class="gr-faq__item" open>
-<summary class="gr-faq__q"><strong>क्या मेरा personal data sell होता है?</strong></summary>
-<div class="gr-faq__a">नहीं। हम किसी का personal data किसी third party को sell नहीं करते। हमारा revenue model advertising (Google AdSense) based है, data selling नहीं।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>Cookies disable कर सकते हैं?</strong></summary>
-<div class="gr-faq__a">हाँ। आप अपने browser settings से cookies disable कर सकते हैं। लेकिन ध्यान रखें कि कुछ website features ठीक से काम नहीं कर सकते।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>Google AdSense ads personalized होते हैं?</strong></summary>
-<div class="gr-faq__a">हाँ, Google आपकी browsing history based पर personalized ads दिखा सकता है। आप Google Ad Settings से इसे control कर सकते हैं।</div>
-</details>
-
-<details class="gr-faq__item">
-<summary class="gr-faq__q"><strong>क्या website पर account बनाना ज़रूरी है?</strong></summary>
-<div class="gr-faq__a">नहीं। हमारी website पर कोई registration या login system नहीं है। सारा content freely accessible है।</div>
-</details>
+<div class="gr-legal-links">
+    <strong><?php esc_html_e( 'संबंधित नीतियाँ:', 'golden-rashifal' ); ?></strong>
+    <a href="<?php echo esc_url( home_url( '/disclaimer/' ) ); ?>">⚖️ <?php esc_html_e( 'अस्वीकरण', 'golden-rashifal' ); ?></a>
+    <a href="<?php echo esc_url( home_url( '/terms/' ) ); ?>">📜 <?php esc_html_e( 'नियम एवं शर्तें', 'golden-rashifal' ); ?></a>
+    <a href="<?php echo esc_url( home_url( '/editorial-policy/' ) ); ?>">✏️ <?php esc_html_e( 'संपादकीय नीति', 'golden-rashifal' ); ?></a>
+    <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">📞 <?php esc_html_e( 'संपर्क करें', 'golden-rashifal' ); ?></a>
 </div>
 
 </div>
 </article>
 </main>
-
 <?php get_footer(); ?>

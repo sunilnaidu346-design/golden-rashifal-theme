@@ -20,6 +20,26 @@ $signs = golden_rashifal_zodiac_signs();
 </header>
 
 <div class="gr-article__body">
+    <?php
+    /*
+     * WordPress Editor Content — shown immediately when this page is edited
+     * from WP Admin → Pages → Edit. Add your own content there and it will
+     * appear here, above the default fallback text below.
+     */
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            $editor_content = get_the_content();
+            if ( ! empty( trim( $editor_content ) ) ) {
+                the_content();
+                echo '<hr class="gr-content-divider" />';
+            }
+        }
+        rewind_posts();
+    }
+    ?>
+
+
 
 <h2>इस सप्ताह के प्रमुख ग्रह योग</h2>
 <p>साप्ताहिक राशिफल में daily rashifal से ज़्यादा बड़े trends देखे जाते हैं। चंद्रमा हर 2.25 दिन में राशि बदलता है — यानी एक week में 3 राशियों से गुज़रता है। बुध और शुक्र भी relatively fast-moving हैं — इनकी position weekly forecast में important role play करती है।</p>
@@ -28,14 +48,12 @@ $signs = golden_rashifal_zodiac_signs();
 
 <h2>राशिवार साप्ताहिक भविष्यफल</h2>
 
-<?php if ( ! empty( $signs ) ) : ?>
 <?php foreach ( $signs as $sign ) : ?>
 <div class="gr-weekly-sign" style="margin-bottom:1.5em;padding-bottom:1em;border-bottom:1px solid #eee;">
     <h3><?php echo esc_html( $sign['icon'] . ' ' . $sign['hi'] ); ?> (<?php echo esc_html( $sign['en'] ); ?>) — <?php echo esc_html( $sign['range'] ); ?></h3>
-    <p>इस सप्ताह <?php echo esc_html( $sign['hi'] ); ?> राशि वालों के लिए ग्रहों की स्थिति के अनुसार general trends available हैं। विस्तृत साप्ताहिक राशिफल जल्द update किया जाएगा।</p>
+    <p>इस सप्ताह <?php echo esc_html( $sign['hi'] ); ?> राशि वालों के लिए ग्रहों की स्थिति के अनुसार सामान्य रुझान उपलब्ध हैं। करियर और आर्थिक मामलों में सजग रहें। परिवार को समय दें। स्वास्थ्य का ध्यान रखें।</p>
 </div>
 <?php endforeach; ?>
-<?php endif; ?>
 
 <h2>साप्ताहिक राशिफल कैसे पढ़ें?</h2>
 <p>कुछ practical tips जो weekly rashifal पढ़ते समय ध्यान रखनी चाहिए:</p>

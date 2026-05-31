@@ -29,6 +29,15 @@ get_header();
             <?php get_search_form(); ?>
         </div>
 
+        <div class="gr-404__links">
+            <a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>"><?php esc_html_e( 'पंचांग', 'golden-rashifal' ); ?></a>
+            <a href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>"><?php esc_html_e( 'चौघड़िया', 'golden-rashifal' ); ?></a>
+            <a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>"><?php esc_html_e( 'मुहूर्त', 'golden-rashifal' ); ?></a>
+            <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>"><?php esc_html_e( 'त्योहार', 'golden-rashifal' ); ?></a>
+            <a href="<?php echo esc_url( home_url( '/vastu/' ) ); ?>"><?php esc_html_e( 'वास्तु', 'golden-rashifal' ); ?></a>
+            <a href="<?php echo esc_url( home_url( '/kundli/' ) ); ?>"><?php esc_html_e( 'कुंडली', 'golden-rashifal' ); ?></a>
+        </div>
+
     </div>
 </main>
 

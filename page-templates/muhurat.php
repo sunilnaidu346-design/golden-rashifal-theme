@@ -18,6 +18,26 @@ get_header();
 </header>
 
 <div class="gr-article__body">
+    <?php
+    /*
+     * WordPress Editor Content — shown immediately when this page is edited
+     * from WP Admin → Pages → Edit. Add your own content there and it will
+     * appear here, above the default fallback text below.
+     */
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            $editor_content = get_the_content();
+            if ( ! empty( trim( $editor_content ) ) ) {
+                the_content();
+                echo '<hr class="gr-content-divider" />';
+            }
+        }
+        rewind_posts();
+    }
+    ?>
+
+
 
 <h2>मुहूर्त क्या होता है?</h2>
 <p>मुहूर्त का शाब्दिक अर्थ है — एक निश्चित शुभ समय। Vedic astrology में मुहूर्त निकालने के लिए तिथि, नक्षत्र, योग, करण, वार — इन पाँचों अंगों को देखा जाता है। जब ये सब अनुकूल combination में आते हैं, तो उसे शुभ मुहूर्त कहते हैं।</p>
