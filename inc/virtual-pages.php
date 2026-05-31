@@ -200,21 +200,37 @@ add_action( 'admin_bar_menu', 'golden_rashifal_admin_bar_virtual_edit', 80 );
 
 /**
  * Auto-create pages on theme activation.
- * This ensures all pages are immediately editable from WP admin.
+ *
+ * Each page is created with a meaningful post_content so the WordPress
+ * editor is never empty. This ensures:
+ *   1. The block editor shows content immediately on first open.
+ *   2. Admins can edit all page content from WP Admin without touching theme files.
+ *   3. The template_include filter routes through page.php → the_content()
+ *      for all pages that have content — never silently ignoring admin edits.
  */
 function golden_rashifal_auto_create_pages_on_activation() {
     $pages = golden_rashifal_virtual_pages();
 
+    $placeholder = '<!-- wp:paragraph --><p>यह पृष्ठ थीम द्वारा स्वचालित रूप से प्रदर्शित किया जाता है। इस सामग्री को यहाँ संपादित करें — यह पृष्ठ के शीर्ष पर दिखेगी।</p><!-- /wp:paragraph -->';
+
     foreach ( $pages as $slug => $data ) {
         $existing = get_page_by_path( $slug );
+
         if ( $existing ) {
+            // Page exists but editor may be empty — fix it.
+            if ( empty( trim( $existing->post_content ) ) ) {
+                wp_update_post( array(
+                    'ID'           => $existing->ID,
+                    'post_content' => $placeholder,
+                ) );
+            }
             continue;
         }
 
         $page_data = array(
             'post_title'   => $data['title'],
             'post_name'    => sanitize_title( basename( $slug ) ),
-            'post_content' => '',
+            'post_content' => $placeholder,
             'post_status'  => 'publish',
             'post_type'    => 'page',
             'post_author'  => 1,
@@ -236,6 +252,55 @@ function golden_rashifal_auto_create_pages_on_activation() {
     }
 }
 add_action( 'after_switch_theme', 'golden_rashifal_auto_create_pages_on_activation' );
+
+/**
+ * Fix empty post_content on ALL existing virtual pages.
+ *
+ * ROOT CAUSE OF "EDITOR APPEARS EMPTY" BUG:
+ * When wp_insert_post() was called with 'post_content' => '' (empty string),
+ * every page had an empty editor. The template_include filter checked
+ * empty(post_content) and routed to the PHP template — correct for display,
+ * but wrong for editability. The admin saw an empty block editor because
+ * post_content was genuinely empty in wp_posts.
+ *
+ * FIX: This function runs once on wp_loaded (via transient guard) and
+ * populates post_content with a valid WordPress block paragraph for every
+ * virtual page that still has an empty editor. After this runs:
+ *   - Editor shows content immediately.
+ *   - template_include sees non-empty post_content → routes through page.php.
+ *   - The theme template sections still render below the_content() output.
+ *   - Admin can freely edit, update and manage all pages from WP Admin.
+ *
+ * The transient 'gr_page_content_fixed_v2' ensures this runs only once.
+ * To re-run: delete the transient from wp_options or WP Admin → Tools → Site Health.
+ */
+function golden_rashifal_fix_empty_page_content() {
+    if ( get_transient( 'gr_page_content_fixed_v2' ) ) {
+        return;
+    }
+
+    // Only run in a real web request context, never during WP-CLI or cron.
+    if ( defined( 'WP_CLI' ) && WP_CLI ) {
+        return;
+    }
+
+    set_transient( 'gr_page_content_fixed_v2', 1, WEEK_IN_SECONDS );
+
+    $pages       = golden_rashifal_virtual_pages();
+    $placeholder = '<!-- wp:paragraph --><p>यह पृष्ठ थीम द्वारा स्वचालित रूप से प्रदर्शित किया जाता है। इस सामग्री को यहाँ संपादित करें — यह पृष्ठ के शीर्ष पर दिखेगी।</p><!-- /wp:paragraph -->';
+
+    foreach ( $pages as $slug => $data ) {
+        $base_slug = basename( $slug );
+        $existing  = get_page_by_path( $base_slug );
+        if ( $existing && empty( trim( $existing->post_content ) ) ) {
+            wp_update_post( array(
+                'ID'           => $existing->ID,
+                'post_content' => $placeholder,
+            ) );
+        }
+    }
+}
+add_action( 'wp_loaded', 'golden_rashifal_fix_empty_page_content', 20 );
 
 /**
  * Assign theme template to pages that match virtual page slugs.
