@@ -274,17 +274,17 @@ add_action( 'after_switch_theme', 'golden_rashifal_auto_create_pages_on_activati
 
 /**
  * Populate rich Hindi content for the 6 key trust pages.
- * Runs once via transient 'gr_content_v3'.
- * Delete transient to re-run.
+ * Runs once via transient 'gr_content_v4'.
+ * Delete transient to re-run with updated content.
  */
 function golden_rashifal_fix_empty_page_content() {
-    if ( get_transient( 'gr_content_v3' ) ) {
+    if ( get_transient( 'gr_content_v4' ) ) {
         return;
     }
     if ( defined( 'WP_CLI' ) && WP_CLI ) {
         return;
     }
-    set_transient( 'gr_content_v3', 1, YEAR_IN_SECONDS );
+    set_transient( 'gr_content_v4', 1, YEAR_IN_SECONDS );
 
     $placeholder = '<!-- wp:paragraph --><p>यह पृष्ठ थीम द्वारा स्वचालित रूप से प्रदर्शित किया जाता है।</p><!-- /wp:paragraph -->';
 
@@ -341,17 +341,23 @@ function golden_rashifal_fix_empty_page_content() {
 
         'terms' => '<!-- wp:heading --><h2>नियम एवं शर्तें</h2><!-- /wp:heading -->
 <!-- wp:paragraph --><p><strong>वेबसाइट:</strong> goldenrashifal.in | <strong>अंतिम अद्यतन:</strong> मई 2026</p><!-- /wp:paragraph -->
-<!-- wp:paragraph --><p>goldenrashifal.in का उपयोग करके आप इन नियमों से सहमत होते हैं। असहमति की स्थिति में वेबसाइट का उपयोग न करें।</p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p>goldenrashifal.in पर आने और सामग्री पढ़ने का अर्थ है कि आप इन नियमों से सहमत हैं। यदि आप किसी भी बिंदु से असहमत हों तो कृपया वेबसाइट का उपयोग न करें।</p><!-- /wp:paragraph -->
 <!-- wp:heading {"level":3} --><h3>वेबसाइट का उद्देश्य</h3><!-- /wp:heading -->
-<!-- wp:paragraph --><p>Golden Rashifal दैनिक राशिफल, पंचांग, चौघड़िया, राहुकाल, शुभ मुहूर्त, एकादशी, पूर्णिमा और हिंदू त्योहारों की जानकारी देता है — शैक्षणिक उद्देश्य से। यह किसी व्यावसायिक परामर्श का विकल्प नहीं।</p><!-- /wp:paragraph -->
-<!-- wp:heading {"level":3} --><h3>बौद्धिक संपदा</h3><!-- /wp:heading -->
-<!-- wp:paragraph --><p>वेबसाइट की सामग्री Golden Rashifal की है। बिना अनुमति कॉपी, पुनर्मुद्रण या वितरण प्रतिबंधित है।</p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p>Golden Rashifal एक सूचनात्मक पोर्टल है जो दैनिक राशिफल, पंचांग, चौघड़िया, राहुकाल, शुभ मुहूर्त, एकादशी, पूर्णिमा और हिंदू त्योहारों की जानकारी शैक्षणिक एवं सांस्कृतिक उद्देश्यों के लिए प्रदान करता है। यह किसी व्यावसायिक परामर्श का विकल्प नहीं है।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>सामग्री संबंधी सीमाएँ</h3><!-- /wp:heading -->
+<!-- wp:list --><ul><li>ज्योतिषीय भविष्यवाणी की सटीकता की कोई गारंटी नहीं दी जाती।</li><li>पंचांग डेटा अनुमानित है — सटीकता स्थान और समय क्षेत्र पर निर्भर करती है।</li><li>राशिफल सामान्य मार्गदर्शन है, व्यक्तिगत भविष्यवाणी नहीं।</li><li>किसी उपाय के परिणाम की जिम्मेदारी हम नहीं लेते।</li></ul><!-- /wp:list -->
+<!-- wp:heading {"level":3} --><h3>बौद्धिक संपदा अधिकार</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>वेबसाइट पर प्रकाशित सभी सामग्री — लेख, लेआउट, पंचांग सारणी — Golden Rashifal की बौद्धिक संपदा है। बिना लिखित अनुमति के सामग्री को कॉपी, पुनर्मुद्रण या वितरित करना प्रतिबंधित है। व्यक्तिगत गैर-व्यावसायिक उपयोग के लिए लिंक साझा किया जा सकता है।</p><!-- /wp:paragraph -->
 <!-- wp:heading {"level":3} --><h3>उपयोगकर्ता आचरण</h3><!-- /wp:heading -->
-<!-- wp:list --><ul><li>स्वचालित उपकरणों से सामग्री न निकालें।</li><li>वेबसाइट की कार्यप्रणाली बाधित करने का प्रयास न करें।</li><li>संपर्क प्रपत्र में आपत्तिजनक सामग्री न डालें।</li></ul><!-- /wp:list -->
+<!-- wp:list --><ul><li>स्वचालित उपकरणों (बॉट, स्क्रेपर) से सामग्री न निकालें।</li><li>वेबसाइट की कार्यप्रणाली बाधित करने का प्रयास न करें।</li><li>संपर्क प्रपत्र में आपत्तिजनक या असत्य सामग्री न डालें।</li></ul><!-- /wp:list -->
+<!-- wp:heading {"level":3} --><h3>विज्ञापन और आय</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>यह वेबसाइट विज्ञापन नेटवर्क के माध्यम से विज्ञापन दिखाती है। इन विज्ञापनों की सामग्री तृतीय पक्ष की है। विज्ञापन से होने वाली आय से ही यह वेबसाइट पाठकों को निःशुल्क जानकारी दे पाती है।</p><!-- /wp:paragraph -->
 <!-- wp:heading {"level":3} --><h3>उत्तरदायित्व की सीमा</h3><!-- /wp:heading -->
-<!-- wp:paragraph --><p>Golden Rashifal किसी भी नुकसान के लिए उत्तरदायी नहीं है जो इस वेबसाइट की जानकारी के आधार पर लिए गए निर्णयों से हो।</p><!-- /wp:paragraph -->
-<!-- wp:heading {"level":3} --><h3>संपर्क</h3>-- /wp:heading -->
-<!-- wp:paragraph --><p>📧 <a href="mailto:support@goldenrashifal.in">support@goldenrashifal.in</a></p><!-- /wp:paragraph -->',
+<!-- wp:paragraph --><p>Golden Rashifal किसी भी प्रत्यक्ष या परिणामी क्षति के लिए उत्तरदायी नहीं है जो इस वेबसाइट की जानकारी के आधार पर लिए गए निर्णयों से हो। इसमें ज्योतिषीय भविष्यवाणियों, राहुकाल, चौघड़िया या मुहूर्त डेटा के आधार पर उठाए गए कदम शामिल हैं।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>नियमों में संशोधन</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>हम आवश्यकता पड़ने पर इन नियमों को अद्यतन कर सकते हैं। परिवर्तन इसी पृष्ठ पर प्रकाशित होंगे।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>संपर्क</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>📧 <a href="mailto:support@goldenrashifal.in">support@goldenrashifal.in</a> | 📞 +91 9045432034</p><!-- /wp:paragraph -->',
 
         'editorial-policy' => '<!-- wp:heading --><h2>हमारी संपादकीय पहचान</h2><!-- /wp:heading -->
 <!-- wp:paragraph --><p>Golden Rashifal एक पाठक-केंद्रित ज्योतिष सूचना पोर्टल है। सह-संस्थापक <strong>Vedansh Vallabh</strong> के नेतृत्व में यहाँ परंपरागत ज्ञान सरल, संतुलित भाषा में प्रकाशित होता है।</p><!-- /wp:paragraph -->
