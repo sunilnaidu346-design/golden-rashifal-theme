@@ -359,11 +359,7 @@
 .gr-floating__btn:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.22)}
 .gr-floating__btn--wa{background:#25d366}
 .gr-floating__btn--wa:hover{background:#1ebe5d}
-/* Legacy aliases kept for safety */
-.gr-floating__btn--share{background:#555}
-.gr-floating__btn--chat{background:#25d366}
-.gr-floating__btn--star{background:var(--gr-pink)}
-/* .gr-totop styles moved to premium-enhancements.css (single canonical definition) */
+/* gr-totop defined in premium-enhancements.css */
 
 /* Search Popup & Mobile */
 .gr-search-pop{position:fixed;inset:0;z-index:220;background:rgba(0,0,0,0);visibility:hidden;display:flex;align-items:flex-start;justify-content:center;padding-top:14vh;transition:all .2s}
@@ -1246,17 +1242,6 @@ body[class*="gr-page-"] .gr-article__body h3::before {
 .gr-col-main {
     min-width: 0; /* prevent grid blowout */
 }
-
-/* Generic page content wrapper — used by page.php */
-.gr-content-wrap{max-width:var(--content-max,820px);margin-inline:auto;padding:var(--sp-8) var(--sp-4) var(--sp-9)}
-@media(max-width:768px){.gr-content-wrap{padding:var(--sp-6) var(--sp-4) var(--sp-7)}}
-
-/* Search results header */
-.gr-search-head{margin-bottom:var(--sp-6);padding-bottom:var(--sp-5);border-bottom:2px solid var(--gr-border-light)}
-.gr-search-head__pre{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gr-gold-deep);margin-bottom:var(--sp-2)}
-.gr-search-head__title{font-size:clamp(1.4rem,2vw+.6rem,2rem);font-weight:800;color:var(--gr-ink);margin-bottom:var(--sp-2)}
-.gr-search-head__count{font-size:.88rem;color:var(--gr-muted);margin-bottom:var(--sp-4);display:block}
-.gr-search-head .gr-search{max-width:480px}
 
 /* Archive header */
 .gr-archive__head {
