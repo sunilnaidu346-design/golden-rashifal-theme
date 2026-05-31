@@ -74,17 +74,17 @@ endwhile; rewind_posts(); endif;
             />
             <div class="gr-about-hero__img-badge">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                <?php esc_html_e( 'सत्यापित लेखक', 'golden-rashifal' ); ?>
+                <?php esc_html_e( 'सत्यापित', 'golden-rashifal' ); ?>
             </div>
         </div>
 
         <div class="gr-about-hero__details" itemscope itemtype="https://schema.org/Person">
-            <span class="gr-about-hero__eyebrow"><?php esc_html_e( 'सह-संस्थापक परिचय', 'golden-rashifal' ); ?></span>
+            <span class="gr-about-hero__eyebrow"><?php esc_html_e( 'सह-संस्थापक', 'golden-rashifal' ); ?></span>
             <h1 class="gr-about-hero__name" id="gr-about-name" itemprop="name"><?php echo esc_html( GR_AUTHOR_NAME ); ?></h1>
             <p class="gr-about-hero__role" itemprop="jobTitle"><?php echo esc_html( GR_AUTHOR_ROLE ); ?></p>
 
             <p class="gr-about-hero__bio" itemprop="description">
-                <?php esc_html_e( 'Vedansh Vallabh Golden Rashifal के सह-संस्थापक हैं और ज्योतिष, पंचांग, चौघड़िया, मुहूर्त तथा राशिफल से जुड़ी सामग्री तैयार करते हैं। उनका प्रयास रहता है कि परंपरागत ज्ञान को सरल, संतुलित और पाठक के लिए वास्तव में उपयोगी भाषा में प्रस्तुत किया जाए।', 'golden-rashifal' ); ?>
+                <?php esc_html_e( 'Vedansh Vallabh Golden Rashifal के सह-संस्थापक हैं। वे राशिफल, पंचांग, चौघड़िया, मुहूर्त और ज्योतिष से जुड़ी सामग्री तैयार करते हैं। उनकी कोशिश रहती है कि पारंपरिक जानकारी को इस तरह लिखा जाए जो पाठक को सीधे काम आए — बिना किसी जटिलता के।', 'golden-rashifal' ); ?>
             </p>
 
             <ul class="gr-about-hero__contact" aria-label="<?php esc_attr_e( 'संपर्क विवरण', 'golden-rashifal' ); ?>">
@@ -130,9 +130,9 @@ endwhile; rewind_posts(); endif;
 <!-- LEFT: Main content -->
 <div class="gr-about-bio">
 
-<h2 class="gr-about-bio__title">स्वागत है Golden Rashifal पर</h2>
-<p>जब कोई सुबह उठकर देखता है कि आज का राहुकाल कितने बजे है, या शादी के लिए शुभ मुहूर्त निकालना हो — तो इंटरनेट पर हिंदी में भरोसेमंद और सीधी जानकारी मिलना उतना आसान नहीं जितना लगता है। बहुत सी जगहें या तो जरूरत से ज्यादा जटिल हैं, या सिर्फ डर दिखाकर पाठक को उलझा देती हैं।</p>
-<p>Golden Rashifal इसीलिए बनाया गया — ताकि पंचांग, चौघड़िया, राशिफल और मुहूर्त जैसी जानकारी सरल, सच्ची और वास्तव में पाठक के काम आने वाली भाषा में मिल सके।</p>
+<h2 class="gr-about-bio__title">Golden Rashifal क्यों बना?</h2>
+<p>सुबह उठकर सूर्योदय का समय देखना हो, आज का राहुकाल जानना हो, शादी या किसी नए काम के लिए शुभ मुहूर्त ढूंढना हो — ये सब रोज़मर्रा की ज़रूरतें हैं जो करोड़ों भारतीय परिवारों की दिनचर्या में शामिल हैं।</p>
+<p>Golden Rashifal इन्हीं ज़रूरतों को ध्यान में रखकर बनाया गया। यहाँ पंचांग, चौघड़िया, राशिफल और मुहूर्त की जानकारी उस भाषा में मिलती है जो हर उम्र के पाठक को सीधे समझ में आए — बिना किसी जटिलता या डर के।</p>
 
 <h2>हमारी सोच</h2>
 <p>ज्योतिष और पंचांग भारत की समृद्ध परंपरा का हिस्सा हैं। लेकिन हम यह भी मानते हैं कि इस ज्ञान को डर, अंधविश्वास या हड़बड़ाहट के साथ परोसना उचित नहीं। हमारा नजरिया यह है कि पाठक को जानकारी देनी है — निर्णय उनका है।</p>
