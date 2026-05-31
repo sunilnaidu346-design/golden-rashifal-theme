@@ -493,15 +493,24 @@ function golden_rashifal_assign_page_templates( $template ) {
             }
         }
         $pages = golden_rashifal_virtual_pages();
-        if ( isset( $pages[ $check_slug ] ) || isset( $pages[ $page_obj->post_name ] ) ) {
-            // This is a registered theme page — force page.php, never front-page.php.
-            $page_template = locate_template( 'page.php' );
-            if ( $page_template ) {
-                return $page_template;
+
+        // If this is a registered virtual page AND a premium PHP template exists,
+        // always use the premium PHP template — it renders the_content() at top
+        // then premium designed sections below. Prevents front-page.php serving.
+        if ( isset( $pages[ $check_slug ] ) ) {
+            $theme_template = GOLDEN_RASHIFAL_DIR . $pages[ $check_slug ]['template'];
+            if ( file_exists( $theme_template ) ) {
+                return $theme_template;
             }
         }
-        // For non-virtual pages, return the WordPress-resolved template normally.
-        // But if it resolved to front-page.php (wrong), force page.php.
+        if ( isset( $pages[ $page_obj->post_name ] ) ) {
+            $theme_template = GOLDEN_RASHIFAL_DIR . $pages[ $page_obj->post_name ]['template'];
+            if ( file_exists( $theme_template ) ) {
+                return $theme_template;
+            }
+        }
+
+        // Not a virtual page — if WordPress wrongly resolved front-page.php, fix.
         if ( basename( $template ) === 'front-page.php' ) {
             $page_template = locate_template( 'page.php' );
             if ( $page_template ) {
