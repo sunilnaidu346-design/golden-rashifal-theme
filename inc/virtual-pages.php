@@ -78,8 +78,51 @@ function golden_rashifal_virtual_pages() {
  * Intercept requests for virtual page slugs.
  * ONLY triggers on 404 — if a real WordPress page exists, WP handles it
  * normally with full edit support, admin bar, Gutenberg, etc.
+ *
+ * SITEMAP PROTECTION: Rank Math, Yoast, and WP Core sitemaps all hook into
+ * template_redirect to serve XML. We must never intercept sitemap requests.
+ * Check for sitemap query vars and URL patterns BEFORE doing anything else.
  */
 function golden_rashifal_handle_virtual_pages() {
+
+    // ── SITEMAP & FEED EXCLUSIONS ───────────────────────────────────
+    // Never intercept any sitemap request — let Rank Math / Yoast / WP core
+    // handle their own routing entirely uninterrupted.
+    $request_uri = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
+
+    // Rank Math, Yoast, WP core sitemap URL patterns.
+    $sitemap_patterns = array(
+        'sitemap_index.xml',
+        'sitemap.xml',
+        '-sitemap.xml',
+        'sitemap-',
+        'news-sitemap.xml',
+        'video-sitemap.xml',
+        'image-sitemap.xml',
+        'author-sitemap.xml',
+        'robots.txt',
+    );
+    foreach ( $sitemap_patterns as $pattern ) {
+        if ( false !== strpos( $request_uri, $pattern ) ) {
+            return; // Let the SEO plugin handle this completely.
+        }
+    }
+
+    // WordPress core sitemap query vars (?sitemap=, ?sitemap-subtype=).
+    if ( get_query_var( 'sitemap' ) || get_query_var( 'sitemap-subtype' ) ) {
+        return;
+    }
+
+    // Rank Math specific query vars.
+    if ( get_query_var( 'rm_sitemap' ) || get_query_var( 'rankmath_sitemap' ) ) {
+        return;
+    }
+
+    // Feed requests — never intercept.
+    if ( is_feed() ) {
+        return;
+    }
+    // ── END EXCLUSIONS ──────────────────────────────────────────────
 
     // Only run on 404s (i.e., when WP couldn't find a matching page/post).
     if ( ! is_404() ) {
@@ -198,14 +241,49 @@ add_action( 'after_switch_theme', 'golden_rashifal_auto_create_pages_on_activati
  * IMPORTANT: This filter only fires when the WordPress page has NO content
  * saved in the editor (post_content is empty / whitespace only).
  *
- * If an admin has written content for the page via Pages → Edit, WordPress
- * will route the request through page.php which calls the_content() — so
- * the editor content is shown immediately without any theme file changes.
- *
- * The theme template is used as a FALLBACK / default layout when the page
- * was just created and has not been edited yet.
+ * SITEMAP PROTECTION: This filter must never intercept Rank Math, Yoast, or
+ * WP core sitemap requests. Those plugins hook template_redirect to serve XML
+ * output directly. If this filter returns a PHP template file for a sitemap
+ * URL, the SEO plugin's XML output is replaced by HTML — causing 404 errors
+ * on sitemap_index.xml, post-sitemap.xml, page-sitemap.xml, etc.
  */
 function golden_rashifal_assign_page_templates( $template ) {
+
+    // ── SITEMAP & FEED EXCLUSIONS ─────────────────────────────────
+    // Always return the unchanged $template for any sitemap / feed / robots
+    // request so Rank Math / Yoast / WP core can serve their XML unmodified.
+    $request_uri = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
+
+    $sitemap_patterns = array(
+        'sitemap_index.xml',
+        'sitemap.xml',
+        '-sitemap.xml',
+        'sitemap-',
+        'news-sitemap.xml',
+        'video-sitemap.xml',
+        'image-sitemap.xml',
+        'author-sitemap.xml',
+        'robots.txt',
+    );
+    foreach ( $sitemap_patterns as $pattern ) {
+        if ( false !== strpos( $request_uri, $pattern ) ) {
+            return $template;
+        }
+    }
+
+    if ( get_query_var( 'sitemap' ) || get_query_var( 'sitemap-subtype' ) ) {
+        return $template;
+    }
+
+    if ( get_query_var( 'rm_sitemap' ) || get_query_var( 'rankmath_sitemap' ) ) {
+        return $template;
+    }
+
+    if ( is_feed() ) {
+        return $template;
+    }
+    // ── END EXCLUSIONS ────────────────────────────────────────────
+
     if ( ! is_page() ) {
         return $template;
     }
@@ -247,15 +325,29 @@ function golden_rashifal_assign_page_templates( $template ) {
 add_filter( 'template_include', 'golden_rashifal_assign_page_templates', 99 );
 
 /**
- * Add virtual pages to the XML sitemap (for Yoast/RankMath/default WP sitemap).
+ * Flush rewrite rules on theme activation and deactivation so Rank Math
+ * sitemap rewrite rules are properly registered and never stale.
  */
-function golden_rashifal_add_virtual_to_sitemap( $url_list ) {
-    $pages = golden_rashifal_virtual_pages();
-    foreach ( $pages as $slug => $data ) {
-        $url_list[] = array(
-            'loc' => home_url( '/' . $slug . '/' ),
-        );
-    }
-    return $url_list;
+function golden_rashifal_flush_rewrite_rules() {
+    flush_rewrite_rules();
 }
-add_filter( 'wp_sitemaps_posts_pre_url_list', 'golden_rashifal_add_virtual_to_sitemap' );
+add_action( 'after_switch_theme', 'golden_rashifal_flush_rewrite_rules', 20 );
+add_action( 'switch_theme',       'golden_rashifal_flush_rewrite_rules', 20 );
+
+/**
+ * Ensure WordPress rewrite rules are registered on init so Rank Math sitemap
+ * query vars (?sitemap=, ?sitemap-subtype=) are always available.
+ * This prevents a race condition where WP parses the sitemap URL before
+ * Rank Math has registered its rewrite endpoints.
+ */
+function golden_rashifal_register_sitemap_query_vars( $vars ) {
+    // Ensure Rank Math and WP core sitemap query vars pass through.
+    $sitemap_vars = array( 'sitemap', 'sitemap-subtype', 'rm_sitemap', 'rankmath_sitemap' );
+    foreach ( $sitemap_vars as $var ) {
+        if ( ! in_array( $var, $vars, true ) ) {
+            $vars[] = $var;
+        }
+    }
+    return $vars;
+}
+add_filter( 'query_vars', 'golden_rashifal_register_sitemap_query_vars' );
