@@ -463,10 +463,51 @@ function golden_rashifal_assign_page_templates( $template ) {
 
     /*
      * If the page already has content written in the WordPress editor,
-     * step aside and let WordPress render it through the standard page.php
-     * template (which calls the_content()).  Editor content ALWAYS wins.
+     * route through page.php which calls the_content().
+     *
+     * CRITICAL FIX — "Pages showing homepage instead of their own content":
+     *
+     * When WordPress Reading Settings has "Front page displays: A static page"
+     * set, WordPress resolves the template_include $template variable to
+     * front-page.php for ANY page that is set as the "Front page" in Settings.
+     * If an admin accidentally (or via the Admin Pages Creator) set one of the
+     * virtual pages (e.g. About, Contact) as the front page, WordPress would
+     * serve front-page.php for /about/, /contact/, etc., showing the homepage
+     * layout instead of the page content.
+     *
+     * Additionally, even without that setting, WordPress sometimes resolves
+     * $template to front-page.php for the page_on_front when is_front_page()
+     * returns true. The only safe fix is to EXPLICITLY return the path to
+     * page.php for all virtual/registered pages that have editor content,
+     * never trusting the $template variable to be correct here.
+     *
+     * We use locate_template() which respects child themes and fallbacks.
      */
     if ( ! empty( trim( $page_obj->post_content ) ) ) {
+        // Check if slug matches a registered virtual page.
+        $check_slug = $page_obj->post_name;
+        if ( $page_obj->post_parent ) {
+            $parent = get_post( $page_obj->post_parent );
+            if ( $parent ) {
+                $check_slug = $parent->post_name . '/' . $check_slug;
+            }
+        }
+        $pages = golden_rashifal_virtual_pages();
+        if ( isset( $pages[ $check_slug ] ) || isset( $pages[ $page_obj->post_name ] ) ) {
+            // This is a registered theme page — force page.php, never front-page.php.
+            $page_template = locate_template( 'page.php' );
+            if ( $page_template ) {
+                return $page_template;
+            }
+        }
+        // For non-virtual pages, return the WordPress-resolved template normally.
+        // But if it resolved to front-page.php (wrong), force page.php.
+        if ( basename( $template ) === 'front-page.php' ) {
+            $page_template = locate_template( 'page.php' );
+            if ( $page_template ) {
+                return $page_template;
+            }
+        }
         return $template;
     }
 
