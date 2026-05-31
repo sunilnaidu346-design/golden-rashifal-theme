@@ -273,43 +273,116 @@ function golden_rashifal_auto_create_pages_on_activation() {
 add_action( 'after_switch_theme', 'golden_rashifal_auto_create_pages_on_activation' );
 
 /**
- * Fix empty post_content on ALL existing virtual pages.
- *
- * ROOT CAUSE OF "EDITOR APPEARS EMPTY" BUG:
- * When wp_insert_post() was called with 'post_content' => '' (empty string),
- * every page had an empty editor. The template_include filter checked
- * empty(post_content) and routed to the PHP template — correct for display,
- * but wrong for editability. The admin saw an empty block editor because
- * post_content was genuinely empty in wp_posts.
- *
- * FIX: This function runs once on wp_loaded (via transient guard) and
- * populates post_content with a valid WordPress block paragraph for every
- * virtual page that still has an empty editor. After this runs:
- *   - Editor shows content immediately.
- *   - template_include sees non-empty post_content → routes through page.php.
- *   - The theme template sections still render below the_content() output.
- *   - Admin can freely edit, update and manage all pages from WP Admin.
- *
- * The transient 'gr_page_content_fixed_v2' ensures this runs only once.
- * To re-run: delete the transient from wp_options or WP Admin → Tools → Site Health.
+ * Populate rich Hindi content for the 6 key trust pages.
+ * Runs once via transient 'gr_content_v3'.
+ * Delete transient to re-run.
  */
 function golden_rashifal_fix_empty_page_content() {
-    if ( get_transient( 'gr_page_content_fixed_v2' ) ) {
+    if ( get_transient( 'gr_content_v3' ) ) {
         return;
     }
-
-    // Only run in a real web request context, never during WP-CLI or cron.
     if ( defined( 'WP_CLI' ) && WP_CLI ) {
         return;
     }
+    set_transient( 'gr_content_v3', 1, YEAR_IN_SECONDS );
 
-    set_transient( 'gr_page_content_fixed_v2', 1, WEEK_IN_SECONDS );
+    $placeholder = '<!-- wp:paragraph --><p>यह पृष्ठ थीम द्वारा स्वचालित रूप से प्रदर्शित किया जाता है।</p><!-- /wp:paragraph -->';
 
+    // Rich content for the 6 key pages.
+    $page_contents = array(
+
+        'about' => '<!-- wp:heading --><h2>Golden Rashifal क्यों बना?</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p>सुबह उठकर सूर्योदय का समय देखना हो, आज का राहुकाल जानना हो, या किसी नए काम के लिए शुभ मुहूर्त ढूंढना हो — ये ज़रूरतें करोड़ों भारतीय परिवारों की रोज़मर्रा की दिनचर्या में शामिल हैं। Golden Rashifal इन्हीं ज़रूरतों को ध्यान में रखकर बनाया गया।</p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p>यहाँ पंचांग, चौघड़िया, राशिफल और मुहूर्त की जानकारी उस भाषा में मिलती है जो हर उम्र के पाठक को सीधे समझ में आए — बिना किसी जटिलता या डर के।</p><!-- /wp:paragraph -->
+<!-- wp:heading --><h2>हमारी सोच</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p>ज्योतिष और पंचांग भारत की समृद्ध परंपरा का हिस्सा हैं। हम इस ज्ञान को डर या अंधविश्वास के साथ नहीं परोसते। हमारा नज़रिया सरल है — पाठक को जानकारी दो, निर्णय उनका।</p><!-- /wp:paragraph -->
+<!-- wp:heading --><h2>हम क्या प्रकाशित करते हैं</h2><!-- /wp:heading -->
+<!-- wp:list --><ul><li><strong>दैनिक राशिफल</strong> — मेष से मीन, सभी बारह राशियाँ, प्रतिदिन अपडेट।</li><li><strong>आज का पंचांग</strong> — तिथि, वार, नक्षत्र, योग, करण।</li><li><strong>चौघड़िया और राहुकाल</strong> — शुभ और अशुभ समय की सूची।</li><li><strong>शुभ मुहूर्त</strong> — विवाह, गृह प्रवेश, वाहन, व्यवसाय।</li><li><strong>एकादशी और पूर्णिमा</strong> — व्रत तिथियाँ और महत्व।</li><li><strong>त्योहार कैलेंडर</strong> — प्रमुख हिंदू पर्वों की तिथि।</li><li><strong>वास्तु मार्गदर्शन</strong> — घर और कार्यस्थल के लिए सरल सुझाव।</li></ul><!-- /wp:list -->
+<!-- wp:heading --><h2>पाठकों के प्रति हमारी प्रतिबद्धता</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p>हम यहाँ किसी को डराने नहीं आए। न कोई पत्थर बेचने के लिए, न कोई भुगतान परामर्श देने के लिए। Golden Rashifal पर जो जानकारी मिलती है वह शुद्ध, निष्पक्ष और पाठक-हितैषी है।</p><!-- /wp:paragraph -->
+<!-- wp:heading --><h2>सह-संस्थापक परिचय</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p><strong>Vedansh Vallabh</strong> — सह-संस्थापक एवं ज्योतिषीय सामग्री संपादक। वे राशिफल, पंचांग, चौघड़िया और मुहूर्त से जुड़ी सामग्री तैयार करते हैं। उनका प्रयास है कि पारंपरिक ज्ञान सरल और उपयोगी भाषा में पाठकों तक पहुँचे।</p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p>📧 <a href="mailto:support@goldenrashifal.in">support@goldenrashifal.in</a> | 📞 +91 9045432034</p><!-- /wp:paragraph -->',
+
+        'contact' => '<!-- wp:heading --><h2>हमसे संपर्क करें</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p>कोई भी सवाल हो, कोई जानकारी गलत लगे, या कोई सुझाव देना हो — हम हर संदेश को ध्यान से पढ़ते हैं। आमतौर पर २ से ५ कार्य दिनों में जवाब देते हैं।</p><!-- /wp:paragraph -->
+<!-- wp:heading --><h2>संपर्क जानकारी</h2><!-- /wp:heading -->
+<!-- wp:list --><ul><li>📧 <strong>ईमेल:</strong> <a href="mailto:support@goldenrashifal.in">support@goldenrashifal.in</a></li><li>📞 <strong>फ़ोन:</strong> +91 9045432034</li><li>💬 <strong>व्हाट्सऐप चैनल:</strong> <a href="https://wa.me/919045432034">चैनल से जुड़ें</a></li><li>📍 <strong>पता:</strong> D-9 A/1, Indira Colony, Sector 52, Gurugram, Haryana 122003, India</li></ul><!-- /wp:list -->
+<!-- wp:heading --><h2>सह-संस्थापक</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p><strong>Vedansh Vallabh</strong> — सह-संस्थापक एवं ज्योतिषीय सामग्री संपादक, Golden Rashifal। राशिफल, पंचांग, चौघड़िया और मुहूर्त से जुड़ी जानकारी के लिए सीधे संपर्क करें।</p><!-- /wp:paragraph -->
+<!-- wp:heading --><h2>सामाजिक माध्यम</h2><!-- /wp:heading -->
+<!-- wp:list --><ul><li><a href="https://www.facebook.com/astrovedansh/">फेसबुक पेज</a></li><li><a href="https://www.instagram.com/astro_vedansh/">इंस्टाग्राम</a></li><li><a href="https://www.youtube.com/@Astrovedansh/">यूट्यूब चैनल</a></li></ul><!-- /wp:list -->',
+
+        'privacy-policy' => '<!-- wp:heading --><h2>गोपनीयता नीति</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p><strong>वेबसाइट:</strong> goldenrashifal.in | <strong>अंतिम अद्यतन:</strong> मई 2026</p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p>Golden Rashifal पर आपकी गोपनीयता हमारी प्राथमिकता है। यह नीति स्पष्ट करती है कि हम कौन सी जानकारी एकत्र करते हैं और उसका उपयोग कैसे होता है।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>हम कौन हैं?</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>Golden Rashifal एक हिंदी ज्योतिष सूचना पोर्टल है जो दैनिक राशिफल, पंचांग, चौघड़िया, राहुकाल, शुभ मुहूर्त, एकादशी, पूर्णिमा और हिंदू त्योहारों की जानकारी प्रदान करता है। संपर्क: <a href="mailto:support@goldenrashifal.in">support@goldenrashifal.in</a></p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>कौन सी जानकारी एकत्र होती है?</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>जब आप वेबसाइट पर आते हैं तो उपकरण का प्रकार, ब्राउज़र, अनुमानित स्थान और देखे गए पृष्ठ स्वत: दर्ज होते हैं। यह व्यक्तिगत पहचान से नहीं जुड़ा होता। संपर्क प्रपत्र भरने पर नाम, ईमेल और संदेश प्राप्त होता है — केवल उत्तर देने के लिए।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>कुकी का उपयोग</h3><!-- /wp:heading -->
+<!-- wp:list --><ul><li><strong>आवश्यक कुकी</strong> — वेबसाइट के सही संचालन के लिए।</li><li><strong>विश्लेषण कुकी</strong> — पठन व्यवहार समझने के लिए (Google Analytics)।</li><li><strong>विज्ञापन कुकी</strong> — विज्ञापन नेटवर्क द्वारा उपयोग।</li></ul><!-- /wp:list -->
+<!-- wp:paragraph --><p>ब्राउज़र सेटिंग में जाकर कुकी बंद की जा सकती है।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>आपके अधिकार</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>आप अपनी जानकारी देखने, हटाने या किसी चिंता की जानकारी देने के लिए हमसे संपर्क कर सकते हैं: <a href="mailto:support@goldenrashifal.in">support@goldenrashifal.in</a></p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p>हम आपकी जानकारी किसी को बेचते या साझा नहीं करते।</p><!-- /wp:paragraph -->',
+
+        'disclaimer' => '<!-- wp:heading --><h2>अस्वीकरण</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p><strong>वेबसाइट:</strong> goldenrashifal.in | <strong>अंतिम अद्यतन:</strong> मई 2026</p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p>Golden Rashifal पर प्रकाशित सभी सामग्री — राशिफल, पंचांग, चौघड़िया, राहुकाल, शुभ मुहूर्त, एकादशी, पूर्णिमा और वास्तु — सामान्य जानकारी और शैक्षणिक उद्देश्य से है।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>ज्योतिषीय सामग्री के बारे में</h3><!-- /wp:heading -->
+<!-- wp:list --><ul><li>यह सामग्री परंपरागत मान्यताओं पर आधारित है, वैज्ञानिक प्रमाण नहीं।</li><li>किसी भी महत्वपूर्ण निर्णय के लिए केवल राशिफल पर निर्भर न रहें।</li><li>हम किसी परिणाम की गारंटी नहीं देते।</li></ul><!-- /wp:list -->
+<!-- wp:heading {"level":3} --><h3>पंचांग और समय की जानकारी</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>सूर्योदय, सूर्यास्त, राहुकाल और चौघड़िया के समय अनुमानित हैं — मुख्यतः उत्तर भारत के लिए। आपके स्थान पर ५–१५ मिनट का अंतर हो सकता है।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>विज्ञापन</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>वेबसाइट पर विज्ञापन नेटवर्क के माध्यम से विज्ञापन दिखाए जाते हैं। विज्ञापित उत्पादों की गुणवत्ता हमारी जिम्मेदारी नहीं।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>संपर्क</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>कोई गलती दिखे तो बताएँ: <a href="mailto:support@goldenrashifal.in">support@goldenrashifal.in</a></p><!-- /wp:paragraph -->',
+
+        'terms' => '<!-- wp:heading --><h2>नियम एवं शर्तें</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p><strong>वेबसाइट:</strong> goldenrashifal.in | <strong>अंतिम अद्यतन:</strong> मई 2026</p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p>goldenrashifal.in का उपयोग करके आप इन नियमों से सहमत होते हैं। असहमति की स्थिति में वेबसाइट का उपयोग न करें।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>वेबसाइट का उद्देश्य</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>Golden Rashifal दैनिक राशिफल, पंचांग, चौघड़िया, राहुकाल, शुभ मुहूर्त, एकादशी, पूर्णिमा और हिंदू त्योहारों की जानकारी देता है — शैक्षणिक उद्देश्य से। यह किसी व्यावसायिक परामर्श का विकल्प नहीं।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>बौद्धिक संपदा</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>वेबसाइट की सामग्री Golden Rashifal की है। बिना अनुमति कॉपी, पुनर्मुद्रण या वितरण प्रतिबंधित है।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>उपयोगकर्ता आचरण</h3><!-- /wp:heading -->
+<!-- wp:list --><ul><li>स्वचालित उपकरणों से सामग्री न निकालें।</li><li>वेबसाइट की कार्यप्रणाली बाधित करने का प्रयास न करें।</li><li>संपर्क प्रपत्र में आपत्तिजनक सामग्री न डालें।</li></ul><!-- /wp:list -->
+<!-- wp:heading {"level":3} --><h3>उत्तरदायित्व की सीमा</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>Golden Rashifal किसी भी नुकसान के लिए उत्तरदायी नहीं है जो इस वेबसाइट की जानकारी के आधार पर लिए गए निर्णयों से हो।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>संपर्क</h3>-- /wp:heading -->
+<!-- wp:paragraph --><p>📧 <a href="mailto:support@goldenrashifal.in">support@goldenrashifal.in</a></p><!-- /wp:paragraph -->',
+
+        'editorial-policy' => '<!-- wp:heading --><h2>हमारी संपादकीय पहचान</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p>Golden Rashifal एक पाठक-केंद्रित ज्योतिष सूचना पोर्टल है। सह-संस्थापक <strong>Vedansh Vallabh</strong> के नेतृत्व में यहाँ परंपरागत ज्ञान सरल, संतुलित भाषा में प्रकाशित होता है।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>सामग्री निर्माण प्रक्रिया</h3><!-- /wp:heading -->
+<!-- wp:list --><ul><li><strong>शोध:</strong> परंपरागत ग्रंथ, प्रामाणिक पंचांग और खगोलीय गणनाएँ।</li><li><strong>लेखन:</strong> सरल हिंदी, संस्कृत शब्दों के अर्थ सहित।</li><li><strong>समीक्षा:</strong> प्रकाशन से पहले तथ्य जाँच।</li><li><strong>अद्यतन:</strong> दैनिक राशिफल, चौघड़िया और राहुकाल नियमित रूप से।</li></ul><!-- /wp:list -->
+<!-- wp:heading {"level":3} --><h3>हम क्या नहीं करते</h3><!-- /wp:heading -->
+<!-- wp:list --><ul><li>किसी परिणाम की गारंटी नहीं देते।</li><li>डर आधारित भाषा का उपयोग नहीं करते।</li><li>दूसरी वेबसाइटों की नकल नहीं करते।</li><li>व्यक्तिगत परामर्श सेवा नहीं देते।</li></ul><!-- /wp:list -->
+<!-- wp:heading {"level":3} --><h3>त्रुटि सुधार नीति</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>कोई गलती मिले तो <a href="mailto:support@goldenrashifal.in">support@goldenrashifal.in</a> पर सूचित करें। ४८ घंटों के भीतर समीक्षा और तत्काल सुधार।</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3>विज्ञापन और संपादकीय स्वतंत्रता</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>विज्ञापन हमारी आय का स्रोत है लेकिन विज्ञापनदाता हमारी सामग्री को प्रभावित नहीं करते।</p><!-- /wp:paragraph -->',
+
+    );
+
+    foreach ( $page_contents as $slug => $content ) {
+        $page = get_page_by_path( $slug );
+        if ( $page ) {
+            wp_update_post( array(
+                'ID'           => $page->ID,
+                'post_content' => $content,
+            ) );
+        }
+    }
+
+    // For all OTHER pages that are still using the old placeholder, keep them.
     $pages       = golden_rashifal_virtual_pages();
-    $placeholder = '<!-- wp:paragraph --><p>यह पृष्ठ थीम द्वारा स्वचालित रूप से प्रदर्शित किया जाता है। इस सामग्री को यहाँ संपादित करें — यह पृष्ठ के शीर्ष पर दिखेगी।</p><!-- /wp:paragraph -->';
-
+    $basic_ph    = '<!-- wp:paragraph --><p>यह पृष्ठ थीम द्वारा स्वचालित रूप से प्रदर्शित किया जाता है।</p><!-- /wp:paragraph -->';
     foreach ( $pages as $slug => $data ) {
-        // Check by full path first, then by base slug as fallback.
+        if ( isset( $page_contents[ $slug ] ) ) {
+            continue; // Already handled above.
+        }
         $existing = get_page_by_path( $slug );
         if ( ! $existing ) {
             $existing = get_page_by_path( basename( $slug ) );
@@ -317,7 +390,7 @@ function golden_rashifal_fix_empty_page_content() {
         if ( $existing && empty( trim( $existing->post_content ) ) ) {
             wp_update_post( array(
                 'ID'           => $existing->ID,
-                'post_content' => $placeholder,
+                'post_content' => $basic_ph,
             ) );
         }
     }
