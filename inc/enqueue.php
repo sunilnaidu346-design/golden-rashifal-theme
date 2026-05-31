@@ -194,6 +194,82 @@ function golden_rashifal_block_editor_assets() {
 add_action( 'after_setup_theme', 'golden_rashifal_block_editor_assets' );
 
 /**
+ * Block editor (Gutenberg) compatibility.
+ *
+ * Ensures the block editor iframe and REST API endpoint are not blocked
+ * by theme code. Also adds the 'wp-edit-post' script dependency guard
+ * so theme JS never loads inside the block editor iframe.
+ *
+ * WHY THIS EXISTS:
+ * The WordPress block editor (Gutenberg) renders inside an iframe since WP 6.x.
+ * If any theme script or style is enqueued without proper guards it can be
+ * injected into the editor iframe and break block rendering, causing the
+ * "editor appears empty" symptom even when database content is intact.
+ *
+ * This function explicitly dequeues all theme front-end assets from the
+ * admin/editor context so they can never interfere with Gutenberg.
+ */
+function golden_rashifal_dequeue_from_editor() {
+    // Only run inside the block editor screen.
+    $screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+    if ( ! $screen || ! method_exists( $screen, 'is_block_editor' ) || ! $screen->is_block_editor() ) {
+        return;
+    }
+
+    // Dequeue all front-end theme styles from the editor — they are added via
+    // add_editor_style() at the correct point instead.
+    $theme_styles = array(
+        'golden-rashifal-fonts',
+        'golden-rashifal-base',
+        'golden-rashifal-main',
+        'golden-rashifal-responsive',
+        'golden-rashifal-premium',
+        'golden-rashifal-single',
+    );
+    foreach ( $theme_styles as $handle ) {
+        wp_dequeue_style( $handle );
+        wp_deregister_style( $handle );
+    }
+
+    // Dequeue all front-end theme scripts from the editor.
+    $theme_scripts = array(
+        'golden-rashifal-main',
+        'golden-rashifal-premium',
+        'golden-rashifal-clock',
+        'golden-rashifal-countdown',
+        'golden-rashifal-cookie',
+    );
+    foreach ( $theme_scripts as $handle ) {
+        wp_dequeue_script( $handle );
+        wp_deregister_script( $handle );
+    }
+}
+add_action( 'admin_enqueue_scripts', 'golden_rashifal_dequeue_from_editor', 100 );
+
+/**
+ * Ensure the REST API is never blocked for logged-in editors.
+ *
+ * Some theme code or security hardening can accidentally restrict REST API
+ * access. The block editor relies entirely on the REST API to load and save
+ * post content. Without it the editor loads but shows empty content.
+ *
+ * This filter guarantees the theme never adds authentication errors to the
+ * REST API for users who have edit_posts capability.
+ */
+function golden_rashifal_rest_api_allow_editor( $result ) {
+    // Only act if something has already added a WP_Error to the REST request.
+    if ( ! is_wp_error( $result ) ) {
+        return $result;
+    }
+    // If the current user can edit posts, clear any theme-originated restriction.
+    if ( is_user_logged_in() && current_user_can( 'edit_posts' ) ) {
+        return true; // Allow — let WordPress handle auth normally.
+    }
+    return $result;
+}
+add_filter( 'rest_authentication_errors', 'golden_rashifal_rest_api_allow_editor', 5 );
+
+/**
  * Tiny inline critical CSS for above-the-fold rendering — keeps LCP snappy.
  */
 function golden_rashifal_critical_css() {

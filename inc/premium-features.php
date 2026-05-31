@@ -46,7 +46,14 @@ add_action( 'after_setup_theme', 'golden_rashifal_premium_image_sizes' );
  * Automatically links key terms in post content to relevant pages.
  */
 function golden_rashifal_auto_internal_links( $content ) {
-    if ( ! is_singular( 'post' ) || is_admin() ) {
+    // Never run on admin, REST API requests, or anything other than singular post front-end.
+    if ( is_admin() ) {
+        return $content;
+    }
+    if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+        return $content;
+    }
+    if ( ! is_singular( 'post' ) ) {
         return $content;
     }
 
@@ -106,6 +113,12 @@ add_filter( 'the_content', 'golden_rashifal_auto_internal_links', 20 );
  * Premium ad placement spacing — adds proper spacing around ads.
  */
 function golden_rashifal_ad_spacing( $content ) {
+    if ( is_admin() ) {
+        return $content;
+    }
+    if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+        return $content;
+    }
     if ( ! is_singular() ) {
         return $content;
     }
