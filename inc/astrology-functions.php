@@ -213,6 +213,194 @@ function golden_rashifal_choghadiya_today() {
 }
 
 /**
+ * Abhijit muhurat — midpoint of the day ± 24 minutes.
+ * This is a standard Vedic calculation: take the midpoint between
+ * sunrise and sunset, then subtract and add 24 minutes respectively.
+ *
+ * @return array{start:string,end:string}
+ */
+function golden_rashifal_abhijit() {
+    $sun     = golden_rashifal_sun_times();
+    $midpoint = (int) round( ( $sun['sunrise_min'] + $sun['sunset_min'] ) / 2 );
+    $start    = $midpoint - 24;
+    $end      = $midpoint + 24;
+    return array(
+        'start' => golden_rashifal_format_minutes( $start ),
+        'end'   => golden_rashifal_format_minutes( $end ),
+    );
+}
+
+/**
+ * Brahma Muhurat — 1 hour 36 minutes before sunrise (96 minutes).
+ * Traditional: 2 muhurtas (48 min each) before sunrise.
+ *
+ * @return array{start:string,end:string}
+ */
+function golden_rashifal_brahma_muhurat() {
+    $sun   = golden_rashifal_sun_times();
+    $start = $sun['sunrise_min'] - 96;
+    $end   = $sun['sunrise_min'] - 48;
+    return array(
+        'start' => golden_rashifal_format_minutes( $start ),
+        'end'   => golden_rashifal_format_minutes( $end ),
+    );
+}
+
+/**
+ * Godhuli Muhurat — around sunset (sunset − 12 to sunset + 12 minutes).
+ *
+ * @return array{start:string,end:string}
+ */
+function golden_rashifal_godhuli() {
+    $sun = golden_rashifal_sun_times();
+    return array(
+        'start' => golden_rashifal_format_minutes( $sun['sunset_min'] - 12 ),
+        'end'   => golden_rashifal_format_minutes( $sun['sunset_min'] + 12 ),
+    );
+}
+
+/**
+ * Vikram Samvat year for the current Gregorian date.
+ * Vikram Samvat starts in Chaitra (mid-March to mid-April).
+ * Approximate rule: VS = Gregorian year + 57 (before mid-April: +56).
+ *
+ * @return int
+ */
+function golden_rashifal_vikram_samvat() {
+    $month = (int) wp_date( 'n' );
+    $day   = (int) wp_date( 'j' );
+    $year  = (int) wp_date( 'Y' );
+    // New Vikram year begins around April 14 (Chaitra Shukla Pratipada).
+    if ( $month < 4 || ( $month === 4 && $day < 14 ) ) {
+        return $year + 56;
+    }
+    return $year + 57;
+}
+
+/**
+ * Tithi (lunar day) for today — approximate calculation.
+ *
+ * A lunar month = ~29.53 days = 30 tithis.
+ * We use a well-known epoch: January 10, 2024 = Shukla Pratipada (tithi 1).
+ * Days elapsed since epoch mod 29.53, mapped to tithi 1–30.
+ *
+ * NOTE: This is an approximation good to ±1 tithi for most dates.
+ * For production-grade accuracy, use an ephemeris API.
+ *
+ * @return array{number:int,name:string,paksha:string}
+ */
+function golden_rashifal_tithi_today() {
+    // Epoch: 2024-01-11 = Shukla Pratipada (new moon day + 1)
+    $epoch_timestamp = mktime( 0, 0, 0, 1, 11, 2024 );
+    $now_timestamp   = (int) current_time( 'timestamp' );
+    $days_elapsed    = ( $now_timestamp - $epoch_timestamp ) / DAY_IN_SECONDS;
+    $synodic_month   = 29.53058867;
+    $tithi_number    = ( (int) floor( $days_elapsed * 30 / $synodic_month ) % 30 ) + 1;
+    if ( $tithi_number < 1 )  { $tithi_number = 1; }
+    if ( $tithi_number > 30 ) { $tithi_number = 30; }
+
+    $paksha = ( $tithi_number <= 15 ) ? 'शुक्ल पक्ष' : 'कृष्ण पक्ष';
+    $n      = ( $tithi_number <= 15 ) ? $tithi_number : $tithi_number - 15;
+
+    $names = array(
+        1  => 'प्रतिपदा', 2 => 'द्वितीया', 3 => 'तृतीया',  4 => 'चतुर्थी',
+        5  => 'पंचमी',    6 => 'षष्ठी',    7 => 'सप्तमी',  8 => 'अष्टमी',
+        9  => 'नवमी',    10 => 'दशमी',    11 => 'एकादशी', 12 => 'द्वादशी',
+        13 => 'त्रयोदशी',14 => 'चतुर्दशी',15 => 'पूर्णिमा / अमावस्या',
+    );
+
+    return array(
+        'number' => $tithi_number,
+        'name'   => isset( $names[ $n ] ) ? $names[ $n ] : 'प्रतिपदा',
+        'paksha' => $paksha,
+    );
+}
+
+/**
+ * Nakshatra (lunar mansion) for today — approximate calculation.
+ * The Moon transits ~27.32 nakshatras per sidereal month.
+ * Epoch: 2024-01-11 Moon was in Rohini (nakshatra index 3, 0-based).
+ *
+ * @return string Hindi nakshatra name
+ */
+function golden_rashifal_nakshatra_today() {
+    $nakshatras = array(
+        'अश्विनी','भरणी','कृत्तिका','रोहिणी','मृगशिरा','आर्द्रा',
+        'पुनर्वसु','पुष्य','आश्लेषा','मघा','पूर्वाफाल्गुनी','उत्तराफाल्गुनी',
+        'हस्त','चित्रा','स्वाति','विशाखा','अनुराधा','ज्येष्ठा',
+        'मूल','पूर्वाषाढ़ा','उत्तराषाढ़ा','श्रवण','धनिष्ठा','शतभिषा',
+        'पूर्वाभाद्रपदा','उत्तराभाद्रपदा','रेवती',
+    );
+
+    $epoch_ts    = mktime( 0, 0, 0, 1, 11, 2024 ); // Rohini epoch
+    $epoch_index = 3; // Rohini is index 3 (0-based)
+    $now_ts      = (int) current_time( 'timestamp' );
+    $days        = ( $now_ts - $epoch_ts ) / DAY_IN_SECONDS;
+    $sidereal    = 27.32166; // sidereal month days
+    $idx         = ( $epoch_index + (int) floor( $days * 27 / $sidereal ) ) % 27;
+    if ( $idx < 0 ) { $idx += 27; }
+
+    return $nakshatras[ $idx ];
+}
+
+/**
+ * Yoga for today — approximate calculation.
+ * Yoga = (Sun longitude + Moon longitude) / 13.33°, 27 yogas total.
+ * We approximate using day-of-year cycling.
+ *
+ * @return string Hindi yoga name
+ */
+function golden_rashifal_yoga_today() {
+    $yogas = array(
+        'विष्कम्भ','प्रीति','आयुष्मान','सौभाग्य','शोभन','अतिगण्ड',
+        'सुकर्मा','धृति','शूल','गण्ड','वृद्धि','ध्रुव','व्याघात',
+        'हर्षण','वज्र','सिद्धि','व्यतीपात','वरीयान','परिघ','शिव',
+        'सिद्ध','साध्य','शुभ','शुक्ल','ब्रह्म','इन्द्र','वैधृति',
+    );
+    $day_of_year = (int) wp_date( 'z' ); // 0-based
+    $year        = (int) wp_date( 'Y' );
+    // Shift index slightly per year so it doesn't reset identically each Jan 1
+    $idx = ( $day_of_year + $year ) % 27;
+    return $yogas[ $idx ];
+}
+
+/**
+ * Karan for today — approximate calculation.
+ * A karan = half a tithi. 11 karans repeat in a lunar month.
+ *
+ * @return string Hindi karan name
+ */
+function golden_rashifal_karan_today() {
+    $karans = array(
+        'बव','बालव','कौलव','तैतिल','गर','वणिज','विष्टि',
+        'शकुनि','चतुष्पाद','नाग','किंस्तुघ्न',
+    );
+    $tithi  = golden_rashifal_tithi_today();
+    // Each tithi = 2 karans; use seconds within day to pick first or second half
+    $hour   = (int) wp_date( 'G' );
+    $half   = ( $hour >= 12 ) ? 1 : 0;
+    $idx    = ( ( ( $tithi['number'] - 1 ) * 2 ) + $half ) % 11;
+    return $karans[ $idx ];
+}
+
+/**
+ * Chandrodaya (moonrise) — approximate.
+ * Moonrise shifts ~48 min later each day. Epoch: 2024-01-11 moonrise ≈ 7:18 AM.
+ *
+ * @return string Formatted time string
+ */
+function golden_rashifal_chandrodaya() {
+    $epoch_ts      = mktime( 0, 0, 0, 1, 11, 2024 );
+    $epoch_minutes = 7 * 60 + 18; // 7:18 AM
+    $now_ts        = (int) current_time( 'timestamp' );
+    $days_elapsed  = ( $now_ts - $epoch_ts ) / DAY_IN_SECONDS;
+    $shift         = (int) round( $days_elapsed * 48 ); // 48 min per day
+    $moonrise_min  = ( $epoch_minutes + $shift ) % ( 24 * 60 );
+    if ( $moonrise_min < 0 ) { $moonrise_min += 24 * 60; }
+    return golden_rashifal_format_minutes( $moonrise_min );
+}
+
+/**
  * Quick Panchang summary — keys are Hindi labels for direct printing.
  */
 function golden_rashifal_panchang_summary() {

@@ -1,56 +1,54 @@
 <?php
 /**
- * Homepage — Dark premium hero with zodiac wheel and CTA.
+ * Homepage — Hero section (dark cosmic background).
+ * Matches screenshot 7: Golden Rashifal title, search bar, quick links, 4 zodiac cards.
  *
  * @package GoldenRashifal
  */
-
-$hero_title = get_theme_mod( 'gr_hero_title', __( 'राशिफल, पंचांग और मुहूर्त — <em>एक भरोसेमंद जगह</em>', 'golden-rashifal' ) );
-$hero_desc  = get_theme_mod( 'gr_hero_sub', __( 'दैनिक राशिफल, चौघड़िया, राहुकाल, त्योहार कैलेंडर और शुभ मुहूर्त की जानकारी — सरल हिंदी में, संतुलित दृष्टिकोण के साथ।', 'golden-rashifal' ) );
-$sun        = golden_rashifal_sun_times();
-$rahu       = golden_rashifal_rahukaal();
 ?>
 <section class="gr-hero">
-    <div class="gr-hero__glow gr-hero__glow--gold" aria-hidden="true"></div>
-    <div class="gr-hero__glow gr-hero__glow--rose" aria-hidden="true"></div>
-
+    <div class="gr-hero__bg" aria-hidden="true"></div>
     <div class="gr-wrap gr-hero__inner">
-        <div class="gr-hero__content">
-            <div class="gr-hero__badge">
-                <span class="gr-hero__badge-dot"></span>
-                <?php echo esc_html( golden_rashifal_today_string() ); ?>
-            </div>
 
-            <h1 class="gr-hero__title"><?php echo wp_kses_post( $hero_title ); ?></h1>
-            <p class="gr-hero__desc"><?php echo esc_html( $hero_desc ); ?></p>
+        <span class="gr-hero__badge">✨ <?php esc_html_e( 'भारत का सबसे प्रीमियम ज्योतिष पोर्टल', 'golden-rashifal' ); ?> ✨</span>
 
-            <div class="gr-hero__actions">
-                <a class="gr-btn gr-btn--primary gr-btn--lg" href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>">
-                    <?php esc_html_e( 'आज का राशिफल पढ़ें', 'golden-rashifal' ); ?>
-                </a>
-                <a class="gr-btn gr-btn--outline gr-btn--lg" href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">
-                    <?php esc_html_e( 'पंचांग देखें', 'golden-rashifal' ); ?>
-                </a>
-            </div>
+        <h1 class="gr-hero__title">Golden <span>Rashifal</span></h1>
+        <p class="gr-hero__subtitle"><?php esc_html_e( 'आपकी किस्मत का सच्चा साथी', 'golden-rashifal' ); ?></p>
+        <p class="gr-hero__services"><?php esc_html_e( 'राशिफल · पंचांग · चौघड़िया · मुहूर्त · कुंडली · त्योहार', 'golden-rashifal' ); ?></p>
 
-            <div class="gr-hero__stats">
-                <div>
-                    <span class="gr-hero__stat-num"><?php echo esc_html( golden_rashifal_format_minutes( $sun['sunrise_min'] ) ); ?></span>
-                    <span class="gr-hero__stat-label"><?php esc_html_e( 'सूर्योदय', 'golden-rashifal' ); ?></span>
-                </div>
-                <div>
-                    <span class="gr-hero__stat-num"><?php echo esc_html( golden_rashifal_format_minutes( $sun['sunset_min'] ) ); ?></span>
-                    <span class="gr-hero__stat-label"><?php esc_html_e( 'सूर्यास्त', 'golden-rashifal' ); ?></span>
-                </div>
-                <div>
-                    <span class="gr-hero__stat-num"><?php echo esc_html( $rahu['start'] . ' – ' . $rahu['end'] ); ?></span>
-                    <span class="gr-hero__stat-label"><?php esc_html_e( 'राहुकाल', 'golden-rashifal' ); ?></span>
-                </div>
-            </div>
+        <form class="gr-hero__search" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <span class="gr-hero__search-icon">🔍</span>
+            <input type="search" name="s" placeholder="<?php esc_attr_e( 'Horoscope, Rashifal, Panchang...', 'golden-rashifal' ); ?>" />
+            <button type="submit" class="gr-hero__search-btn-submit"><?php esc_html_e( 'खोजें', 'golden-rashifal' ); ?></button>
+        </form>
+
+        <div class="gr-hero__quicklinks">
+            <a href="<?php echo esc_url( home_url( '/panchang/' ) ); ?>">📅 पंचांग</a>
+            <a href="<?php echo esc_url( home_url( '/choghadiya/' ) ); ?>">⏰ चौघड़िया</a>
+            <a href="<?php echo esc_url( home_url( '/rahukaal/' ) ); ?>">🚫 राहुकाल</a>
+            <a href="<?php echo esc_url( home_url( '/muhurat/' ) ); ?>">✨ मुहूर्त</a>
+            <a href="<?php echo esc_url( home_url( '/festival/' ) ); ?>">🪔 त्योहार</a>
+            <a href="<?php echo esc_url( home_url( '/kundli/' ) ); ?>">🔮 कुंडली</a>
         </div>
 
-        <div class="gr-hero__visual">
-            <?php echo golden_rashifal_zodiac_wheel_svg(); ?>
+        <div class="gr-hero__zodiac-row">
+            <?php
+            $preview_signs = array(
+                array( 'slug' => 'mesh', 'hi' => 'मेष', 'en' => 'Aries', 'icon' => '♈' ),
+                array( 'slug' => 'vrishabh', 'hi' => 'वृष', 'en' => 'Taurus', 'icon' => '♉' ),
+                array( 'slug' => 'mithun', 'hi' => 'मिथुन', 'en' => 'Gemini', 'icon' => '♊' ),
+                array( 'slug' => 'kark', 'hi' => 'कर्क', 'en' => 'Cancer', 'icon' => '♋' ),
+            );
+            foreach ( $preview_signs as $s ) :
+            ?>
+            <a class="gr-hero__zcard" href="<?php echo esc_url( home_url( '/rashifal/' . $s['slug'] . '/' ) ); ?>">
+                <span class="gr-hero__zcard-icon"><?php echo esc_html( $s['icon'] ); ?></span>
+                <strong><?php echo esc_html( $s['hi'] ); ?></strong>
+                <span><?php echo esc_html( $s['en'] ); ?></span>
+            </a>
+            <?php endforeach; ?>
         </div>
+        <a class="gr-hero__more" href="<?php echo esc_url( home_url( '/rashifal/' ) ); ?>"><?php esc_html_e( 'और जानें', 'golden-rashifal' ); ?></a>
+
     </div>
 </section>
